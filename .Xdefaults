@@ -1,0 +1,38 @@
+# transparency - true or false (default)
+URxvt*transparent: true
+
+# tint with any color; i.e., blue, red, tomato4, olivedrab2, etc.
+URxvt*tintColor: #1d2432
+
+# scrollback buffer lines - 65535 is max on most machines (64 is default)
+URxvt*saveLines: 12000
+
+!URxvt*foreground: #FFFFFF
+
+URxvt*font: xft:Consolas:size=12:pixelsize=13:antialias=true:hinting=true
+URxvt*boldFont: xft:Consolas:size=12:bold:pixelsize=13:antialias=true:hinting=true
+
+!URxvt*color10: RoyalBlue
+URxvt*color6: RoyalBlue
+!URxvt.highlightColor: RoyalBlue
+URxvt*scrollBar: false
+
+       ! color0       (black)            = Black
+       ! color1       (red)              = Red3
+       ! color2       (green)            = Green3
+       ! color3       (yellow)           = Yellow3
+       ! color4       (blue)             = Blue3
+       ! color5       (magenta)          = Magenta3
+       ! color6       (cyan)             = Cyan3
+       ! color7       (white)            = AntiqueWhite
+       ! color8       (bright black)     = Grey25
+       ! color9       (bright red)       = Red
+       ! color10      (bright green)     = Green
+       ! color11      (bright yellow)    = Yellow
+       ! color12      (bright blue)      = Blue
+       ! color13      (bright magenta)   = Magenta
+       ! color14      (bright cyan)      = Cyan
+       ! color15      (bright white)     = White
+       ! foreground                      = Black
+       ! background                      = White
+
