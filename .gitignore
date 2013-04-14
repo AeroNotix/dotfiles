@@ -69,10 +69,6 @@ Downloads
 .config/menus/applications-merged/wine-Programs-Egosoft-X3 Terran Conflict-Uninstall X3 Terran Conflict.menu
 .config/menus/applications-merged/wine-Programs-Egosoft-X3 Terran Conflict-X3 Terran Conflict EN.menu
 .config/menus/applications-merged/wine-Programs-Egosoft-X3 Terran Conflict-X3 Terran Conflict Manual EN.menu
-.config/qtile/.ropeproject/
-.config/qtile/__init__.py
-.config/qtile/config.pyc
-.config/qtile/libqtile/
 .gem/
 .gimp-2.7/
 .gimp-2.8/
