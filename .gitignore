@@ -82,7 +82,6 @@ Downloads
 .config/Trolltech.conf
 .config/dconf/user
 .config/pcmanfm/default/pcmanfm.conf
-.config/qtile/config.py
 .config/transmission/settings.json
 .config/transmission/stats.json
 .config/vlc/vlcrc
