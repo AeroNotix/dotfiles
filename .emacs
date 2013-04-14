@@ -141,7 +141,7 @@
              (global-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
 (require 'go-autocomplete)
 (require 'auto-complete-config)
-;;;(require 'go-flymake) 
+(require 'go-flymake) 
 ;;;-----------------Erlang Mode------------------------------
 
 (load-file "~/.emacs.d/erlang.el")
