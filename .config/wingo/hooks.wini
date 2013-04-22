@@ -70,7 +70,8 @@
 match := True
 
 # You can add startup programs here if you like.
-#startup := Shell "xterm"
+startup := Shell "chromium"
+startup := Shell "emacsclient -c"
 
 # You can add more by just adding another definition of "startup".
 #startup := Shell "gkrellm"
