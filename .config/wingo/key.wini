@@ -70,8 +70,8 @@ Mod4-Shift-return := WorkspaceGreedyWithClient \
                        (GetActive)
 
 # Movement
-Mod1-k := AutoNext (GetWorkspace)
-Mod1-j := AutoPrev (GetWorkspace)
+Mod1-j := AutoNext (GetWorkspace)
+Mod1-k := AutoPrev (GetWorkspace)
 
 # APPLICATIONS
 Mod1-Shift-return := Shell "termite"
@@ -94,6 +94,7 @@ Mod1-Shift-p := Restart
 Mod1-Shift-q := Quit
 Mod1-t := ToggleFloating (GetActive)
 Mod1-Shift-c := Close (GetActive)
+Mod4-Up := AutoSwitchNext (GetWorkspace)
 
 # AUDIO
 Mod1-F11 := Shell "amixer -c 0 --quiet set Master 1-"

@@ -16,7 +16,7 @@ default_layout := Vertical
 # When enabled, windows will be focused when the mouse enters the window.
 # N.B. I don't use focus follows mouse, so I'm not sure precisely how it
 # should work. If I've messed up, file a bug report.
-focus_follows_mouse := yes
+focus_follows_mouse := no
 
 # If "focus_follows_mouse" is enabled, then this setting will focus a window
 # whenever the pointer moves into the window.
