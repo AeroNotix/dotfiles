@@ -95,7 +95,7 @@ managed := Float ":client:"
 [FocusTransparency]
 # If you have a compositing manager running, this will use transparency
 # to indicate focus.
-match := True
+match := true
 
 focused := SetOpacity ":client:" 1.0
 unfocused := SetOpacity ":client:" 0.85

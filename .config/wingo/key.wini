@@ -52,9 +52,7 @@ Mod1-Shift-7 := WorkspaceSendClient "7" (GetActive)
 Mod1-Shift-8 := WorkspaceSendClient "8" (GetActive)
 Mod1-Shift-9 := WorkspaceSendClient "9" (GetActive)
 
-# Your every day Alt-Tab. Use WingoHelp or `wingo-cmd --usage CycleClientNext`
-# to discover what each of the parameters means. (They specify which kinds of
-# clients should be shown.)
+# Cycle screen selection
 Mod1-Tab :=  HeadCycle
 
 # List all windows and focus/raise the selected client.
