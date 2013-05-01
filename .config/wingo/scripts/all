@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+dzen2 -p 0 -dock -w 2900 &
+$HOME/.config/wingo/scripts/clockbar &
+$HOME/.config/wingo/scripts/dzenbar

@@ -1,5 +1,4 @@
 import sys
-import datetime
 import pywingo
 
 class Active:
@@ -35,9 +34,13 @@ def show(_):
         else:
             vtagged.append(Active(space, markup['visible']))
     bar = range(1,len(hidden) + len(visible) +1)
-    for head in vtagged:
-        bar[int(head.num) - 1] = "[%s]" % (head.markup % head.num)
-    print '   '.join(map(str, bar)),'     ', datetime.datetime.now().strftime("%H:%M")
+    try:
+        for head in vtagged:
+            bar[int(head.num) - 1] = "[%s]" % (head.markup % head.num)
+    except Exception as e:
+        open("/home/xeno/f").write(str(e)+"\n")
+
+    print '   '.join(map(str, bar))
     sys.stdout.flush()
 
 W.loop()
