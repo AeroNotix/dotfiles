@@ -16,7 +16,6 @@ class Notice(widget.TextBox):
           self.bar.draw()
 
      def button_press(self, x, y, button):
-          open("/home/xeno/log", "a").write("sup\n")
           self.text = ""
           self.bar.draw()
 
@@ -28,7 +27,8 @@ shift = "shift"
 keys = [
 
 # COMPUTER CONTROL
-     Key([alt, shift], "l", lazy.spawn("pkill -KILL -u $USER")),
+     Key([alt, shift], "l", lazy.quit()),
+     #Key([alt, shift], "l", lazy.spawn("pkill -KILL -u $USER")),
 
 # SWAP MASTER WINDOWS AROUND
     Key([alt], "j", lazy.layout.down()),
@@ -54,16 +54,22 @@ keys = [
     Key([sup], "Down", lazy.layout.shuffle_down()),
     
 # APPLICATION LAUNCHERS
-    Key([alt, "shift"], "Return", lazy.spawn("urxvt")),
+    Key([alt, "shift"], "Return", lazy.spawn("termite")),
+    Key([alt, "shift"], "a", lazy.spawn("eclipse")),
+    Key([alt, "shift"], "b", lazy.spawn("virtualbox")),
     Key([alt, "shift"], "e", lazy.spawn("emacsclient -c")),
     Key([alt, "shift"], "f", lazy.spawn("chromium")),
+    Key([alt, "shift"], "o", lazy.spawn("libreoffice")),
     Key([alt, "shift"], "g", lazy.spawn("gimp")),
-    Key([alt, "shift"], "i", lazy.spawn("urxvt -e weechat-curses")),
-    Key([alt, "shift"], "m", lazy.spawn("urxvt -e ncmpcpp")),
-    Key([alt, "shift"], "r", lazy.spawn("urxvt -e mutt")),
+    Key([alt, "shift"], "i", lazy.spawn("termite -e weechat-curses")),
+    Key([alt, "shift"], "m", lazy.spawn("termite -e ncmpcpp")),
+    Key([alt, "shift"], "r", lazy.spawn("termite -e mutt")),
     Key([alt, "shift"], "s", lazy.spawn("skype")),
     Key([alt, "shift"], "v", lazy.spawn("vlc")),
     Key([alt, "shift"], "w", lazy.spawn("steam")),
+    Key([alt, "shift"], "x", lazy.spawn("xpdf")),
+    Key([alt, "shift"], "t", lazy.spawn("thunderbird")),
+
     
 # AUDIO
     Key([alt], "F11", lazy.spawn("amixer -c 0 --quiet set Master 1-")),
@@ -203,12 +209,10 @@ def grouper(window, windows={
      try:
           windowtype = window.window.get_wm_class()[0]
      except Exception as e:
-          with open('/home/xeno/logfile', 'a') as logfile:
-               logfile.write(''.join(['\n', str(e)]))
-               return
+          return
         
      if windowtype in windows.keys():
-         if windowtype != 'urxvt':
+         if windowtype != 'termite':
              window.togroup(windows[windowtype])
              windows.pop(windowtype)
          else:
@@ -217,7 +221,8 @@ def grouper(window, windows={
                  windows[windowtype].pop(0)
              except IndexError:
                  pass
-'''
+
+
 @hook.subscribe.startup          
 def startup():
      programs = [
@@ -229,4 +234,3 @@ def startup():
      for program in programs:
           subprocess.Popen(program)
           sleep(0.1)
-'''
