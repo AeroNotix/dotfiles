@@ -36,7 +36,7 @@
 (fci-mode)
 
 ;;; Tab width to four
-(setq-default tab-width 4)
+(setq-default tab-width 8)
 
 ;;; Return will indent as well as give a new line.
 (global-set-key (kbd "RET") 'newline-and-indent)
@@ -96,7 +96,8 @@
  '(default ((t (:family "Monaco" :foundry "unknown" :slant normal :weight normal :height 98 :width normal))))
  '(error ((t (:foreground "orange red" :underline (:color "red" :style wave) :weight bold))))
  '(rst-level-1-face ((t (:background "slate blue"))) t)
- '(rst-level-2-face ((t (:background "midnight blue"))) t))
+ '(rst-level-2-face ((t (:background "midnight blue"))) t)
+ '(trailing-whitespace ((t (:background "red")))))
 
 
 ;-----------------AUTOCOMPLETE-----------------------------------
@@ -179,9 +180,6 @@
 (require 'distel)
 (distel-setup)
 
-;;;------------------Haskell---------------------------------
-(load "/usr/share/emacs/site-lisp/haskell-mode/haskell-site-file")
-
 ;;;---------------------C++----------------------------------
 
 (c-add-style "my-style" 
@@ -255,3 +253,11 @@
           (insert "}")
           (setq new-max (point-max))))
       (indent-region beg new-max))))
+
+
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+
+(setq inferior-lisp-program "/usr/bin/sbcl") ; your Lisp system
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/slime/")
+(require 'slime)
+(slime-setup '(slime-fancy))
