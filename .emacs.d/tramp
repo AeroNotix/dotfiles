@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*- <12/08/15 12:33:54 /home/xeno/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <13/08/11 18:30:05 /home/xeno/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
@@ -46,7 +46,7 @@
   ("inline-decompress" "gzip -d")
   ("~root" "/root"))
  (["su" "root" "archbox" nil]
-  ("uname" "Linux 3.4.8-1-ARCH")
+  ("uname" "Linux 3.7.5-1-ARCH")
   ("test" "test")
   ("remote-path"
    ("/bin" "/usr/bin" "/usr/sbin" "/usr/local/bin"))
@@ -55,9 +55,9 @@
   ("perl-file-spec" t)
   ("perl-cwd-realpath" t)
   ("perl" "\\perl")
+  ("file-exists" "test -e")
   ("readlink" "\\readlink")
   ("stat" "\\stat")
-  ("file-exists" "test -e")
   ("id" "/usr/bin/id")
   ("gid-integer" 0)
   ("uid-integer" 0)
@@ -66,5 +66,58 @@
   ("local-decoding" base64-decode-region)
   ("remote-encoding" "base64")
   ("remote-decoding" "base64 -d -i")
-  ("inline-compress" "gzip")
-  ("inline-decompress" "gzip -d")))
+  ("~root" "/root"))
+ (["scpc" "xeno" "cloud_one" nil nil]
+  ("uname" "Linux 2.6.32-5-amd64")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("remote-shell" "/bin/sh")
+  ("busybox" nil)
+  ("~" "/home/xeno")
+  ("file-exists" "test -e")
+  ("ls" "/bin/ls --color=never")
+  ("ls-dired" t)
+  ("stat" "\\stat")
+  ("id" "/usr/bin/id")
+  ("gid-integer" 1000)
+  ("readlink" "\\readlink")
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("uid-integer" 1000))
+ (["scp" "xeno" "cloud_one" nil nil]
+  ("uname" "Linux 2.6.32-5-amd64")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("remote-shell" "/bin/sh")
+  ("busybox" nil)
+  ("file-exists" "test -e")
+  ("ls" "/bin/ls --color=never")
+  ("ls-dired" t)
+  ("stat" "\\stat")
+  ("id" "/usr/bin/id")
+  ("gid-integer" 1000)
+  ("readlink" "\\readlink")
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("uid-integer" 1000))
+ (["su" "root" "archbox" nil nil]
+  ("uname" "Linux 3.10.3-1-ARCH")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("remote-shell" "/bin/sh")
+  ("busybox" nil)
+  ("~root" "/root")
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("file-exists" "test -e")
+  ("readlink" "\\readlink")
+  ("stat" "\\stat")
+  ("id" "/bin/id")
+  ("gid-integer" 0)
+  ("uid-integer" 0)))
