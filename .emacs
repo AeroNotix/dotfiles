@@ -53,10 +53,15 @@
  ;;; Show trailing whitespace
 (setq-default show-trailing-whitespace t)
 
- ;;; Set mouse scrollers to change buffers
-(global-set-key (kbd "<XF86Forward>") 'next-buffer)
-(global-set-key (kbd "<XF86Back>") 'previous-buffer)
+(defun jump-to-config-file ()
+  (interactive)
+  (find-file (expand-file-name "~/.emacs")))
 
+;;; Custom kb shortcuts
+(global-set-key (kbd "<XF86Forward>") 'next-buffer)
+(global-set-key (kbd "<XF86Back>")    'previous-buffer)
+(global-set-key (kbd "C-x g")         'magit-status)
+(global-set-key (kbd "C-x q")         'jump-to-config-file)
 ;;; Show matching paren highlighting
 (show-paren-mode 1)
 
