@@ -18,6 +18,16 @@
 (color-theme-initialize)
 (color-theme-deep-blue)
 
+;;; Git gutter fancy pants
+(require 'git-gutter-fringe)
+(setq git-gutter-fr:side 'right-fringe)
+(setq-default left-fringe-width  0)
+(setq-default right-fringe-width 15)
+
+;;; IDO
+(require 'ido)
+(ido-mode t)
+
 ;;; Set browser to Chrome
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "chromium")
