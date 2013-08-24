@@ -64,11 +64,11 @@
 
 ;;; Custom kb shortcuts
 (global-set-key (kbd "RET") 'newline-and-indent)
-(global-set-key (kbd "<XF86Forward>") 'next-buffer)
-(global-set-key (kbd "<XF86Back>")    'previous-buffer)
-(global-set-key (kbd "C-x g")         'magit-status)
-(global-set-key (kbd "C-x q")         'jump-to-config-file)
-(global-set-key (kbd "C-h C-r")       'query-replace)
+(global-set-key (kbd "<XF86Forward>")   'next-buffer)
+(global-set-key (kbd "<XF86Back>")      'previous-buffer)
+(global-set-key (kbd "C-x g")           'magit-status)
+(global-set-key (kbd "C-x q")           'jump-to-config-file)
+(global-set-key (kbd "C-h C-r")         'query-replace)
 (global-set-key (kbd "C-<space>")       'set-mark-command)
 
 ;;; Show matching paren highlighting
@@ -138,7 +138,7 @@
  ;;; Set column width to 78 maximum in RST files
 (add-hook 'rst-mode-hook
      '(lambda ()
-        (setq-default fill-column 78)))
+	(setq-default fill-column 78)))
 
 ;;; ----------------Go-Modes---------------------------------
 
@@ -149,14 +149,14 @@
 (add-to-list 'load-path "/usr/lib/go/site/src/github.com/dougm/goflymake")
 
 (add-hook 'go-mode-hook
-          '(lambda ()
-             (global-set-key (kbd "C-{") 'flymake-display-err-menu-for-current-line)))
+	  '(lambda ()
+	     (global-set-key (kbd "C-{") 'flymake-display-err-menu-for-current-line)))
 (add-hook 'go-mode-hook
-          '(lambda ()
-             (global-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
+	  '(lambda ()
+	     (global-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
 (require 'go-autocomplete)
 (require 'auto-complete-config)
-(require 'go-flymake) 
+(require 'go-flymake)
 ;;;-----------------Erlang Mode------------------------------
 
 (add-to-list 'load-path "~/.emacs.d/erlang/")
@@ -165,22 +165,22 @@
 (setq inferior-erlang-machine-options '("-sname" "emacs"))
 (require 'erlang-start)
 (setq auto-mode-alist (append auto-mode-alist
-                              '(("\\.rel$" . erlang-mode)
-                                ("\\.app$" . erlang-mode)
-                                ("\\.appSrc$" . erlang-mode)
-                                ("\\.app.src$" . erlang-mode)
-                                ("\\.hrl$" . erlang-mode)
-                                ("\\.erl$" . erlang-mode)
-                                ("\\.yrl$" . erlang-mode)
+			      '(("\\.rel$" . erlang-mode)
+				("\\.app$" . erlang-mode)
+				("\\.appSrc$" . erlang-mode)
+				("\\.app.src$" . erlang-mode)
+				("\\.hrl$" . erlang-mode)
+				("\\.erl$" . erlang-mode)
+				("\\.yrl$" . erlang-mode)
 				("rebar.confg" . erlang-mode)
 				("relx.confg" . erlang-mode))))
 
 ;; A number of the erlang-extended-mode key bindings are useful in the shell too
 (defconst distel-shell-keys
   '(("\C-\M-i"   erl-complete)
-    ("\M-?"      erl-complete)	
+    ("\M-?"      erl-complete)
     ("\M-."      erl-find-source-under-point)
-    ("\M-,"      erl-find-source-unwind) 
+    ("\M-,"      erl-find-source-unwind)
     ("\M-*"      erl-find-source-unwind))
   "Additional keys to bind when in Erlang shell.")
 
@@ -195,7 +195,7 @@
 
 ;;;---------------------C++----------------------------------
 
-(c-add-style "my-style" 
+(c-add-style "my-style"
 	     '("stroustrup"
 	       (c-basic-offset . 4)))
 
@@ -207,7 +207,7 @@
 ;;;------------------Marmalade-------------------------------
 
 (require 'package)
-(add-to-list 'package-archives 
+(add-to-list 'package-archives
     '("marmalade" .
       "http://marmalade-repo.org/packages/"))
 (package-initialize)
@@ -222,9 +222,9 @@
   (backward-kill-sexp)
   (condition-case nil
       (prin1 (eval (read (current-kill 0)))
-             (current-buffer))
+	     (current-buffer))
     (error (message "Invalid expression")
-           (insert (current-kill 0)))))
+	   (insert (current-kill 0)))))
 (global-set-key (kbd "C-c e") 'fc-eval-and-replace)
 
 (require 'wini-mode)
@@ -248,23 +248,23 @@
   (let (new-max)
     (save-excursion
       (save-restriction
-        (goto-char beg)
-        (if (looking-at "\\s *if false {")
-            (progn
-              (forward-list)
-              (beginning-of-line)
-              (kill-whole-line)
-              (goto-char beg)
-              (kill-whole-line)
-              (setq new-max end))
-          (narrow-to-region beg end)
-          (back-to-indentation)
-          (insert "if false {")
-          (newline)
-          (goto-char (point-max))
-          (newline)
-          (insert "}")
-          (setq new-max (point-max))))
+	(goto-char beg)
+	(if (looking-at "\\s *if false {")
+	    (progn
+	      (forward-list)
+	      (beginning-of-line)
+	      (kill-whole-line)
+	      (goto-char beg)
+	      (kill-whole-line)
+	      (setq new-max end))
+	  (narrow-to-region beg end)
+	  (back-to-indentation)
+	  (insert "if false {")
+	  (newline)
+	  (goto-char (point-max))
+	  (newline)
+	  (insert "}")
+	  (setq new-max (point-max))))
       (indent-region beg new-max))))
 
 
