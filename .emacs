@@ -283,3 +283,4 @@
 (setq-default right-fringe-width 15)
 
 (require 'elscreen-autoloads)
+(global-set-key (kbd "C-x n") 'elscreen-next)
