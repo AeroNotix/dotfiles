@@ -42,8 +42,9 @@
 ;;; Tab width to four
 (setq-default tab-width 8)
 
-;;; Return will indent as well as give a new line.
-(global-set-key (kbd "RET") 'newline-and-indent)
+(global-unset-key (kbd "<menu>"))
+(global-unset-key (kbd "C-x C-z"))
+
 ;;; Git overlay
 (require 'git-overlay)
 
