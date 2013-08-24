@@ -5,7 +5,6 @@
 (normal-top-level-add-to-load-path '("."))
 (normal-top-level-add-subdirs-to-load-path))
 
-
 (setq tramp-default-method "scp")
 
 ;;; Get rid of that nasty bell noise
@@ -179,7 +178,7 @@
 ;; A number of the erlang-extended-mode key bindings are useful in the shell too
 (defconst distel-shell-keys
   '(("\C-\M-i"   erl-complete)
-    ("\M-?"      erl-complete)	
+    ("\M-?"      erl-complete)
     ("\M-."      erl-find-source-under-point)
     ("\M-,"      erl-find-source-unwind)
     ("\M-*"      erl-find-source-unwind))
@@ -196,7 +195,7 @@
 
 ;;;---------------------C++----------------------------------
 
-(c-add-style "my-style" 
+(c-add-style "my-style"
 	     '("stroustrup"
 	       (c-basic-offset . 4)))
 
