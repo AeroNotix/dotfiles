@@ -43,6 +43,7 @@
 
 (global-unset-key (kbd "<menu>"))
 (global-unset-key (kbd "C-x C-z"))
+(global-unset-key (kbd "C-z"))
 
 ;;; Git overlay
 (require 'git-overlay)
@@ -62,7 +63,6 @@
   (find-file (expand-file-name "~/.emacs")))
 
 ;;; Custom kb shortcuts
-;;; Return will indent as well as give a new line.
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "<XF86Forward>") 'next-buffer)
 (global-set-key (kbd "<XF86Back>")    'previous-buffer)
@@ -81,7 +81,6 @@
  ;; If there is more than one, they won't work right.
  '(appmenu-mode t)
  '(column-number-mode t)
- '(cua-mode t nil (cua-base))
  '(emacsw32-max-frames t)
  '(emacsw32-style-frame-title t)
  '(hfyview-quick-print-in-files-menu t)
@@ -100,6 +99,7 @@
  '(tabkey2-mode t)
  '(tool-bar-mode nil nil (tool-bar))
  '(tooltip-mode nil)
+ '(transient-mark-mode nil)
  '(w32-meta-style (quote emacs))
  '(w32shell-shell (quote cmd)))
 (custom-set-faces
@@ -138,7 +138,7 @@
  ;;; Set column width to 78 maximum in RST files
 (add-hook 'rst-mode-hook
      '(lambda ()
-	(setq-default fill-column 78)))
+        (setq-default fill-column 78)))
 
 ;;; ----------------Go-Modes---------------------------------
 
@@ -149,14 +149,14 @@
 (add-to-list 'load-path "/usr/lib/go/site/src/github.com/dougm/goflymake")
 
 (add-hook 'go-mode-hook
-	  '(lambda ()
-	     (global-set-key (kbd "C-{") 'flymake-display-err-menu-for-current-line)))
+          '(lambda ()
+             (global-set-key (kbd "C-{") 'flymake-display-err-menu-for-current-line)))
 (add-hook 'go-mode-hook
-	  '(lambda ()
-	     (global-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
+          '(lambda ()
+             (global-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
 (require 'go-autocomplete)
 (require 'auto-complete-config)
-(require 'go-flymake)
+(require 'go-flymake) 
 ;;;-----------------Erlang Mode------------------------------
 
 (add-to-list 'load-path "~/.emacs.d/erlang/")
@@ -165,22 +165,22 @@
 (setq inferior-erlang-machine-options '("-sname" "emacs"))
 (require 'erlang-start)
 (setq auto-mode-alist (append auto-mode-alist
-			      '(("\\.rel$" . erlang-mode)
-				("\\.app$" . erlang-mode)
-				("\\.appSrc$" . erlang-mode)
-				("\\.app.src$" . erlang-mode)
-				("\\.hrl$" . erlang-mode)
-				("\\.erl$" . erlang-mode)
-				("\\.yrl$" . erlang-mode)
+                              '(("\\.rel$" . erlang-mode)
+                                ("\\.app$" . erlang-mode)
+                                ("\\.appSrc$" . erlang-mode)
+                                ("\\.app.src$" . erlang-mode)
+                                ("\\.hrl$" . erlang-mode)
+                                ("\\.erl$" . erlang-mode)
+                                ("\\.yrl$" . erlang-mode)
 				("rebar.confg" . erlang-mode)
 				("relx.confg" . erlang-mode))))
 
 ;; A number of the erlang-extended-mode key bindings are useful in the shell too
 (defconst distel-shell-keys
   '(("\C-\M-i"   erl-complete)
-    ("\M-?"      erl-complete)
+    ("\M-?"      erl-complete)	
     ("\M-."      erl-find-source-under-point)
-    ("\M-,"      erl-find-source-unwind)
+    ("\M-,"      erl-find-source-unwind) 
     ("\M-*"      erl-find-source-unwind))
   "Additional keys to bind when in Erlang shell.")
 
@@ -195,7 +195,7 @@
 
 ;;;---------------------C++----------------------------------
 
-(c-add-style "my-style"
+(c-add-style "my-style" 
 	     '("stroustrup"
 	       (c-basic-offset . 4)))
 
@@ -207,7 +207,7 @@
 ;;;------------------Marmalade-------------------------------
 
 (require 'package)
-(add-to-list 'package-archives
+(add-to-list 'package-archives 
     '("marmalade" .
       "http://marmalade-repo.org/packages/"))
 (package-initialize)
@@ -222,9 +222,9 @@
   (backward-kill-sexp)
   (condition-case nil
       (prin1 (eval (read (current-kill 0)))
-	     (current-buffer))
+             (current-buffer))
     (error (message "Invalid expression")
-	   (insert (current-kill 0)))))
+           (insert (current-kill 0)))))
 (global-set-key (kbd "C-c e") 'fc-eval-and-replace)
 
 (require 'wini-mode)
@@ -248,23 +248,23 @@
   (let (new-max)
     (save-excursion
       (save-restriction
-	(goto-char beg)
-	(if (looking-at "\\s *if false {")
-	    (progn
-	      (forward-list)
-	      (beginning-of-line)
-	      (kill-whole-line)
-	      (goto-char beg)
-	      (kill-whole-line)
-	      (setq new-max end))
-	  (narrow-to-region beg end)
-	  (back-to-indentation)
-	  (insert "if false {")
-	  (newline)
-	  (goto-char (point-max))
-	  (newline)
-	  (insert "}")
-	  (setq new-max (point-max))))
+        (goto-char beg)
+        (if (looking-at "\\s *if false {")
+            (progn
+              (forward-list)
+              (beginning-of-line)
+              (kill-whole-line)
+              (goto-char beg)
+              (kill-whole-line)
+              (setq new-max end))
+          (narrow-to-region beg end)
+          (back-to-indentation)
+          (insert "if false {")
+          (newline)
+          (goto-char (point-max))
+          (newline)
+          (insert "}")
+          (setq new-max (point-max))))
       (indent-region beg new-max))))
 
 
@@ -273,6 +273,7 @@
 (setq inferior-lisp-program "/usr/bin/sbcl") ; your Lisp system
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/slime/")
 (require 'slime)
+(require 'slime-fuzzy)
 (slime-setup '(slime-fancy))
 
 ;;; Git gutter fancy pants
@@ -280,3 +281,5 @@
 (setq git-gutter-fr:side 'right-fringe)
 (setq-default left-fringe-width  0)
 (setq-default right-fringe-width 15)
+
+(require 'elscreen-autoloads)
