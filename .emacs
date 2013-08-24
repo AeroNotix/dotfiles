@@ -63,10 +63,15 @@
   (find-file (expand-file-name "~/.emacs")))
 
 ;;; Custom kb shortcuts
+;;; Return will indent as well as give a new line.
+(global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "<XF86Forward>") 'next-buffer)
 (global-set-key (kbd "<XF86Back>")    'previous-buffer)
 (global-set-key (kbd "C-x g")         'magit-status)
 (global-set-key (kbd "C-x q")         'jump-to-config-file)
+(global-set-key (kbd "C-h C-r")       'query-replace)
+(global-set-key (kbd "C-<space>")       'set-mark-command)
+
 ;;; Show matching paren highlighting
 (show-paren-mode 1)
 
