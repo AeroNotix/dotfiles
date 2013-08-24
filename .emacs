@@ -18,12 +18,6 @@
 (color-theme-initialize)
 (color-theme-deep-blue)
 
-;;; Git gutter fancy pants
-(require 'git-gutter-fringe)
-(setq git-gutter-fr:side 'right-fringe)
-(setq-default left-fringe-width  0)
-(setq-default right-fringe-width 15)
-
 ;;; IDO
 (require 'ido)
 (ido-mode t)
@@ -276,3 +270,9 @@
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/slime/")
 (require 'slime)
 (slime-setup '(slime-fancy))
+
+;;; Git gutter fancy pants
+(require 'git-gutter-fringe)
+(setq git-gutter-fr:side 'right-fringe)
+(setq-default left-fringe-width  0)
+(setq-default right-fringe-width 15)
