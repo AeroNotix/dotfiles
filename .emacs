@@ -34,26 +34,16 @@
 (setq auto-save-mode nil)
 (setq make-backup-files nil)
 
- ;;; Vertical EOL indicator
-(require 'fill-column-indicator)
-(fci-mode)
-
-;;; Tab width to four
-(setq-default tab-width 8)
+;;; Tab width to eight
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
 
 (global-unset-key (kbd "<menu>"))
 (global-unset-key (kbd "C-x C-z"))
+(global-unset-key (kbd "C-x C-c"))
 (global-unset-key (kbd "C-z"))
-
-;;; Git overlay
-(require 'git-overlay)
-
+(global-unset-key (kbd "C-x C-w"))
 (setq-default column-number-mode t)
-
-(define-globalized-minor-mode global-fci-mode fci-mode
-  (lambda () (fci-mode 1)))
-
-(global-fci-mode 1)
 
  ;;; Show trailing whitespace
 (setq-default show-trailing-whitespace t)
@@ -63,14 +53,17 @@
   (find-file (expand-file-name "~/.emacs")))
 
 ;;; Custom kb shortcuts
-(global-set-key (kbd "RET") 'newline-and-indent)
+(global-set-key (kbd "RET")             'newline-and-indent)
 (global-set-key (kbd "<XF86Forward>")   'next-buffer)
 (global-set-key (kbd "<XF86Back>")      'previous-buffer)
 (global-set-key (kbd "C-x g")           'magit-status)
 (global-set-key (kbd "C-x q")           'jump-to-config-file)
 (global-set-key (kbd "C-h C-r")         'query-replace)
 (global-set-key (kbd "C-<space>")       'set-mark-command)
-
+(global-set-key (kbd "C-x C-c")         'elscreen-create)
+(global-set-key (kbd "C-x c")           'elscreen-kill)
+(global-set-key (kbd "<menu>")          'idomenu)
+(global-set-key (kbd "C-x C-w")         'cider-eval-last-sexp-and-replace)
 ;;; Show matching paren highlighting
 (show-paren-mode 1)
 
@@ -130,10 +123,6 @@
 
 (add-to-list 'load-path "~/.emacs.d/eproject") ;
 (require 'eproject)
-(load-file "~/.emacs.d/tree-mode.el")
-(load-file "~/.emacs.d/winmode.el")
-(load-file "~/.emacs.d/dirtree.el")
-
 
  ;;; Set column width to 78 maximum in RST files
 (add-hook 'rst-mode-hook
@@ -146,7 +135,7 @@
 (autoload 'gofmt-before-save "go-mode" t nil)
 (add-hook 'before-save-hook #'gofmt-before-save)
 (require 'go-mode)
-(add-to-list 'load-path "/usr/lib/go/site/src/github.com/dougm/goflymake")
+(add-to-list 'load-path "/home/xeno/dev/go/src/github.com/dougm/goflymake")
 
 (add-hook 'go-mode-hook
 	  '(lambda ()
@@ -154,9 +143,12 @@
 (add-hook 'go-mode-hook
 	  '(lambda ()
 	     (global-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
+(add-hook 'go-mode-hook
+	  '(lambda ()
+	     (global-set-key (kbd "C-c C-a") 'go-import-add)))
 (require 'go-autocomplete)
-(require 'auto-complete-config)
 (require 'go-flymake)
+
 ;;;-----------------Erlang Mode------------------------------
 
 (add-to-list 'load-path "~/.emacs.d/erlang/")
@@ -165,15 +157,15 @@
 (setq inferior-erlang-machine-options '("-sname" "emacs"))
 (require 'erlang-start)
 (setq auto-mode-alist (append auto-mode-alist
-			      '(("\\.rel$" . erlang-mode)
-				("\\.app$" . erlang-mode)
-				("\\.appSrc$" . erlang-mode)
+			      '(("\\.rel$"     . erlang-mode)
+				("\\.app$"     . erlang-mode)
+				("\\.appSrc$"  . erlang-mode)
 				("\\.app.src$" . erlang-mode)
-				("\\.hrl$" . erlang-mode)
-				("\\.erl$" . erlang-mode)
-				("\\.yrl$" . erlang-mode)
+				("\\.hrl$"     . erlang-mode)
+				("\\.erl$"     . erlang-mode)
+				("\\.yrl$"     . erlang-mode)
 				("rebar.confg" . erlang-mode)
-				("relx.confg" . erlang-mode))))
+				("relx.confg"  . erlang-mode))))
 
 ;; A number of the erlang-extended-mode key bindings are useful in the shell too
 (defconst distel-shell-keys
@@ -185,13 +177,18 @@
   "Additional keys to bind when in Erlang shell.")
 
 ;; This is needed for Distel setup
-(let ((distel-dir "~/dev/distel/elisp/"))
-  (unless (member distel-dir load-path)
-    ;; Add distel-dir to the end of load-path
-    (setq load-path (append load-path (list distel-dir)))))
-
+(setq load-path (append load-path (list "/home/xeno/dev/distel/elisp")))
 (require 'distel)
 (distel-setup)
+
+(defun flymake-erlang-init ()
+  (let* ((temp-file (flymake-init-create-temp-buffer-copy
+		     'flymake-create-temp-inplace))
+	 (local-file (file-relative-name temp-file
+		(file-name-directory buffer-file-name))))
+    (list "/usr/bin/syntaxerl" (list local-file))))
+
+(add-to-list 'flymake-allowed-file-name-masks '("\\.erl\\'" flymake-erlang-init))
 
 ;;;---------------------C++----------------------------------
 
@@ -207,73 +204,12 @@
 ;;;------------------Marmalade-------------------------------
 
 (require 'package)
-(add-to-list 'package-archives
-    '("marmalade" .
-      "http://marmalade-repo.org/packages/"))
 (package-initialize)
-
-(require 'gist)
-
-
-;;; Elisp
-(defun fc-eval-and-replace ()
-  "Replace the preceding sexp with its value."
-  (interactive)
-  (backward-kill-sexp)
-  (condition-case nil
-      (prin1 (eval (read (current-kill 0)))
-	     (current-buffer))
-    (error (message "Invalid expression")
-	   (insert (current-kill 0)))))
-(global-set-key (kbd "C-c e") 'fc-eval-and-replace)
-
-(require 'wini-mode)
-
-;; Wrap the selected region in if false {}, unless it is already
-;; wrapped, then remove the wrapper instead.
-;;
-;; dh-go-if-false-region makes assumptions that, if broken, can mess
-;; up your code. It expects you not to use it in the middle of
-;; comments or strings, and removing the wrapper will go wrong if it
-;; doesn't look the same way it would be if generated by the function.
-;;
-;; It will delete any text before or after the opening if and the
-;; closing curly brace.
-;;
-;; Also, when unwrapping, only the beginning of the region, which
-;; should be before the if (but might include whitespace), matters for
-;; the algorithm.
-(defun dh-go-if-false-region (beg end)
-  (interactive "r")
-  (let (new-max)
-    (save-excursion
-      (save-restriction
-	(goto-char beg)
-	(if (looking-at "\\s *if false {")
-	    (progn
-	      (forward-list)
-	      (beginning-of-line)
-	      (kill-whole-line)
-	      (goto-char beg)
-	      (kill-whole-line)
-	      (setq new-max end))
-	  (narrow-to-region beg end)
-	  (back-to-indentation)
-	  (insert "if false {")
-	  (newline)
-	  (goto-char (point-max))
-	  (newline)
-	  (insert "}")
-	  (setq new-max (point-max))))
-      (indent-region beg new-max))))
-
-
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 
+;; Slime
 (setq inferior-lisp-program "/usr/bin/sbcl") ; your Lisp system
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/slime/")
 (require 'slime)
-(require 'slime-fuzzy)
 (slime-setup '(slime-fancy))
 
 ;;; Git gutter fancy pants
@@ -281,6 +217,40 @@
 (setq git-gutter-fr:side 'right-fringe)
 (setq-default left-fringe-width  0)
 (setq-default right-fringe-width 15)
+(define-globalized-minor-mode global-git-gutter-mode git-gutter-mode
+  (lambda () (git-gutter-mode 1)))
 
-(require 'elscreen-autoloads)
-(global-set-key (kbd "C-x n") 'elscreen-next)
+ ;;; Vertical EOL indicator
+(require 'fill-column-indicator)
+(fci-mode)
+(define-globalized-minor-mode global-fci-mode fci-mode
+  (lambda () (fci-mode 1)))
+
+(global-fci-mode 1)
+
+(powerline-default-theme)
+
+;;;---------------------python------------------------------
+
+(defun flymake-pylint-init ()
+  (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                     'flymake-create-temp-inplace))
+         (local-file (file-relative-name
+                      temp-file
+                      (file-name-directory buffer-file-name))))
+    (list "~/.emacs.d/epylint" (list local-file))))
+
+(add-to-list 'flymake-allowed-file-name-masks
+             '("\\.py\\'" flymake-pylint-init))
+
+
+;;;-------------------clojure-------------------------------
+
+(add-hook 'clojure-mode-hook 'flymake-mode-on)
+(require 'ac-nrepl)
+(add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
+(add-hook 'cider-mode-hook 'ac-nrepl-setup)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'cider-repl-mode))
+
+(load-file "~/.emacs.d/local-funs.el")

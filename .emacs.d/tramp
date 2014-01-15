@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*- <13/08/11 18:30:05 /home/xeno/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <13/10/31 16:50:19 /home/xeno/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
@@ -118,6 +118,41 @@
   ("file-exists" "test -e")
   ("readlink" "\\readlink")
   ("stat" "\\stat")
+  ("id" "/bin/id")
+  ("gid-integer" 0)
+  ("uid-integer" 0))
+ (["ssh" nil "37.139.18.183" nil nil]
+  ("uname" "Linux 3.8.4-1-ARCH")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("remote-shell" "/bin/sh")
+  ("busybox" nil)
+  ("~" "/home/xeno")
+  ("ls" "/bin/ls --color=never")
+  ("ls-dired" t)
+  ("stat" "\\stat")
+  ("file-exists" "test -e")
+  ("id" "/bin/id")
+  ("gid-integer" 1000)
+  ("readlink" "\\readlink")
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("uid-integer" 1000))
+ (["su" "root" "xenocorp.kompany.com" nil nil]
+  ("uname" "Linux 3.11.6-1-ARCH")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("remote-shell" "/bin/sh")
+  ("busybox" nil)
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("readlink" "\\readlink")
+  ("stat" "\\stat")
+  ("file-exists" "test -e")
   ("id" "/bin/id")
   ("gid-integer" 0)
   ("uid-integer" 0)))
