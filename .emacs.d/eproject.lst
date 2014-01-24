@@ -7,8 +7,8 @@
 (setq prj-last-open nil)
 
 (setq prj-frame-pos
-      '((top . 20)
+      '((top . 459)
         (left . 800)
-        (width . 86)
-        (height . 44)))
+        (width . 97)
+        (height . 25)))
 
