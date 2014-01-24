@@ -157,15 +157,15 @@
 (setq inferior-erlang-machine-options '("-sname" "emacs"))
 (require 'erlang-start)
 (setq auto-mode-alist (append auto-mode-alist
-			      '(("\\.rel$"     . erlang-mode)
-				("\\.app$"     . erlang-mode)
-				("\\.appSrc$"  . erlang-mode)
-				("\\.app.src$" . erlang-mode)
-				("\\.hrl$"     . erlang-mode)
-				("\\.erl$"     . erlang-mode)
-				("\\.yrl$"     . erlang-mode)
-				("rebar.confg" . erlang-mode)
-				("relx.confg"  . erlang-mode))))
+                              '(("\\.rel$"     . erlang-mode)
+                                ("\\.app$"     . erlang-mode)
+                                ("\\.appSrc$"  . erlang-mode)
+                                ("\\.app.src$" . erlang-mode)
+                                ("\\.hrl$"     . erlang-mode)
+                                ("\\.erl$"     . erlang-mode)
+                                ("\\.yrl$"     . erlang-mode)
+                                ("rebar.confg" . erlang-mode)
+                                ("relx.confg"  . erlang-mode))))
 
 ;; A number of the erlang-extended-mode key bindings are useful in the shell too
 (defconst distel-shell-keys
