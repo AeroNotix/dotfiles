@@ -208,11 +208,10 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 
 ;; Slime
-(setq inferior-lisp-program "/usr/bin/sbcl") ; your Lisp system
+(setq inferior-lisp-program "/usr/bin/sbcl")
 (require 'slime)
 (slime-setup '(slime-fancy))
 
-;;; Git gutter fancy pants
 (require 'git-gutter-fringe)
 (setq git-gutter-fr:side 'right-fringe)
 (setq-default left-fringe-width  0)
@@ -220,7 +219,6 @@
 (define-globalized-minor-mode global-git-gutter-mode git-gutter-mode
   (lambda () (git-gutter-mode 1)))
 
- ;;; Vertical EOL indicator
 (require 'fill-column-indicator)
 (fci-mode)
 (define-globalized-minor-mode global-fci-mode fci-mode
