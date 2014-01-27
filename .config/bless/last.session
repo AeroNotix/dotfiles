@@ -1,0 +1,13 @@
+<session>
+	<windowheight>849</windowheight>
+	<windowwidth>1600</windowwidth>
+	<activefile>/home/xeno/dev/ubic/apps/ubic_device/test/ubic_device_eeprom_SUITE_data/signed_1.eeprom</activefile>
+	<file>
+		<path>/home/xeno/dev/ubic/apps/ubic_device/test/ubic_device_eeprom_SUITE_data/signed_1.eeprom</path>
+		<offset>0</offset>
+		<cursoroffset>148</cursoroffset>
+		<cursordigit>0</cursordigit>
+		<layout>/usr/share/bless/bless-default.layout</layout>
+		<focusedarea>0</focusedarea>
+	</file>
+</session>

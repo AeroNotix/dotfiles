@@ -120,5 +120,8 @@ gitolite-admin
 .gstreamer-0.10/
 .psql_history
 TheWayToGo.pdf
-    	mysqlInsertJSON.py
 mysqlInsertJSON.py
+.config/Mumble
+.config/chromium
+.config/enchant
+.config/vlc

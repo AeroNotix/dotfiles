@@ -1,0 +1,91 @@
+[000:000] Cpu: 6.58.9, x8, 3400Mhz, 7880MB
+[000:000] Computer model: Not available
+[000:000] Browser XEmbed support present: 1
+[000:000] Browser toolkit is Gtk2.
+[000:000] Using Gtk2 toolkit
+[000:007] Starting client channel.
+[000:007] Read port file, port=35790
+[000:007] SendConnectStatus: Connect Status: 
+[
+	"f-connect",
+	
+	{
+		"step" : "0"
+	}
+]
+
+[000:008] SendConnectStatus: Connect Status: 
+[
+	"f-connect",
+	
+	{
+		"step" : "1"
+	}
+]
+
+[000:008] Initiated connection to GoogleTalkPlugin
+[000:102] SendConnectStatus: Connect Status: 
+[
+	"f-connect",
+	
+	{
+		"error" : 111,
+		"step" : "4"
+	}
+]
+
+[000:102] Warning(clientchannel.cc:600): Connection to GoogleTalkPlugin failed, reason=111
+[000:102] Warning(clientchannel.cc:743): Stale port file; attempting to restart flute.
+[001:105] Restarting GoogleTalkPlugin...
+[001:105] Starting Flute
+[001:105] Warning(pluginutils.cc:267): Failed to get GoogleTalkPlugin path. Trying default.
+[001:107] Started GoogleTalkPlugin, path=/opt/google/talkplugin/GoogleTalkPlugin
+[001:107] SendConnectStatus: Connect Status: 
+[
+	"f-connect",
+	
+	{
+		"step" : "2"
+	}
+]
+
+[001:107] Waiting for GoogleTalkPlugin to start...
+[002:107] Attempting to connect to GoogleTalkPlugin...
+[002:107] Read port file, port=46665
+[002:107] SendConnectStatus: Connect Status: 
+[
+	"f-connect",
+	
+	{
+		"step" : "0"
+	}
+]
+
+[002:108] SendConnectStatus: Connect Status: 
+[
+	"f-connect",
+	
+	{
+		"step" : "1"
+	}
+]
+
+[002:108] Initiated connection to GoogleTalkPlugin
+[002:208] SendConnectStatus: Connect Status: 
+[
+	"f-connect",
+	
+	{
+		"step" : "3"
+	}
+]
+
+[002:208] Socket connection established
+[002:208] ScheduleOnlineCheck: Online check in 5000ms
+[002:309] Got cookie response, socket is authorized
+[002:309] AUTHORIZED; socket handshake complete
+[002:309] F->C: ["fs",{"pr":"a"}]
+[002:409] F->C: ["mf","mf4.7","4.7.0.0",2,{"audioCodecs":[[103,"ISAC",1,0,16000],[104,"ISAC",1,0,32000],[9,"G722",1,64000,16000],[102,"ILBC",1,13300,8000],[0,"PCMU",1,64000,8000],[8,"PCMA",1,64000,8000],[106,"CN",1,0,32000],[105,"CN",1,0,16000],[13,"CN",1,0,8000],[127,"red",1,0,8000],[126,"telephone-event",1,0,8000]],"audioRtpHdrExts":[{"id":1,"uri":"urn:ietf:params:rtp-hdrext:ssrc-audio-level"}],"camDeviceName":"WebCam SC-13HDL11939N","caps":15,"cpuAdaptVersion":1,"cpuArchitecture":1,"cpuCacheSize":6291456,"cpuFamily":6,"cpuFlags":["sse2","ssse3","sse4_1","sse4_2","avx"],"cpuHasSSE2":true,"cpuModel":58,"cpuSpeed":3400,"cpuStepping":9,"cpuVendor":"GenuineIntel","cpus":8,"cpusPhysical":4,"cryptoRandom":"mOeKoAssrFRJJgdmBI59XwPE","cryptoSuites":["AES_CM_128_HMAC_SHA1_80","AES_CM_128_HMAC_SHA1_32"],"dataChannelVersion":1,"effectsVersion":11,"gpuDescription":"","gpuDeviceId":0,"gpuDeviceName":"","gpuDriver":"","gpuDriverVersion":"","gpuVendorId":0,"machineModel":"Not available","remotingAssistanceAllowed":0,"remotingVersion":1,"renderer":2,"rtcpMux":true,"screencast":2,"screencastLocalPreview":1,"supportsConcurrentSessions":true,"transports":["i","gice"],"videoCodecs":[[99,"H264-SVC",640,360,30],[97,"H264",640,360,30],[98,"H263",640,360,30]],"videoRtpHdrExts":[{"id":2,"uri":"urn:ietf:params:rtp-hdrext:toffset"},{"id":3,"uri":"http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time"}]}]
+[002:509] F->C: ["getdevicestate","15","1",["__default_device","HDA Intel PCH, ALC269VC Analog - Default Audio Device","HDA Intel PCH, ALC269VC Analog - Front speakers","HDA Intel PCH, ALC269VC Analog - 4.0 Surround output to Front and Rear speakers","HDA Intel PCH, ALC269VC Analog - 4.1 Surround output to Front, Rear and Subwoofer speakers","HDA Intel PCH, ALC269VC Analog - 5.0 Surround output to Front, Center and Rear speakers","HDA Intel PCH, ALC269VC Analog - 5.1 Surround output to Front, Center, Rear and Subwoofer speakers","HDA Intel PCH, ALC269VC Analog - 7.1 Surround output to Front, Center, Side, Rear and Woofer speakers"],"0",["__default_device","HDA Intel PCH, ALC269VC Analog - Default Audio Device","HDA Intel PCH, ALC269VC Analog - Front speakers","HDA Intel PCH, ALC269VC Analog - 4.0 Surround output to Front and Rear speakers","HDA Intel PCH, ALC269VC Analog - 4.1 Surround output to Front, Rear and Subwoofer speakers","HDA Intel PCH, ALC269VC Analog - 5.0 Surround output to Front, Center and Rear speakers","HDA Intel PCH, ALC269VC Analog - 5.1 Surround output to Front, Center, Rear and Subwoofer speakers","HDA Intel PCH, ALC269VC Analog - 7.1 Surround output to Front, Center, Side, Rear and Woofer speakers","HDA Intel PCH, HDMI 0 - HDMI Audio Output"],"0",["WebCam SC-13HDL11939N"]]
+[007:218] HandleOnlineCheck: Starting check
+[007:218] HandleOnlineCheck: OK; current state: 3

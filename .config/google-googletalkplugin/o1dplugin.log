@@ -1,0 +1,117 @@
+[000:000] Cpu: 6.58.9, x8, 3400Mhz, 7880MB
+[000:000] Computer model: Not available
+[000:002] [o1d11340-1] Listening for HELLO.
+[000:003] [o1d11340-1] Shutting down instance.
+[000:003] [o1d11340-1] Client disconnected.
+[000:326] [o1d11340-2] Listening for HELLO.
+[000:332] [o1d11340-2] Client connected.
+[000:332] [o1d11340-2] Registered new shared memory segment at 100
+[001:160] [o1d11340-2] Sending rendering size change: 1176x662
+[005:317] [o1d11340-2] Shutting down instance.
+[005:317] [o1d11340-2] Attached client while shutting down; sending shutdown notification.
+[005:317] [o1d11340-2] Client disconnected.
+[005:441] [o1d11340-3] Listening for HELLO.
+[005:450] [o1d11340-4] Listening for HELLO.
+[005:459] [o1d11340-5] Listening for HELLO.
+[005:465] [o1d11340-6] Listening for HELLO.
+[005:472] [o1d11340-7] Listening for HELLO.
+[005:479] [o1d11340-8] Listening for HELLO.
+[005:862] [o1d11340-3] Client connected.
+[005:862] [o1d11340-3] Registered new shared memory segment at 101
+[005:862] [o1d11340-5] Client connected.
+[005:862] [o1d11340-5] Registered new shared memory segment at 102
+[005:862] [o1d11340-6] Client connected.
+[005:862] [o1d11340-6] Registered new shared memory segment at 103
+[005:862] [o1d11340-7] Client connected.
+[005:862] [o1d11340-7] Registered new shared memory segment at 104
+[005:862] [o1d11340-8] Client connected.
+[005:862] [o1d11340-8] Registered new shared memory segment at 105
+[005:896] [o1d11340-4] Client connected.
+[005:896] [o1d11340-4] Registered new shared memory segment at 106
+[005:929] [o1d11340-8] Unmapping shared mem: 105
+[005:929] Created new pool buffer at 0x7fdf592b9000, 57600 bytes
+[005:929] [o1d11340-8] Registered new shared memory segment at 107
+[005:964] [o1d11340-8] Sending rendering size change: 177x100
+[006:230] [o1d11340-5] Unmapping shared mem: 102
+[006:230] Created new pool buffer at 0x7fdf592ca000, 14400 bytes
+[006:230] [o1d11340-5] Registered new shared memory segment at 108
+[006:263] [o1d11340-5] Sending rendering size change: 175x100
+[006:273] [o1d11340-3] Sending rendering size change: 1429x804
+[006:297] [o1d11340-4] Unmapping shared mem: 106
+[006:297] Created new pool buffer at 0x7fdf592d5000, 14400 bytes
+[006:297] [o1d11340-4] Registered new shared memory segment at 109
+[006:331] [o1d11340-5] Unmapping shared mem: 108
+[006:331] Created new pool buffer at 0x7fdf592d9000, 57600 bytes
+[006:331] [o1d11340-5] Registered new shared memory segment at 110
+[006:331] [o1d11340-7] Unmapping shared mem: 104
+[006:331] Created new pool buffer at 0x7fdf592e8000, 14400 bytes
+[006:331] [o1d11340-7] Registered new shared memory segment at 111
+[006:398] [o1d11340-3] Unmapping shared mem: 101
+[006:398] Created new pool buffer at 0x3641f6aef000, 230400 bytes
+[006:399] [o1d11340-3] Registered new shared memory segment at 112
+[006:464] [o1d11340-4] Sending rendering size change: 175x100
+[006:474] [o1d11340-7] Sending rendering size change: 175x100
+[006:531] [o1d11340-4] Unmapping shared mem: 109
+[006:531] Created new pool buffer at 0x3641f6b28000, 57600 bytes
+[006:531] [o1d11340-4] Registered new shared memory segment at 113
+[006:565] [o1d11340-7] Unmapping shared mem: 111
+[006:565] Created new pool buffer at 0x3641f6b37000, 57600 bytes
+[006:565] [o1d11340-7] Registered new shared memory segment at 114
+[006:632] [o1d11340-4] Unmapping shared mem: 113
+[006:632] [o1d11340-4] Registered new shared memory segment at 115
+[006:632] [o1d11340-7] Unmapping shared mem: 114
+[006:632] [o1d11340-7] Registered new shared memory segment at 116
+[006:666] [o1d11340-5] Unmapping shared mem: 110
+[006:666] [o1d11340-5] Registered new shared memory segment at 117
+[006:899] [o1d11340-6] Unmapping shared mem: 103
+[006:899] Created new pool buffer at 0x3641f6b46000, 14400 bytes
+[006:899] [o1d11340-6] Registered new shared memory segment at 118
+[006:940] [o1d11340-6] Sending rendering size change: 175x100
+[007:101] [o1d11340-6] Unmapping shared mem: 118
+[007:101] Created new pool buffer at 0x3641f6b4b000, 57600 bytes
+[007:101] [o1d11340-6] Registered new shared memory segment at 119
+[007:806] [o1d11340-6] Unmapping shared mem: 119
+[007:806] [o1d11340-6] Registered new shared memory segment at 120
+[007:949] [o1d11340-9] Listening for HELLO.
+[007:974] [o1d11340-9] Client connected.
+[007:974] [o1d11340-9] Registered new shared memory segment at 121
+[008:075] [o1d11340-9] Sending rendering size change: 1429x804
+[008:108] [o1d11340-9] Unmapping shared mem: 121
+[008:108] Created new pool buffer at 0x3641f6b5d000, 230400 bytes
+[008:108] [o1d11340-9] Registered new shared memory segment at 122
+[111:391] [o1d11340-10] Listening for HELLO.
+[112:497] [o1d11340-10] Client connected.
+[112:497] [o1d11340-10] Registered new shared memory segment at 123
+[113:234] [o1d11340-10] Unmapping shared mem: 123
+[113:234] Created new pool buffer at 0x3641f6b9e000, 14400 bytes
+[113:234] [o1d11340-10] Registered new shared memory segment at 124
+[113:302] [o1d11340-10] Sending rendering size change: 175x100
+[113:403] [o1d11340-10] Unmapping shared mem: 124
+[113:403] Created new pool buffer at 0x3641f6ba3000, 57600 bytes
+[113:403] [o1d11340-10] Registered new shared memory segment at 125
+[113:570] [o1d11340-10] Unmapping shared mem: 125
+[113:570] [o1d11340-10] Registered new shared memory segment at 126
+[480:951] [o1d11340-5] Shutting down instance.
+[480:951] [o1d11340-5] Attached client while shutting down; sending shutdown notification.
+[480:951] [o1d11340-5] Client disconnected.
+[481:101] [o1d11340-3] Shutting down instance.
+[481:101] [o1d11340-3] Attached client while shutting down; sending shutdown notification.
+[481:101] [o1d11340-3] Client disconnected.
+[481:101] [o1d11340-9] Shutting down instance.
+[481:101] [o1d11340-9] Attached client while shutting down; sending shutdown notification.
+[481:101] [o1d11340-9] Client disconnected.
+[481:239] [o1d11340-4] Shutting down instance.
+[481:239] [o1d11340-4] Attached client while shutting down; sending shutdown notification.
+[481:239] [o1d11340-4] Client disconnected.
+[481:239] [o1d11340-6] Shutting down instance.
+[481:239] [o1d11340-6] Attached client while shutting down; sending shutdown notification.
+[481:239] [o1d11340-6] Client disconnected.
+[481:239] [o1d11340-7] Shutting down instance.
+[481:239] [o1d11340-7] Attached client while shutting down; sending shutdown notification.
+[481:239] [o1d11340-7] Client disconnected.
+[481:239] [o1d11340-8] Shutting down instance.
+[481:239] [o1d11340-8] Attached client while shutting down; sending shutdown notification.
+[481:239] [o1d11340-8] Client disconnected.
+[481:239] [o1d11340-10] Shutting down instance.
+[481:239] [o1d11340-10] Attached client while shutting down; sending shutdown notification.
+[481:239] [o1d11340-10] Client disconnected.
