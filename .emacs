@@ -21,6 +21,13 @@
 (require 'ido)
 (ido-mode t)
 
+;;;------------------Marmalade-------------------------------
+
+(require 'package)
+(package-initialize)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+
+
 ;;; Set browser to Chrome
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "chromium")
@@ -167,20 +174,6 @@
                                 ("rebar.confg" . erlang-mode)
                                 ("relx.confg"  . erlang-mode))))
 
-;; A number of the erlang-extended-mode key bindings are useful in the shell too
-(defconst distel-shell-keys
-  '(("\C-\M-i"   erl-complete)
-    ("\M-?"      erl-complete)
-    ("\M-."      erl-find-source-under-point)
-    ("\M-,"      erl-find-source-unwind)
-    ("\M-*"      erl-find-source-unwind))
-  "Additional keys to bind when in Erlang shell.")
-
-;; This is needed for Distel setup
-(setq load-path (append load-path (list "/home/xeno/dev/distel/elisp")))
-(require 'distel)
-(distel-setup)
-
 (defun flymake-erlang-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
 		     'flymake-create-temp-inplace))
@@ -201,11 +194,6 @@
 
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
 (add-hook 'c-mode-hook 'my-c++-mode-hook)
-;;;------------------Marmalade-------------------------------
-
-(require 'package)
-(package-initialize)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 
 ;; Slime
 (setq inferior-lisp-program "/usr/bin/sbcl")
@@ -249,6 +237,6 @@
 (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
 (add-hook 'cider-mode-hook 'ac-nrepl-setup)
 (eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'cider-repl-mode))
+'(add-to-list 'ac-modes 'cider-repl-mode))
 
 (load-file "~/.emacs.d/local-funs.el")
