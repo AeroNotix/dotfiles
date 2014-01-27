@@ -78,14 +78,17 @@ Mod1-Shift-b := Shell "virtualbox"
 Mod1-Shift-e := Shell "emacsclient -c"
 Mod1-Shift-f := Shell "chromium"
 Mod1-Shift-g := Shell "gimp"
-Mod1-Shift-i := Shell "termite -e 'screen weechat-curses'"
 Mod1-Shift-m := Shell "termite -e 'screen ncmpcpp'"
+Mod1-Shift-i := Shell "termite -e 'ssh xeno@37.139.18.183 -t tmux attach -t weechat'"
+Mod1-Shift-y := Shell "pidgin"
 Mod1-Shift-o := Shell "libreoffice"
 Mod1-Shift-s := Shell "skype"
 Mod1-Shift-t := Shell "thunderbird"
+Mod4-m       := Shell "urxvt -e 'mutt'"
 Mod1-Shift-v := Shell "vlc"
-Mod1-Shift-w := Shell "steam"
+Mod1-Shift-w := Shell "termite -e 'wicd-curses'"
 Mod1-Shift-x := Shell "xpdf"
+Mod4-l := Shell "xscreensaver-command -lock"
 
 # META
 Mod1-Shift-p := Restart
@@ -93,6 +96,7 @@ Mod1-Shift-q := Quit
 Mod1-t := ToggleFloating (GetActive)
 Mod1-Shift-c := Close (GetActive)
 Mod4-Up := AutoSwitchNext (GetWorkspace)
+Mod1-Shift-h := Script "dispatcher"
 
 # AUDIO
 Mod1-F11 := Shell "amixer -c 0 --quiet set Master 1-"

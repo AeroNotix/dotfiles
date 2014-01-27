@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+python2 $HOME/.config/wingo/scripts/jenkins_status.py | dzen2 -w 120 -x 1480 -fn -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
