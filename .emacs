@@ -270,6 +270,7 @@ Display the results in a hyperlinked *compilation* buffer."
           (function
            (lambda ()
              (progn
+               (flyspell-mode)
                (local-unset-key "\C-c\C-c")
                (define-key message-mode-map "\C-c\C-c" '(lambda ()
                                                           "save and exit quickly"
