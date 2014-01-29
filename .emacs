@@ -71,6 +71,8 @@
 (global-set-key (kbd "C-x c")           'elscreen-kill)
 (global-set-key (kbd "<menu>")          'idomenu)
 (global-set-key (kbd "C-x C-w")         'cider-eval-last-sexp-and-replace)
+(global-set-key (kbd "C-{")             'flymake-display-err-menu-for-current-line)
+
 ;;; Show matching paren highlighting
 (show-paren-mode 1)
 
@@ -145,9 +147,6 @@
 (require 'go-mode)
 (add-to-list 'load-path "/home/xeno/dev/go/src/github.com/dougm/goflymake")
 
-(add-hook 'go-mode-hook
-	  '(lambda ()
-	     (global-set-key (kbd "C-{") 'flymake-display-err-menu-for-current-line)))
 (add-hook 'go-mode-hook
 	  '(lambda ()
 	     (global-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
