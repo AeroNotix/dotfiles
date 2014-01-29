@@ -160,7 +160,6 @@
 
 (add-to-list 'load-path "~/.emacs.d/erlang/")
 (setq erlang-root-dir "/usr/local/lib/erlang")
-(add-to-list 'auto-mode-alist '("\\.erl$" . erlang-mode))
 (setq inferior-erlang-machine-options '("-sname" "emacs"))
 (require 'erlang-start)
 (setq auto-mode-alist (append auto-mode-alist
