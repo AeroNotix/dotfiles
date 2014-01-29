@@ -126,3 +126,6 @@ mysqlInsertJSON.py
 .config/enchant
 .config/vlc
 /.config/google-googletalkplugin/gtalkplugin-c9709034531533942182.log.bz2
+/.config/google-googletalkplugin/googletalkplugin_port
+/.config/google-googletalkplugin/googletalkplugin_ws_port
+/.config/google-googletalkplugin/gtbplugin.log
