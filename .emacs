@@ -52,7 +52,7 @@
 (global-unset-key (kbd "C-x C-w"))
 (setq-default column-number-mode t)
 
- ;;; Show trailing whitespace
+ ;;; Show trailing whitespace.
 (setq-default show-trailing-whitespace t)
 
 (defun jump-to-config-file ()
