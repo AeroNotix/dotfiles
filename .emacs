@@ -109,6 +109,7 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Monaco" :foundry "unknown" :slant normal :weight normal :height 98 :width normal))))
  '(error ((t (:foreground "orange red" :underline (:color "red" :style wave) :weight bold))))
+ '(magit-item-highlight ((t (:inherit default :foreground "dim gray"))))
  '(rst-level-1-face ((t (:background "slate blue"))) t)
  '(rst-level-2-face ((t (:background "midnight blue"))) t)
  '(trailing-whitespace ((t (:background "red")))))
