@@ -41,7 +41,7 @@
 (setq auto-save-mode nil)
 (setq make-backup-files nil)
 
-;;; Tab width to eight
+;;; Tab width to four.
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 
