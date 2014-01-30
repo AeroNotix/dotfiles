@@ -247,8 +247,6 @@
 (eval-after-load "auto-complete"
 '(add-to-list 'ac-modes 'cider-repl-mode))
 
-(load-file "~/.emacs.d/local-funs.el")
-
 ;; Teach compile the syntax of the kibit output
 (require 'compile)
 (add-to-list 'compilation-error-regexp-alist-alist

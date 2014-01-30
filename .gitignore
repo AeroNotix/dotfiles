@@ -129,3 +129,4 @@ mysqlInsertJSON.py
 /.config/google-googletalkplugin/googletalkplugin_port
 /.config/google-googletalkplugin/googletalkplugin_ws_port
 /.config/google-googletalkplugin/gtbplugin.log
+/.emacs.d/save/savehist
