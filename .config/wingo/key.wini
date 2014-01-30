@@ -83,7 +83,6 @@ Mod1-Shift-i := Shell "termite -e 'ssh xeno@37.139.18.183 -t tmux attach -t weec
 Mod1-Shift-y := Shell "pidgin"
 Mod1-Shift-o := Shell "libreoffice"
 Mod1-Shift-s := Shell "skype"
-Mod1-Shift-t := Shell "thunderbird"
 Mod4-m       := Shell "urxvt -e 'mutt'"
 Mod1-Shift-v := Shell "vlc"
 Mod1-Shift-w := Shell "termite -e 'wicd-curses'"
@@ -93,7 +92,7 @@ Mod4-l := Shell "xscreensaver-command -lock"
 # META
 Mod1-Shift-p := Restart
 Mod1-Shift-q := Quit
-Mod1-t := ToggleFloating (GetActive)
+Mod1-Shift-t := ToggleFloating (GetActive)
 Mod1-Shift-c := Close (GetActive)
 Mod4-Up := AutoSwitchNext (GetWorkspace)
 Mod1-Shift-h := Script "dispatcher"
