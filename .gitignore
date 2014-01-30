@@ -130,3 +130,5 @@ mysqlInsertJSON.py
 /.config/google-googletalkplugin/googletalkplugin_ws_port
 /.config/google-googletalkplugin/gtbplugin.log
 /.emacs.d/save/savehist
+/.emacs.d/elpa/yasnippet-20140106.1009/
+*.elc
