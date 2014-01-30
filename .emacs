@@ -27,12 +27,15 @@
 (require 'ido)
 (ido-mode t)
 
+;;; Hurr durr I can spelz
+(setq-default flyspell-prog-mode t)
+
 ;;;------------------Marmalade-------------------------------
 
 (require 'package)
 (package-initialize)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/"))
 
 ;;; Set browser to Chrome
 (setq browse-url-browser-function 'browse-url-generic
@@ -276,10 +279,25 @@ Display the results in a hyperlinked *compilation* buffer."
           (function
            (lambda ()
              (progn
-               (flyspell-mode)
                (local-unset-key "\C-c\C-c")
                (define-key message-mode-map "\C-c\C-c" '(lambda ()
                                                           "save and exit quickly"
                                                           (interactive)
                                                           (save-buffer)
                                                           (server-edit)))))))
+
+
+;;;------------------save history---------------------------
+
+(setq savehist-additional-variables
+      ;; search entries
+      '(search ring regexp-search-ring)
+      ;; save every minute
+      savehist-autosave-interval 60
+      ;; keep the home clean
+      savehist-file "~/.emacs.d/save/savehist")
+(savehist-mode t)
+
+
+;;; Local
+(load-file "~/.emacs.d/local-funs.el")
