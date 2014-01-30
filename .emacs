@@ -217,7 +217,12 @@
 
 ;;;-------------------clojure-------------------------------
 
-(add-hook 'clojure-mode-hook 'flymake-mode-on)
+(require 'clj-refactor)
+(add-hook 'clojure-mode-hook (lambda ()
+                               (yas/minor-mode 1)
+                               (flymake-mode-on)
+                               (clj-refactor-mode 1)
+                               (cljr-add-keybindings-with-prefix "C-x C-a")))
 (require 'ac-nrepl)
 (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
 (add-hook 'cider-mode-hook 'ac-nrepl-setup)
