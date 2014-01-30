@@ -132,3 +132,4 @@ mysqlInsertJSON.py
 /.emacs.d/save/savehist
 /.emacs.d/elpa/yasnippet-20140106.1009/
 *.elc
+/.config/htop/htoprc
