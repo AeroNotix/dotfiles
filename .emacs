@@ -271,7 +271,7 @@ Display the results in a hyperlinked *compilation* buffer."
 ;;;-------------------mutt----------------------------------
 
 (setq auto-mode-alist (append auto-mode-alist
-                              '(("/mutt"     . mail-mode))))
+                              '(("/mutt" . mail-mode))))
 (add-hook 'message-mode-hook
           'turn-on-auto-fill
           (function
