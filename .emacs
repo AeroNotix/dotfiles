@@ -5,10 +5,12 @@
 (normal-top-level-add-to-load-path '("."))
 (normal-top-level-add-subdirs-to-load-path))
 
+;; SCP is faster.
 (setq tramp-default-method "scp")
 
 ;;; Get rid of that nasty bell noise
 (setq visible-bell t)
+
 ;;; 10pt text
 (set-face-attribute 'default nil :height 100)
 
