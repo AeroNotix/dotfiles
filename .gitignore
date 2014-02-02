@@ -133,3 +133,4 @@ mysqlInsertJSON.py
 /.emacs.d/elpa/yasnippet-20140106.1009/
 *.elc
 /.config/htop/htoprc
+/.config/google-googletalkplugin/gtalkplugin-c7808352801286927016.log.bz2
