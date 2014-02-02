@@ -23,3 +23,11 @@
 (global-set-key (kbd "M-t w") 'transpose-words)
 (global-set-key (kbd "M-t s") 'transpose-sexps)
 (global-set-key (kbd "M-t p") 'transpose-params)
+
+
+;; Clojure
+
+(define-key clj-refactor-map (kbd "C-c s") 'cljr-sort-ns)
+
+;; Y-or-N everywhere.
+(defalias 'yes-or-no-p 'y-or-n-p)
