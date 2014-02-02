@@ -13,6 +13,9 @@
 (global-set-key (kbd "C-x C-w")         'cider-eval-last-sexp-and-replace)
 (global-set-key (kbd "C-{")             'flymake-display-err-menu-for-current-line)
 (global-set-key (kbd "M-x")             'smex)
+(global-set-key (kbd "<f7>")            'previous-buffer)
+(global-set-key (kbd "<f8>")            'next-buffer)
+
 
 ;; Transpose stuff with M-t
 (global-unset-key (kbd "M-t")) ;; which used to be transpose-words
