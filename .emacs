@@ -11,6 +11,10 @@
 ;; Whitespace killah
 (setq-default indicate-empty-lines t)
 (setq-default indicate-unused-lines t)
+
+;; Always follow vc links
+(setq-default vc-follow-symlinks t)
+
 ;;; Get rid of that nasty bell noise
 (setq visible-bell t)
 
