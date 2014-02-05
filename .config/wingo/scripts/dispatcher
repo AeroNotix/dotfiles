@@ -72,7 +72,6 @@ def main(argv):
     wingo = pywingo.Wingo()
     code = wingo.Input("HTTP Code: ")
     if not code:
-        wingo.Message("here")
         exit()
     if code not in code_to_desc.keys():
         wingo.Message("Unknown HTTP Status Code")

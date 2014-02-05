@@ -73,8 +73,8 @@ Mod1-k := AutoPrev (GetWorkspace)
 
 # APPLICATIONS
 Mod1-Shift-return := Shell "termite"
-Mod1-Shift-a := Shell "eclipse"
-Mod1-Shift-b := Shell "virtualbox"
+#Mod1-Shift-a := Shell "eclipse"
+Mod1-Shift-b := Shell "calibre"
 Mod1-Shift-e := Shell "emacsclient -c"
 Mod1-Shift-f := Shell "chromium"
 Mod1-Shift-g := Shell "gimp"
