@@ -3,7 +3,7 @@
 ;; Copyright © 2012 Magnar Sveen <magnars@gmail.com>
 
 ;; Author: Magnar Sveen <magnars@gmail.com>
-;; Version: 20140130.500
+;; Version: 20140205.238
 ;; X-Original-Version: 0.10.0
 ;; Keywords: convenience
 ;; Package-Requires: ((s "1.8.0") (dash "2.4.0") (yasnippet "0.6.1") (paredit "22") (multiple-cursors "1.2.2"))
@@ -103,6 +103,7 @@
 (require 'yasnippet)
 (require 'paredit)
 (require 'multiple-cursors)
+(require 'clojure-mode)
 
 (defcustom cljr-add-ns-to-blank-clj-files t
   "When true, automatically adds a ns form to new clj files."
@@ -184,6 +185,8 @@
     (search-forward s bound t)))
 
 (defun cljr--goto-toplevel ()
+  (when (paredit-in-string-p)
+    (paredit-backward-up))
   (let ((depth (first (paredit-current-parse-state))))
     (paredit-backward-up depth)))
 
@@ -455,10 +458,16 @@
         (paredit-backward)
         (kill-sexp 2)
         (just-one-space 0)
-        (while (re-search-forward (regexp-opt symbols 'symbols) nil t)
-          (paredit-backward)
-          (insert ns "/")
-          (paredit-forward))))))
+        (cljr--add-ns-prefix ns symbols)))))
+
+(defun cljr--add-ns-prefix (ns symbols)
+  (save-excursion
+    (cljr--goto-ns)
+    (paredit-forward)
+    (while (re-search-forward (regexp-opt symbols 'symbols) nil t)
+      (paredit-backward)
+      (insert ns "/")
+      (paredit-forward))))
 
 ;; ------ declare statements -----------
 
