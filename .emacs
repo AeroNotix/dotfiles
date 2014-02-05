@@ -214,7 +214,6 @@
 (add-to-list 'flymake-allowed-file-name-masks
              '("\\.py\\'" flymake-pylint-init))
 
-
 ;;;-------------------clojure-------------------------------
 
 (require 'clj-refactor)
