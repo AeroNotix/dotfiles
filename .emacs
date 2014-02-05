@@ -8,6 +8,9 @@
 ;; SCP is faster.
 (setq tramp-default-method "scp")
 
+;; Whitespace killah
+(setq-default indicate-empty-lines t)
+(setq-default indicate-unused-lines t)
 ;;; Get rid of that nasty bell noise
 (setq visible-bell t)
 
