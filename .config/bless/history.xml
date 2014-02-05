@@ -1,8 +1,0 @@
-<?xml version="1.0" standalone="yes"?>
-<history>
-	<file>/home/xeno/dev/ubic/apps/ubic_device/test/ubic_device_eeprom_SUITE_data/signed_2.eeprom</file>
-	<file>/home/xeno/dev/ubic/apps/ubic_device/test/ubic_device_eeprom_SUITE_data/unsigned_2.eeprom</file>
-	<file>/home/xeno/dev/ubic/apps/ubic_device/test/ubic_device_eeprom_SUITE_data/unsigned_1.eeprom</file>
-	<file>/home/xeno/dev/ubic/apps/ubic_device/test/ubic_device_eeprom_SUITE_data/duplicated_mac.eeprom</file>
-	<file>/home/xeno/dev/ubic/apps/ubic_device/test/ubic_device_eeprom_SUITE_data/signed_1.eeprom</file>
-</history>
