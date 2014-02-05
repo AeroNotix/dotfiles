@@ -1,3 +1,5 @@
+.config/calibre/
+.config/google-googletalkplugin/
 .xsel.log
 .Xauthority
 .routerdetails
@@ -142,3 +144,5 @@ mysqlInsertJSON.py
 /.config/google-googletalkplugin/gtalkplugin-c19839719981719628988.log.bz2
 /.config/google-googletalkplugin/gtalkplugin-c3074945231518239706.log.bz2
 /.config/gtk-2.0/gtkfilechooser.ini
+/.emacs.d/tramp
+/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
