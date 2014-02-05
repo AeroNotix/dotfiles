@@ -70,9 +70,9 @@
 match := True
 
 # You can add startup programs here if you like.
-startup := Shell "chromium"
-startup := Shell "emacsclient -c"
-startup := Script "all"
+#startup := Shell "chromium"
+#startup := Shell "emacsclient -c"
+startup := Shell "tint2"
 
 # You can add more by just adding another definition of "startup".
 #startup := Shell "gkrellm"
