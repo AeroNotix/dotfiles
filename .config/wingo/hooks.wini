@@ -70,28 +70,26 @@
 match := True
 
 # You can add startup programs here if you like.
-#startup := Shell "chromium"
-#startup := Shell "emacsclient -c"
 startup := Shell "tint2"
 startup := Shell "cairo-compmgr"
 
 # You can add more by just adding another definition of "startup".
 #startup := Shell "gkrellm"
 
-[ForceFloating]
+#[ForceFloating]
 # This hook matches certain windows, and forces them into the floating layout.
 # You probably don't need to add windows like "gmrun" or "krunner", since
 # they are automatically inferred to be floating.
-match := MatchClientClass ":client:" "gimp"
+#match := MatchClientClass ":client:" "gimp"
 
 # Typically match conditions are combined as a set of conjunctions. That is,
 # all match conditions must be met for the hook to fire. But here, we want
 # to fire the hook if *any* of the match conditions match, so we disable
 # the default conjunction mode.
-conjunction := no
+#conjunction := no
 
 # Just make sure it's floating.
-managed := Float ":client:"
+#managed := Float ":client:"
 
 [FocusTransparency]
 # If you have a compositing manager running, this will use transparency
