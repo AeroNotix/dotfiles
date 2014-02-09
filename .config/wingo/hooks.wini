@@ -73,6 +73,7 @@ match := True
 #startup := Shell "chromium"
 #startup := Shell "emacsclient -c"
 startup := Shell "tint2"
+startup := Shell "cairo-compmgr"
 
 # You can add more by just adding another definition of "startup".
 #startup := Shell "gkrellm"
@@ -98,7 +99,7 @@ managed := Float ":client:"
 match := true
 
 focused := SetOpacity ":client:" 1.0
-unfocused := SetOpacity ":client:" 0.85
+unfocused := SetOpacity ":client:" 0.50
 
 [StupidKDE]
 # This hook is to make sure the KDE splash window isn't decorated on startup.

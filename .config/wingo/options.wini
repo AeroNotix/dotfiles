@@ -69,7 +69,7 @@ confirm := Return
 cancel := Escape
 
 # The shell to be used to launch commands.
-shell := bash
+shell := zsh
 
 # The program to use to play a wav file. This is only used with the "Dale"
 # command, which is an easter egg.

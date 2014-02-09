@@ -77,12 +77,12 @@ $THIN_COLOR := 0x000000
 
 [Full]
 font := /usr/share/fonts/TTF/DejaVuSansMono-Bold.ttf
-font_size := 16
+font_size := 12
 a_font_color := 0xffffff
 i_font_color := 0x000000
 
-title_size := 27
-a_title_color := 0xd66b00 0xff9123
+title_size := 12
+a_title_color := 0x336699 0x336699
 i_title_color := 0xffffff
 
 border_size := 4
