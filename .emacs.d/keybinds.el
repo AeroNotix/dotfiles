@@ -15,7 +15,8 @@
 (global-set-key (kbd "M-x")             'smex)
 (global-set-key (kbd "<f7>")            'previous-buffer)
 (global-set-key (kbd "<f8>")            'next-buffer)
-
+(global-set-key (kbd "C-c g r")         'gist-region)
+(global-set-key (kbd "C-c g b")         'gist-buffer)
 
 ;; Transpose stuff with M-t
 (global-unset-key (kbd "M-t")) ;; which used to be transpose-words
