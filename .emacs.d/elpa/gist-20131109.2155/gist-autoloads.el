@@ -5,8 +5,9 @@
 
 ;;;### (autoloads (gist-fetch gist-list gist-region-or-buffer-private
 ;;;;;;  gist-region-or-buffer gist-buffer-private gist-buffer gist-region-private
-;;;;;;  gist-region) "gist" "gist.el" (21239 63627 918491 717000))
-;;; Generated autoloads from gist.el
+;;;;;;  gist-region) "gist" "../../../../.emacs.d/elpa/gist-20131109.2155/gist.el"
+;;;;;;  "5b8f1fd28c087b823e557e1c2fa6503c")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/gist-20131109.2155/gist.el
 
 (autoload 'gist-region "gist" "\
 Post the current region as a new paste at gist.github.com
@@ -66,7 +67,9 @@ Displays a list of all of the current user's gists in a new buffer.
 
 ;;;***
 
-;;;### (autoloads nil nil ("gist-pkg.el") (21239 63627 942353 962000))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/gist-20131109.2155/gist-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/gist-20131109.2155/gist.el") (21239
+;;;;;;  64583 9648 593000))
 
 ;;;***
 
