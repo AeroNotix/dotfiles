@@ -3,9 +3,9 @@
 ;;; Code:
 
 
-;;;### (autoloads (slamhound) "slamhound" "slamhound.el" (21227 29242
-;;;;;;  988843 102000))
-;;; Generated autoloads from slamhound.el
+;;;### (autoloads (slamhound) "slamhound" "../../../../.emacs.d/elpa/slamhound-20131107.927/slamhound.el"
+;;;;;;  "ed013c007a8c89a5a22026e042a2ac0a")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/slamhound-20131107.927/slamhound.el
 
 (autoload 'slamhound "slamhound" "\
 Run slamhound on the current buffer.
@@ -16,8 +16,9 @@ Run slamhound on the current buffer.
 
 ;;;***
 
-;;;### (autoloads nil nil ("slamhound-pkg.el") (21227 29243 23000
-;;;;;;  670000))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/slamhound-20131107.927/slamhound-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/slamhound-20131107.927/slamhound.el")
+;;;;;;  (21239 65214 781888 580000))
 
 ;;;***
 
