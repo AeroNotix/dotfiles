@@ -32,3 +32,8 @@
 
 ;; Y-or-N everywhere.
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+
+;; ibuffer instead of list-buffers
+
+(global-set-key (kbd "C-x C-b") 'ibuffer)
