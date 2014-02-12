@@ -146,3 +146,4 @@ mysqlInsertJSON.py
 /.config/gtk-2.0/gtkfilechooser.ini
 /.emacs.d/tramp
 /.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
+/.config/pulse/3432734e52f543c184dc7daa4d84a46e-runtime
