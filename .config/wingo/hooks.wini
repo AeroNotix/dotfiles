@@ -72,6 +72,7 @@ match := True
 # You can add startup programs here if you like.
 startup := Shell "tint2"
 startup := Shell "compton"
+startup := Shell "./.config/wingo/scripts/wallpaperchanger -folder ~/.wallpaper --cont"
 
 # You can add more by just adding another definition of "startup".
 #startup := Shell "gkrellm"
