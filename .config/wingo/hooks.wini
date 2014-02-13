@@ -71,7 +71,7 @@ match := True
 
 # You can add startup programs here if you like.
 startup := Shell "tint2"
-startup := Shell "cairo-compmgr"
+startup := Shell "compton"
 
 # You can add more by just adding another definition of "startup".
 #startup := Shell "gkrellm"
