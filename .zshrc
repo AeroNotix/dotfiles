@@ -14,7 +14,7 @@ export PATH=$PATH:/home/xeno/git/contrib/persistent-https
 export GOPATH=/home/xeno/dev/go
 export GOROOT=/home/xeno/.go
 
-plugins=(git github gnu-utils python ssh-agent rebar virtualenv)
+plugins=(git github gnu-utils python ssh-agent rebar virtualenv lein systemd)
 
 HISTSIZE=1000000
 SAVEHIST=1000000
