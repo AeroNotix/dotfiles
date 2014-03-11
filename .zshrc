@@ -41,3 +41,6 @@ function cwd2paths {
 EDITOR="emacsclient -c"
 VISUAL="emacsclient -c"
 [ $TERM = 'dumb' ] && PS1='$ '
+
+export PYTHONSTARTUP=~/.pystartup
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
