@@ -152,3 +152,4 @@ mysqlInsertJSON.py
 /.config/autostart/dropbox.desktop
 /.config/keepassx/config.ini
 /.config/mc/ini
+/.emacs.d/var/pcache/gh/gh-gist-api/AeroNotix
