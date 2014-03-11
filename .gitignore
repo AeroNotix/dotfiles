@@ -1,4 +1,5 @@
 .config/cairo-dock
+.config/LightTable
 .config/calibre/
 .config/google-googletalkplugin/
 .xsel.log
@@ -147,3 +148,7 @@ mysqlInsertJSON.py
 /.emacs.d/tramp
 /.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
 /.config/pulse/3432734e52f543c184dc7daa4d84a46e-runtime
+/.config/ImageMagick/ImagemagickOpenCLDeviceProfile
+/.config/autostart/dropbox.desktop
+/.config/keepassx/config.ini
+/.config/mc/ini
