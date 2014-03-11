@@ -13,6 +13,8 @@ export PATH=$PATH:/home/xeno/.go/bin
 export PATH=$PATH:/home/xeno/git/contrib/persistent-https
 export GOPATH=/home/xeno/dev/go
 export GOROOT=/home/xeno/.go
+export LEIN_SNAPSHOTS_IN_RELEASE=1
+
 
 plugins=(git github gnu-utils python ssh-agent rebar virtualenv lein systemd)
 
