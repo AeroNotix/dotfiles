@@ -25,6 +25,9 @@
 (global-set-key (kbd "M-t s") 'transpose-sexps)
 (global-set-key (kbd "M-t p") 'transpose-params)
 
+;; The tyranny and the bullshit has gone on too long! You're BANISHED
+;; from the land!
+(global-unset-key (kbd "<insert>"))
 
 ;; Clojure
 
