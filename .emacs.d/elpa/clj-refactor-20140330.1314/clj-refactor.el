@@ -3,8 +3,8 @@
 ;; Copyright © 2012 Magnar Sveen <magnars@gmail.com>
 
 ;; Author: Magnar Sveen <magnars@gmail.com>
-;; Version: 20140208.653
-;; X-Original-Version: 0.10.0
+;; Version: 20140330.1314
+;; X-Original-Version: 0.12.0
 ;; Keywords: convenience
 ;; Package-Requires: ((s "1.8.0") (dash "2.4.0") (yasnippet "0.6.1") (paredit "22") (multiple-cursors "1.2.2"))
 
@@ -110,11 +110,27 @@
   :group 'cljr
   :type 'boolean)
 
+(defcustom cljr-sort-comparator 'cljr--string-natural-comparator
+  "The comparator function to use to sort ns declaration. Set your
+   own if you see fit. Comparator is called with two elements of
+   the sub section of the ns declaration, and should return non-nil
+   if the first element should sort before the second."
+  :group 'cljr
+  :type 'function)
+
 (defcustom cljr-auto-sort-ns t
   "When true, sort ns form whenever adding to the form using clj-refactor
    functions."
   :group 'cljr
   :type 'boolean)
+
+(defcustom cljr-magic-requires t
+  "When true, suggests requiring common namespaces when you type
+  its short form. Set to :prompt to ask before doing anything."
+  :group 'cljr
+  :type '(choice (const :tag "true" t)
+                 (const :tag "prompt" :prompt)
+                 (const :tag "false" nil)))
 
 (defcustom cljr-use-metadata-for-privacy nil
   "When nil, `cljr-cycle-privacy` will use (defn- f []).
@@ -122,7 +138,31 @@
   :group 'cljr
   :type 'boolean)
 
+(defcustom cljr-project-clean-prompt t
+  "When true prompts to ask before doing anything if false
+   runs project clean functions without warning."
+  :group 'cljr
+  :type 'boolean)
+
+(defcustom cljr-project-clean-functions (list 'cljr-remove-unused-requires 'cljr-sort-ns)
+  "List of functions to run on all the clj files in the project
+   when you perform project clean."
+  :group 'cljr
+  :type '(repeat function))
+
+(defvar cljr-magic-require-namespaces
+  '(("io"   . "clojure.java.io")
+    ("set"  . "clojure.set")
+    ("str"  . "clojure.string")
+    ("walk" . "clojure.walk")
+    ("zip"  . "clojure.zip")))
+
 (defvar clj-refactor-map (make-sparse-keymap) "")
+
+(define-key clj-refactor-map [remap paredit-raise-sexp] 'cljr-raise-sexp)
+(define-key clj-refactor-map [remap paredit-splice-sexp-killing-backward] 'cljr-splice-sexp-killing-backward)
+(define-key clj-refactor-map [remap paredit-splice-sexp-killing-forward] 'cljr-splice-sexp-killing-forward)
+(define-key clj-refactor-map (kbd "/") 'cljr-slash)
 
 (defun cljr--fix-special-modifier-combinations (key)
   (case key
@@ -147,6 +187,7 @@
   (define-key clj-refactor-map (funcall key-fn "ar") 'cljr-add-require-to-ns)
   (define-key clj-refactor-map (funcall key-fn "ai") 'cljr-add-import-to-ns)
   (define-key clj-refactor-map (funcall key-fn "sn") 'cljr-sort-ns)
+  (define-key clj-refactor-map (funcall key-fn "rr") 'cljr-remove-unused-requires)
   (define-key clj-refactor-map (funcall key-fn "sr") 'cljr-stop-referring)
   (define-key clj-refactor-map (funcall key-fn "th") 'cljr-thread)
   (define-key clj-refactor-map (funcall key-fn "uw") 'cljr-unwind)
@@ -160,8 +201,10 @@
   (define-key clj-refactor-map (funcall key-fn "cp") 'cljr-cycle-privacy)
   (define-key clj-refactor-map (funcall key-fn "cc") 'cljr-cycle-coll)
   (define-key clj-refactor-map (funcall key-fn "cs") 'cljr-cycle-stringlike)
+  (define-key clj-refactor-map (funcall key-fn "ci") 'cljr-cycle-if)
   (define-key clj-refactor-map (funcall key-fn "ad") 'cljr-add-declaration)
-  (define-key clj-refactor-map (funcall key-fn "dk") 'cljr-destructure-keys))
+  (define-key clj-refactor-map (funcall key-fn "dk") 'cljr-destructure-keys)
+  (define-key clj-refactor-map (funcall key-fn "pc") 'cljr-project-clean))
 
 ;;;###autoload
 (defun cljr-add-keybindings-with-prefix (prefix)
@@ -181,6 +224,25 @@
     (delete-region beg end)
     contents))
 
+(defun cljr--delete-and-extract-sexp-with-nested-sexps ()
+  "Returns list of strings representing the nested sexps if there is any.
+   In case there are no nested sexp the list will have only one element.
+   Not recursive, does not drill down into nested sexps
+   inside the first level nested sexps."
+  (let* ((beg (point))
+         (sexp-start beg)
+         (end (progn (paredit-forward)
+                     (point)))
+         nested)
+    (paredit-backward)
+    (paredit-forward-down)
+    (while (/= sexp-start end)
+      (paredit-move-forward)
+      (push (s-trim (buffer-substring sexp-start (point))) nested)
+      (setq sexp-start (point)))
+    (delete-region beg end)
+    (nreverse (cons (concat (nth 1 nested) (car nested)) (or (nthcdr 2 nested) '())))))
+
 (defun cljr--search-forward-within-sexp (s &optional save-excursion)
   "Searches forward for S in the current sexp.
 
@@ -192,10 +254,18 @@ if SAVE-EXCURSION is T POINT does not move."
       (search-forward s bound t))))
 
 (defun cljr--goto-toplevel ()
-  (when (paredit-in-string-p)
-    (paredit-backward-up))
+  (paredit-backward-up (cljr--depth-at-point)))
+
+(defun cljr--toplevel-p ()
+  "T unless we're in an s-expression or string."
+  (= (cljr--depth-at-point) 0))
+
+(defun cljr--depth-at-point ()
+  "Returns the depth in s-expressions, or strings, at point."
   (let ((depth (first (paredit-current-parse-state))))
-    (paredit-backward-up depth)))
+    (if (paredit-in-string-p)
+        (1+ depth)
+      depth)))
 
 (defun cljr--cleanup-whitespace (stuff)
   "Removes blank lines preceding `stuff' as well as trailing whitespace."
@@ -224,11 +294,16 @@ errors."
 ;; ------ file -----------
 
 (defun cljr--project-dir ()
-  (file-truename
-   (locate-dominating-file default-directory "project.clj")))
+  (or (ignore-errors
+        (file-truename
+         (locate-dominating-file default-directory "project.clj")))
+      (file-truename
+       (locate-dominating-file default-directory "pom.xml"))))
 
 (defun cljr--project-file ()
-  (expand-file-name "project.clj" (cljr--project-dir)))
+  (or (ignore-errors
+        (expand-file-name "project.clj" (cljr--project-dir)))
+      (expand-file-name "pom.xml" (cljr--project-dir))))
 
 (defun cljr--project-files ()
   (split-string (shell-command-to-string
@@ -298,7 +373,7 @@ errors."
     (insert "(" type " )")
     (forward-char -1)))
 
-(defun cljr--project-depends-on (package)
+(defun cljr--project-depends-on-p (package)
   (save-window-excursion
     (find-file (cljr--project-file))
     (goto-char (point-min))
@@ -310,7 +385,7 @@ errors."
       (cljr--insert-in-ns ":require")
       (insert "[" (s-chop-suffix "-test" ns) " :refer :all]")
       (cljr--insert-in-ns ":require")
-      (insert "[" (if (cljr--project-depends-on "midje")
+      (insert "[" (if (cljr--project-depends-on-p "midje")
                       "midje.sweet"
                     "clojure.test")
               " :refer :all]"))))
@@ -327,32 +402,171 @@ errors."
 
 (add-hook 'find-file-hook 'cljr--add-ns-if-blank-clj-file)
 
-(defun cljr--extract-ns-statements (statement-type)
+(defun cljr--extract-ns-statements (statement-type with-nested)
   (cljr--goto-ns)
   (if (not (cljr--search-forward-within-sexp (concat "(" statement-type)))
       '()
     (let (statements)
       (while (not (looking-at " *)"))
-        (push (cljr--delete-and-extract-sexp) statements))
+        (push (if with-nested
+                  (cljr--delete-and-extract-sexp-with-nested-sexps)
+                (cljr--delete-and-extract-sexp)) statements))
       statements)))
 
 (defun cljr--only-alpha-chars (s)
   (replace-regexp-in-string "[^[:alnum:]]" "" s))
 
+(defun cljr--string-natural-comparator (s1 s2)
+  (string< (cljr--only-alpha-chars s1)
+           (cljr--only-alpha-chars s2)))
+
+(defun cljr--string-length-comparator (s1 s2)
+  (> (length s1)
+     (length s2)))
+
+(defun cljr--semantic-comparator (ns s1 s2)
+  "Sorts used, required namespaces closer to the ns of the current buffer
+   before the rest.
+   When above is not applicable falls back to natural comparator."
+  (let ((shared-length-s1
+         (length (s-shared-start ns (cljr--extract-sexp-content s1))))
+        (shared-length-s2
+         (length (s-shared-start ns (cljr--extract-sexp-content s2)))))
+    (if (/= shared-length-s1 shared-length-s2)
+        (> shared-length-s1 shared-length-s2)
+      (cljr--string-natural-comparator s1 s2))))
+
+(defun cljr-create-comparator (comparator-fn)
+  (if (eq comparator-fn 'cljr--semantic-comparator)
+      (-partial 'cljr--semantic-comparator (clojure-find-ns))
+    comparator-fn))
+
 ;;;###autoload
 (defun cljr-sort-ns ()
   (interactive)
   (save-excursion
-    (dolist (statement-type '(":require" ":use" ":import"))
-      (ignore-errors
-        (dolist (statement (->> (cljr--extract-ns-statements statement-type)
-                             (-map 's-trim)
-                             (-sort (lambda (s1 s2)
-                                      (string< (cljr--only-alpha-chars s1)
-                                               (cljr--only-alpha-chars s2))))
-                             (-distinct)))
-          (cljr--insert-in-ns statement-type)
-          (insert statement))))))
+    (let ((comparator (cljr-create-comparator cljr-sort-comparator)))
+      (dolist (statement-type '(":require" ":use" ":import"))
+        (ignore-errors
+          (dolist (statement (->> (cljr--extract-ns-statements statement-type nil)
+                               (-map 's-trim)
+                               (-sort comparator)
+                               (-distinct)))
+            (cljr--insert-in-ns statement-type)
+            (insert statement)))))))
+
+(defun cljr--is-require-flag (req-statement)
+  (let ((t-req (s-trim req-statement)))
+    (or (string= t-req ":reload")
+        (string= t-req ":reload-all")
+        (string= t-req ":verbose"))))
+
+(defun cljr--req-element-regexp (refered postfix)
+  (concat "^[[:space:]]*[^;]*"
+          "[^[:word:]^-]"
+          (regexp-quote refered)
+          postfix))
+
+(defun cljr--extract-sexp-content (sexp)
+  (replace-regexp-in-string "\\[?]?" "" sexp))
+
+(defun cljr--is-name-in-use-p (name)
+  (goto-char (point-min))
+  (let ((e (cljr--extract-sexp-content name)))
+    (when (re-search-forward (cljr--req-element-regexp e "[^[:word:]^-]") nil t) e)))
+
+(defun cljr--rectify-refer-type-require (sexp-as-list refer-index as-used as-index)
+  (let* ((as-after-refer (and as-used (> as-index refer-index)))
+         (sexp-wo-as (if as-after-refer
+                         (-take as-index sexp-as-list)
+                       sexp-as-list))
+         (referred-names (->> sexp-wo-as
+                           (nthcdr (1+ refer-index))
+                           (-map 'cljr--is-name-in-use-p)
+                           (delq nil))))
+    (cond (referred-names
+           (format "%s [%s]%s"
+                   (s-join " " (if (and as-used (< as-index refer-index))
+                                   (-take (1+ refer-index) sexp-as-list)
+                                 (list (car sexp-as-list) ":refer")))
+                   (s-join " " referred-names)
+                   (if as-after-refer
+                       (concat " " (s-join " " (list ":as" (nth (1+ as-index) sexp-as-list))))
+                     "]")))
+          (as-used
+           (format "%s]" (s-join " " (list (car sexp-as-list)
+                                           (nth as-index sexp-as-list)
+                                           (cljr--extract-sexp-content (nth (1+ as-index) sexp-as-list)))))))))
+
+(defun cljr--is-simple-req-statement-in-use (sexp as-list alias-used refer-used)
+  (or (s-match ":refer[[:space:]]+:all" sexp)
+      (cljr--is-require-flag (cljr--extract-sexp-content sexp))
+      (and (= 1 (safe-length as-list))
+           (re-search-forward (cljr--req-element-regexp (cljr--extract-sexp-content (car as-list)) "/") nil t))
+      (and alias-used (not refer-used))))
+
+(defun cljr--rectify-simple-req-statement (req sexp-as-list)
+  (save-excursion
+    (goto-char (point-min))
+    (let* ((refer-index (-elem-index ":refer" sexp-as-list))
+           (as-index (-elem-index ":as" sexp-as-list))
+           (as-used (and as-index
+                         (re-search-forward (cljr--req-element-regexp (cljr--extract-sexp-content (nth (1+ as-index) sexp-as-list)) "/") nil t))))
+      (cond ((cljr--is-simple-req-statement-in-use req sexp-as-list as-used refer-index) req)
+            (refer-index
+             (cljr--rectify-refer-type-require sexp-as-list refer-index as-used as-index))))))
+
+(defun cljr--is-prefix-element-in-use (f-elem p-elem)
+  (goto-char (point-min))
+  (let ((elem (replace-regexp-in-string "]]]?" "]" p-elem)))
+    (if (s-starts-with? "[" elem)
+        (let ((result (cljr--rectify-simple-req-statement elem (split-string elem))))
+          (when result (concat "\n" result)))
+      (when (re-search-forward (cljr--req-element-regexp (s-join "." (list f-elem (cljr--extract-sexp-content elem))) "/") nil t) (cljr--extract-sexp-content elem)))))
+
+(defun cljr--rectify-prefix-list-req-statement (require-as-list)
+  (let* ((first-element (cljr--extract-sexp-content (car require-as-list)))
+         (used-elements (->> require-as-list
+                          (nthcdr 1)
+                          (-map (apply-partially 'cljr--is-prefix-element-in-use first-element))
+                          (delq nil))))
+    (when used-elements
+      (format "[%s %s]" first-element (s-join " " used-elements)))))
+
+(defun cljr--rectify-req-statement (require-as-list)
+  (save-excursion
+    (let ((sexp-as-list (-flatten (-map (lambda (sexp) (split-string sexp)) require-as-list))))
+      (if (or (= 1 (safe-length sexp-as-list))
+              (string= ":refer" (nth 1 sexp-as-list))
+              (string= ":as" (nth 1 sexp-as-list)))
+          (cljr--rectify-simple-req-statement (s-join " " require-as-list) sexp-as-list)
+        (cljr--rectify-prefix-list-req-statement require-as-list)))))
+
+(defun cljr--remove-require ()
+  (search-backward "(")
+  (cljr--delete-and-extract-sexp)
+  (join-line))
+
+;;;###autoload
+(defun cljr-remove-unused-requires ()
+  (interactive)
+  (save-excursion
+    (let (req-exists)
+      (dolist (statement (->> (cljr--extract-ns-statements ":require" t)
+                           (-map 'cljr--rectify-req-statement)
+                           (delq nil)
+                           (nreverse)))
+        (cljr--insert-in-ns ":require")
+        (insert statement)
+        (setq req-exists t))
+      (when (not req-exists) (cljr--remove-require)))
+    (paredit-backward-up)
+    (setq beg (point))
+    (paredit-forward)
+    (setq end (point))
+    (indent-region beg end)
+    (when cljr-auto-sort-ns
+      (cljr-sort-ns))))
 
 (defvar cljr--tmp-marker (make-marker))
 
@@ -403,10 +617,12 @@ errors."
 
 (defun cljr--extract-ns-from-use ()
   "Let point be denoted by |.  Then, when called on: |[used.ns ...]
-returns used.ns"
-  (let ((form (format "%s" (sexp-at-point))))
-    (substring form 1 (min (or (s-index-of " " form) (1- (length form))
-                               (1- (length form)))))))
+returns used.ns, when called on (:use some.ns) returns some.ns"
+  (let* ((form (format "%s" (sexp-at-point))))
+    (if (looking-at "(:use [A-z.0-9-]+)")
+        (s-chop-suffix ")" (second (s-split " " form)))
+      (substring form 1 (min (or (s-index-of " " form) (1- (length form))
+                                 (1- (length form))))))))
 
 (defun cljr--extract-multiple-ns-from-use ()
   "Let point be denoted by |.  Then, when called on: |[used.ns lib1 lib2]
@@ -420,18 +636,21 @@ returns (used.ns.lib1 used.ns.lib2)"
 
 (defun cljr--multiple-namespaces-p (use-form)
   "Returns t if the use form looks like [some.lib ns1 ns2 ...]"
-  (s-matches-p "[[A-z0-9.]+ \\(\\([A-z0-9]+ \\)\\|\\([A-z0-9]+\\)\\)+]"
-               (format "%s" use-form)))
+  (unless (s-contains? ":only" (format "%s" use-form))
+    (s-matches-p "\\[[A-z0-9.]+ \\(\\([A-z0-9]+ \\)\\|\\([A-z0-9]+\\)\\)+\\]"
+                 (format "%s" use-form))))
 
 (defun cljr--more-namespaces-in-use-p (nth)
   "Checks for, and moves POINT to, the NTH :use clause."
   (cljr--goto-ns)
   (cljr--search-forward-within-sexp "(:use ")
   (paredit-backward-up)
-  (let ((use-end (save-excursion (forward-sexp) (point)) ))
+  (let ((use-end (save-excursion (forward-sexp) (point))))
     (prog1
-        (re-search-forward "\\(\\( \\)\\{2,\\}\\|:use \\)\\[.*\\]" use-end t nth)
-      (paredit-backward))))
+        (re-search-forward "\\(\\(\\( \\)\\{2,\\}\\|:use \\)\\(\\[\\(.\\|\n\\)*?\\]\\)\\)\\|\\((:use [^]]+?)\\)" use-end t nth)
+      (if (and (looking-back "\\]") (looking-at "\\]"))
+          (paredit-backward-up)
+        (paredit-backward)))))
 
 (defun cljr--extract-used-namespaces ()
   "Return list of all the namespaces that are :used."
@@ -479,7 +698,10 @@ Presently, there's no support for :use clauses containing :exclude."
     (cljr--delete-and-extract-sexp)
     (join-line)
     (when (looking-at " ")
-      (delete-char 1)))
+      (delete-char 1))
+    (cljr--goto-ns)
+    (paredit-forward)
+    (indent-region (point-min) (point)))
   (when cljr-auto-sort-ns
     (cljr-sort-ns)))
 
@@ -560,7 +782,7 @@ If REGION is active, move all forms contained by region. "
         (setq ns (cljr--current-namespace)
               names (cljr--name-of-defns forms)))
       (cljr--update-ns-after-moving-fns ns (nreverse names))))
-    (cljr--just-one-blank-line))
+  (cljr--just-one-blank-line))
 
 (defun cljr--update-ns-after-moving-fns (ns &optional refer-names)
   "Updates the current ns declaration after moving defn forms out of the
@@ -630,7 +852,7 @@ optionally including those that are declared private."
         (if (and include-private (looking-at "defn-"))
             (push (cljr--name-of-current-def) names)
           (when (looking-at "defn ")
-              (push (cljr--name-of-current-def) names)))
+            (push (cljr--name-of-current-def) names)))
         (paredit-forward-up))
       names)))
 
@@ -848,7 +1070,48 @@ optionally including those that are declared private."
 (add-to-list 'mc--default-cmds-to-run-once 'cljr-introduce-let)
 
 (defun cljr--goto-let ()
-  (search-backward-regexp "\(\\(when-let\\|if-let\\|let\\)\\( \\|\\[\\)"))
+  (while (not (or (cljr--toplevel-p)
+                  (looking-at "\(\\(when-let\\|if-let\\|let\\)\\( \\|\\[\\)")))
+    (paredit-backward-up)))
+
+(defun cljr--extract-let-bindings ()
+  "Returns a list of lists. The inner lists contain two elements first is
+   the binding, second is the init-expr"
+  (cljr--goto-let)
+  (paredit-forward-down 2)
+  (paredit-backward)
+  (let* ((start (point))
+         (sexp-start start)
+         (end (progn (paredit-forward)
+                     (point)))
+         bindings)
+    (paredit-backward)
+    (paredit-forward-down)
+    (while (/= sexp-start end)
+      (paredit-move-forward)
+      (let ((sexp (buffer-substring sexp-start (point))))
+        (push (s-trim
+               (if (= start sexp-start)
+                   (substring sexp 1)
+                 sexp))
+              bindings))
+      (setq sexp-start (point)))
+    (-partition 2 (nreverse bindings))))
+
+(defun cljr--sexp-regexp (sexp)
+  (concat "\\([^[:word:]^-]\\)"
+          (s-join "[[:space:]\n\r]+" (-map 'regexp-quote (s-split " " sexp t)))
+          "\\([^[:word:]^-]\\)"))
+
+(defun cljr--replace-sexp-with-binding (binding)
+  (save-excursion
+    (let ((bind-var (car binding))
+          (init-expr (-last-item binding))
+          (end (save-excursion (progn (cljr--goto-let)
+                                      (paredit-forward)
+                                      (point)))))
+      (while (re-search-forward (cljr--sexp-regexp init-expr) end t)
+        (replace-match (concat "\\1" bind-var "\\2"))))))
 
 ;;;###autoload
 (defun cljr-expand-let ()
@@ -859,29 +1122,66 @@ optionally including those that are declared private."
   (paredit-forward-down 2)
   (paredit-forward-up)
   (skip-syntax-forward " >")
-  (paredit-convolute-sexp))
+  (paredit-convolute-sexp)
+  (-map 'cljr--replace-sexp-with-binding (cljr--extract-let-bindings)))
+
+(defun cljr--replace-sexp-with-binding-in-let ()
+  (-map 'cljr--replace-sexp-with-binding (cljr--extract-let-bindings))
+  (remove-hook 'multiple-cursors-mode-disabled-hook 'replace-sexp-with-binding-in-let))
 
 ;;;###autoload
 (defun cljr-move-to-let ()
   (interactive)
   (save-excursion
     (let ((contents (cljr--delete-and-extract-sexp)))
-      (cljr--goto-let)
-      (search-forward "[")
-      (paredit-backward)
-      (paredit-forward)
-      (paredit-backward-down)
-      (backward-char)
-      (if (looking-at "\\[ *\\]")
-          (forward-char)
-        (forward-char)
-        (newline-and-indent))
+      (cljr--prepare-to-insert-new-let-binding)
       (insert contents))
     (backward-sexp)
     (insert " ")
     (backward-char)
     (mc/create-fake-cursor-at-point))
+  (add-hook 'multiple-cursors-mode-disabled-hook 'cljr--replace-sexp-with-binding-in-let)
   (mc/maybe-multiple-cursors-mode))
+
+(defun cljr--prepare-to-insert-new-let-binding ()
+  (if (cljr--inside-let-binding-form-p)
+      (progn
+        (paredit-backward-up (- (cljr--depth-at-point)
+                                (cljr--depth-of-let-bindings)))
+        (paredit-backward)
+        (newline-and-indent)
+        (previous-line)
+        (indent-for-tab-command))
+    (cljr--goto-let)
+    (search-forward "[")
+    (paredit-backward)
+    (paredit-forward)
+    (paredit-backward-down)
+    (backward-char)
+    (if (looking-at "\\[ *\\]")
+        (forward-char)
+      (forward-char)
+      (newline-and-indent))))
+
+(defun cljr--inside-let-binding-form-p ()
+  (save-excursion
+    (let ((pos (point)))
+      (cljr--goto-let)
+      (re-search-forward "\\[")
+      (if (< pos (point))
+          nil
+        (paredit-forward-up)
+        (< pos (point))))))
+
+(defun cljr--depth-of-let-bindings ()
+  "Returns the depth where the variable bindings for the active
+let are."
+  (save-excursion
+    (cljr--goto-let)
+    (re-search-forward "\\[")
+    (cljr--depth-at-point)))
+
+(add-to-list 'mc--default-cmds-to-run-once 'cljr-move-to-let)
 
 ;; ------ Destructuring ----
 
@@ -974,7 +1274,7 @@ optionally including those that are declared private."
       (insert ":" (substring (cljr--delete-and-extract-sexp) 1 -1)))
      ((looking-at ":")
       (insert "\"" (substring (cljr--delete-and-extract-sexp) 1) "\""))
-     (otherwise
+     (t
       (message "Couldn't cljr-cycle-stringlike")))))
 
 ;;;###autoload
@@ -1010,6 +1310,109 @@ optionally including those that are declared private."
 
      ((equal 1 (point))
       (message "beginning of file reached, this was probably a mistake.")))))
+
+(defun cljr--goto-if ()
+  (while (not (or (cljr--toplevel-p)
+                  (looking-at "\\((if \\)\\|\\((if-not \\)")))
+    (paredit-backward-up)))
+
+;;;###autoload
+(defun cljr-cycle-if ()
+  "Cycle surrounding if or if-not, to if-not or if"
+  (interactive)
+  (save-excursion
+    (cljr--goto-if)
+    (cond
+     ((looking-at "(if-not")
+      (forward-char 3)
+      (delete-char 4)
+      (paredit-forward)
+      (paredit-forward)
+      (transpose-sexps 1))
+     ((looking-at "(if")
+      (forward-char 3)
+      (insert "-not")
+      (paredit-forward)
+      (paredit-forward)
+      (transpose-sexps 1)))))
+
+;;;###autoload
+(defun cljr-raise-sexp (&optional argument)
+  "Like paredit-raise-sexp, but removes # in front of function literals and sets."
+  (interactive "P")
+  (paredit-raise-sexp argument)
+  (when (looking-back " #" 2)
+    (delete-char -1)))
+
+;;;###autoload
+(defun cljr-splice-sexp-killing-backward (&optional argument)
+  "Like paredit-splice-sexp-killing-backward, but removes # in
+front of function literals and sets."
+  (interactive "P")
+  (paredit-splice-sexp-killing-backward argument)
+  (when (looking-back " #" 2)
+    (delete-char -1)))
+
+;;;###autoload
+(defun cljr-splice-sexp-killing-forward (&optional argument)
+  "Like paredit-splice-sexp-killing-backward, but removes # in
+front of function literals and sets."
+  (interactive "P")
+  (save-excursion
+    (paredit-backward-up)
+    (when (looking-back " #" 2)
+      (delete-char -1)))
+  (paredit-splice-sexp-killing-forward argument))
+
+;; ------ magic requires -------
+
+(defvar cljr--magic-requires-re
+  (concat "(\\(" (regexp-opt (-map 'car cljr-magic-require-namespaces)) "\\)/"))
+
+;;;###autoload
+(defun cljr-slash ()
+  "Inserts / as normal, but also checks for common namespace shorthands to require."
+  (interactive)
+  (insert "/")
+  (when (and cljr-magic-requires
+             (looking-back cljr--magic-requires-re 6))
+    (let* ((short (match-string-no-properties 1))
+           (long (aget cljr-magic-require-namespaces short)))
+      (if (and (not (cljr--in-namespace-declaration? (concat ":as " short)))
+               (or (not (eq :prompt cljr-magic-requires))
+                   (yes-or-no-p (format "Add %s :as %s to requires?" long short))))
+          (save-excursion
+            (cljr--insert-in-ns ":require")
+            (insert (format "[%s :as %s]" long short))
+            (when cljr-auto-sort-ns
+              (cljr-sort-ns)))))))
+
+(defun aget (map key)
+  (cdr (assoc key map)))
+
+(defun cljr--in-namespace-declaration? (s)
+  (save-excursion
+    (cljr--goto-ns)
+    (cljr--search-forward-within-sexp s)))
+
+;; ------ project clean --------
+
+(defun cljr-project-clean ()
+  (interactive)
+  (when (or (not cljr-project-clean-prompt)
+            (yes-or-no-p "Cleaning your project might change many of your clj files. Do you want to proceed?"))
+    (dolist (filename (cljr--project-files))
+      (when (s-ends-with? "clj" filename)
+        (let ((buffer (get-file-buffer filename))
+              find-file-p)
+          (if buffer
+              (set-buffer buffer)
+            (setq find-file-p t)
+            (find-file filename))
+          (ignore-errors (-map 'funcall cljr-project-clean-functions))
+          (save-buffer)
+          (when find-file-p
+            (kill-buffer)))))))
 
 ;; ------ minor mode -----------
 
