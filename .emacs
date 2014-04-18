@@ -257,6 +257,7 @@ Display the results in a hyperlinked *compilation* buffer."
   (interactive)
   (compile (concat "lein kibit " buffer-file-name)))
 
+(setq clojure-defun-style-default-indent t)
 
 ;;;-------------------mutt----------------------------------
 
