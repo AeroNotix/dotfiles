@@ -1,4 +1,4 @@
-;;; cider-eldoc.el --- eldoc support for Clojure
+;;; cider-eldoc.el --- eldoc support for Clojure -*- lexical-binding: t -*-
 
 ;; Copyright © 2012-2013 Tim King, Phil Hagelberg
 ;; Copyright © 2013 Bozhidar Batsov, Hugo Duncan, Steve Purcell
@@ -90,21 +90,37 @@ POS is the index of current argument."
           nil
         (list (cider-symbol-at-point) argument-index)))))
 
+(defun cider-eldoc--arglist-op-fn (thing)
+  "Return the arglist for THING using nREPL info op."
+  (cider-get-var-attr thing "arglists"))
+
+(defun cider-eldoc--arglist-eval-fn (thing)
+  "Return the arglist for THING using inlined code."
+  (let* ((form (format "(try
+                         (:arglists
+                          (clojure.core/meta
+                           (clojure.core/resolve
+                            (clojure.core/read-string \"%s\"))))
+                         (catch Throwable t nil))" thing))
+         (value (when thing
+                  (cider-get-raw-value (cider-tooling-eval-sync form nrepl-buffer-ns)))))
+    (unless (string= value "nil")
+      value)))
+
+(defun cider-eldoc-arglist (thing)
+  "Return the arglist for THING."
+  (if (nrepl-op-supported-p "info")
+      (cider-eldoc--arglist-op-fn thing)
+    (cider-eldoc--arglist-eval-fn thing)))
+
 (defun cider-eldoc ()
   "Backend function for eldoc to show argument list in the echo area."
   (when (cider-connected-p)
     (let* ((info (cider-eldoc-info-in-current-sexp))
            (thing (car info))
            (pos (cadr info))
-           (form (format "(try
-                           (:arglists
-                            (clojure.core/meta
-                             (clojure.core/resolve
-                              (clojure.core/read-string \"%s\"))))
-                           (catch Throwable t nil))" thing))
-           (value (when thing
-                    (cider-get-raw-value (cider-tooling-eval-sync form nrepl-buffer-ns)))))
-      (unless (string= value "nil")
+           (value (cider-eldoc-arglist thing)))
+      (when value
         (format "%s: %s"
                 (cider-eldoc-format-thing thing)
                 (cider-eldoc-format-arglist value pos))))))
@@ -113,7 +129,12 @@ POS is the index of current argument."
   "Turn on eldoc mode in the current buffer."
   (setq-local eldoc-documentation-function 'cider-eldoc)
   (apply 'eldoc-add-command cider-extra-eldoc-commands)
-  (turn-on-eldoc-mode))
+  (eldoc-mode +1))
 
 (provide 'cider-eldoc)
-;;; cider-eldoc ends here
+
+;; Local Variables:
+;; indent-tabs-mode: nil
+;; End:
+
+;;; cider-eldoc.el ends here

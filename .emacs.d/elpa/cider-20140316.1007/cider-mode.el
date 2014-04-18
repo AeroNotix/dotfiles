@@ -1,4 +1,4 @@
-;;; cider-mode.el --- Minor mode for REPL interactions
+;;; cider-mode.el --- Minor mode for REPL interactions -*- lexical-binding: t -*-
 
 ;; Copyright © 2012-2013 Tim King, Phil Hagelberg
 ;; Copyright © 2013 Bozhidar Batsov, Hugo Duncan, Steve Purcell
@@ -52,6 +52,7 @@
     (define-key map (kbd "C-c C-m") 'cider-macroexpand-1)
     (define-key map (kbd "C-c M-m") 'cider-macroexpand-all)
     (define-key map (kbd "C-c M-n") 'cider-repl-set-ns)
+    (define-key map (kbd "C-c M-i") 'cider-inspect)
     (define-key map (kbd "C-c C-d") 'cider-doc)
     (define-key map (kbd "C-c C-s") 'cider-src)
     (define-key map (kbd "C-c C-z") 'cider-switch-to-repl-buffer)
@@ -104,6 +105,7 @@
     ["Display documentation" cider-doc]
     ["Display source" cider-src]
     ["Display JavaDoc" cider-javadoc]
+    ["Inspect" cider-inspect]
     "--"
     ["Set ns" cider-repl-set-ns]
     ["Switch to REPL" cider-switch-to-repl-buffer]
@@ -120,4 +122,9 @@
     ["Version info" cider-version]))
 
 (provide 'cider-mode)
+
+;; Local Variables:
+;; indent-tabs-mode: nil
+;; End:
+
 ;;; cider-mode.el ends here
