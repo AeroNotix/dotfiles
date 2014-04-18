@@ -6,15 +6,15 @@ export UPDATE_ZSH_DAYS=13
 DISABLE_CORRECTION="true"
 
 source $ZSH/oh-my-zsh.sh
-source /usr/share/zsh/site-contrib/powerline.zsh
+#source /usr/share/zsh/site-contrib/powerline.zsh
 
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/home/xeno/dev/go/bin
 export PATH=$PATH:/home/xeno/.go/bin
-export PATH=$PATH:/home/xeno/git/contrib/persistent-https
 export GOPATH=/home/xeno/dev/go
 export GOROOT=/home/xeno/.go
+export PATH=/home/xeno/.gem/ruby/2.1.0/bin:$PATH
 export LEIN_SNAPSHOTS_IN_RELEASE=1
-
+export PATH=$PATH:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/
 
 plugins=(git github gnu-utils python ssh-agent rebar virtualenv lein systemd)
 
