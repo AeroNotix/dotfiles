@@ -290,3 +290,7 @@ Display the results in a hyperlinked *compilation* buffer."
 ;;; Local
 (load-file "~/.emacs.d/local-funs.el")
 (load-file "~/.emacs.d/keybinds.el")
+
+;;; ---------- edit server ----------------------------------
+
+(edit-server-start)
