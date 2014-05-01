@@ -94,7 +94,6 @@
  '(tabkey2-mode t)
  '(tool-bar-mode nil nil (tool-bar))
  '(tooltip-mode nil)
- '(transient-mark-mode nil)
  '(w32-meta-style (quote emacs))
  '(w32shell-shell (quote cmd)))
 (custom-set-faces
