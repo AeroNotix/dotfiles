@@ -44,3 +44,12 @@ VISUAL="emacsclient -c"
 
 export PYTHONSTARTUP=~/.pystartup
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# OPAM configuration
+. /home/xeno/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+CAML_LD_LIBRARY_PATH="/home/xeno/.opam/system/lib/stublibs:/usr/lib/ocaml/stublibs"; export CAML_LD_LIBRARY_PATH;
+PERL5LIB="/home/xeno/.opam/system/lib/perl5"; export PERL5LIB;
+OCAML_TOPLEVEL_PATH="/home/xeno/.opam/system/lib/toplevel"; export OCAML_TOPLEVEL_PATH;
+MANPATH="/home/xeno/.opam/system/man:"; export MANPATH;
+PATH=$PATH:"/home/xeno/.opam/system/bin:/home/xeno/.gem/ruby/2.1.0/bin:/home/xeno/.gem/ruby/2.1.0/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/opt/android-sdk/build-tools/19.0.3/:/opt/android-sdk/platform-tools:/opt/android-sdk/tools:/usr/share/java/gradle/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/home/xeno/dev/go/bin:/home/xeno/.go/bin:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/home/xeno/dev/go/bin:/home/xeno/.go/bin:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/"; export PATH;
