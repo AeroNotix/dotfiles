@@ -293,3 +293,9 @@ Display the results in a hyperlinked *compilation* buffer."
 ;;; ---------- edit server ----------------------------------
 
 (edit-server-start)
+
+;;;-------------- OCaml -------------------------------------
+
+(push "/usr/share/emacs/site-lisp" load-path)
+(autoload 'merlin-mode "merlin" "Merlin mode" t)
+(add-hook 'tuareg-mode-hook 'merlin-mode)
