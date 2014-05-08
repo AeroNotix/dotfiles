@@ -10,8 +10,7 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/home/xeno/dev/go/bin
 export PATH=$PATH:/home/xeno/.go/bin
-export GOPATH=/home/xeno/dev/go
-export GOROOT=/home/xeno/.go
+export GOPATH=$GOROOT:/home/xeno/dev/go
 export PATH=/home/xeno/.gem/ruby/2.1.0/bin:$PATH
 export LEIN_SNAPSHOTS_IN_RELEASE=1
 export PATH=$PATH:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/
@@ -53,3 +52,4 @@ PERL5LIB="/home/xeno/.opam/system/lib/perl5"; export PERL5LIB;
 OCAML_TOPLEVEL_PATH="/home/xeno/.opam/system/lib/toplevel"; export OCAML_TOPLEVEL_PATH;
 MANPATH="/home/xeno/.opam/system/man:"; export MANPATH;
 PATH=$PATH:"/home/xeno/.opam/system/bin:/home/xeno/.gem/ruby/2.1.0/bin:/home/xeno/.gem/ruby/2.1.0/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/opt/android-sdk/build-tools/19.0.3/:/opt/android-sdk/platform-tools:/opt/android-sdk/tools:/usr/share/java/gradle/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/home/xeno/dev/go/bin:/home/xeno/.go/bin:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/home/xeno/dev/go/bin:/home/xeno/.go/bin:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/"; export PATH;
+source ~/dev/golang-crosscompile/crosscompile.bash
