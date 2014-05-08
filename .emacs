@@ -162,8 +162,8 @@
                                 ("\\.hrl$"     . erlang-mode)
                                 ("\\.erl$"     . erlang-mode)
                                 ("\\.yrl$"     . erlang-mode)
-                                ("rebar.confg" . erlang-mode)
-                                ("relx.confg"  . erlang-mode))))
+                                ("rebar.config" . erlang-mode)
+                                ("relx.config"  . erlang-mode))))
 
 (defun flymake-erlang-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
