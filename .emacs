@@ -197,8 +197,7 @@
 (setq git-gutter-fr:side 'right-fringe)
 (setq-default left-fringe-width  0)
 (setq-default right-fringe-width 15)
-(define-globalized-minor-mode global-git-gutter-mode git-gutter-mode
-  (lambda () (git-gutter-mode 1)))
+(git-gutter-mode 1)
 
 (require 'fill-column-indicator)
 (fci-mode)
