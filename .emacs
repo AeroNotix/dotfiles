@@ -173,6 +173,8 @@
     (list "/usr/bin/syntaxerl" (list local-file))))
 
 (add-to-list 'flymake-allowed-file-name-masks '("\\.erl\\'" flymake-erlang-init))
+(add-hook 'erlang-mode-hook (lambda ()
+                              (flymake-mode-on)))
 
 ;;;---------------------C++----------------------------------
 
