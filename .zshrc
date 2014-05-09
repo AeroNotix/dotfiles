@@ -9,8 +9,8 @@ source $ZSH/oh-my-zsh.sh
 #source /usr/share/zsh/site-contrib/powerline.zsh
 
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/home/xeno/dev/go/bin
-export PATH=$PATH:/home/xeno/.go/bin
-export GOPATH=$GOROOT:/home/xeno/dev/go
+export PATH=$PATH:/home/xeno/dev/go/bin
+export GOPATH=/home/xeno/dev/go
 export PATH=/home/xeno/.gem/ruby/2.1.0/bin:$PATH
 export LEIN_SNAPSHOTS_IN_RELEASE=1
 export PATH=$PATH:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/
