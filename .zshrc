@@ -27,11 +27,11 @@ unsetopt auto_menu
 WORDCHARS='-'
 alias erl='rlwrap erl'
 function syu {
-    sudo pacman -Syu --ignore erlang
+    sudo pacman -Syu --ignore erlang,elasticsearch
 }
 
 function rekon {
-   curl -s -L rekon.basho.com | sh
+    curl -s -L rekon.basho.com | sh
 }
 
 function cwd2paths {
