@@ -1,0 +1,9 @@
+function syu {
+    sudo pacman -Syu --ignore erlang,elasticsearch
+}
+function rekon {
+    curl -s -L rekon.basho.com | sh
+}
+function cwd2paths {
+    export PYTHONPATH=$PYTHONPATH:$(pwd)
+}
