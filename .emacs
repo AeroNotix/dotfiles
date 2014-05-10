@@ -128,8 +128,8 @@
 
  ;;; Set column width to 78 maximum in RST files
 (add-hook 'rst-mode-hook
-     '(lambda ()
-	(setq-default fill-column 78)))
+          '(lambda ()
+             (setq-default fill-column 78)))
 
 ;;; ----------------Go-Modes---------------------------------
 
