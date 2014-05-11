@@ -206,8 +206,6 @@
 
 (global-fci-mode 1)
 
-(powerline-default-theme)
-
 ;;;---------------------python------------------------------
 
 (defun flymake-pylint-init ()
