@@ -220,6 +220,8 @@
              '("\\.py\\'" flymake-pylint-init))
 
 (set-variable 'python-indent-offset 4)
+(add-hook 'python-mode-hook (lambda ()
+                              (flymake-mode-on)))
 
 ;;;-------------------clojure-------------------------------
 
