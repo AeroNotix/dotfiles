@@ -43,17 +43,7 @@ source ~/.dotfiles/functions
 
 # OPAM configuration
 . /home/xeno/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-PROMPT='$ '
-unsetopt correctall
-unsetopt auto_menu
 
-[ $TERM = 'dumb' ] && PS1='$ '
-
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/dev/golang-crosscompile/crosscompile.bash
-source ~/.dotfiles/functions
-
-# OPAM configuration
-. /home/xeno/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+# ps1
 setopt prompt_subst
 PROMPT='$(collapse_pwd) ➞ '
