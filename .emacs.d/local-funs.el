@@ -41,13 +41,13 @@
           (backward-char 3)))
     (let* ((selection
             (buffer-substring-no-properties (region-beginning) (region-end)))
-           (exports (split-string selection ",")))
+           (exports (mapcar 'trim-string (split-string selection ","))))
       (move-to-export)
       (push-mark)
       (go-to-export-end)
       (kill-region (region-beginning) (region-end))
-      (dolist (e exports)
-        (let ((s (format "-export([%s]).\n" (trim-string e))))
+      (dolist (e (sort exports 'string<))
+        (let ((s (format "-export([%s]).\n" e)))
           (insert s))))))
 
 (global-set-key (kbd "C-x C-a s e") 'split-erlang-exports)
