@@ -4,7 +4,6 @@
   (mark-sexp)
   (kill-ring-save))
 
-
 (defun jump-to-config-file ()
   (interactive)
   (find-file (expand-file-name "~/.emacs")))
