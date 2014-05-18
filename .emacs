@@ -154,17 +154,18 @@
 (setq erlang-root-dir "/usr/local/lib/erlang")
 (setq inferior-erlang-machine-options '("-sname" "emacs"))
 (require 'erlang-start)
-(setq auto-mode-alist (append auto-mode-alist
-                              '(("\\.rel$"      . erlang-mode)
-                                ("\\.app$"      . erlang-mode)
-                                ("\\.appSrc$"   . erlang-mode)
-                                ("\\.app.src$"  . erlang-mode)
-                                ("\\.hrl$"      . erlang-mode)
-                                ("\\.erl$"      . erlang-mode)
-                                ("\\.yrl$"      . erlang-mode)
-                                ("rebar.config" . erlang-mode)
-                                ("relx.config"  . erlang-mode)
-                                ("sys.config"   . erlang-mode))))
+(setq auto-mode-alist (reverse
+                       (append auto-mode-alist
+                               '(("\\.rel$"       . erlang-mode)
+                                 ("\\.app$"       . erlang-mode)
+                                 ("\\.appSrc$"    . erlang-mode)
+                                 ("\\.app.src$"   . erlang-mode)
+                                 ("\\.hrl$"       . erlang-mode)
+                                 ("\\.erl$"       . erlang-mode)
+                                 ("\\.yrl$"       . erlang-mode)
+                                 ("rebar.config$" . erlang-mode)
+                                 ("relx.config$"  . erlang-mode)
+                                 ("sys.config$"   . erlang-mode)))))
 
 (defun flymake-erlang-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
