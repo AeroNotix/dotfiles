@@ -9,6 +9,8 @@
 ;; Whitespace killah
 (setq-default indicate-empty-lines t)
 (setq-default indicate-unused-lines t)
+(setq whitespace-style '(face tabs empty trailing lines-tail))
+(setq x-stretch-cursor t)
 
 ;; Always follow vc links
 (setq-default vc-follow-symlinks t)
