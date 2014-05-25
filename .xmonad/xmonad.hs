@@ -22,6 +22,7 @@ main = do
         , (( mod1Mask .|. shiftMask, xK_k),      spawn "keepassx")
         , (( mod1Mask .|. shiftMask, xK_v),      spawn "vlc")
         , (( mod1Mask .|. shiftMask, xK_s),      spawn "skype")
+        , (( mod1Mask,               xK_o),      sendMessage NextLayout)
         , (( mod1Mask .|. shiftMask, xK_w),      spawn "steam")
         , (( mod1Mask .|. shiftMask, xK_y),      spawn "pidgin")
         , (( mod1Mask .|. shiftMask, xK_e),      spawn "emacsclient -c")
