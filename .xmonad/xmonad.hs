@@ -34,6 +34,11 @@ main = do
         , (( mod1Mask,               xK_F7),     spawn "amixer set Master unmute")
         , (( mod1Mask,               xK_F8),     spawn "ncmpcpp play")
         , (( mod1Mask,               xK_F9),     spawn "ncmpcpp next")
-        , (( mod1Mask,               xK_o),      sendMessage NextLayout)
+        , (( mod1Mask,                xK_o),     sendMessage NextLayout)
+        , (( mod1Mask,                xK_c),     sendMessage (IncMasterN 1))
+        , (( mod1Mask,                xK_v),     sendMessage (IncMasterN (-1)))
         ] `removeKeys`
-        [ (( mod1Mask, xK_space)) ]
+        [ (( mod1Mask, xK_space ))
+        , (( mod1Mask, xK_period))
+        , (( mod1Mask, xK_comma ))
+        ]
