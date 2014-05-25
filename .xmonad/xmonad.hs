@@ -5,6 +5,7 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 import XMonad.Hooks.InsertPosition
+import XMonad.Util.EZConfig
 
 
 main = do
@@ -34,4 +35,5 @@ main = do
         , (( mod1Mask,               xK_F7),     spawn "amixer set Master unmute")
         , (( mod1Mask,               xK_F8),     spawn "ncmpcpp play")
         , (( mod1Mask,               xK_F9),     spawn "ncmpcpp next")
-        ]
+        ] `removeKeys`
+        [ (( mod1Mask, xK_space)) ]
