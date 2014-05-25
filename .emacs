@@ -305,3 +305,7 @@ Display the results in a hyperlinked *compilation* buffer."
 (autoload 'merlin-mode "merlin" "Merlin mode" t)
 (add-hook 'tuareg-mode-hook 'merlin-mode)
 (load-file "~/.emacs.d/ocp-indent.el")
+
+;;;------------- Haskell ------------------------------------
+
+(turn-on-haskell-indentation)
