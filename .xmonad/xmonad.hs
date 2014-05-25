@@ -37,9 +37,11 @@ main = do
         , (( mod1Mask,                xK_o),     sendMessage NextLayout)
         , (( mod1Mask,                xK_c),     sendMessage (IncMasterN 1))
         , (( mod1Mask,                xK_v),     sendMessage (IncMasterN (-1)))
+        , (( controlMask,             xK_p),     spawn "dmenu_run")
         ] `removeKeys`
         [ (( mod1Mask, xK_space ))
         , (( mod1Mask, xK_period))
         , (( mod1Mask, xK_comma ))
         , (( mod1Mask, xK_w))
+        , (( mod1Mask, xK_p))
         ]
