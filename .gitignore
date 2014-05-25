@@ -18,3 +18,4 @@
 /.config/StealthBastard[Steam]/
 /.config/StealthBastard*
 /.config/Thunar/accels.scm
+/.xmonad/xmonad_flymake.hs
