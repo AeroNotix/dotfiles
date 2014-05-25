@@ -4,12 +4,14 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
+import XMonad.Hooks.InsertPosition
 
 
 main = do
   let ssh_cmd = "termite -e 'ssh xeno@zerolength.com -t tmux attach-session -d -t weechat'" in
     xmonad $ defaultConfig
-        { manageHook = manageDocks <+> manageHook defaultConfig
+        { focusFollowsMouse = False
+        , manageHook = insertPosition Below Newer
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         } `additionalKeys`
         [ (( mod1Mask .|. shiftMask, xK_i),      spawn ssh_cmd)
