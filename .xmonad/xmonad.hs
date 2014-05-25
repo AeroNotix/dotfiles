@@ -25,4 +25,6 @@ main = do
         , (( mod1Mask .|. shiftMask, xK_w),      spawn "steam")
         , (( mod1Mask .|. shiftMask, xK_y),      spawn "pidgin")
         , (( mod1Mask .|. shiftMask, xK_e),      spawn "emacsclient -c")
+        , (( mod1Mask,               xK_F11),    spawn "amixer -c 0 --quiet set Master 1-")
+        , (( mod1Mask,               xK_F12),    spawn "amixer -c 0 --quiet set Master 1+")
         ]
