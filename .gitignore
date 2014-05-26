@@ -19,3 +19,5 @@
 /.config/StealthBastard*
 /.config/Thunar/accels.scm
 /.xmonad/xmonad_flymake.hs
+.config/gtk-2.0/*
+.config/htop/*
