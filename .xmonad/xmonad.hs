@@ -7,6 +7,7 @@ import XMonad.Util.EZConfig
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Util.Run(spawnPipe)
 
+
 main = do
   let ssh_cmd = "termite -e 'ssh xeno@zerolength.com -t tmux attach-session -d -t weechat'" in
     xmonad $ defaultConfig
