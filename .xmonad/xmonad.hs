@@ -37,6 +37,7 @@ main = do
         , (( mod1Mask,                xK_o),     sendMessage NextLayout)
         , (( mod1Mask,                xK_c),     sendMessage (IncMasterN 1))
         , (( mod1Mask,                xK_v),     sendMessage (IncMasterN (-1)))
+        , (( mod4Mask,                xK_m),     spawn "termite -e 'mutt'")
         , (( controlMask,             xK_p),     spawn "dmenu_run")
         ] `removeKeys`
         [ (( mod1Mask, xK_space ))
