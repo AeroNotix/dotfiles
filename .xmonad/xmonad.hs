@@ -43,9 +43,9 @@ main = do
         , (( mod4Mask,                xK_m),     spawn "termite -e 'mutt'")
         , (( controlMask,             xK_p),     spawn "dmenu_run")
         ] `removeKeys`
-        [ (( mod1Mask, xK_space ))
-        , (( mod1Mask, xK_period))
-        , (( mod1Mask, xK_comma ))
-        , (( mod1Mask, xK_w))
-        , (( mod1Mask, xK_p))
+        [ (( mod1Mask, xK_space  ))
+        , (( mod1Mask, xK_period ))
+        , (( mod1Mask, xK_comma  ))
+        , (( mod1Mask, xK_q      ))
+        , (( mod1Mask, xK_w      ))
         ]
