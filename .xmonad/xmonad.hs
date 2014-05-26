@@ -11,6 +11,8 @@ main = do
   let ssh_cmd = "termite -e 'ssh xeno@zerolength.com -t tmux attach-session -d -t weechat'" in
     xmonad $ defaultConfig
         { focusFollowsMouse = False
+        , borderWidth = 3
+        , focusedBorderColor = "#336699"
         , manageHook = insertPosition Below Newer
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         } `additionalKeys`
