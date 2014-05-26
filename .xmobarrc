@@ -9,7 +9,7 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
                     , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
                     , Run Mail [("inbox", "~/.mail/INBOX")] "mail"
                     , Run MBox [("", "~/.mail/INBOX", "")] [] "mbox"
-                    , Run CoreTemp ["-t","Temp:<core0>|<core1>C",
+                    , Run CoreTemp ["-t","<core0>C",
                                     "-L","40","-H","60",
                                     "-l","lightblue",
                                     "-n","gray90","-h","red"] 50
