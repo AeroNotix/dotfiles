@@ -13,6 +13,7 @@ main = do
         { focusFollowsMouse = False
         , borderWidth = 3
         , focusedBorderColor = "#336699"
+        , normalBorderColor  = "#000000"
         , manageHook = insertPosition Below Newer
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         } `additionalKeys`
