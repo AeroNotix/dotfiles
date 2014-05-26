@@ -42,10 +42,12 @@ main = do
         , (( mod1Mask,                xK_v),     sendMessage (IncMasterN (-1)))
         , (( mod4Mask,                xK_m),     spawn "termite -e 'mutt'")
         , (( controlMask,             xK_p),     spawn "dmenu_run")
+        , (( mod4Mask,                xK_q),     spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
         ] `removeKeys`
         [ (( mod1Mask, xK_space  ))
         , (( mod1Mask, xK_period ))
         , (( mod1Mask, xK_comma  ))
         , (( mod1Mask, xK_q      ))
         , (( mod1Mask, xK_w      ))
+        , (( mod1Mask, xK_p      ))
         ]
