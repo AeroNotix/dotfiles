@@ -1,8 +1,3 @@
-(add-to-list 'load-path "~/.emacs.d/")
-(let ((default-directory "~/.emacs.d/color-theme-6.6.0/"))
-  (normal-top-level-add-to-load-path '("."))
-  (normal-top-level-add-subdirs-to-load-path))
-
 ;; SCP is faster.
 (setq tramp-default-method "scp")
 
