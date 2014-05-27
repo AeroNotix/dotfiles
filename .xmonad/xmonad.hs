@@ -51,6 +51,8 @@ main = do
         , (( controlMask,            xK_p      ), spawn "dmenu_run")
         , (( mod4Mask,               xK_q      ), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
         , (( mod1Mask,               xK_Tab    ), nextScreen)
+        , (( mod4Mask,               xK_Left   ), prevWS)
+        , (( mod4Mask,               xK_Right  ), nextWS)
         ] `removeKeys`
         [ (( mod1Mask, xK_space  ))
         , (( mod1Mask, xK_period ))
