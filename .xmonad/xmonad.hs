@@ -6,6 +6,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Util.EZConfig
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Util.Run(spawnPipe)
+import XMonad.Actions.CycleWS
 
 
 amixerCmd s =
@@ -49,6 +50,7 @@ main = do
         , (( mod4Mask,               xK_m      ), spawn "termite -e 'mutt'")
         , (( controlMask,            xK_p      ), spawn "dmenu_run")
         , (( mod4Mask,               xK_q      ), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
+        , (( mod1Mask,               xK_Tab    ), nextScreen)
         ] `removeKeys`
         [ (( mod1Mask, xK_space  ))
         , (( mod1Mask, xK_period ))
