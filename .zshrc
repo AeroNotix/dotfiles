@@ -1,3 +1,6 @@
+ZSH=$HOME/.oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+
 alias erl='rlwrap erl'
 alias ls='ls --color=auto'
 
