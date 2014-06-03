@@ -8,5 +8,5 @@ function cwd2paths {
     export PYTHONPATH=$PYTHONPATH:$(pwd)
 }
 function collapse_pwd {
-echo $(pwd | sed -e "s,^$HOME,~,")
+    echo $(pwd | sed -e "s,^$HOME,~,")
 }
