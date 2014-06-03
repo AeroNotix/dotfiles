@@ -1,5 +1,5 @@
 function syu {
-    sudo pacman -Syu --ignore erlang,elasticsearch
+    sudo pacman -Syu --ignore erlang,elasticsearch,rebar
 }
 function rekon {
     curl -s -L rekon.basho.com | sh
