@@ -49,4 +49,4 @@ source ~/.dotfiles/functions
 
 # ps1
 setopt prompt_subst
-PROMPT='$(collapse_pwd) ➞ '
+PROMPT='$(collapse_pwd) '
