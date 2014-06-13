@@ -116,11 +116,6 @@
 
 (global-set-key (kbd "C-{") 'flymake-display-err-menu-for-current-line)
 
-;;;---------------project modes--------------------------------
-
-(add-to-list 'load-path "~/.emacs.d/eproject") ;
-(require 'eproject)
-
  ;;; Set column width to 78 maximum in RST files
 (add-hook 'rst-mode-hook
           '(lambda ()
