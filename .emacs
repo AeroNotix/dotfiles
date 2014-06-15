@@ -36,8 +36,10 @@
 
 (require 'package)
 (package-initialize)
+
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/"))
+             '("melpa" . "http://melpa.milkbox.net/packages/")
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 ;;; Set browser to Chrome
 (setq browse-url-browser-function 'browse-url-generic
