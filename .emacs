@@ -32,7 +32,7 @@
 ;;; Hurr durr I can spelz
 (setq-default flyspell-prog-mode t)
 
-;;;------------------Marmalade-------------------------------
+;;;------------------Package-------------------------------
 
 (require 'package)
 (package-initialize)
