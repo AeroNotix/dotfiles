@@ -68,4 +68,24 @@
         (let ((s (format "-export([%s]).\n" e)))
           (insert s))))))
 
+(defun more-lines ()
+  (= 0 (forward-line 1)))
+
+(defun max-line ()
+  (interactive)
+  (save-excursion
+    (goto-char (point-max))
+    (line-number-at-pos)))
+
+(defun strip-comments ()
+  (interactive)
+  (save-excursion
+    (goto-char 0)
+    (setq current-prefix-arg (list (max-line)))
+    (call-interactively 'comment-kill)
+    (goto-char 0)
+    (while (more-lines)
+      (delete-blank-lines))))
+
+(global-set-key (kbd "C-x C-a s c") 'strip-comments)
 (global-set-key (kbd "C-x C-a s e") 'split-erlang-exports)
