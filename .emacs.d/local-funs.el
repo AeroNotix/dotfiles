@@ -80,12 +80,12 @@
 (defun strip-comments ()
   (interactive)
   (save-excursion
-    (goto-char 0)
-    (setq current-prefix-arg (list (max-line)))
-    (call-interactively 'comment-kill)
-    (goto-char 0)
-    (while (more-lines)
-      (delete-blank-lines))))
+    (let ((comment-regexp-whole-line (format "^%s.+\n" comment-start))
+          (trailing-comment          (format "%s.+"    comment-start)))
+      (goto-char 0)
+      (replace-regexp comment-regexp-whole-line "")
+      (goto-char 0)
+      (replace-regexp trailing-comment ""))))
 
 (global-set-key (kbd "C-x C-a s c") 'strip-comments)
 (global-set-key (kbd "C-x C-a s e") 'split-erlang-exports)
