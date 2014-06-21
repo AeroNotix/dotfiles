@@ -163,9 +163,9 @@
 
 (defun flymake-erlang-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
-		     'flymake-create-temp-inplace))
-	 (local-file (file-relative-name temp-file
-		(file-name-directory buffer-file-name))))
+                     'flymake-create-temp-inplace))
+         (local-file (file-relative-name temp-file
+                                         (file-name-directory buffer-file-name))))
     (list "/usr/bin/syntaxerl" (list local-file))))
 
 (add-to-list 'flymake-allowed-file-name-masks '("\\.erl\\'" flymake-erlang-init))
@@ -175,8 +175,8 @@
 ;;;---------------------C++----------------------------------
 
 (c-add-style "my-style"
-	     '("stroustrup"
-	       (c-basic-offset . 4)))
+             '("stroustrup"
+               (c-basic-offset . 4)))
 
 (defun my-c++-mode-hook ()
   (c-set-style "my-style"))
@@ -224,12 +224,12 @@
 (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
 (add-hook 'cider-mode-hook 'ac-nrepl-setup)
 (eval-after-load "auto-complete"
-'(add-to-list 'ac-modes 'cider-repl-mode))
+  '(add-to-list 'ac-modes 'cider-repl-mode))
 
 ;; Teach compile the syntax of the kibit output
 (require 'compile)
 (add-to-list 'compilation-error-regexp-alist-alist
-         '(kibit "At \\([^:]+\\):\\([[:digit:]]+\\):" 1 2 nil 0))
+             '(kibit "At \\([^:]+\\):\\([[:digit:]]+\\):" 1 2 nil 0))
 (add-to-list 'compilation-error-regexp-alist 'kibit)
 
 ;; A convenient command to run "lein kibit" in the project to which
