@@ -9,6 +9,8 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Actions.CycleWS
 
 
+video_device = "/sys/class/backlight/acpi_video0/brightness"
+
 amixerCmd s =
   spawn $ "amixer -c 0 --quiet set Master " ++ s
 
