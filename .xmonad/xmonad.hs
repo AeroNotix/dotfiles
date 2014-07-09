@@ -54,8 +54,8 @@ main = do
         , (( mod1Mask,               xK_Tab    ), nextScreen)
         , (( mod4Mask,               xK_Left   ), prevWS)
         , (( mod4Mask,               xK_Right  ), nextWS)
-        , (( 0       , xF86XK_MonBrightnessUp  ), spawn "termite -e 'xbacklight -inc 40'")
-        , (( 0     , xF86XK_MonBrightnessDown  ), spawn "termite -e 'xbacklight -dec 40'")
+        , (( 0       , xF86XK_MonBrightnessUp  ), spawn "xbacklight -inc 40")
+        , (( 0     , xF86XK_MonBrightnessDown  ), spawn "xbacklight -dec 40")
         ] `removeKeys`
         [ (( mod1Mask, xK_space  ))
         , (( mod1Mask, xK_period ))
