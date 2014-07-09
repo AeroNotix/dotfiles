@@ -1,3 +1,4 @@
+(setq debug-on-error t)
 ;; SCP is faster.
 (setq tramp-default-method "scp")
 
