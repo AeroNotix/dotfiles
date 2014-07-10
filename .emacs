@@ -217,6 +217,7 @@
 ;;;-------------------clojure-------------------------------
 
 (require 'clj-refactor)
+(require 'clojure-mode-extra-font-locking)
 (add-hook 'clojure-mode-hook (lambda ()
                                (yas/minor-mode 1)
                                (flymake-mode-on)
