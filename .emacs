@@ -296,5 +296,6 @@ Display the results in a hyperlinked *compilation* buffer."
 
 ;;;------------- Haskell ------------------------------------
 
-(add-hook 'haskell-mode-hook (lambda ()
-                               (turn-on-haskell-indentation)))
+(add-hook 'haskell-mode-hook
+          (lambda ()
+            (turn-on-haskell-indentation)))
