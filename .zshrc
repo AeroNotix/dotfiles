@@ -50,3 +50,6 @@ source ~/.dotfiles/functions
 # ps1
 setopt prompt_subst
 PROMPT='$(collapse_pwd) '
+function precmd() {
+    echo "-------------"
+}
