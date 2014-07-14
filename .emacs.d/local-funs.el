@@ -87,5 +87,18 @@
       (goto-char 0)
       (replace-regexp trailing-comment ""))))
 
+(defun current-line ()
+  (count-lines 1 (point)))
+
+(defun copy-line-above ()
+  (interactive)
+  (insert-char
+   (save-excursion
+    (let ((col (current-column)))
+      (goto-line (- (current-line) 1))
+      (forward-char (+ col 1))
+      (char-before)))))
+
 (global-set-key (kbd "C-x C-a s c") 'strip-comments)
+(global-set-key (kbd "M-n")         'copy-line-above)
 (global-set-key (kbd "C-x C-a s e") 'split-erlang-exports)
