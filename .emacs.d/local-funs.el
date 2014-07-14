@@ -99,6 +99,15 @@
       (forward-char (+ col 1))
       (char-before)))))
 
+(defun arg-vec-to-destructure ()
+  (interactive)
+  (if (not (looking-at (regexp-quote "[")))
+      (search-backward "["))
+  (insert "[{:keys ")
+  (forward-sexp)
+  (insert "}]"))
+
 (global-set-key (kbd "C-x C-a s c") 'strip-comments)
 (global-set-key (kbd "M-n")         'copy-line-above)
 (global-set-key (kbd "C-x C-a s e") 'split-erlang-exports)
+(global-set-key (kbd "C-x C-a a v") 'arg-vec-to-destructure)
