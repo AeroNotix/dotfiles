@@ -116,7 +116,8 @@
 (defun erlang--insert-module ()
   (interactive)
   (if (buffer-empty?)
-      (insert (format "-module(%s)." (get-module-name)))))
+      (insert (format "-module(%s)." (get-module-name)))
+    (message "Buffer not empty, refusing to insert module attribute.")))
 
 (add-hook 'erlang-mode-hook 'erlang--insert-module)
 
