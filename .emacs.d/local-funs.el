@@ -107,6 +107,19 @@
   (forward-sexp)
   (insert "}]"))
 
+(defun get-module-name ()
+  (car (split-string (buffer-name) "\\.")))
+
+(defun buffer-empty? ()
+  (string= "" (buffer-substring-no-properties (point-max) 1)))
+
+(defun erlang--insert-module ()
+  (interactive)
+  (if (buffer-empty?)
+      (insert (format "-module(%s)." (get-module-name)))))
+
+(add-hook 'erlang-mode-hook 'erlang--insert-module)
+
 (global-set-key (kbd "C-x C-a s c") 'strip-comments)
 (global-set-key (kbd "M-n")         'copy-line-above)
 (global-set-key (kbd "C-x C-a s e") 'split-erlang-exports)
