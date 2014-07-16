@@ -46,6 +46,9 @@
       (set-marker end-marker nil)
       (set-marker next-line-marker nil))))
 
+(defun get-region-as-string ()
+  (buffer-substring-no-properties (region-beginning) (region-end)))
+
 (defun split-erlang-exports ()
   (interactive)
   (save-excursion
@@ -58,7 +61,7 @@
           (go-to-export-end)
           (backward-char 3)))
     (let* ((selection
-            (buffer-substring-no-properties (region-beginning) (region-end)))
+            (get-region-as-string))
            (exports (mapcar 'trim-string (split-string selection ","))))
       (move-to-export)
       (push-mark)
