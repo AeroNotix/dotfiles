@@ -278,10 +278,6 @@ Display the results in a hyperlinked *compilation* buffer."
       savehist-file "~/.emacs.d/save/savehist")
 (savehist-mode t)
 
-;;; Local
-(load-file "~/.emacs.d/local-funs.el")
-(load-file "~/.emacs.d/keybinds.el")
-
 ;;; ---------- edit server ----------------------------------
 
 (edit-server-start)
@@ -298,3 +294,7 @@ Display the results in a hyperlinked *compilation* buffer."
 (add-hook 'haskell-mode-hook
           (lambda ()
             (turn-on-haskell-indentation)))
+
+;;; Local
+(load-file "~/.emacs.d/local-funs.el")
+(load-file "~/.emacs.d/keybinds.el")
