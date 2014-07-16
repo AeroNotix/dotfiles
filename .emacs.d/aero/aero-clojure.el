@@ -17,7 +17,7 @@
                 (newline-and-indent))
               (sort (mapcar 'trim-string deps) 'string<)))))
 
-(defun arg-vec-to-destructure ()
+(defun clojure--arg-vec-to-destructure ()
   (interactive)
   (if (not (looking-at (regexp-quote "[")))
       (search-backward "["))
@@ -26,6 +26,6 @@
   (insert "}]"))
 
 (global-set-key (kbd "C-x C-a s d") 'clojure--sort-project-dependencies)
-(global-set-key (kbd "C-x C-a a v") 'arg-vec-to-destructure)
+(global-set-key (kbd "C-x C-a a v") 'clojure--arg-vec-to-destructure)
 
 (provide 'aero-clojure)
