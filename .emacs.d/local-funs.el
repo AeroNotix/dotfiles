@@ -146,6 +146,24 @@
 
 (global-set-key (kbd "M-<up>") 'move-region-up)
 (global-set-key (kbd "M-<down>") 'move-region-down)
+
+(defun clojure--sort-project-dependencies ()
+  (interactive)
+  (save-excursion
+    (goto-char 0)
+    (search-forward-regexp ":dependencies\s+")
+    (mark-sexp)
+    (forward-char)
+    (exchange-point-and-mark)
+    (backward-char)
+    (let* ((deps (get-region-as-string))
+           (deps (split-string deps "\n")))
+      (kill-region (region-beginning) (region-end))
+      (mapcar (lambda (d)
+                (insert d)
+                (newline-and-indent))
+              (sort (mapcar 'trim-string deps) 'string<)))))
+
 ;; full screen magit-status
 ;; http://whattheemacsd.com/setup-magit.el-01.html
 (defadvice magit-status (around magit-fullscreen activate)
@@ -164,3 +182,4 @@
 (global-set-key (kbd "M-n")         'copy-line-above)
 (global-set-key (kbd "C-x C-a s e") 'split-erlang-exports)
 (global-set-key (kbd "C-x C-a a v") 'arg-vec-to-destructure)
+(global-set-key (kbd "C-x C-a s d") 'clojure--sort-project-dependencies)
