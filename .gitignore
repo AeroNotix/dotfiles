@@ -58,3 +58,4 @@
 /.emacs.d/var/
 /.config/inkscape/
 /.config/menus/
+/.emacs.d/eshell/
