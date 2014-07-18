@@ -7,7 +7,7 @@
 (defun go-to-export-end ()
   (search-forward "])."))
 
-(defun split-erlang-exports ()
+(defun erlang--split-exports ()
   (interactive)
   (save-excursion
     (if (not (looking-at "-export"))
@@ -36,6 +36,6 @@
     (message "Buffer not empty, refusing to insert module attribute.")))
 
 (add-hook 'erlang-mode-hook 'erlang--insert-module)
-(global-set-key (kbd "C-x C-a s e") 'split-erlang-exports)
+(global-set-key (kbd "C-x C-a s e") 'erlang--split-exports)
 
 (provide 'aero-erlang)
