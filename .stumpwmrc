@@ -1,0 +1,53 @@
+;; -*- mode: common-lisp; -*-
+(require 'swank)
+(swank:create-server)
+(in-package :stumpwm)
+
+(set-focus-color "#336699")
+
+(defun take (seq n)
+  (subseq seq 0 n))
+
+(defun partition (seq n)
+  (loop for cell on seq by
+       #'(lambda (list)
+           (nthcdr n list))
+     collecting (subseq cell 0 n)))
+
+(dotimes (i 10)
+  (progn
+    (gnew (format nil "~d" i))
+    (define-key *top-map*
+        (kbd (format nil "M-~d" i))
+      (format nil "gselect ~s" i))))
+
+(defcommand set-volume (n) ((:string "Amount:"))
+  (let ((command-str (format nil "amixer -c 0 --quiet set Master ~s" n)))
+    (run-shell-command command-str)))
+
+(defmacro spawn-with (key-combo command)
+  `(define-key *top-map* (kbd ,key-combo) ,command))
+
+(defun spawn-with* (pair)
+  `(spawn-with ,(first pair) ,(second pair)))
+
+(defmacro spawn-many (&rest pairs)
+  (let ((pairs (partition pairs 2)))
+    `(progn
+       ,@(mapcar #'spawn-with* pairs))))
+
+(spawn-many
+  "M-E" "exec emacsclient -c"
+  "M-F" "exec chromium"
+  "S-M-RET" "exec termite"
+  "M-I" "exec termite 'ssh xeno@zerolength.com -t tmux attach-session -d -t weechat'"
+  "M-j" "fnext"
+  "M-J" "move-window right"
+  "s-s" "hsplit"
+  "s-S" "vsplit"
+  "s-r" "remove"
+  "s-R" "resize"
+  "M-C" "delete"
+  "M-Q" "quit"
+  "C-p" "exec dmenu")
+
