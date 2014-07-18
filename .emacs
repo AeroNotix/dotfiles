@@ -298,3 +298,4 @@ Display the results in a hyperlinked *compilation* buffer."
 ;;; Local
 (load-file "~/.emacs.d/local-funs.el")
 (load-file "~/.emacs.d/keybinds.el")
+(load (expand-file-name "~/.quicklisp/slime-helper.el"))
