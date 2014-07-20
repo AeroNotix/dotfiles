@@ -4,6 +4,9 @@
 (in-package :stumpwm)
 
 (set-focus-color "#336699")
+(setf *window-border-style*    :thick)
+(setf *message-window-gravity* :center)
+(setf *input-window-gravity*   :center)
 
 (defun take (seq n)
   (subseq seq 0 n))
