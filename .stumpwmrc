@@ -16,7 +16,6 @@
 (setf *transient-border-width* 3)
 (setf *window-border-style*    :thick)
 
-
 ;; mode-line
 (setf *mode-line-timeout* 1)
 (setf *screen-mode-line-format*
