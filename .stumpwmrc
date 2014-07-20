@@ -41,17 +41,18 @@
        ,@(mapcar #'spawn-with* pairs))))
 
 (spawn-many
-  "M-E" "exec emacsclient -c"
-  "M-F" "exec chromium"
-  "S-M-RET" "exec termite"
-  "M-I" "exec termite 'ssh xeno@zerolength.com -t tmux attach-session -d -t weechat'"
-  "M-j" "fnext"
-  "M-J" "move-window right"
-  "s-s" "hsplit"
-  "s-S" "vsplit"
-  "s-r" "remove"
-  "s-R" "resize"
-  "M-C" "delete"
-  "M-Q" "quit"
-  "C-p" "exec dmenu")
+ "M-E" "exec emacsclient -c"
+ "M-F" "exec chromium"
+ "S-M-RET" "exec termite"
+ "M-I" "exec termite -e 'ssh xeno@zerolength.com -t tmux attach-session -d -t weechat'"
+ "M-j" "fnext"
+ "M-J" "move-window right"
+ "M-M" "exec termite -e 'ncmpcpp'"
+ "s-s" "hsplit"
+ "s-S" "vsplit"
+ "s-r" "remove"
+ "s-R" "resize"
+ "M-C" "delete"
+ "M-Q" "quit"
+ "C-p" "exec dmenu")
 
