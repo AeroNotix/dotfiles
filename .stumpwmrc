@@ -25,6 +25,7 @@
       (format nil "gselect ~s" i))))
 
 (defcommand set-volume (n) ((:string "Amount:"))
+  "Changes the volume"
   (let ((command-str (format nil "amixer -c 0 --quiet set Master ~s" n)))
     (run-shell-command command-str)))
 
