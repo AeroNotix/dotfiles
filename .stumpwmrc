@@ -22,6 +22,7 @@
 (setf *screen-mode-line-format*
       (list '(:eval (run-shell-command "date | tr '\\n' ' '" t))))
 
+;; TODO: put these into a util package
 (defun take (seq n)
   (subseq seq 0 n))
 
