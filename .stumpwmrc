@@ -16,6 +16,9 @@
 (setf *transient-border-width* 3)
 (setf *window-border-style*    :thick)
 
+;; C-t clashes with Chromiums "new tab" short cut.
+(set-prefix-key (kbd "s-t"))
+
 ;; mode-line
 (setf *mode-line-timeout* 1)
 (setf *screen-mode-line-format*
