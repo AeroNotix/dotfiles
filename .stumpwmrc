@@ -103,4 +103,6 @@
  "M-F8" "ncmpcpp play"
  "M-F11" "set-volume 1-"
  "M-F12" "set-volume 1+"
- "C-p" "exec dmenu_run")
+ "C-p" "exec dmenu_run"
+ "s-Right" "gnext"
+ "s-Left" "gprev")
