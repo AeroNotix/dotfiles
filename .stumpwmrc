@@ -95,6 +95,7 @@
  "M-Y" "exec pidgin"
  "M-V" "exec vlc"
  "M-K" "exec keepassx"
+ "M-W" "exec termite -e 'wicd-curses'"
  "s-m" "exec termite -e 'mutt'"
  "M-F5" "ncmpcpp pause"
  "M-F6" "exec amixer -c 0 --quiet set Master mute"
