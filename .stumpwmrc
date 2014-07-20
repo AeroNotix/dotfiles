@@ -41,12 +41,27 @@
 
 (defcommand set-volume (n) ((:string "Amount:"))
   "Changes the volume"
-  (let ((command-str (format nil "amixer -c 0 --quiet set Master ~s" n)))
+  (let ((command-str (format nil "amixer -c 0 --quiet set Master ~a" n)))
     (run-shell-command command-str)))
 
 (defcommand ncmpcpp (what) ((:string "Command:"))
   "Sends a command to ncmpcpp"
   (run-shell-command (format nil "ncmpcpp ~s" what)))
+
+(defun shift-windows-forward (frames win)
+  (when frames
+    (let ((frame (car frames)))
+      (shift-windows-forward (cdr frames)
+                             (frame-window frame))
+      (when win
+        (pull-window win frame)))))
+
+(defcommand my-rotate-windows () ()
+  "rotate a pair of windows"
+  (let* ((frames (group-frames (current-group)))
+           (win (frame-window (car (last frames)))))
+          (shift-windows-forward frames win)))
+
 (defmacro spawn-with (key-combo command)
   `(define-key *top-map* (kbd ,key-combo) ,command))
 
