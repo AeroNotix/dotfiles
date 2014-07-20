@@ -20,8 +20,7 @@
 ;; mode-line
 (setf *mode-line-timeout* 1)
 (setf *screen-mode-line-format*
-      (list '(:eval (run-shell-command "date" t))))
-
+      (list '(:eval (run-shell-command "date | tr '\\n' ' '" t))))
 
 (defun take (seq n)
   (subseq seq 0 n))
