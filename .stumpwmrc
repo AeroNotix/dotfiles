@@ -44,6 +44,9 @@
   (let ((command-str (format nil "amixer -c 0 --quiet set Master ~s" n)))
     (run-shell-command command-str)))
 
+(defcommand ncmpcpp (what) ((:string "Command:"))
+  "Sends a command to ncmpcpp"
+  (run-shell-command (format nil "ncmpcpp ~s" what)))
 (defmacro spawn-with (key-combo command)
   `(define-key *top-map* (kbd ,key-combo) ,command))
 
@@ -71,3 +74,5 @@
  "M-Q" "quit"
  "C-p" "exec dmenu")
 
+ "M-F5" "ncmpcpp pause"
+ "M-F8" "ncmpcpp play"
