@@ -1,11 +1,12 @@
 ;; -*- mode: common-lisp; -*-
 (require 'swank)
-(swank:create-server)
 (in-package :stumpwm)
 
 (set-focus-color "#336699")
 (setf *window-border-style*    :thick)
 (setf *message-window-gravity* :center)
+;; Engage!
+(swank:create-server)
 (setf *input-window-gravity*   :center)
 
 (defun take (seq n)
