@@ -84,7 +84,7 @@
  "M-W" "exec termite -e 'wicd-curses'"
  "s-m" "exec termite -e 'mutt'"
  "M-F5" "ncmpcpp pause"
- "M-F6" "exec amixer -c 0 --quiet set Master mute"
+ "M-F6" "exec amixer set Master mute"
  "M-F7" "exec amixer set Master unmute"
  "M-F8" "ncmpcpp play"
  "M-F11" "set-volume 1-"
