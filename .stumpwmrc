@@ -63,6 +63,7 @@
        ,@(mapcar #'spawn-with* pairs))))
 
 (spawn-many
+ "M-TAB" "sother"
  "M-E" "exec emacsclient -c"
  "M-F" "exec chromium"
  "S-M-RET" "exec termite"
