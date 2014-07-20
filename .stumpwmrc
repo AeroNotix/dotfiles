@@ -2,12 +2,19 @@
 (require 'swank)
 (in-package :stumpwm)
 
-(set-focus-color "#336699")
-(setf *window-border-style*    :thick)
-(setf *message-window-gravity* :center)
+
 ;; Engage!
 (swank:create-server)
+
+;; Style customizations
+(set-focus-color               "#336699")
+(set-unfocus-color             "#336699")
 (setf *input-window-gravity*   :center)
+(setf *maxsize-border-width*   3)
+(setf *message-window-gravity* :center)
+(setf *normal-border-width*    3)
+(setf *transient-border-width* 3)
+(setf *window-border-style*    :thick)
 
 (defun take (seq n)
   (subseq seq 0 n))
