@@ -105,4 +105,6 @@
  "M-F12" "set-volume 1+"
  "C-p" "exec dmenu_run"
  "s-Right" "gnext"
- "s-Left" "gprev")
+ "s-Left" "gprev"
+ "XF86MonBrightnessUp"   "exec xbacklight -inc 40"
+ "XF86MonBrightnessDown" "exec xbacklight -dec 40")
