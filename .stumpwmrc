@@ -22,7 +22,7 @@
 ;; mode-line
 (setf *mode-line-timeout* 1)
 (setf *screen-mode-line-format*
-      (list '(:eval (run-shell-command "date | tr '\\n' ' '" t))))
+      (list '(:eval (run-shell-command "date +\"%T | %D\" | tr '\\n' ' '" t))))
 
 ;; TODO: put these into a util package
 (defun take (seq n)
