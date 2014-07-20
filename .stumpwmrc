@@ -65,6 +65,7 @@
  "M-I" "exec termite -e 'ssh xeno@zerolength.com -t tmux attach-session -d -t weechat'"
  "M-j" "fnext"
  "M-J" "move-window right"
+ "M-H" "move-window left"
  "M-M" "exec termite -e 'ncmpcpp'"
  "s-s" "hsplit"
  "s-S" "vsplit"
