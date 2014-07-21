@@ -10,10 +10,10 @@
 (set-focus-color               "#336699")
 (set-unfocus-color             "#336699")
 (setf *input-window-gravity*   :center)
-(setf *maxsize-border-width*   3)
+(setf *maxsize-border-width*   1)
 (setf *message-window-gravity* :center)
-(setf *normal-border-width*    3)
-(setf *transient-border-width* 3)
+(setf *normal-border-width*    1)
+(setf *transient-border-width* 1)
 (setf *window-border-style*    :thick)
 
 
@@ -24,6 +24,7 @@
 (setf *mode-line-timeout* 1)
 (setf *screen-mode-line-format*
       (list "^B" '(:eval (run-shell-command "date +\"%T | %D\" | tr '\\n' ' '" t))))
+(mode-line)
 
 ;; TODO: put these into a util package
 (defun take (seq n)
