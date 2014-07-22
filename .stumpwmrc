@@ -95,5 +95,7 @@
  "C-p" "exec dmenu_run"
  "s-Right" "gnext"
  "s-Left" "gprev"
+ "s-Up" "next"
+ "s-Down" "prev"
  "XF86MonBrightnessUp"   "exec xbacklight -inc 40"
  "XF86MonBrightnessDown" "exec xbacklight -dec 40")
