@@ -1,4 +1,3 @@
-
 ;; -*- mode: common-lisp; -*-
 (require 'swank)
 (in-package :stumpwm)
