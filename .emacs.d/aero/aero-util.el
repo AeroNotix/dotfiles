@@ -72,6 +72,13 @@
    "\\`[ \t\n]*" ""
    (replace-regexp-in-string "[ \t\n]*\\'" "" string)))
 
+(defmacro destructuring-regexp-bind (bindings regexp string &rest body)
+  `(when (string-match ,regexp ,string)
+     (progv ',bindings
+         (mapcar (lambda (i) (match-string i ,string))
+                 (number-sequence 1 (length ',bindings)))
+       ,@body)))
+
 (defmacro cons-assoc (k v l)
   `(setf ,l (cl-acons ,k ,v ,l)))
 
