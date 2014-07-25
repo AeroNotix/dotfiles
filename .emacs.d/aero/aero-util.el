@@ -72,6 +72,9 @@
    "\\`[ \t\n]*" ""
    (replace-regexp-in-string "[ \t\n]*\\'" "" string)))
 
+(defmacro cons-assoc (k v l)
+  `(setf ,l (cl-acons ,k ,v ,l)))
+
 (global-set-key (kbd "C-x C-a s c") 'strip-comments)
 (global-set-key (kbd "M-n")         'copy-line-above)
 
