@@ -78,6 +78,23 @@
       (insert-defines-at-previous-defines replacements)
       (insert-defines-after-exports replacements))))
 
+(defun erlang--cycle-string-like ()
+  (interactive)
+  (skip-syntax-backward "_w")
+  (cond
+   ((eq ?\< (char-before (- (point) 2)))
+    (progn
+      (backward-char 3)
+      (delete-forward-char 2)
+      (end-of-sexp)
+      (delete-forward-char 2)))
+    (t
+     (progn
+       (backward-char)
+       (insert "<<")
+       (end-of-sexp)
+       (insert ">>")))))
+
 (add-hook 'erlang-mode-hook 'erlang--insert-module)
 (global-set-key (kbd "C-x C-a s e") 'erlang--split-exports)
 
