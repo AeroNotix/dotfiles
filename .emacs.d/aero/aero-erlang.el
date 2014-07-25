@@ -79,6 +79,11 @@
       (insert-defines-after-exports replacements))))
 
 (defun erlang--cycle-string-like ()
+  ;;; Cycles a "string-like" (i.e. a binary string or a regular string)
+  ;;; between each other.
+  ;;;
+  ;;; <<"something">> -> "something"
+  ;;; "something      -> <<"something">>.
   (interactive)
   (skip-syntax-backward "_w")
   (cond
