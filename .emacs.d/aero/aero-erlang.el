@@ -66,6 +66,13 @@
 
 (defun erlang--binaries-to-defines ()
   ;;; Interactively replaces all binaries in a file to a define.
+  ;;;
+  ;;; TODO:
+  ;;;
+  ;;; * Make it do the rest of the same binaries in a file when one is
+  ;;;   selected for replacement.
+  ;;; * Optionally put all defines into an include file.
+  ;;; * Replace a whole application's binaries.
   (interactive)
   (let ((bin-regex "\\(<<\"\\([a-zA-Z_]+\\)\">>\\)")
         (replacements nil))
