@@ -65,6 +65,7 @@
         t))))
 
 (defun erlang--binaries-to-defines ()
+  ;;; Interactively replaces all binaries in a file to a define.
   (interactive)
   (let ((bin-regex "\\(<<\"\\([a-zA-Z_]+\\)\">>\\)")
         (replacements nil))
