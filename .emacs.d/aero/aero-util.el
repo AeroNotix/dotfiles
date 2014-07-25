@@ -82,6 +82,13 @@
 (defmacro cons-assoc (k v l)
   `(setf ,l (cl-acons ,k ,v ,l)))
 
+(defmacro let-while (binding-form &rest body)
+  `(let ((,(first binding-form) ,(second binding-form)))
+     (when ,(first binding-form)
+       (progn
+         ,@body
+         (let-while ,binding-form ,@body)))))
+
 (global-set-key (kbd "C-x C-a s c") 'strip-comments)
 (global-set-key (kbd "M-n")         'copy-line-above)
 
