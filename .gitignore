@@ -59,3 +59,4 @@
 /.config/inkscape/
 /.config/menus/
 /.emacs.d/eshell/
+/.emacs.d/jenkins.el
