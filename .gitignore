@@ -60,3 +60,4 @@
 /.config/menus/
 /.emacs.d/eshell/
 /.emacs.d/jenkins.el
+/.emacs.d/url/cookies
