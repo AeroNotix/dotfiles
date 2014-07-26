@@ -301,3 +301,4 @@ Display the results in a hyperlinked *compilation* buffer."
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
 
 (achievements-mode)
+(load "~/.emacs.d/jenkins.el")
