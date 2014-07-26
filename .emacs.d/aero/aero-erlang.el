@@ -51,7 +51,6 @@
   (insert-defines defines))
 
 (defun insert-defines-after-exports (defines)
-  (interactive)
   (move-to-export)
   (go-to-export-end)
   (newline 2)
