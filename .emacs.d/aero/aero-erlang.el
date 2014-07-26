@@ -64,31 +64,32 @@
       (when (search "-define(" buffer-text)
         t))))
 
-(defun replace-all (from to)
+(defun replace-all (from to &optional after)
   (while (search-forward-regexp from nil t)
-    (replace-match to nil nil)))
+    (replace-match to nil nil))
+  (when after
+    (goto-char after)))
 
 (defun erlang--binaries-to-defines ()
   ;;; Interactively replaces all binaries in a file to a define.
   ;;;
   ;;; TODO:
   ;;;
-  ;;; * Make it do the rest of the same binaries in a file when one is
-  ;;;   selected for replacement.
   ;;; * Optionally put all defines into an include file.
   ;;; * Replace a whole application's binaries.
   (interactive)
   (let ((bin-regex "\\(<<\"\\([a-zA-Z_]+\\)\">>\\)")
-        (replacements nil))
+        (replacements nil)
+        (just-replace-it (y-or-n-p "Replace all, no prompts? ")))
     (while (search-forward-regexp bin-regex nil t)
-      (when (y-or-n-p "Replace? ")
-        (goto-char (match-beginning 1))
-        (let ((define-replace (format "?%s" (upcase (match-string-no-properties 2))))
-              (full-bin       (match-string-no-properties 1)))
-          (cons-assoc full-bin define-replace replacements)
-          (if (y-or-n-p "Replace all? ")
-             (replace-all full-bin define-replace)
-            (replace-match define-replace t nil)))))
+      (when (or just-replace-it (y-or-n-p "Replace? "))
+        (let ((orig-posish (goto-char (match-beginning 1))))
+          (let ((define-replace (format "?%s" (upcase (match-string-no-properties 2))))
+                (full-bin       (match-string-no-properties 1)))
+            (cons-assoc full-bin define-replace replacements)
+            (if (or just-replace-it (y-or-n-p "Replace all? "))
+                (replace-all full-bin define-replace orig-posish)
+              (replace-match define-replace t nil))))))
     (if (defines-exist?)
       (insert-defines-at-previous-defines replacements)
       (insert-defines-after-exports replacements))))
