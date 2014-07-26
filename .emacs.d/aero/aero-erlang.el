@@ -64,6 +64,10 @@
       (when (search "-define(" buffer-text)
         t))))
 
+(defun replace-all (from to)
+  (while (search-forward-regexp from nil t)
+    (replace-match to nil nil)))
+
 (defun erlang--binaries-to-defines ()
   ;;; Interactively replaces all binaries in a file to a define.
   ;;;
@@ -78,10 +82,13 @@
         (replacements nil))
     (while (search-forward-regexp bin-regex nil t)
       (when (y-or-n-p "Replace? ")
+        (goto-char (match-beginning 1))
         (let ((define-replace (format "?%s" (upcase (match-string-no-properties 2))))
               (full-bin       (match-string-no-properties 1)))
           (cons-assoc full-bin define-replace replacements)
-          (replace-match define-replace t nil))))
+          (if (y-or-n-p "Replace all? ")
+             (replace-all full-bin define-replace)
+            (replace-match define-replace t nil)))))
     (if (defines-exist?)
       (insert-defines-at-previous-defines replacements)
       (insert-defines-after-exports replacements))))
