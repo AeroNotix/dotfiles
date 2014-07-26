@@ -56,6 +56,14 @@
   (newline 2)
   (insert-defines defines))
 
+(defun write-defines-to-file (defines)
+  (let ((fname (read-file-name "New file for defines output:")))
+    (when (file-exists-p fname)
+      (error "File already exists"))
+    (find-file fname)
+    (newline 2)
+    (insert-defines defines)))
+
 (defun defines-exist? ()
   (interactive)
   (save-excursion
@@ -74,7 +82,6 @@
   ;;;
   ;;; TODO:
   ;;;
-  ;;; * Optionally put all defines into an include file.
   ;;; * Replace a whole application's binaries.
   (interactive)
   (let ((bin-regex "\\(<<\"\\([a-zA-Z_]+\\)\">>\\)")
@@ -89,9 +96,11 @@
             (if (or just-replace-it (y-or-n-p "Replace all? "))
                 (replace-all full-bin define-replace orig-posish)
               (replace-match define-replace t nil))))))
-    (if (defines-exist?)
-      (insert-defines-at-previous-defines replacements)
-      (insert-defines-after-exports replacements))))
+    (if (y-or-n-p "Write to file? ")
+        (write-defines-to-file replacements)
+      (if (defines-exist?)
+          (insert-defines-at-previous-defines replacements)
+        (insert-defines-after-exports replacements)))))
 
 (defun erlang--cycle-string-like ()
   ;;; Cycles a "string-like" (i.e. a binary string or a regular string)
