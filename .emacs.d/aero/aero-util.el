@@ -89,6 +89,16 @@
          ,@body
          (let-while ,binding-form ,@body)))))
 
+(defun make-eval-after-load (what expr)
+  `(eval-after-load ,what
+     ,expr))
+
+(defmacro eval-after-load+ (what &rest body)
+  `(progn
+     ,@(mapcar (lambda (expr)
+                 (make-eval-after-load what expr))
+               body)))
+
 (global-set-key (kbd "C-x C-a s c") 'strip-comments)
 (global-set-key (kbd "M-n")         'copy-line-above)
 
