@@ -29,11 +29,15 @@
         (let ((s (format "-export([%s]).\n" e)))
           (insert s))))))
 
+(defun erlang-file? ()
+  (interactive)
+  (string= "erl" (file-name-extension (buffer-file-name))))
+
 (defun erlang--insert-module ()
   (interactive)
-  (if (buffer-empty?)
+  (if (and (buffer-empty?) (erlang-file?))
       (insert (format "-module(%s)." (get-module-name)))
-    (message "Buffer not empty, refusing to insert module attribute.")))
+    (message "Refusing to insert module attribute.")))
 
 (defun define->string (define)
   (format "-define(%s, %s).\n" (substring (cdr define) 1) (car define)))
@@ -61,7 +65,8 @@
     (when (file-exists-p fname)
       (error "File already exists"))
     (find-file fname)
-    (newline 2)
+    (when (erlang-file?)
+      (newline 2))
     (insert-defines defines)))
 
 (defun defines-exist? ()
