@@ -131,8 +131,9 @@
        (insert ">>")))))
 
 
+(add-hook 'erlang-mode-hook 'erlang--insert-module)
+
 (eval-after-load+ 'erlang-mode
-  '(add-hook   'erlang-mode-hook 'erlang--insert-module)
   '(define-key 'erlang-mode-map "C-x C-a d b" 'erlang--binaries-to-defines)
   '(define-key 'erlang-mode-map (kbd "C-x C-a c s") 'erlang--cycle-string-like)
   '(define-key 'erlang-mode-map (kbd "C-x C-a s e") 'erlang--split-exports))
