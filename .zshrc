@@ -2,7 +2,7 @@ ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 alias erl='rlwrap erl'
-alias ls='ls --color=auto'
+#alias ls='ls --color=auto'
 
 export EDITOR="emacsclient -c"
 export VISUAL="emacsclient -c"
@@ -53,3 +53,5 @@ PROMPT='$(collapse_pwd) '
 function precmd() {
     echo "-------------"
 }
+
+eval $(dircolors -b $HOME/.dircolors)
