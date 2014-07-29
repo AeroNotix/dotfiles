@@ -1,6 +1,10 @@
 (setq debug-on-error t)
+
 ;; SCP is faster.
 (setq tramp-default-method "scp")
+
+;;; it's easier this way
+(setq user-mail-address "aaron.l.france@gmail.com")
 
 ;; Whitespace killah
 (setq-default indicate-empty-lines t)

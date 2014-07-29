@@ -12,7 +12,6 @@
  aero-pkgs
  '(aero-util
    aero-clojure
-   aero-erlang
    aero-magit
    aero-region))
 
