@@ -2,22 +2,22 @@ ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 alias erl='rlwrap erl'
-#alias ls='ls --color=auto'
 
-export EDITOR="emacsclient -c"
-export VISUAL="emacsclient -c"
-export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/home/xeno/dev/go/bin
-export PATH=$PATH:/home/xeno/dev/go/bin
-export GOPATH=/home/xeno/dev/go
-export PATH=/home/xeno/.gem/ruby/2.1.0/bin:$PATH
-export LEIN_SNAPSHOTS_IN_RELEASE=1
-export PATH=$PATH:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/
 export CAML_LD_LIBRARY_PATH="/home/xeno/.opam/system/lib/stublibs:/usr/lib/ocaml/stublibs"
-export PERL5LIB="/home/xeno/.opam/system/lib/perl5"
-export OCAML_TOPLEVEL_PATH="/home/xeno/.opam/system/lib/toplevel"
+export EDITOR="emacsclient -c"
+export GOPATH=/home/xeno/dev/go
+export LEIN_SNAPSHOTS_IN_RELEASE=1
 export MANPATH="/home/xeno/.opam/system/man:"
+export OCAML_TOPLEVEL_PATH="/home/xeno/.opam/system/lib/toplevel"
 export PATH=$PATH:"/home/xeno/.opam/system/bin"
+export PATH=$PATH:/home/xeno/dev/go/bin
+export PATH=$PATH:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/
+export PATH=$PATH:/usr/lib/erlang/lib/lfe-0.8/bin
+export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/home/xeno/dev/go/bin
+export PATH=$PATH:/home/xeno/.gem/ruby/2.1.0/bin
+export PERL5LIB="/home/xeno/.opam/system/lib/perl5"
 export PYTHONSTARTUP=~/.pystartup
+export VISUAL=$EDITOR
 
 HISTSIZE=100000000
 SAVEHIST=100000000
