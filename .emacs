@@ -12,6 +12,8 @@
 (setq whitespace-style '(face tabs empty trailing lines-tail))
 (setq x-stretch-cursor t)
 
+(setq explicit-shell-file-name "/usr/bin/zsh")
+
 ;; Always follow vc links
 (setq-default vc-follow-symlinks t)
 
