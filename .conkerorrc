@@ -3,6 +3,7 @@
 define_key(content_buffer_normal_keymap, "f5", "reload")
 define_key(content_buffer_normal_keymap, "M-left", "back")
 define_key(content_buffer_normal_keymap, "M-right", "forward")
+define_key(content_buffer_normal_keymap, "C-t"    , "find-url-new-buffer");
 
 define_webjump("aur" , "https://aur.archlinux.org/packages/?K=%s");
 define_webjump("g"   ,  "http://www.google.com/search?q=%s&ie=utf-8&oe=utf-8&aq=t");
