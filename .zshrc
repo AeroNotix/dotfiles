@@ -4,6 +4,7 @@ source $ZSH/oh-my-zsh.sh
 alias erl='rlwrap erl'
 
 export CAML_LD_LIBRARY_PATH="/home/xeno/.opam/system/lib/stublibs:/usr/lib/ocaml/stublibs"
+export CLOJURESCRIPT_HOME=$HOME/dev/clojurescript
 export EDITOR="emacsclient -c"
 export GOPATH=/home/xeno/dev/go
 export LEIN_SNAPSHOTS_IN_RELEASE=1
@@ -15,6 +16,7 @@ export PATH=$PATH:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/
 export PATH=$PATH:/usr/lib/erlang/lib/lfe-0.8/bin
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/home/xeno/dev/go/bin
 export PATH=$PATH:/home/xeno/.gem/ruby/2.1.0/bin
+export PATH=$PATH:$CLOJURESCRIPT_HOME/bin
 export PERL5LIB="/home/xeno/.opam/system/lib/perl5"
 export PYTHONSTARTUP=~/.pystartup
 export VISUAL=$EDITOR
