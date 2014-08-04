@@ -180,7 +180,7 @@
     (let ((fn-and-arity (erlang-get-function-name-and-arity)))
       (when (and fn-and-arity (not (erlang--fun-at-point-exported-p)))
         (move-to-exports-or-module)
-        (insert (format "-export([%s])." fn-and-arity))))))
+        (insert (format "-export([%s]).\n" fn-and-arity))))))
 
 (defun erlang--unexport-fun-at-point ()
   (interactive)
@@ -188,9 +188,10 @@
     (print fn-and-arity)
     (when fn-and-arity
       (progn
-        (goto-char 0)
-        (delete-matching-lines
-         (regexp-quote (format "-export([%s]).\n" fn-and-arity)))))))
+        (save-excursion
+          (goto-char 0)
+          (delete-matching-lines
+           (regexp-quote (format "-export([%s]).\n" fn-and-arity))))))))
 
 (defun erlang--toggle-export-fun-at-point ()
   (interactive)
@@ -202,12 +203,13 @@
 
 ;; TODO: make the keybindings more customizable. Perhaps make a
 ;; minor-mode?
+;;;###autoload
 (eval-after-load 'erlang
   '(progn
-    (define-key erlang-mode-map (kbd "C-x C-a d b") 'erlang--binaries-to-defines)
-    (define-key erlang-mode-map (kbd "C-x C-a c s") 'erlang--cycle-string-like)
-    (define-key erlang-mode-map (kbd "C-x C-a s e") 'erlang--split-exports)
-    (define-key erlang-mode-map (kbd "C-x C-a e f") 'erlang--export-fun-at-point)))
+     (define-key erlang-mode-map (kbd "C-x C-a d b") 'erlang--binaries-to-defines)
+     (define-key erlang-mode-map (kbd "C-x C-a c s") 'erlang--cycle-string-like)
+     (define-key erlang-mode-map (kbd "C-x C-a s e") 'erlang--split-exports)
+     (define-key erlang-mode-map (kbd "C-x C-a e f") 'erlang--export-fun-at-point)))
 
 (provide 'refacterl)
 ;;; refacterl.el ends here
