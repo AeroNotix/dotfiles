@@ -9,3 +9,4 @@ define_webjump("aur" , "https://aur.archlinux.org/packages/?K=%s");
 define_webjump("g"   , "http://www.google.com/search?q=%s&ie=utf-8&oe=utf-8&aq=t");
 define_webjump("gh"  , "https://github.com/search?q=%s");
 define_webjump("tpb" , "http://thepiratebay.se/search/%s/0/99/0");
+define_webjump("amzn", "http://www.amazon.com/s/?field-keywords=%s");
