@@ -1,3 +1,5 @@
 // -*- mode: javascript -*-
 
 define_key(content_buffer_normal_keymap, "f5", "reload")
+define_key(content_buffer_normal_keymap, "M-left", "back")
+define_key(content_buffer_normal_keymap, "M-right", "forward")
