@@ -5,3 +5,5 @@ define_key(content_buffer_normal_keymap, "M-left", "back")
 define_key(content_buffer_normal_keymap, "M-right", "forward")
 
 define_webjump("aur", "https://aur.archlinux.org/packages/?K=%s");
+define_webjump("gh", "https://github.com/search?q=%s");
+
