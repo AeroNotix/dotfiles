@@ -3,3 +3,14 @@
 define_key(content_buffer_normal_keymap, "f5", "reload")
 define_key(content_buffer_normal_keymap, "M-left", "back")
 define_key(content_buffer_normal_keymap, "M-right", "forward")
+
+define_webjump("aur",
+    function(term) {
+        return load_spec(
+            { uri: "https://aur.archlinux.org/packages/",
+              post_data: make_post_data([
+                  ['K', term], ['O', 0]
+              ])
+            }
+        );
+    });
