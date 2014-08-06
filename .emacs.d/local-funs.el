@@ -13,7 +13,8 @@
  '(aero-util
    aero-clojure
    aero-magit
-   aero-region))
+   aero-region
+   aero-common-lisp))
 
 
 (add-to-list 'load-path "~/.emacs.d/aero/")
