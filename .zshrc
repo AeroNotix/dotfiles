@@ -3,6 +3,8 @@ source $ZSH/oh-my-zsh.sh
 
 alias erl='rlwrap erl'
 
+export GREP_COLOR='37;45'
+export GREP_OPTIONS='--color=auto'
 export CAML_LD_LIBRARY_PATH="/home/xeno/.opam/system/lib/stublibs:/usr/lib/ocaml/stublibs"
 export CLOJURESCRIPT_HOME=$HOME/dev/clojurescript
 export EDITOR="emacsclient -c"
