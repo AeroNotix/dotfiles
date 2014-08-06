@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads (turn-on-magit-gh-pulls magit-gh-pulls-mode) "magit-gh-pulls"
-;;;;;;  "magit-gh-pulls.el" (21473 25372 476028 946000))
+;;;;;;  "magit-gh-pulls.el" (21474 44096 130813 132000))
 ;;; Generated autoloads from magit-gh-pulls.el
 
 (autoload 'magit-gh-pulls-mode "magit-gh-pulls" "\
@@ -19,8 +19,8 @@ Unconditionally turn on `magit-pulls-mode'.
 
 ;;;***
 
-;;;### (autoloads nil nil ("magit-gh-pulls-pkg.el") (21473 25372
-;;;;;;  511157 415000))
+;;;### (autoloads nil nil ("magit-gh-pulls-pkg.el") (21474 44096
+;;;;;;  157403 768000))
 
 ;;;***
 

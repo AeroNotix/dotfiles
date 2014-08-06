@@ -8,7 +8,7 @@
 ;;
 ;; URL: https://github.com/clojure-emacs/ac-cider
 ;; Keywords: languages, clojure, nrepl, cider, compliment
-;; Version: 20140805.321
+;; Version: 20140806.700
 ;; X-Original-Version: 0.2.0
 ;; Package-Requires: ((cider "0.6.0") (auto-complete "1.4"))
 
@@ -80,12 +80,14 @@ Caches fetched documentation for the current completion call."
           (cdr cached-doc)
         (let* ((doc
                 (substring-no-properties
-                 (plist-get (nrepl-send-request-sync
-                             (list "op" "complete-doc"
-                                   "session" (nrepl-current-session)
-                                   "ns" nrepl-buffer-ns
-                                   "symbol" symbol))
-                            :value)))
+                 (replace-regexp-in-string
+                  "\r" ""
+                  (plist-get (nrepl-send-request-sync
+                              (list "op" "complete-doc"
+                                    "session" (nrepl-current-session)
+                                    "ns" nrepl-buffer-ns
+                                    "symbol" symbol))
+                             :value))))
                (doc (if (string= "\"\"" doc)
                         "No documentation available."
                       doc)))
