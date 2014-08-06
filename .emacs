@@ -41,6 +41,7 @@
 
 ;; Yes. Parens.
 (global-rainbow-delimiters-mode)
+
 ;;;------------------Package-------------------------------
 
 (require 'package)
