@@ -62,3 +62,7 @@
 /.emacs.d/jenkins.el
 /.emacs.d/url/cookies
 /.emacs.d/butler/
+/.config/QtProject.conf
+/.config/QtProject/
+/.config/terminator/
+/.emacs.d/elpa/caps-lock-readme.txt
