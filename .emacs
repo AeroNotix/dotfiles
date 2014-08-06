@@ -258,6 +258,7 @@ Display the results in a hyperlinked *compilation* buffer."
   (compile (concat "lein kibit " buffer-file-name)))
 
 (setq clojure-defun-style-default-indent t)
+(setq nrepl-hide-special-buffers t)
 (setq cider-auto-select-error-buffer nil)
 (setq cider-repl-result-prefix ";; => ")
 (setq cider-repl-history-size 100000000)
