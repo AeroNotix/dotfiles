@@ -314,8 +314,6 @@ Display the results in a hyperlinked *compilation* buffer."
 (load-file "~/.emacs.d/keybinds.el")
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
 
-(achievements-mode)
-
 ;; Temporary whilst I am developing on butler-mode
 (add-to-list 'load-path "~/.emacs.d/butler/")
 (require 'butler)
