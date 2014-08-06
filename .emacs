@@ -231,19 +231,23 @@
                                (flymake-mode-on)
                                (clj-refactor-mode 1)
                                (cljr-add-keybindings-with-prefix "C-x C-a")))
-(require 'ac-nrepl)
-(add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
-(add-hook 'cider-mode-hook 'ac-nrepl-setup)
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'cider-repl-mode))
 
+(require 'ac-nrepl)
+(add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
+(add-hook 'cider-mode-hook 'ac-nrepl-setup)
 
+(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (setq clojure-defun-style-default-indent t)
 (setq nrepl-hide-special-buffers t)
 (setq cider-auto-select-error-buffer nil)
 (setq cider-repl-result-prefix ";; => ")
 (setq cider-repl-history-size 100000000)
 (setq cider-repl-history-file "~/.cider-repl-history")
+(add-hook 'cider-repl-mode-hook
+          (lambda () (setq show-trailing-whitespace nil)))
+(define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
 
 ;;;-------------------mutt----------------------------------
 
