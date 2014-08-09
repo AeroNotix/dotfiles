@@ -148,6 +148,7 @@
 (add-hook 'go-mode-hook
           '(lambda ()
              (global-set-key (kbd "C-c C-a") 'go-import-add)))
+
 (require 'go-autocomplete)
 (require 'go-flymake)
 
@@ -297,6 +298,7 @@
 ;;; Local
 (load-file "~/.emacs.d/local-funs.el")
 (load-file "~/.emacs.d/keybinds.el")
+
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
 
 ;; Temporary whilst I am developing on butler-mode
