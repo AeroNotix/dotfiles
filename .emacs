@@ -39,9 +39,6 @@
 ;;; Hurr durr I can spelz
 (setq-default flyspell-prog-mode t)
 
-;; Yes. Parens.
-(global-rainbow-delimiters-mode)
-
 ;;;------------------Package-------------------------------
 
 (require 'package)
