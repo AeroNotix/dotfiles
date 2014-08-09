@@ -247,7 +247,8 @@
 (setq cider-repl-history-file "~/.cider-repl-history")
 (add-hook 'cider-repl-mode-hook
           (lambda () (setq show-trailing-whitespace nil)))
-(define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
+(eval-after-load 'cider
+  '(define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc))
 
 ;;;-------------------mutt----------------------------------
 
