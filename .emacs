@@ -75,6 +75,7 @@
 
 ;;; Show matching paren highlighting
 (show-paren-mode 1)
+(setq show-paren-delay 0)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
