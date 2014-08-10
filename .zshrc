@@ -59,7 +59,7 @@ function precmd() {
 
 eval $(dircolors -b $HOME/.dircolors)
 
-bindkey '^H' backward-delete-word
 bindkey -e
+bindkey '^H' backward-delete-word
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
