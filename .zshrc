@@ -1,5 +1,4 @@
 ZSH=$HOME/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
 
 alias erl='rlwrap erl'
 
@@ -59,3 +58,8 @@ function precmd() {
 }
 
 eval $(dircolors -b $HOME/.dircolors)
+
+bindkey '^H' backward-delete-word
+bindkey -e
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
