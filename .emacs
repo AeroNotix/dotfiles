@@ -39,6 +39,9 @@
 ;;; Hurr durr I can spelz
 (setq-default flyspell-prog-mode t)
 
+(eval-after-load 'rainbow-delimeters
+  '(global-rainbow-delimiters-mode))
+
 ;;;------------------Package-------------------------------
 
 (require 'package)
