@@ -57,8 +57,6 @@ function precmd() {
     echo "-------------"
 }
 
-eval $(dircolors -b $HOME/.dircolors)
-
 bindkey -e
 bindkey '^H' backward-delete-word
 bindkey '^[[1;5C' forward-word
