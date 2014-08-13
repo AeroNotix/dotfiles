@@ -6,6 +6,9 @@
 ;;; it's easier this way
 (setq user-mail-address "aaron.l.france@gmail.com")
 
+;; *Messages* buffer, literally who uses it?
+(setq-default message-log-max nil)
+(kill-buffer "*Messages*")
 ;; Whitespace killah
 (setq-default indicate-empty-lines t)
 (setq-default indicate-unused-lines t)
