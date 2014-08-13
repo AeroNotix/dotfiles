@@ -9,6 +9,14 @@
 ;; *Messages* buffer, literally who uses it?
 (setq-default message-log-max nil)
 (kill-buffer "*Messages*")
+
+;; Disabled *Completions*
+(add-hook 'minibuffer-exit-hook
+          '(lambda ()
+             (let ((buffer "*Completions*"))
+               (and (get-buffer buffer)
+                    (kill-buffer buffer)))))
+
 ;; Whitespace killah
 (setq-default indicate-empty-lines t)
 (setq-default indicate-unused-lines t)
