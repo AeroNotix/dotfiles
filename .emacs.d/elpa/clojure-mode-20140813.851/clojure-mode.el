@@ -8,7 +8,7 @@
 ;;       Phil Hagelberg <technomancy@gmail.com>
 ;;       Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: http://github.com/clojure-emacs/clojure-mode
-;; Version: 20140804.823
+;; Version: 20140813.851
 ;; X-Original-Version: 3.0.0-cvs
 ;; Keywords: languages, lisp
 
@@ -77,7 +77,7 @@
 (declare-function lisp-fill-paragraph  "lisp-mode" (&optional justify))
 
 (defgroup clojure nil
-  "A mode for Clojure"
+  "Major mode for editing Clojure code."
   :prefix "clojure-"
   :group 'languages
   :link '(url-link :tag "Github" "https://github.com/clojure-emacs/clojure-mode")
@@ -172,7 +172,7 @@ For example, \[ is allowed in :db/id[:db.part/user]."
     (define-key map (kbd "C-c C-r") 'lisp-eval-region)
     (define-key map (kbd "C-c C-z") 'clojure-display-inferior-lisp-buffer)
     (define-key map (kbd "C-:") 'clojure-toggle-keyword-string)
-    (easy-menu-define clojure-mode-menu map "Clojure Mode menu"
+    (easy-menu-define clojure-mode-menu map "Clojure Mode Menu"
       '("Clojure"
         ["Eval Top-Level Expression" lisp-eval-defun]
         ["Eval Last Expression" lisp-eval-last-sexp]
@@ -501,11 +501,11 @@ Called by `imenu--generic-function'."
       ;; Foo Bar$Baz Qux_ World_OpenUDP Foo. Babylon15.
       ("\\(?:\\<\\|\\.\\|/\\|#?^\\)\\([A-Z][a-zA-Z0-9_]*[a-zA-Z0-9$_]+\\.?\\>\\)" 1 font-lock-type-face)
       ;; foo.bar.baz
-      ("\\<[a-z][a-z0-9_-]+\\.\\([a-z][a-z0-9_-]+\\.?\\)+" 0 font-lock-type-face)
+      ("\\<[a-z][a-z0-9_-]+\\.\\([a-z][a-z0-9_-]*\\.?\\)+" 0 font-lock-type-face)
       ;; foo/ Foo/
       ("\\<\\([a-zA-Z][a-z0-9_-]*\\)/" 1 font-lock-type-face)
       ;; fooBar
-      ("\\(?:\\<\\|/\\)\\([a-z]+[A-Z]+[a-z][a-zA-Z0-9$]*\\>\\)" 1 'clojure-interop-method-face)
+      ("\\(?:\\<\\|/\\)\\([a-z]+[A-Z]+[a-zA-Z0-9$]*\\>\\)" 1 'clojure-interop-method-face)
       ;; Highlight grouping constructs in regular expressions
       (clojure-mode-font-lock-regexp-groups
        (1 'font-lock-regexp-grouping-construct prepend))))

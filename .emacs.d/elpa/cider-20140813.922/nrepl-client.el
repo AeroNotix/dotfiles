@@ -582,7 +582,7 @@ Register CALLBACK as the response handler."
                       callback))
 
 (defun nrepl--make-eval-request (input &optional ns session)
-  "Prepare :eval request message to eval INPUT."
+  "Prepare :eval request message for INPUT in the context of NS ans SESSION."
   (append (and ns (list "ns" ns))
           (list "op" "eval"
                 "session" (or session (nrepl-current-session))
@@ -1060,6 +1060,7 @@ Refreshes EWOC."
 
 (define-obsolete-function-alias 'nrepl-send-request-sync 'nrepl-send-sync-request "0.8.0")
 (define-obsolete-function-alias 'nrepl-send-string 'nrepl-request:eval "0.8.0")
+(define-obsolete-function-alias 'nrepl-send-string-sync 'nrepl-sync-request:eval "0.8.0")
 (define-obsolete-variable-alias 'nrepl-log-events 'nrepl-log-messages "0.7.0")
 
 (provide 'nrepl-client)

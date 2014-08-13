@@ -795,8 +795,8 @@ The handler simply inserts the result value in BUFFER."
                                  (cider-jump-to-error-maybe buffer err))
                                '()))
 
-(defun cider-emit-interactive-eval-output (output)
-  "Emit standard or error output resulting from interactive code evaluation.
+(defun cider--emit-interactive-eval-output (output repl-emit-function)
+  "Emit output resulting from interactive code evaluation.
 
 The output can be send to either a dedicated output buffer or the current REPL buffer.
 This is controlled via `cider-interactive-eval-output-destination'."
@@ -805,8 +805,23 @@ This is controlled via `cider-interactive-eval-output-destination'."
                                              (cider-popup-buffer cider-output-buffer t))))
                       (cider-emit-into-popup-buffer output-buffer output)
                       (pop-to-buffer output-buffer)))
-    (`repl-buffer (cider-repl-emit-interactive-output output))
-    (t (error "Unsupported value %s for `cider-interactive-eval-output'"))))
+    (`repl-buffer (funcall repl-emit-function output))
+    (t (error "Unsupported value %s for `cider-interactive-eval-output-destination'"
+              cider-interactive-eval-output-destination))))
+
+(defun cider-emit-interactive-eval-output (output)
+  "Emit output resulting from interactive code evaluation.
+
+The output can be send to either a dedicated output buffer or the current REPL buffer.
+This is controlled via `cider-interactive-eval-output-destination'."
+  (cider--emit-interactive-eval-output output 'cider-repl-emit-interactive-output))
+
+(defun cider-emit-interactive-eval-err-output (output)
+  "Emit err output resulting from interactive code evaluation.
+
+The output can be send to either a dedicated output buffer or the current REPL buffer.
+This is controlled via `cider-interactive-eval-output-destination'."
+  (cider--emit-interactive-eval-output output 'cider-repl-emit-interactive-err-output))
 
 (defun cider-interactive-eval-handler (buffer)
   "Make an interactive eval handler for BUFFER."
@@ -818,7 +833,7 @@ This is controlled via `cider-interactive-eval-output-destination'."
                                (lambda (_buffer out)
                                  (cider-emit-interactive-eval-output out))
                                (lambda (buffer err)
-                                 (cider-emit-interactive-eval-output err)
+                                 (cider-emit-interactive-eval-err-output err)
                                  (cider-highlight-compilation-errors buffer err)
                                  (cider-jump-to-error-maybe buffer err))
                                '()))
@@ -1161,6 +1176,16 @@ search for and read a `ns' form."
 
 
 ;;; Evaluation
+(defun cider--clear-compilation-highlights ()
+  "Remove compilation highlights."
+  (remove-overlays (point-min) (point-max) 'cider-note-p t))
+
+(defun cider-clear-compilation-highlights ()
+  "Remove compilation highlights."
+  (interactive)
+  (when (y-or-n-p "Are you sure you want to clear the compilation highlights? ")
+    (cider--clear-compilation-highlights)))
+
 (defun cider-popup-eval-print (form)
   "Evaluate the given FORM and print value in current buffer."
   (let ((buffer (current-buffer)))
@@ -1177,7 +1202,7 @@ search for and read a `ns' form."
 
 (defun cider-interactive-eval (form)
   "Evaluate the given FORM and print value in minibuffer."
-  (remove-overlays (point-min) (point-max) 'cider-note-p t)
+
   (let ((buffer (current-buffer)))
     (cider-eval form
                 (cider-interactive-eval-handler buffer)
@@ -1649,7 +1674,7 @@ strings, include private vars, and be case sensitive."
                                 nil (if (buffer-file-name)
                                         (file-name-nondirectory
                                          (buffer-file-name))))))
-  (remove-overlays (point-min) (point-max) 'cider-note-p t)
+  (cider--clear-compilation-highlights)
   (cider-send-load-file (cider-file-string filename)
                         (cider--server-filename filename)
                         (file-name-nondirectory filename))
