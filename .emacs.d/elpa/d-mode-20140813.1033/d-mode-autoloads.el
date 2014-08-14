@@ -3,8 +3,8 @@
 ;;; Code:
 
 
-;;;### (autoloads (d-mode) "d-mode" "d-mode.el" (21405 47028 226072
-;;;;;;  982000))
+;;;### (autoloads (d-mode) "d-mode" "d-mode.el" (21484 34642 718478
+;;;;;;  96000))
 ;;; Generated autoloads from d-mode.el
  (add-to-list 'auto-mode-alist '("\\.d[i]?\\'" . d-mode))
 
@@ -21,7 +21,7 @@ Key bindings:
 
 ;;;***
 
-;;;### (autoloads nil nil ("d-mode-pkg.el") (21405 47028 265643 88000))
+;;;### (autoloads nil nil ("d-mode-pkg.el") (21484 34642 744177 415000))
 
 ;;;***
 

@@ -7,7 +7,7 @@
 ;; Maintainer:  Russel Winder
 ;; Created:  March 2007
 ;; Date:  2014-02-06
-;; Version: 20140206.1054
+;; Version: 20140813.1033
 ;; X-Original-Version:  2.0.7-SNAPSHOT
 ;; Keywords:  D programming language emacs cc-mode
 
@@ -438,7 +438,10 @@ Key bindings:
   (easy-menu-add d-menu)
   (c-run-mode-hooks 'c-mode-common-hook 'd-mode-hook)
   (c-update-modeline)
-  (cc-imenu-init d-imenu-generic-expression))
+  (cc-imenu-init d-imenu-generic-expression)
+  (when (version<= "24.3" emacs-version)
+    (setq-local syntax-propertize-function
+            (syntax-propertize-rules ("`\\(\\\\\\)`" (1 "."))))))
 
 ;; Hideous hacks!
 ;;
