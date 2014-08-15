@@ -317,3 +317,23 @@
 (require 'butler)
 (eval-after-load 'butler
   '(load "~/.emacs.d/jenkins.el"))
+
+
+;;;----------- Markdown --------------------------------------
+
+(defun insert-date-and-time ()
+  (insert (format-time-string "%Y-%m-%d %H:%M:%S" (current-time))))
+
+(defun insert-post-header ()
+  (interactive)
+  (insert ";;;;;\n")
+  (insert "title:\n")
+  (insert "tags:\n")
+  (insert "date: ")
+  (insert-date-and-time)
+  (insert "\nformat: md\n")
+  (insert ";;;;;\n\n"))
+
+(add-hook 'markdown-mode '(lambda ()
+                            (auto-fill-mode t)))
+(append auto-mode-alist '(("\\.post$" . markdown-mode)))
