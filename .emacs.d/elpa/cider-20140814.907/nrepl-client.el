@@ -455,17 +455,17 @@ Bind the value of the provided KEYS and execute BODY."
                                            &optional eval-error-handler)
   "Make a response handler for connection BUFFER.
 A handler is a function that takes one argument - response received from
-the server process. The response is an alist that contains at least 'id'
-and 'session' keys. Other standard response keys are 'value', 'out', 'err'
+the server process.  The response is an alist that contains at least 'id'
+and 'session' keys.  Other standard response keys are 'value', 'out', 'err'
 and 'status'.
 
-The presence of a particular key determines the type of the response. For
+The presence of a particular key determines the type of the response.  For
 example, if 'value' key is present, the response is of type 'value', if
-'out' key is present the response is 'stdout' etc. Depending on the typea,
+'out' key is present the response is 'stdout' etc.  Depending on the typea,
 the handler dispatches the appropriate value to one of the supplied
 handlers: VALUE-HANDLER, STDOUT-HANDLER, STDERR-HANDLER, DONE-HANDLER, and
-EVAL-ERROR-HANDLER. If the optional EVAL-ERROR-HANDLER is nil, the default
-`nrepl-err-handler' is used. If any of the other supplied handlers are nil
+EVAL-ERROR-HANDLER.  If the optional EVAL-ERROR-HANDLER is nil, the default
+`nrepl-err-handler' is used.  If any of the other supplied handlers are nil
 nothing happens for the coresponding type of response.
 
 When `nrepl-log-messages' is non-nil, *nrepl-messages* buffer contains
@@ -519,11 +519,11 @@ Handles only stdout and stderr responses."
 
 ;;; Client: Request Handling
 
-;; Requests are messages from nREPL client (emacs) to nREPL server
-;; (clojure). Requests can be asynchronous (sent with `nrepl-send-request') or
+;; Requests are messages from an nREPL client (like CIDER) to an nREPL server.
+;; Requests can be asynchronous (sent with `nrepl-send-request') or
 ;; synchronous (send with `nrepl-send-sync-request'). The request is a pair list
 ;; of operation name and operation parameters. The core operations are described
-;; at https://github.com/clojure/tools.nrepl/blob/master/doc/ops.md. Cider adds
+;; at https://github.com/clojure/tools.nrepl/blob/master/doc/ops.md. CIDER adds
 ;; many more operations through nREPL middleware. See
 ;; https://github.com/clojure-emacs/cider-nrepl#supplied-nrepl-middleware for
 ;; the up to date list.
@@ -627,8 +627,9 @@ The result is a plist with keys :value, :stderr and :stdout."
       ;; break out in case we don't receive a response for a while
       (when nrepl-sync-request-timeout
         (let ((seconds-ellapsed (cadr (time-subtract (current-time) nrepl-last-sync-request-timestamp))))
-          (if (> seconds-ellapsed nrepl-sync-request-timeout)
-              (keyboard-quit)))))
+          (when (> seconds-ellapsed nrepl-sync-request-timeout)
+            (error "Sync nREPL request %s timed out" request)
+            (keyboard-quit)))))
     nrepl-last-sync-response))
 
 (defun nrepl-sync-request:eval (input &optional ns session)

@@ -8,9 +8,9 @@
 ;;       Phil Hagelberg <technomancy@gmail.com>
 ;;       Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: http://github.com/clojure-emacs/clojure-mode
-;; Version: 20140813.851
+;; Version: 20140814.931
 ;; X-Original-Version: 3.0.0-cvs
-;; Keywords: languages, lisp
+;; Keywords: languages clojure clojurescript lisp
 
 ;; This file is not part of GNU Emacs.
 
@@ -264,6 +264,16 @@ ENDP and DELIMITER."
                        t)
                       (= orig-point (match-end 0)))))))))
 
+(defun clojure-paredit-setup ()
+  "A bit code to make `paredit-mode' play nice with `clojure-mode'."
+  (when (>= paredit-version 21)
+    (define-key clojure-mode-map "{" 'paredit-open-curly)
+    (define-key clojure-mode-map "}" 'paredit-close-curly)
+    (add-to-list 'paredit-space-for-delimiter-predicates
+                 'clojure-space-for-delimiter-p)
+    (add-to-list 'paredit-space-for-delimiter-predicates
+                 'clojure-no-space-after-tag)))
+
 ;;;###autoload
 (define-derived-mode clojure-mode clojure-parent-mode "Clojure"
   "Major mode for editing Clojure code.
@@ -286,17 +296,9 @@ ENDP and DELIMITER."
   (setq-local lisp-doc-string-elt-property 'clojure-doc-string-elt)
   (setq-local inferior-lisp-program clojure-inf-lisp-command)
   (setq-local parse-sexp-ignore-comments t)
-  (clojure-mode-font-lock-setup)
+  (clojure-font-lock-setup)
   (setq-local open-paren-in-column-0-is-defun-start nil)
-  (add-hook 'paredit-mode-hook
-            (lambda ()
-              (when (>= paredit-version 21)
-                (define-key clojure-mode-map "{" 'paredit-open-curly)
-                (define-key clojure-mode-map "}" 'paredit-close-curly)
-                (add-to-list 'paredit-space-for-delimiter-predicates
-                             'clojure-space-for-delimiter-p)
-                (add-to-list 'paredit-space-for-delimiter-predicates
-                             'clojure-no-space-after-tag)))))
+  (add-hook 'paredit-mode-hook 'clojure-paredit-setup))
 
 (defsubst clojure-in-docstring-p ()
   "Check whether point is in a docstring."
@@ -448,7 +450,7 @@ Called by `imenu--generic-function'."
          "(\\(?:clojure.core/\\)?"
          (regexp-opt
           '("let" "letfn" "do"
-            "case" "cond" "condp"
+            "case" "cond" "cond->" "cond->>" "condp"
             "for" "loop" "recur"
             "when" "when-not" "when-let" "when-first" "when-some"
             "if" "if-let" "if-not" "if-some"
@@ -507,13 +509,12 @@ Called by `imenu--generic-function'."
       ;; fooBar
       ("\\(?:\\<\\|/\\)\\([a-z]+[A-Z]+[a-zA-Z0-9$]*\\>\\)" 1 'clojure-interop-method-face)
       ;; Highlight grouping constructs in regular expressions
-      (clojure-mode-font-lock-regexp-groups
+      (clojure-font-lock-regexp-groups
        (1 'font-lock-regexp-grouping-construct prepend))))
   "Default expressions to highlight in Clojure mode.")
 
-(defun clojure-mode-font-lock-setup ()
+(defun clojure-font-lock-setup ()
   "Configures font-lock for editing Clojure code."
-  (interactive)
   (setq-local font-lock-multiline t)
   (add-to-list 'font-lock-extend-region-functions
                'clojure-font-lock-extend-region-def t)
@@ -566,7 +567,7 @@ locking in def* forms that are not at top level."
                   changed t)))))
     changed))
 
-(defun clojure-mode-font-lock-regexp-groups (bound)
+(defun clojure-font-lock-regexp-groups (bound)
   "Highlight grouping constructs in regular expression.
 
 BOUND denotes the maximum number of characters (relative to the

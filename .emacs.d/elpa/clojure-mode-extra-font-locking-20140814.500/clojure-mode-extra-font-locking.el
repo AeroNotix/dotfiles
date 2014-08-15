@@ -4,7 +4,7 @@
 ;;
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: http://github.com/clojure-emacs/clojure-mode
-;; Version: 20140613.839
+;; Version: 20140814.500
 ;; X-Original-Version: 3.0.0-cvs
 ;; Keywords: languages, lisp
 ;; Package-Requires: ((clojure-mode "3.0"))
@@ -56,7 +56,7 @@
     "chunk-next" "chunk-rest" "chunked-seq?" "class" "class?"
     "clear-agent-errors" "clojure-version" "coll?" "comment" "commute"
     "comp" "comparator" "compare" "compare-and-set!" "compile"
-    "complement" "concat" "cond->" "cond->>" "conj"
+    "complement" "concat" "conj"
     "conj!" "cons" "constantly" "construct-proxy" "contains?"
     "count" "counted?" "create-ns" "create-struct" "cycle"
     "dec" "decimal?" "delay" "delay?" "deliver" "deref"
@@ -69,7 +69,7 @@
     "extend" "extend-protocol" "extend-type" "extends?" "extenders" "ex-info" "ex-data"
     "false?" "ffirst" "file-seq" "filter" "filterv" "find" "find-doc"
     "find-ns" "find-var" "first" "flatten" "float" "float-array"
-    "float?" "floats" "flush" "fn" "fn?"
+    "float?" "floats" "flush" "fn?"
     "fnext" "force" "format" "frequencies" "future"
     "future-call" "future-cancel" "future-cancelled?" "future-done?" "future?"
     "gen-interface" "gensym" "get" "get-in"

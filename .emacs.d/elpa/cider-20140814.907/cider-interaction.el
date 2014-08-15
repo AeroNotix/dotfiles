@@ -1180,10 +1180,12 @@ search for and read a `ns' form."
   "Remove compilation highlights."
   (remove-overlays (point-min) (point-max) 'cider-note-p t))
 
-(defun cider-clear-compilation-highlights ()
-  "Remove compilation highlights."
-  (interactive)
-  (when (y-or-n-p "Are you sure you want to clear the compilation highlights? ")
+(defun cider-clear-compilation-highlights (&optional arg)
+  "Remove compilation highlights.
+
+When invoked with a prefix ARG the command doesn't prompt for confirmation."
+  (interactive "P")
+  (when (or arg (y-or-n-p "Are you sure you want to clear the compilation highlights? "))
     (cider--clear-compilation-highlights)))
 
 (defun cider-popup-eval-print (form)
@@ -1202,7 +1204,7 @@ search for and read a `ns' form."
 
 (defun cider-interactive-eval (form)
   "Evaluate the given FORM and print value in minibuffer."
-
+  (cider--clear-compilation-highlights)
   (let ((buffer (current-buffer)))
     (cider-eval form
                 (cider-interactive-eval-handler buffer)
@@ -1718,12 +1720,13 @@ strings, include private vars, and be case sensitive."
   (dolist (buf-name cider-ancilliary-buffers)
     (cider--close-buffer buf-name)))
 
-(defun cider-quit ()
+(defun cider-quit (&optional arg)
   "Quit CIDER.
 
+With a prefix ARG the command won't ask for confirmation.
 Quitting closes all active nREPL connections and kills all CIDER buffers."
-  (interactive)
-  (when (y-or-n-p "Are you sure you want to quit CIDER? ")
+  (interactive "P")
+  (when (or arg (y-or-n-p "Are you sure you want to quit CIDER? "))
     (dolist (connection nrepl-connection-list)
       (when connection
         (nrepl-close connection)))

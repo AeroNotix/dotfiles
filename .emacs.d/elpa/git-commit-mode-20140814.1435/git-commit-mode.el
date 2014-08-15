@@ -1,13 +1,14 @@
 ;;; git-commit-mode.el --- Major mode for editing git commit messages -*- lexical-binding: t; -*-
+;; Version: 20140814.1435
 
 ;; Copyright (c) 2010-2012  Florian Ragwitz
 ;; Copyright (c) 2012-2013  Sebastian Wiesner
+;; Copyright (C) 2010-2014  The Magit Project Developers
 
-;; Authors: Sebastian Wiesner <lunaryorn@gmail.com>
+;; Authors: Jonas Bernoulli <jonas@bernoul.li>
+;;	Sebastian Wiesner <lunaryorn@gmail.com>
 ;;	Florian Ragwitz <rafl@debian.org>
 ;; Maintainer: Jonas Bernoulli <jonas@bernoul.li>
-;; Version: 20140305.540
-;; X-Original-Version: 0.14.0
 ;; Homepage: https://github.com/magit/git-modes
 ;; Keywords: convenience vc git
 
@@ -311,6 +312,7 @@ The commit message is saved to the kill ring."
             (when (buffer-live-p buffer)
               (kill-buffer buffer)))
         (kill-buffer))))
+  (accept-process-output nil 0.1)
   (message (concat "Commit aborted."
                    (when (memq 'git-commit-save-message
                                git-commit-kill-buffer-hook)
@@ -534,7 +536,7 @@ Known comment headings are provided by `git-commit-comment-headings'."
   (append
    `(("^\\s<.*$" . 'font-lock-comment-face)
      ("^\\s<\\s-On branch \\(.*\\)$" (1 'git-commit-branch-face t))
-     ("^\\s<\t\\(?:\\([^:]+\\):\\s-+\\)?\\(.*\\)$"
+     ("^\\s<\t\\(?:\\([^:\n]+\\):\\s-+\\)?\\(.*\\)$"
       (1 'git-commit-comment-action-face t t)
       (2 'git-commit-comment-file-face t))
      (,(concat "^\\("

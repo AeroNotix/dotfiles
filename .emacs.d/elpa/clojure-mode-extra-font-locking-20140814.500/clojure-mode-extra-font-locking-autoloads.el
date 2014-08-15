@@ -4,8 +4,8 @@
 
 
 ;;;### (autoloads nil nil ("clojure-mode-extra-font-locking-pkg.el"
-;;;;;;  "clojure-mode-extra-font-locking.el") (21437 55485 330251
-;;;;;;  745000))
+;;;;;;  "clojure-mode-extra-font-locking.el") (21485 55565 33960
+;;;;;;  520000))
 
 ;;;***
 
