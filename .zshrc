@@ -2,6 +2,8 @@ ZSH=$HOME/.oh-my-zsh
 
 alias erl='rlwrap erl'
 
+source $ZSH/oh-my-zsh.sh
+
 export GREP_COLOR='37;45'
 export GREP_OPTIONS='--color=auto'
 export CAML_LD_LIBRARY_PATH="/home/xeno/.opam/system/lib/stublibs:/usr/lib/ocaml/stublibs"
