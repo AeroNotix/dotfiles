@@ -67,3 +67,4 @@
 /.config/terminator/
 /.emacs.d/elpa/caps-lock-readme.txt
 /.config/glade.conf
+/.config/key-mon/
