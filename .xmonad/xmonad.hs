@@ -64,4 +64,5 @@ main = do
         , (( mod1Mask, xK_w      ))
         , (( mod1Mask, xK_p      ))
         , (( mod1Mask, xK_n      ))
+        , (( mod1Mask, xK_Return ))
         ]
