@@ -3,8 +3,9 @@
 ;; SCP is faster.
 (setq tramp-default-method "scp")
 
-;; Downcase region is pretty useful
+;; {Down,Up}case region is pretty useful
 (put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
 
 ;;; it's easier this way
 (setq user-mail-address "aaron.l.france@gmail.com")
