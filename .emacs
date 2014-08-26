@@ -314,6 +314,8 @@
 (load-file "~/.emacs.d/local-funs.el")
 (load-file "~/.emacs.d/keybinds.el")
 
+(global-set-key (kbd "C-x y") 'insert-from-kill-ring)
+
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
 
 ;; Temporary whilst I am developing on butler-mode
