@@ -11,12 +11,12 @@
 (setq
  aero-pkgs
  '(aero-util
+   aero-kill-ring
    aero-clojure
    aero-magit
    aero-region
    aero-git
    aero-common-lisp))
-
 
 (add-to-list 'load-path "~/.emacs.d/aero/")
 (dolist (file aero-pkgs)
