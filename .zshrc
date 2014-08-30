@@ -63,3 +63,7 @@ bindkey -e
 bindkey '^H' backward-delete-word
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
+
+if [ -f ~/.dircolors ]; then
+    eval `dircolors ~/.dircolors`
+fi
