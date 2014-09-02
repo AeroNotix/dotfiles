@@ -249,10 +249,8 @@
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'cider-repl-mode))
 
-(require 'ac-nrepl)
-(add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
-(add-hook 'cider-mode-hook 'ac-nrepl-setup)
-
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'cider-mode))
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (setq clojure-defun-style-default-indent t)
 (setq nrepl-hide-special-buffers t)
