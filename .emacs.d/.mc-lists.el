@@ -3,6 +3,9 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        forward-sexp
+        kill-region
+        slime-space
         ))
 
 (setq mc/cmds-to-run-once
