@@ -4,8 +4,9 @@
 
 
 ;;;### (autoloads (ac-cider-popup-doc ac-cider-setup) "ac-cider"
-;;;;;;  "ac-cider.el" (21481 15196 422000 550000))
-;;; Generated autoloads from ac-cider.el
+;;;;;;  "../../../../.emacs.d/elpa/ac-cider-20140811.708/ac-cider.el"
+;;;;;;  "55fb403a3f61e86272999337c607a938")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/ac-cider-20140811.708/ac-cider.el
 
 (defface ac-cider-candidate-face '((t (:inherit ac-candidate-face))) "\
 Face for nrepl candidates." :group (quote auto-complete))
@@ -32,8 +33,9 @@ A popup alternative to `cider-doc'.
 
 ;;;***
 
-;;;### (autoloads nil nil ("ac-cider-pkg.el") (21481 15196 461445
-;;;;;;  115000))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/ac-cider-20140811.708/ac-cider-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/ac-cider-20140811.708/ac-cider.el")
+;;;;;;  (21509 65029 38391 617000))
 
 ;;;***
 
