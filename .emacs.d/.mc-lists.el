@@ -4,8 +4,10 @@
 (setq mc/cmds-to-run-for-all
       '(
         forward-sexp
+        indent-for-tab-command
         kill-region
         slime-space
+        smex
         ))
 
 (setq mc/cmds-to-run-once
