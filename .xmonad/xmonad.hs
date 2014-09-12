@@ -13,8 +13,8 @@ import Graphics.X11.ExtraTypes.XF86
 amixerCmd s =
   spawn $ "amixer -c 0 --quiet set Master " ++ s
 
-ncmpcpp s =
-  spawn $ "ncmpcpp " ++ s
+mpc s =
+  spawn $ "mpc " ++ s
 
 main = do
   let ssh_cmd = "termite -e 'ssh xeno@zerolength.com -t tmux attach-session -d -t weechat'" in
@@ -39,12 +39,12 @@ main = do
         , (( mod1Mask .|. shiftMask, xK_y      ), spawn "pidgin")
         , (( mod1Mask,               xK_F11    ), amixerCmd "1-")
         , (( mod1Mask,               xK_F12    ), amixerCmd "1+")
-        , (( mod1Mask,               xK_F4     ), ncmpcpp "prev")
-        , (( mod1Mask,               xK_F5     ), ncmpcpp "pause")
+        , (( mod1Mask,               xK_F4     ), mpc "prev")
+        , (( mod1Mask,               xK_F5     ), mpc "pause")
         , (( mod1Mask,               xK_F6     ), spawn "amixer -c 0 --quiet set Master mute")
         , (( mod1Mask,               xK_F7     ), spawn "amixer set Master unmute")
-        , (( mod1Mask,               xK_F8     ), ncmpcpp "play")
-        , (( mod1Mask,               xK_F9     ), ncmpcpp "next")
+        , (( mod1Mask,               xK_F8     ), mpc "play")
+        , (( mod1Mask,               xK_F9     ), mpc "next")
         , (( mod1Mask,               xK_o      ), sendMessage NextLayout)
         , (( mod1Mask,               xK_c      ), sendMessage (IncMasterN 1))
         , (( mod1Mask,               xK_v      ), sendMessage (IncMasterN (-1)))
