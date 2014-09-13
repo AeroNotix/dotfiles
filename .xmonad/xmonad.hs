@@ -17,8 +17,8 @@ mpc s =
   spawn $ "mpc " ++ s
 
 main = do
-  let ssh_cmd = "termite -e 'ssh xeno@zerolength.com -t tmux attach-session -d -t weechat'" in
-    xmonad $ defaultConfig
+   xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmobarrc"
+   xmonad $ defaultConfig
         { focusFollowsMouse = False
         , borderWidth = 3
         , focusedBorderColor = "#336699"
@@ -26,7 +26,6 @@ main = do
         , manageHook = insertPosition Below Newer
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         } `additionalKeys`
-        [ (( mod1Mask .|. shiftMask, xK_i      ), spawn ssh_cmd)
         , (( mod1Mask .|. shiftMask, xK_Return ), spawn "termite")
         , (( mod1Mask .|. shiftMask, xK_e      ), spawn "emacsclient -c")
         , (( mod1Mask .|. shiftMask, xK_f      ), spawn "chromium")
