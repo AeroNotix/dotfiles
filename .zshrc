@@ -45,8 +45,6 @@ unsetopt auto_menu
 
 [ $TERM = 'dumb' ] && PS1='$ '
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/dev/golang-crosscompile/crosscompile.bash
 source ~/.dotfiles/functions
 
 # OPAM configuration
