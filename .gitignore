@@ -71,3 +71,5 @@
 /.config/lxtask.conf
 /.config/sublime-text-2/
 /.config/lispkit/cookiez
+/.config/pulse/3432734e52f543c184dc7daa4d84a46e-device-volumes.tdb
+/.config/pulse/3432734e52f543c184dc7daa4d84a46e-stream-volumes.tdb
