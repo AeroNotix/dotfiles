@@ -26,13 +26,13 @@ main = do
         , manageHook = insertPosition Below Newer
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         } `additionalKeys`
-        [ (( mod1Mask .|. shiftMask, xK_i      ), spawn "gnome-terminal -e 'ssh xeno@zerolength.com -t tmux attach-session -d -t weechat'")
-        , (( mod1Mask .|. shiftMask, xK_Return ), spawn "gnome-terminal")
+        [ (( mod1Mask .|. shiftMask, xK_i      ), spawn "termite -e 'ssh xeno@zerolength.com -t tmux attach-session -d -t weechat'")
+        , (( mod1Mask .|. shiftMask, xK_Return ), spawn "termite")
         , (( mod1Mask .|. shiftMask, xK_e      ), spawn "emacsclient -c")
         , (( mod1Mask .|. shiftMask, xK_f      ), spawn "chromium")
         , (( mod1Mask .|. shiftMask, xK_g      ), spawn "gimp")
         , (( mod1Mask .|. shiftMask, xK_k      ), spawn "keepassx")
-        , (( mod1Mask .|. shiftMask, xK_m      ), spawn "gnome-terminal -e 'ncmpcpp'")
+        , (( mod1Mask .|. shiftMask, xK_m      ), spawn "termite -e 'ncmpcpp'")
         , (( mod1Mask .|. shiftMask, xK_s      ), spawn "skype")
         , (( mod1Mask .|. shiftMask, xK_v      ), spawn "vlc")
         , (( mod1Mask .|. shiftMask, xK_w      ), spawn "steam")
@@ -48,7 +48,7 @@ main = do
         , (( mod1Mask,               xK_o      ), sendMessage NextLayout)
         , (( mod1Mask,               xK_c      ), sendMessage (IncMasterN 1))
         , (( mod1Mask,               xK_v      ), sendMessage (IncMasterN (-1)))
-        , (( mod4Mask,               xK_m      ), spawn "gnome-terminal -e 'mutt'")
+        , (( mod4Mask,               xK_m      ), spawn "termite -e 'mutt'")
         , (( controlMask,            xK_p      ), spawn "dmenu_run")
         , (( mod4Mask,               xK_q      ), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
         , (( mod1Mask,               xK_Tab    ), nextScreen)
