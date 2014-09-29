@@ -211,7 +211,9 @@
 (add-hook 'c-mode-hook 'my-c++-mode-hook)
 
 ;; Slime
+(load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/usr/bin/sbcl")
+
 (require 'slime)
 (slime-setup '(slime-fancy))
 
@@ -263,6 +265,8 @@
           (lambda () (setq show-trailing-whitespace nil)))
 (eval-after-load 'cider
   '(define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc))
+(add-to-list 'auto-mode-alist
+             '(("\\.clj\\'" . clojure-mode)))
 
 ;;;-------------------mutt----------------------------------
 
