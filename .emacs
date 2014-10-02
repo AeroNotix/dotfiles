@@ -266,7 +266,7 @@
 (eval-after-load 'cider
   '(define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc))
 (add-to-list 'auto-mode-alist
-             '(("\\.clj\\'" . clojure-mode)))
+             '("\\.clj\\'" . clojure-mode))
 
 ;;;-------------------mutt----------------------------------
 
