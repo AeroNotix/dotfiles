@@ -346,3 +346,9 @@
 (add-hook 'markdown-mode '(lambda ()
                             (auto-fill-mode t)))
 (append auto-mode-alist '(("\\.post$" . markdown-mode)))
+
+
+;; hippie
+(require 'hippie-exp-ext)
+(require 'hippie-namespace)
+(global-hippie-namespace-mode 1)
