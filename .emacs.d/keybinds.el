@@ -40,3 +40,8 @@
 
 ;; ibuffer instead of list-buffers
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; Dirty hippies -- hippie expand
+(define-key global-map (kbd "M-/") 'hippie-expand)
+
+
