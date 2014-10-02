@@ -16,7 +16,8 @@
    aero-magit
    aero-region
    aero-git
-   aero-common-lisp))
+   aero-common-lisp
+   refacterl))
 
 (add-to-list 'load-path "~/.emacs.d/aero/")
 (dolist (file aero-pkgs)
