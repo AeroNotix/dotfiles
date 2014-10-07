@@ -74,3 +74,4 @@ function parse_managepy_commands() {
 open_weechat() {
     ssh xeno@37.139.18.183 -t tmux attach -t weechat
 }
+VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
