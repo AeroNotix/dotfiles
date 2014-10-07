@@ -65,3 +65,4 @@ bindkey '^[[1;5D' backward-word
 if [ -f ~/.dircolors ]; then
     eval `dircolors ~/.dircolors`
 fi
+VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
