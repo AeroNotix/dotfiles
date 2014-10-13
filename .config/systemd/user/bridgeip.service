@@ -1,0 +1,9 @@
+[Unit]
+Description=Gives the bridge interface the right ip
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/bash /home/xeno/.bin/bridgeip.sh
+
+[Install]
+WantedBy=default.target
