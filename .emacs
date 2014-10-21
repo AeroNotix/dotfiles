@@ -12,6 +12,7 @@
 
 ;; *Messages* buffer, literally who uses it?
 (setq-default message-log-max nil)
+
 (kill-buffer "*Messages*")
 
 ;; Disabled *Completions*
