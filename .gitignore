@@ -74,3 +74,6 @@
 /.config/pulse/3432734e52f543c184dc7daa4d84a46e-device-volumes.tdb
 /.config/pulse/3432734e52f543c184dc7daa4d84a46e-stream-volumes.tdb
 /.config/git/
+/.config/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml
+/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
+/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml
