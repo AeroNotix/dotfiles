@@ -39,6 +39,7 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_VERIFY
+setopt nohashdirs
 
 unsetopt hist_verify
 unsetopt correctall
