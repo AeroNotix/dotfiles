@@ -353,3 +353,32 @@
 (require 'hippie-exp-ext)
 (require 'hippie-namespace)
 (global-hippie-namespace-mode 1)
+
+
+(define-generic-mode 'upstart-mode
+  '("#")  ; comments
+  '(;; Event definition
+    "start on" "stop on" "and" "or"
+    ;; Job environment
+    "env" "export"
+    ;; Services tasks and respawning
+    "task" "respawn" "respawn limit" "normal exit"
+    ;; Instances
+    "instance"
+    ;; Process environment
+    "console output" "console owner" "umask" "nice" "oom" "chroot"
+    "chdir" "limit"
+    ;; Documentation
+    "description" "author" "version" "emits"
+    ;; Miscellaneous
+    "kill timeout" "expect stop" "expect daemon" "expect fork"
+    ;; Process definitions
+    "exec" "script" "end script"
+    "pre-start exec" "pre-start script"
+    "post-start exec" "post-start script"
+    "pre-stop exec" "pre-stop script"
+    "post-stop exec" "post-stop script")
+  nil
+  '("\\.upstart$")
+  nil
+  "A mode for upstart files")
