@@ -11,3 +11,15 @@ function cwd2paths {
 function collapse_pwd {
     echo $(pwd | sed -e "s,^$HOME,~,")
 }
+function engage_tyranny {
+    for db in cassandra riak elasticsearch postgresql
+    do
+        sudo systemctl start $db
+    done
+}
+function disengage_tyranny {
+    for db in cassandra riak elasticsearch postgresql
+    do
+        sudo systemctl stop $db
+    done
+}
