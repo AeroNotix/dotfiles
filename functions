@@ -1,3 +1,4 @@
+# -*- mode: sh -*-
 function syu {
     sudo pacman -Syu --ignore erlang,elasticsearch,rebar
 }
