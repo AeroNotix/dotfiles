@@ -1,4 +1,4 @@
-(global-unset-key (kbd "<menu>"))
+
 (global-unset-key (kbd "C-x C-z"))
 (global-unset-key (kbd "C-x C-c"))
 (global-unset-key (kbd "C-z"))
@@ -43,5 +43,3 @@
 
 ;; Dirty hippies -- hippie expand
 (define-key global-map (kbd "M-/") 'hippie-expand)
-
-
