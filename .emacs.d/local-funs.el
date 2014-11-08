@@ -14,7 +14,6 @@
    aero-kill-ring
    aero-clojure
    aero-magit
-   aero-region
    aero-git
    aero-common-lisp
    refacterl))
