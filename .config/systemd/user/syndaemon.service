@@ -1,0 +1,10 @@
+[Unit]
+Description=A program that monitors keyboard activity
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/syndaemon -t -k -i 2 -d &
+Restart=always
+
+[Install]
+WantedBy=default.target

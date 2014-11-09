@@ -1,0 +1,10 @@
+[Unit]
+Description=A Maildir notification system
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/java -jar /home/xeno/dev/pismo/target/uberjar/pismo.jar
+Restart=always
+
+[Install]
+WantedBy=default.target

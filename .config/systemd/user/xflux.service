@@ -1,0 +1,10 @@
+[Unit]
+Description=f.lux™ software to make your life better
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/xflux -l 50.0614 -g 19.9372
+Restart=always
+
+[Install]
+WantedBy=default.target
