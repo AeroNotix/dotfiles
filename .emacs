@@ -174,6 +174,7 @@
 (add-to-list 'load-path "~/.emacs.d/erlang/")
 (setq erlang-root-dir "/usr/local/lib/erlang")
 (setq inferior-erlang-machine-options '("-sname" "emacs"))
+(add-to-list 'grep-find-ignored-directories "_rel")
 (require 'erlang-start)
 (setq auto-mode-alist
       (reverse
