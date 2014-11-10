@@ -103,6 +103,22 @@
  '(column-number-mode t)
  '(emacsw32-max-frames t)
  '(emacsw32-style-frame-title t)
+ '(grep-files-aliases
+   (quote
+    (("erl" . "*.[eh]rl")
+     ("all" . "* .*")
+     ("el" . "*.el")
+     ("ch" . "*.[ch]")
+     ("c" . "*.c")
+     ("cc" . "*.cc *.cxx *.cpp *.C *.CC *.c++")
+     ("cchh" . "*.cc *.[ch]xx *.[ch]pp *.[CHh] *.CC *.HH *.[ch]++")
+     ("hh" . "*.hxx *.hpp *.[Hh] *.HH *.h++")
+     ("h" . "*.h")
+     ("l" . "[Cc]hange[Ll]og*")
+     ("m" . "[Mm]akefile*")
+     ("tex" . "*.tex")
+     ("texi" . "*.texi")
+     ("asm" . "*.[sS]"))))
  '(grep-find-ignored-directories
    (quote
     ("_rel" "SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}")))
