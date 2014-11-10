@@ -103,6 +103,9 @@
  '(column-number-mode t)
  '(emacsw32-max-frames t)
  '(emacsw32-style-frame-title t)
+ '(grep-find-ignored-directories
+   (quote
+    ("_rel" "SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}")))
  '(hfyview-quick-print-in-files-menu t)
  '(inhibit-startup-screen t)
  '(menuacc-mode t)
@@ -176,7 +179,7 @@
 (add-to-list 'load-path "~/.emacs.d/erlang/")
 (setq erlang-root-dir "/usr/local/lib/erlang")
 (setq inferior-erlang-machine-options '("-sname" "emacs"))
-(add-to-list 'grep-find-ignored-directories "_rel")
+
 (require 'erlang-start)
 (setq auto-mode-alist
       (reverse
