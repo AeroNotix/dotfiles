@@ -1,5 +1,8 @@
 ;(setq debug-on-error t)
 
+;; Disable menu bar
+(menu-bar-mode -1)
+
 ;; SCP is faster.
 (setq tramp-default-method "scp")
 
