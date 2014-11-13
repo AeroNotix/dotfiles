@@ -1,0 +1,10 @@
+[Unit]
+Description=Unfuck Skype's sound
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/pactl unload-module module-role-cork
+Restart=never
+
+[Install]
+WantedBy=default.target
