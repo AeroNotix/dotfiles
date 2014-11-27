@@ -50,7 +50,7 @@
 (add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
 (require 'color-theme)
 (color-theme-initialize)
-(color-theme-deep-blue)
+                                        ;(color-theme-deep-blue)
 
 ;;; IDO
 (require 'ido)
@@ -104,6 +104,9 @@
  ;; If there is more than one, they won't work right.
  '(appmenu-mode t)
  '(column-number-mode t)
+ '(custom-safe-themes
+   (quote
+    ("30a8a5a9099e000f5d4dbfb2d6706e0a94d56620320ce1071eede5481f77d312" default)))
  '(emacsw32-max-frames t)
  '(emacsw32-style-frame-title t)
  '(grep-files-aliases
@@ -410,3 +413,5 @@
   '("\\.upstart$")
   nil
   "A mode for upstart files")
+
+(load-theme 'gotham t)
