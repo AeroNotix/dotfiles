@@ -12,13 +12,13 @@ function collapse_pwd {
     echo $(pwd | sed -e "s,^$HOME,~,")
 }
 function engage_tyranny {
-    for db in cassandra riak elasticsearch postgresql
+    for db in cassandra riak elasticsearch postgresql kairosdb
     do
         sudo systemctl start $db
     done
 }
 function disengage_tyranny {
-    for db in cassandra riak elasticsearch postgresql
+    for db in cassandra riak elasticsearch postgresql kairosdb
     do
         sudo systemctl stop $db
     done
