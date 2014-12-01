@@ -50,7 +50,7 @@
 (add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
 (require 'color-theme)
 (color-theme-initialize)
-                                        ;(color-theme-deep-blue)
+(color-theme-deep-blue)
 
 ;;; IDO
 (require 'ido)
@@ -413,5 +413,3 @@
   '("\\.upstart$")
   nil
   "A mode for upstart files")
-
-(load-theme 'gotham t)
