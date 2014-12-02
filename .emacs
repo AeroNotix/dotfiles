@@ -413,3 +413,5 @@
   '("\\.upstart$")
   nil
   "A mode for upstart files")
+
+(add-hook 'before-save-hook 'whitespace-cleanup)
