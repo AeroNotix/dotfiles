@@ -19,7 +19,7 @@ function engage_tyranny {
     done
 }
 function disengage_tyranny {
-    for db in $_ALL_DATABASES
+    for db in $__ALL_DATABASES
     do
         sudo systemctl stop $db
     done
