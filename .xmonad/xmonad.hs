@@ -27,6 +27,7 @@ main = do
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         } `additionalKeys`
         [ (( mod1Mask .|. shiftMask, xK_i      ), spawn "termite -e 'ssh xeno@zerolength.com -t tmux attach-session -d -t weechat'")
+        , (( mod1Mask .|. shiftMask, xK_b      ), spawn "termite -e 'ncxbacklight'")
         , (( mod1Mask .|. shiftMask, xK_Return ), spawn "termite")
         , (( mod1Mask .|. shiftMask, xK_e      ), spawn "emacsclient -c")
         , (( mod1Mask .|. shiftMask, xK_f      ), spawn "chromium")
