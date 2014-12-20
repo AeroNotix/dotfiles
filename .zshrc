@@ -13,6 +13,7 @@ export LEIN_SNAPSHOTS_IN_RELEASE=1
 export MANPATH="/home/xeno/.opam/system/man:"
 export OCAML_TOPLEVEL_PATH="/home/xeno/.opam/system/lib/toplevel"
 export PATH=$PATH:"/home/xeno/.opam/system/bin"
+export PATH=$PATH:$HOME/.bin/
 export PATH=$PATH:/home/xeno/dev/go/bin
 export PATH=$PATH:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/
 export PATH=$PATH:/usr/lib/erlang/lib/lfe-0.8/bin
