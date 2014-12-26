@@ -378,7 +378,6 @@
 (require 'hippie-namespace)
 (global-hippie-namespace-mode 1)
 
-
 (define-generic-mode 'upstart-mode
   '("#")  ; comments
   '(;; Event definition
