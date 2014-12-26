@@ -353,13 +353,6 @@
 
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
 
-;; Temporary whilst I am developing on butler-mode
-(add-to-list 'load-path "~/.emacs.d/butler/")
-(require 'butler)
-(eval-after-load 'butler
-  '(load "~/.emacs.d/jenkins.el"))
-
-
 ;;;----------- Markdown --------------------------------------
 
 (defun insert-date-and-time ()
