@@ -293,6 +293,7 @@
 (setq cider-repl-result-prefix ";; => ")
 (setq cider-repl-history-size 100000000)
 (setq cider-repl-history-file "~/.cider-repl-history")
+(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'cider-repl-mode-hook
           (lambda () (setq show-trailing-whitespace nil)))
 (eval-after-load 'cider
