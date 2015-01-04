@@ -93,10 +93,9 @@
 ;;;###autoload
 (defun cider-browse-ns (namespace)
   "List all NAMESPACE's vars in BUFFER."
-  (interactive (list (completing-read "Browse namespace: " (cider--all-ns))))
+  (interactive (list (completing-read "Browse namespace: " (cider-sync-request:ns-list))))
   (with-current-buffer (cider-popup-buffer cider-browse-ns-buffer t)
-    (let* ((form "(sort (map name (keys (ns-publics (quote %s)))))")
-           (vars (cider-eval-and-get-value (format form namespace))))
+    (let ((vars (cider-sync-request:ns-vars namespace)))
       (cider-browse-ns-list (current-buffer)
                             namespace
                             (mapcar (lambda (var)
@@ -110,11 +109,7 @@
   "List all loaded namespaces in BUFFER."
   (interactive)
   (with-current-buffer (cider-popup-buffer cider-browse-ns-buffer t)
-    (let ((names (cider-eval-and-get-value
-                  "(->> (all-ns)
-                        (map ns-name)
-                        (map name)
-                        (sort))")))
+    (let ((names (cider-sync-request:ns-list)))
       (cider-browse-ns-list (current-buffer)
                             "All loaded namespaces"
                             (mapcar (lambda (name)
@@ -138,7 +133,6 @@
   "Handle mouse click EVENT."
   (interactive "e")
   (cider-browse-ns-operate-on-point))
-
 
 (provide 'cider-browse-ns)
 

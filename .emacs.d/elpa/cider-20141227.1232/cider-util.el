@@ -67,6 +67,14 @@ buffer-local wherever it is set."
 
 ;;; Text properties
 
+(defun cider-maybe-intern (name)
+  "If NAME is a symbol, return it; otherwise, intern it."
+  (if (symbolp name) name (intern name)))
+
+(defun cider-intern-keys (props)
+  "Copy plist-style PROPS with any non-symbol keys replaced with symbols."
+  (-map-indexed (lambda (i x) (if (oddp i) x (cider-maybe-intern x))) props))
+
 (defmacro cider-propertize-region (props &rest body)
   "Execute BODY and add PROPS to all the text it inserts.
 More precisely, PROPS are added to the region between the point's
@@ -86,7 +94,7 @@ PROP is the name of a text property."
 
 (defun cider-insert (text &optional face break more-text)
   "Insert TEXT with FACE, optionally followed by a line BREAK and MORE-TEXT."
-  (insert (if face (propertize text 'face face) text))
+  (insert (if face (propertize text 'font-lock-face face) text))
   (when more-text (insert more-text))
   (when break (insert "\n")))
 
@@ -134,9 +142,14 @@ Unless you specify a BUFFER it will default to the current one."
         (dark (eq (frame-parameter nil 'background-mode) 'dark)))
     (cider-scale-color color (if dark 0.05 -0.05))))
 
-(defun cider-format-pprint-eval (form)
-  "Return a string of Clojure code that will eval and pretty-print FORM."
-  (format "(clojure.core/let [x %s] (clojure.pprint/pprint x) x)" form))
+(defun cider-format-pprint-eval (form &optional right-margin)
+  "Return a string of Clojure code that will eval and pretty-print FORM.
+Pretty printing will avoid going beyond column RIGHT-MARGIN which defaults
+to `fill-column'."
+  (format "(clojure.core/let [x %s]
+             (binding [clojure.pprint/*print-right-margin* %d]
+               (clojure.pprint/pprint x)) x)"
+          form (or right-margin fill-column)))
 
 (autoload 'pkg-info-version-info "pkg-info.el")
 
@@ -146,33 +159,22 @@ Unless you specify a BUFFER it will default to the current one."
       (pkg-info-version-info 'cider)
     (error cider-version)))
 
-(defun cider-find-buffer (ns)
-  "Find an open buffer by NS."
-  (->> (cider-util--clojure-buffers)
-    (--filter (equal ns (with-current-buffer it (clojure-find-ns))))
-    (car)))
-
-(defun cider-locate-def (name buffer &optional offset-lines)
-  "Locate the definition of var NAME in BUFFER.
-When OFFSET-LINES is non-nil, adjust the returned position by this many
-lines. This is a regexp search and currently works only for top level
-clojure forms that start with '(def'."
-  (with-current-buffer buffer
-    (save-restriction
-      (widen)
-      (goto-char (point-min))
-      (re-search-forward (format "(def.* %s\\( \\|$\\)" name)
-                         nil 'no-error)
-      (goto-char (match-beginning 0))
-      (when offset-lines
-        (forward-line (1- offset-lines)))
-      (point))))
-
 ;;; Strings
 
 (defun cider-string-join (strings &optional separator)
   "Join all STRINGS using SEPARATOR."
   (mapconcat 'identity strings separator))
+
+(defun cider-join-into-alist (candidates &optional separator)
+  "Make an alist from CANDIDATES.
+The keys are the elements joined with SEPARATOR and values are the original
+elements. Useful for `completing-read' when candidates are complex
+objects."
+  (mapcar (lambda (el)
+            (if (listp el)
+                (cons (cider-string-join el (or separator ":")) el)
+              (cons el el)))
+          candidates))
 
 (provide 'cider-util)
 
