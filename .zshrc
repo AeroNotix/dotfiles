@@ -1,12 +1,11 @@
 ZSH=$HOME/.oh-my-zsh
 
 alias erl='rlwrap erl'
-
+ignored_configs=(grep)
+plugins=(aws)
 source $ZSH/oh-my-zsh.sh
 
-export GREP_COLOR='37;45'
 export CAML_LD_LIBRARY_PATH="/home/xeno/.opam/system/lib/stublibs:/usr/lib/ocaml/stublibs"
-export CLOJURESCRIPT_HOME=$HOME/dev/clojurescript
 export EDITOR="emacsclient -c"
 export GOPATH=/home/xeno/dev/go
 export LEIN_SNAPSHOTS_IN_RELEASE=1
