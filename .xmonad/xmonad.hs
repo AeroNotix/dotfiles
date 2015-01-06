@@ -61,6 +61,7 @@ main = do
         [ (( mod1Mask, xK_space  ))
         , (( mod1Mask, xK_period ))
         , (( mod1Mask, xK_comma  ))
+        , (( mod1Mask, xK_t      ))
         , (( mod1Mask, xK_q      ))
         , (( mod1Mask, xK_w      ))
         , (( mod1Mask, xK_p      ))
