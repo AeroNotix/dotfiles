@@ -3,7 +3,7 @@ Description=A Maildir notification system
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/java -jar /home/xeno/dev/pismo/target/uberjar/pismo.jar
+ExecStart=/usr/bin/java -Xms100m -Xmx100m -jar /home/xeno/dev/pismo/target/uberjar/pismo.jar
 Restart=always
 
 [Install]
