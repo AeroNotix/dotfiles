@@ -1,10 +1,10 @@
 ;;; magit-gh-pulls-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (turn-on-magit-gh-pulls magit-gh-pulls-mode) "magit-gh-pulls"
-;;;;;;  "magit-gh-pulls.el" (21505 65286 114724 129000))
+;;;### (autoloads nil "magit-gh-pulls" "magit-gh-pulls.el" (21686
+;;;;;;  58573 131453 986000))
 ;;; Generated autoloads from magit-gh-pulls.el
 
 (autoload 'magit-gh-pulls-mode "magit-gh-pulls" "\
@@ -19,16 +19,9 @@ Unconditionally turn on `magit-pulls-mode'.
 
 ;;;***
 
-;;;### (autoloads nil nil ("magit-gh-pulls-pkg.el") (21505 65286
-;;;;;;  159637 811000))
-
-;;;***
-
-(provide 'magit-gh-pulls-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; magit-gh-pulls-autoloads.el ends here

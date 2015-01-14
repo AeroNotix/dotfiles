@@ -4,7 +4,7 @@
 
 ;; Author: Yann Hodique <yann.hodique@gmail.com>
 ;; Keywords: tools
-;; Version: 20140829.629
+;; Version: 20141216.919
 ;; X-Original-Version: 0.4
 ;; URL: https://github.com/sigma/magit-gh-pulls
 ;; Package-Requires: ((emacs "24") (gh "0.4.3") (magit "1.1.0") (pcache "0.2.3") (s "1.6.1"))
@@ -45,6 +45,7 @@
 ;; # g f --- fetches the commits associated with the pull request at point
 ;; # g b --- helps you creating a topic branch from a review request
 ;; # g m --- merges the PR on top of the current branch
+;; # g c --- creates a PR from the current branch
 
 ;; Then, you can do whatever you want with the commit objects associated with
 ;; the pull request (merge, cherry-pick, diff, ...)
@@ -57,6 +58,14 @@
 (require 'gh-pulls)
 (require 'pcache)
 (require 's)
+
+(defvar magit-gh-pulls-maybe-filter-pulls 'identity
+  "Filter function which should validate pulls you want to be
+  viewed in magit. It receives a list of pull requests and should
+  return a list of pull requests.")
+
+(defvar magit-gh-pulls-collapse-commits nil
+  "Collapse commits in pull requests listing.")
 
 (defun magit-gh-pulls-get-api ()
   (gh-pulls-api "api" :sync t :num-retries 1 :cache (gh-cache "cache")))
@@ -73,7 +82,9 @@
                  (s-match "github.com:\\(.+\\)/\\([^.]+\\)\\(.git\\)?$" url))
 
                 ((s-matches? "^https?://github.com" url)
-                 (s-match "^https://github.com/\\(.+\\)/\\([^./]+\\)\\(.git\\)?/?$" url)))))
+                 (s-match "^https://github.com/\\(.+\\)/\\([^./]+\\)\\(.git\\)?/?$" url))
+                ((s-matches? "git://github.com/" url)
+                 (s-match "git://github.com/\\(.+\\)/\\([^.]+\\)\\(.git\\)?$" url)))))
     (when creds
       (cons (cadr creds) (caddr creds)))))
 
@@ -97,7 +108,8 @@
             (let* ((api (magit-gh-pulls-get-api))
                    (user (car repo))
                    (proj (cdr repo))
-                   (stubs (oref (gh-pulls-list api user proj) :data))
+                   (stubs (funcall magit-gh-pulls-maybe-filter-pulls
+                           (oref (gh-pulls-list api user proj) :data)))
                    (branch (magit-get-current-branch)))
               (when (> (length stubs) 0)
                 (magit-with-section (section stubs 'pulls "Pull Requests:" t)
@@ -131,7 +143,7 @@
                                                                    (t 'italic)))))
                            (info (list user proj id)))
                       (cond (have-commits
-                             (magit-with-section (section pull info)
+                             (magit-with-section (section pull info nil nil magit-gh-pulls-collapse-commits)
                                (insert header)
                                (when (and have-commits (not applied))
                                  (magit-git-insert-section (request)
@@ -198,6 +210,19 @@
     (invalid-pull
      (error "This pull request refers to invalid reference"))))
 
+(defun magit-gh-pulls-url-for-pull (info)
+  "Return github url for a pull request using INFO."
+  (let ((url "https://github.com/%s/%s/pull/%s"))
+    (apply 'format url info)))
+
+(defun magit-gh-pulls-open-in-browser ()
+  (interactive)
+  (magit-section-action pr-browse (info)
+    (pull
+     (browse-url (magit-gh-pulls-url-for-pull info)))
+    (unfetched-pull
+     (browse-url (magit-gh-pulls-url-for-pull info)))))
+
 (defun magit-gh-pulls-purge-cache ()
   (let* ((api (magit-gh-pulls-get-api))
          (cache (oref api :cache))
@@ -207,6 +232,36 @@
                                (format "/repos/%s/%s/" (car repo) (cdr repo))
                                (car k))
                           (pcache-invalidate cache k))))))
+
+
+(defun magit-gh-pulls-build-req (user proj)
+  (let ((current (replace-regexp-in-string "origin/" ""
+                                           (or (magit-get-remote/branch)
+                                               (magit-get-current-branch)))))
+    (let* ((base
+            (make-instance 'gh-repos-ref :user (make-instance 'gh-users-user :name user)
+                           :repo (make-instance 'gh-repos-repo :name proj)
+                           :ref (completing-read "Base (master):" '() nil nil nil nil "master")))
+           (head
+            (make-instance 'gh-repos-ref :user (make-instance 'gh-users-user :name user)
+                           :repo (make-instance 'gh-repos-repo :name proj)
+                           :ref (completing-read (format "Head (%s):" current) '() nil nil nil nil current)))
+           (title (read-string "Title: "))
+           (body (read-string "Description: "))
+           (req (make-instance 'gh-pulls-request :head head :base base :body body :title title)))
+      req)))
+
+(defun magit-gh-pulls-create-pull-request ()
+  (interactive)
+  (let ((repo (magit-gh-pulls-guess-repo)))
+    (when repo
+      (let* ((current-branch (magit-get-current-branch))
+            (api (magit-gh-pulls-get-api))
+            (user (car repo))
+            (proj (cdr repo))
+            (req (magit-gh-pulls-build-req user proj))
+            (a (gh-pulls-new api user proj req)))
+        (kill-new (oref (oref a :data) :html-url))))))
 
 (defun magit-gh-pulls-reload ()
   (interactive)
@@ -224,6 +279,7 @@
     ["Reload pull request" magit-gh-pulls-reload]
     ["Create pull request branch" magit-gh-pulls-create-branch]
     ["Fetch pull request commits" magit-gh-pulls-fetch-commits]
+    ["Open pull request in browser" magit-gh-pulls-open-in-browser]
     ))
 
 (easy-menu-add-item 'magit-mode-menu
@@ -236,6 +292,8 @@
     (define-key map (kbd "# g f") 'magit-gh-pulls-fetch-commits)
     (define-key map (kbd "# g g") 'magit-gh-pulls-reload)
     (define-key map (kbd "# g m") 'magit-gh-pulls-merge-pull-request)
+    (define-key map (kbd "# g c") 'magit-gh-pulls-create-pull-request)
+    (define-key map (kbd "# g o") 'magit-gh-pulls-open-in-browser)
     map))
 
 (defvar magit-gh-pulls-mode-lighter " Pulls")
