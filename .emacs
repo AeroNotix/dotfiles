@@ -255,6 +255,9 @@
 (setq-default right-fringe-width 15)
 (git-gutter-mode 1)
 
+(require 'magit-gh-pulls)
+(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
+
 ;;;---------------------python------------------------------
 
 (defun flymake-pylint-init ()
