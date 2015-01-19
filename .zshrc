@@ -1,6 +1,8 @@
 ZSH=$HOME/.oh-my-zsh
 
 alias erl='rlwrap erl'
+alias yaks='cd ~/dev/ubic/'
+
 ignored_configs=(grep)
 plugins=(aws)
 source $ZSH/oh-my-zsh.sh
