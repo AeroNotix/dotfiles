@@ -27,5 +27,6 @@
 
 (global-set-key (kbd "C-x C-a s d") 'clojure--sort-project-dependencies)
 (global-set-key (kbd "C-x C-a a v") 'clojure--arg-vec-to-destructure)
+(global-set-key (kbd "C-x C-a a l") 'align-cljlet)
 
 (provide 'aero-clojure)
