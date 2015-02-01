@@ -412,3 +412,4 @@
   "A mode for upstart files")
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
+(put 'scroll-left 'disabled nil)
