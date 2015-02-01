@@ -413,3 +413,6 @@
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 (put 'scroll-left 'disabled nil)
+
+(add-to-list 'load-path "~/.emacs.d/mingus/")
+(require 'mingus)

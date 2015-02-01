@@ -1,0 +1,3 @@
+[submodule ".emacs.d/mingus"]
+	path = .emacs.d/mingus
+	url = git://github.com/pft/mingus.git
