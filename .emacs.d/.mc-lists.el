@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        cljr-slash
         forward-sexp
         indent-for-tab-command
         kill-region
