@@ -103,6 +103,10 @@
   (interactive)
   (insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)")))
 
+(defun open-scratch nil
+  (interactive)
+  (switch-to-buffer (get-buffer-create "*scratch*")))
+
 (global-set-key (kbd "C-x C-a s c")   'strip-comments)
 (global-set-key (kbd "C-x C-a i c d") 'insert-current-date)
 (global-set-key (kbd "M-n")           'copy-line-above)
