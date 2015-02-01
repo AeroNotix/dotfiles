@@ -293,6 +293,10 @@
 (setq cider-repl-result-prefix ";; => ")
 (setq cider-repl-history-size 100000000)
 (setq cider-repl-history-file "~/.cider-repl-history")
+(add-to-list 'cljr-magic-require-namespaces
+             '("json" . "clojure.data.json"))
+(add-to-list 'cljr-magic-require-namespaces
+             '("component" . "com.stuartsierra.component"))
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'cider-repl-mode-hook
           (lambda () (setq show-trailing-whitespace nil)))
