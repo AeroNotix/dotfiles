@@ -107,6 +107,7 @@
  '(custom-safe-themes
    (quote
     ("30a8a5a9099e000f5d4dbfb2d6706e0a94d56620320ce1071eede5481f77d312" default)))
+ '(edts-man-root "/home/xeno/.emacs.d/edts/doc/R16B02")
  '(emacsw32-max-frames t)
  '(emacsw32-style-frame-title t)
  '(grep-files-aliases
