@@ -1,6 +1,6 @@
 # -*- mode: sh -*-
 function syu {
-    sudo pacman -Syu --ignore erlang,elasticsearch,rebar,openssl
+    sudo pacman -Syu --ignore erlang,rebar,openssl
 }
 function rekon {
     curl -s -L rekon.basho.com | sh
