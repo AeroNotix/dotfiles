@@ -110,6 +110,8 @@
  '(edts-man-root "/home/xeno/.emacs.d/edts/doc/R16B02")
  '(emacsw32-max-frames t)
  '(emacsw32-style-frame-title t)
+ '(git-messenger:show-detail t)
+ '(global-hl-sexp-mode t)
  '(grep-files-aliases
    (quote
     (("erl" . "*.[eh]rl")
