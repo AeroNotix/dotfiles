@@ -111,7 +111,7 @@
  '(emacsw32-max-frames t)
  '(emacsw32-style-frame-title t)
  '(git-messenger:show-detail t)
- '(global-hl-sexp-mode t)
+ '(global-hl-sexp-mode nil)
  '(grep-files-aliases
    (quote
     (("erl" . "*.[eh]rl")
