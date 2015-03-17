@@ -280,6 +280,7 @@
 (require 'clj-refactor)
 (require 'clojure-mode-extra-font-locking)
 (add-hook 'clojure-mode-hook (lambda ()
+                               (hl-sexp-mode 1)
                                (yas/minor-mode 1)
                                (flymake-mode-on)
                                (clj-refactor-mode 1)
