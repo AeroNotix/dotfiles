@@ -1,0 +1,9 @@
+[roxterm profile]
+colour_scheme=
+always_show_tabs=0
+hide_menubar=1
+width=81
+font=Monospace 11
+background_type=2
+saturation=1.000000
+scrollback_lines=1000000
