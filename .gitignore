@@ -85,3 +85,5 @@
 /.config/filezilla/
 /.emacs.d/tutorial/
 /.config/Radium/
+*.xref
+*.log
