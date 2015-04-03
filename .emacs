@@ -209,7 +209,7 @@
 (setq inferior-erlang-machine-options '("-sname" "emacs"))
 
 (require 'erlang-start)
-(require 'flymake)
+
 (setq auto-mode-alist
       (reverse
        (append auto-mode-alist
