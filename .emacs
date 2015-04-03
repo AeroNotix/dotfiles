@@ -61,6 +61,8 @@
 (eval-after-load 'rainbow-delimeters
   '(global-rainbow-delimiters-mode))
 
+(require 'flymake)
+
 ;;;------------------Package-------------------------------
 
 (require 'package)
