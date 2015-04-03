@@ -188,7 +188,7 @@
 (autoload 'gofmt-before-save "go-mode" t nil)
 (add-hook 'before-save-hook #'gofmt-before-save)
 (require 'go-mode)
-(add-to-list 'load-path "/home/xeno/dev/go/src/github.com/dougm/goflymake")
+;; (add-to-list 'load-path "/home/xeno/dev/go/src/github.com/dougm/goflymake")
 
 (add-hook 'go-mode-hook
           '(lambda ()
@@ -198,7 +198,7 @@
              (global-set-key (kbd "C-c C-a") 'go-import-add)))
 
 (require 'go-autocomplete)
-(require 'go-flymake)
+;; (require 'go-flymake)
 
 ;;;-----------------Erlang Mode------------------------------
 
