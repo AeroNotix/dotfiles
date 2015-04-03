@@ -90,3 +90,4 @@
 /.emacs.d/recentf
 /.emacs.d/ido.last
 *.dump
+*.beam
