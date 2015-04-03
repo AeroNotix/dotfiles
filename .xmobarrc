@@ -1,3 +1,4 @@
+-- -*- haskell -*-
 Config { font = "-*-Fixed-Bold-R-Normal-*-20-*-*-*-*-*-*-*"
        , bgColor = "black"
        , fgColor = "grey"
