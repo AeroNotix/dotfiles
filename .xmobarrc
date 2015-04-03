@@ -1,4 +1,4 @@
-Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
+Config { font = "-*-Fixed-Bold-R-Normal-*-20-*-*-*-*-*-*-*"
        , bgColor = "black"
        , fgColor = "grey"
        , position = Top
@@ -12,7 +12,7 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
                                     "-n","gray90","-h","red"] 50
                     , Run DynNetwork [] 10
                     , Run Com "/home/xeno/.bin/wirelessbars.sh" [] "barz" 10
-                    , Run BatteryP ["BAT1"] ["-t", "<left>% | <timeleft>",
+                    , Run BatteryP ["BAT0"] ["-t", "<left>% | <timeleft>",
                                              "-L", "10", "-H", "80", "-p", "3",
                                              "--", "-O", "<fc=green>On</fc> - ", "-i", "",
                                              "-L", "-15", "-H", "-5",
