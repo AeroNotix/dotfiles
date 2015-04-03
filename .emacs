@@ -224,6 +224,11 @@
                  ("relx.config$"  . erlang-mode)
                  ("sys.config$"   . erlang-mode)))))
 
+(defun erlang-enable-edts ()
+  (edts-mode))
+
+(add-hook 'erlang-mode-hook 'erlang-enable-edts)
+
 ;;;---------------------C++----------------------------------
 
 (c-add-style "my-style"
