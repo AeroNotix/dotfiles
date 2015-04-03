@@ -224,16 +224,6 @@
                  ("relx.config$"  . erlang-mode)
                  ("sys.config$"   . erlang-mode)))))
 
-(defun flymake-erlang-init ()
-  (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                     'flymake-create-temp-inplace))
-         (local-file (file-relative-name temp-file
-                                         (file-name-directory buffer-file-name))))
-    (list "/usr/bin/syntaxerl" (list local-file))))
-
-(add-to-list 'flymake-allowed-file-name-masks '("\\.erl\\'" flymake-erlang-init))
-(add-hook    'erlang-mode-hook 'flymake-mode-on)
-
 ;;;---------------------C++----------------------------------
 
 (c-add-style "my-style"
