@@ -15,7 +15,6 @@
 
 ;; *Messages* buffer, literally who uses it?
 (setq-default message-log-max nil)
-
 (kill-buffer "*Messages*")
 
 ;; Disabled *Completions*
@@ -165,7 +164,6 @@
  '(rst-level-1-face ((t (:background "slate blue"))) t)
  '(rst-level-2-face ((t (:background "midnight blue"))) t)
  '(trailing-whitespace ((t (:background "red")))))
-
 
 ;-----------------AUTOCOMPLETE-----------------------------------
 
