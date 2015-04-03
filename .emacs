@@ -41,9 +41,6 @@
 ;;; Get rid of that nasty bell noise
 (setq visible-bell t)
 
-;;; 10pt text
-(set-face-attribute 'default nil :height 100)
-
 ;;; Scratch buffer STAFFU
 (setq initial-scratch-message "")
 (setq inhibit-startup-message t)
