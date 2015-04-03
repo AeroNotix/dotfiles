@@ -248,12 +248,6 @@
 (require 'slime)
 (slime-setup '(slime-fancy))
 
-(require 'git-gutter-fringe)
-(setq git-gutter-fr:side 'right-fringe)
-(setq-default left-fringe-width  0)
-(setq-default right-fringe-width 15)
-(git-gutter-mode 1)
-
 ;;;---------------------python------------------------------
 
 (defun flymake-pylint-init ()
