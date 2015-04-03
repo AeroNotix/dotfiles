@@ -30,6 +30,9 @@
 (setq whitespace-style '(face tabs empty trailing lines-tail))
 (setq x-stretch-cursor t)
 
+;; I like this scroll-left
+(put 'scroll-left 'disabled nil)
+
 (setq explicit-shell-file-name "/usr/bin/zsh")
 
 ;; Always follow vc links
@@ -354,7 +357,6 @@
                             (auto-fill-mode t)))
 (append auto-mode-alist '(("\\.post$" . markdown-mode)))
 
-
 ;; hippie
 (require 'hippie-exp-ext)
 (require 'hippie-namespace)
@@ -389,4 +391,3 @@
   "A mode for upstart files")
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
-(put 'scroll-left 'disabled nil)
