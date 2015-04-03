@@ -2,6 +2,7 @@
 (global-unset-key (kbd "C-x C-c"))
 (global-unset-key (kbd "C-z"))
 (global-unset-key (kbd "C-x C-w"))
+(global-unset-key (kbd "M-v"))
 
 (global-set-key (kbd "RET")       'newline-and-indent)
 (global-set-key (kbd "C-x g")     'magit-status)
@@ -17,6 +18,7 @@
 (global-set-key (kbd "C-c g r")   'gist-region)
 (global-set-key (kbd "C-c g b")   'gist-buffer)
 (global-set-key (kbd "C-x a r")   'align-regexp)
+(global-set-key (kbd "C-b")       'scroll-down-command)
 
 ;; Transpose stuff with M-t
 (global-unset-key (kbd "M-t")) ;; which used to be transpose-words
