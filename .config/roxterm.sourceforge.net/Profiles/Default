@@ -8,6 +8,6 @@ background_type=2
 saturation=1.000000
 scrollback_lines=1000000
 browser_spawn_type=0
-browser=chromium
+browser=google-chrome-stable
 scroll_on_output=1
 scroll_on_keystroke=1
