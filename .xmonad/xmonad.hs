@@ -49,7 +49,7 @@ main = do
         , (( mod1Mask,               xK_c      ), sendMessage (IncMasterN 1))
         , (( mod1Mask,               xK_v      ), sendMessage (IncMasterN (-1)))
         , (( mod4Mask,               xK_m      ), spawn "roxterm -e 'mutt'")
-        , (( controlMask,            xK_p      ), spawn "dmenu_run")
+        , (( controlMask,            xK_p      ), spawn "dmenu_run -fn 'Monaco-25'")
         , (( mod4Mask,               xK_q      ), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
         , (( mod1Mask,               xK_Tab    ), nextScreen)
         , (( mod4Mask,               xK_Left   ), prevWS)
