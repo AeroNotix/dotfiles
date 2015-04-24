@@ -1,6 +1,6 @@
 -- -*- haskell -*-
 Config { font = "-*-Fixed-Bold-R-Normal-*-20-*-*-*-*-*-*-*"
-       , bgColor = "black"
+       , bgColor = "#1d1d1d"
        , fgColor = "grey"
        , position = Top
        , lowerOnStart = True
