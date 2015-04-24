@@ -10,7 +10,7 @@ from subprocess import Popen, PIPE
 PYLINT_COMMAND = "pylint2"
 PYCHECKER_COMMAND = "pychecker"
 PEP8_COMMAND = "pep8-python2"
-PYFLAKES_COMMAND = "pyflakes"
+PYFLAKES_COMMAND = "pyflakes-python2"
 
 
 class LintRunner(object):
