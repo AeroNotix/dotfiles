@@ -91,4 +91,6 @@
 /.emacs.d/ido.last
 *.dump
 *.beam
-/.emacs.d/edts/119971250_ubic.xref
+*.xref
+crash.log
+crash.log.*
