@@ -6,6 +6,7 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-20-*-*-*-*-*-*-*"
        , border = BottomB
        , borderColor = "#646464"
        , lowerOnStart = True
+       , allDesktops = True
        , commands = [ Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
