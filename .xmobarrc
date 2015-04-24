@@ -15,7 +15,6 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-20-*-*-*-*-*-*-*"
                                     "-l","lightblue",
                                     "-n","gray90","-h","red"] 50
                     , Run DynNetwork [] 10
-                    , Run Com "/home/xeno/.bin/wirelessbars.sh" [] "barz" 10
                     , Run BatteryP ["BAT0"] ["-t", "<left>% | <timeleft>",
                                              "-L", "10", "-H", "80", "-p", "3",
                                              "--", "-O", "<fc=green>On</fc> - ", "-i", "",
@@ -25,5 +24,5 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-20-*-*-*-*-*-*-*"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%cpu% | %memory% | %coretemp% }{ %barz% %dynnetwork% %battery% | <fc=#ee9a00>%date%</fc>"
+       , template = "%cpu% | %memory% | %coretemp% }{ %dynnetwork% %battery% | <fc=#ee9a00>%date%</fc>"
        }
