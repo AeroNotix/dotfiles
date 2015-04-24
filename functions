@@ -13,15 +13,15 @@ function collapse_pwd {
 }
 __ALL_DATABASES=(kairosdb riak elasticsearch postgresql cassandra)
 function engage_tyranny {
-    for db in $__ALL_DATABASES
-    do
-        sudo systemctl start $db
-    done
+    to_all_dbs start
 }
 function disengage_tyranny {
+    to_all_dbs stop
+}
+function to_all_dbs {
     for db in $__ALL_DATABASES
     do
-        sudo systemctl stop $db
+        sudo systemctl $1 $db
     done
 }
 function export-aws-creds {
