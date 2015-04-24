@@ -4,6 +4,7 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-20-*-*-*-*-*-*-*"
        , fgColor = "grey"
        , position = Top
        , border = BottomB
+       , borderColor = "#646464"
        , lowerOnStart = True
        , commands = [ Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
