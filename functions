@@ -29,6 +29,10 @@ function export-aws-creds {
     export AWS_SECRET_KEY=$(grep -m 1 secret .aws/credentials | awk '{print $3}')
 }
 
-function all_the_monitors() {
+function all-the-monitors() {
     xrandr --output HDMI2 --mode 3840x2160 --right-of eDP1 --output DP1 --mode 3840x2160 --right-of HDMI2
+}
+
+function disable-external-monitors() {
+    xrandr --output HDMI2 --off --output DP1 --off
 }
