@@ -25,4 +25,4 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-20-*-*-*-*-*-*-*"
        , sepChar = "%"
        , alignSep = "}{"
        , template = "%cpu% | %memory% | %coretemp% }{ %dynnetwork% %battery% | <fc=#ee9a00>%date%</fc>"
-       }
+      }
