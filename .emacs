@@ -390,3 +390,8 @@
   "A mode for upstart files")
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
+
+;; Rust
+
+(require 'flymake-rust)
+(add-hook 'rust-mode-hook 'flymake-rust-load)
