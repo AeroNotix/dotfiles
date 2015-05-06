@@ -1,0 +1,47 @@
+#!/usr/bin/python2
+from asciitree import draw_tree
+from kazoo.client import KazooClient
+
+
+class Node(object):
+    def __init__(self, name, children):
+        self.name = name
+        self.children = children
+
+    def __str__(self):
+        return node_name(self.name)
+
+
+def retrieve_nodes():
+    c = KazooClient()
+    c.start()
+    paths = []
+    children = sorted(c.get_children("/"))
+    for child in children:
+        paths.append(
+            retrieve_children(c, "/" + child)
+        )
+    return Node("/", paths)
+
+
+def retrieve_children(c, child):
+    paths = []
+    for subchild in sorted(c.get_children(child)):
+        sub_path = join_path(child, subchild)
+        paths.append(retrieve_children(c, sub_path))
+    return Node(child, paths)
+
+
+def join_path(a, b):
+    if a and b:
+        if a[0] == "/":
+            return a + "/" + b
+        return "/" + a + "/" + b
+    return ""
+
+
+def node_name(node):
+    return node.split("/")[-1]
+
+
+print draw_tree(retrieve_nodes())
