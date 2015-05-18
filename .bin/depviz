@@ -1,0 +1,65 @@
+#!/usr/bin/env escript
+
+-module(depviz).
+-export([main/1]).
+
+main([]) ->
+    io:format("Usage: depviz AppFolder OutputBaseName~n", []),
+    io:format("AppFolder - folder of release~n", []),
+    io:format("OutputBaseName - basename for 2 "
+              "files which will be created (.dot and .png)~n", []);
+main([Directory, Output]) ->
+    io:format("Looking into ~p~n", [Directory]),
+    AppsDeps = filelib:wildcard(Directory ++ "/apps/*/"),
+    AA = [extract_deps(AD) || AD <- AppsDeps],
+
+    DepsDeps = filelib:wildcard(Directory ++ "/deps/*/"),
+    DD = [extract_deps(D) || D <- DepsDeps],
+
+    MM = extract_deps(Directory),
+
+    file:write_file(Output++".dot", graphviz([MM|AA] ++ DD)),
+    io:format("~s", [os:cmd("dot "++Output++".dot -Tpng -o "++Output++".png")]);
+main(_) ->
+    io:format("Two arguments needed~n", []),
+    main([]).
+
+
+extract_deps(Dir) ->
+    Dir1 = filename:rootname(filename:absname(Dir)),
+    AppName = lists:last(string:tokens(Dir1, "/")),
+    io:format("Looking into ~p~n", [Dir1]),
+    Dependecies = case file:consult(Dir ++ "/rebar.config") of
+        {ok, RebarConfig} ->
+            Deps = proplists:get_value(deps, RebarConfig, []),
+            [get_name_version(Dep) || Dep<- Deps];
+        {error, _} ->
+            []
+                  end,
+    {AppName, Dependecies}.
+
+get_name_version({Name, _, {_, _, ""}}) ->
+    {Name, {branch, "HEAD"}};
+get_name_version({Name, _, {_, _, Version}}) ->
+    {Name, Version};
+get_name_version({Name, _, {_, _}}) ->
+    {Name, {branch, "HEAD"}};
+get_name_version({Name, P, Commit, _Opts}) ->
+    get_name_version({Name, P, Commit}).
+
+graphviz(Deps) ->
+    ["digraph G { ",
+     "ratio=1.0;",
+     [draw_single_deps(Dep) || Dep <- Deps],
+     "}"].
+
+draw_single_deps({AppName, Deps}) ->
+    [io_lib:format("~p->~p [label=\"~p\"];~n", [AppName, DepName, prepare_version(Version)]) ||
+     {DepName, Version} <- Deps].
+
+prepare_version({tag, Version}) when is_list(Version) ->
+    {tag, list_to_atom(Version)};
+prepare_version({branch, Name}) when is_list(Name) ->
+    {branch, list_to_atom(Name)};
+prepare_version(Other) when is_list(Other) ->
+    list_to_atom(Other).
