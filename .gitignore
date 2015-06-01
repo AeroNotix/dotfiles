@@ -94,3 +94,4 @@
 *.xref
 crash.log
 crash.log.*
+/.emacs.d/edts/119971250_ubic.xref
