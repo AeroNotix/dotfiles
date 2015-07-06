@@ -30,7 +30,7 @@ main = do
         , (( mod1Mask .|. shiftMask, xK_b      ), spawn "roxterm -e 'ncxbacklight'")
         , (( mod1Mask .|. shiftMask, xK_Return ), spawn "roxterm")
         , (( mod1Mask .|. shiftMask, xK_e      ), spawn "emacsclient -c")
-        , (( mod1Mask .|. shiftMask, xK_f      ), spawn "google-chrome-stable --force-device-scale-factor=2")
+        , (( mod1Mask .|. shiftMask, xK_f      ), spawn "chromium --force-device-scale-factor=2")
         , (( mod1Mask .|. shiftMask, xK_g      ), spawn "gimp")
         , (( mod1Mask .|. shiftMask, xK_k      ), spawn "keepassx")
         , (( mod1Mask .|. shiftMask, xK_m      ), spawn "roxterm -e 'ncmpcpp'")
