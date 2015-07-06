@@ -22,6 +22,7 @@ export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/ho
 export PATH=$PATH:/home/xeno/.gem/ruby/2.1.0/bin
 export PATH=$PATH:$CLOJURESCRIPT_HOME/bin
 export PATH=~/.local/bin:$PATH
+export PATH=$PATH:/home/xeno/.gem/ruby/2.2.0/bin
 export PERL5LIB="/home/xeno/.opam/system/lib/perl5"
 export PYTHONSTARTUP=~/.pystartup
 export VISUAL=$EDITOR
