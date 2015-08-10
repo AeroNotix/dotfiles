@@ -70,3 +70,6 @@ if [ -f ~/.dircolors ]; then
     eval `dircolors ~/.dircolors`
 fi
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
+
+# added by travis gem
+[ -f /home/xeno/.travis/travis.sh ] && source /home/xeno/.travis/travis.sh
