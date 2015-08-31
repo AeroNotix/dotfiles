@@ -77,7 +77,7 @@
 
 ;;; Set browser to Chrome
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "google-chrome-stable")
+      browse-url-generic-program "chromium")
 
  ;;; Line numbers on all the files!
 (global-linum-mode t)
