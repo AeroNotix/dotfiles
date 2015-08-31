@@ -248,10 +248,11 @@
 
 ;; Slime
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
-(setq inferior-lisp-program "/usr/bin/sbcl")
+(setq slime-lisp-implementations
+      '((sbcl ("sbcl" "--core" "/home/xeno/.emacs.d/sbcl.core-for-slime"))))
 
 (require 'slime)
-(slime-setup '(slime-fancy))
+(slime-setup '(slime-fancy ac-slime))
 
 ;;;---------------------python------------------------------
 
