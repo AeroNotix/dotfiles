@@ -27,6 +27,8 @@ export PERL5LIB="/home/xeno/.opam/system/lib/perl5"
 export PYTHONSTARTUP=~/.pystartup
 export VISUAL=$EDITOR
 
+export PYTHONPATH=$PYTHONPATH:/home/xeno/dev/
+
 HISTSIZE=100000000
 SAVEHIST=100000000
 HISTFILE=~/.zsh_history

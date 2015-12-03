@@ -174,11 +174,11 @@
 
 ;-----------------AUTOCOMPLETE-----------------------------------
 
-(add-to-list 'load-path "~/.emacs.d/autocomplete") ;
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/autocomplete/ac-dict")
-(ac-config-default)
-(global-auto-complete-mode t)
+;; (add-to-list 'load-path "~/.emacs.d/autocomplete") ;
+;; (require 'auto-complete-config)
+;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/autocomplete/ac-dict")
+;; (ac-config-default)
+;(global-auto-complete-mode t)
 
 ;;;---------------------flymake--------------------------------
 
@@ -249,7 +249,7 @@
 ;; Slime
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (setq slime-lisp-implementations
-      '((sbcl ("sbcl" "--core" "/home/xeno/.emacs.d/sbcl.core-for-slime"))))
+      '((sbcl ("sbcl"))))
 
 (require 'slime)
 (slime-setup '(slime-fancy ac-slime))
@@ -270,6 +270,10 @@
 (set-variable 'python-indent-offset 4)
 (add-hook 'python-mode-hook (lambda ()
                               (flymake-mode-on)))
+
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
+(setq jedi:use-shortcuts t)
 
 ;;;-------------------clojure-------------------------------
 
