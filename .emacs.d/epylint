@@ -1,16 +1,17 @@
-#!/usr/bin/env python2
+#!/bin/python
+from __future__ import print_function
 
 import os
 import re
 import sys
-import compiler
+import py_compile
 
 from subprocess import Popen, PIPE
 
-PYLINT_COMMAND = "pylint2"
+PYLINT_COMMAND = "pylint"
 PYCHECKER_COMMAND = "pychecker"
-PEP8_COMMAND = "pep8-python2"
-PYFLAKES_COMMAND = "pyflakes-python2"
+PEP8_COMMAND = "pep8"
+PYFLAKES_COMMAND = "pyflakes"
 
 
 class LintRunner(object):
@@ -53,8 +54,11 @@ class LintRunner(object):
 
     @classmethod
     def process_output(cls, line):
-        print line
-        m = cls.output_matcher.match(line)
+        print(line.decode('utf-8'))
+        try:
+            m = cls.output_matcher.match(str(line))
+        except Exception as e:
+            raise
         if m:
             fixed_data = dict.fromkeys(('level', 'error_type',
                                         'error_number', 'description',
@@ -63,9 +67,9 @@ class LintRunner(object):
             fixed_data.update(cls.fixup_data(line, m.groupdict()))
             fixed_data['description'] = (
                 cls.__name__ + ' ' + fixed_data['description'])
-            print cls.output_format % fixed_data
+            print(cls.output_format % fixed_data)
         else:
-            print >> sys.stderr, "Line is broken: %s %s" % (cls, line)
+            print("Line is broken: %s %s" % (cls, line), file=sys.stderr)
 
     def run(self, filename):
         args = [self.command]
@@ -80,8 +84,8 @@ class CompilerRunner(LintRunner):
     def run(self, filename):
         error_args = None
         try:
-            compiler.parseFile(filename)
-        except (SyntaxError, Exception),  e:
+            py_compile.compile(filename)
+        except (SyntaxError, Exception) as e:
             error_args = e.args
         if error_args:
             self.process_output(filename, error_args)
@@ -97,7 +101,7 @@ class CompilerRunner(LintRunner):
         fixed_data['filename'] = filename
         fixed_data['description'] = 'CompilerRunner ' + args[0]
 
-        print cls.output_format % fixed_data
+        print(cls.output_format % fixed_data)
 
 
 class PylintRunner(LintRunner):
@@ -243,14 +247,15 @@ def main():
                         #PycheckerRunner,
                         Pep8Runner,
                         PyflakesRunner,
-                        CompilerRunner):
+                        CompilerRunner
+    ):
         runner = runnerclass(virtualenv=options.virtualenv,
                              ignore_codes=options.ignore_codes)
         try:
             runner.run(args[0])
-        except Exception:
-            print 'ERROR : {0} failed to run at {1} line 1.'.format(
-                runner.__class__.__name__, args[0])
+        except Exception as e:
+            print('ERROR : {0} failed to run at {1} line 1:'.format(
+                runner.__class__.__name__, args[0]))
 
 
 if __name__ == '__main__':
