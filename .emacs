@@ -275,6 +275,10 @@
 (setq jedi:complete-on-dot t)
 (setq jedi:use-shortcuts t)
 
+(font-lock-add-keywords 'python-mode
+                        (list
+                         `(,(regexp-opt (list "async " "await ")) . font-lock-keyword-face)))
+
 ;;;-------------------clojure-------------------------------
 
 (require 'clj-refactor)
