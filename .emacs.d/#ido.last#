@@ -1,0 +1,389 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/xeno/dev/lispkit/.quicklocal/quicklisp/dists/quicklisp/software/cl-cffi-gtk-20141217-git/" . "gdk/")
+ ("/home/xeno/dev/lispkit/.quicklocal/quicklisp/dists/quicklisp/software/" . "cl-cffi-gtk-20141217-git/")
+ ("/home/xeno/dev/lispkit/.quicklocal/quicklisp/dists/quicklisp/" . "software/")
+ ("/home/xeno/dev/lispkit/.quicklocal/quicklisp/dists/" . "quicklisp/")
+ ("/home/xeno/dev/lispkit/.quicklocal/quicklisp/local-projects/" . "cl-webkit/")
+ ("/home/xeno/dev/lispkit/.quicklocal/quicklisp/" . "dists/")
+ ("/home/xeno/dev/cl-webkit2/" . "webkit2/")
+ ("/home/xeno/dev/zookeeper/src/" . "c/")
+ ("/home/xeno/dev/zookeeper/" . "src/")
+ ("/home/xeno/dev/lispkit/.quicklocal/" . "quicklisp/")
+ ("/home/xeno/dev/lispkit/" . ".quicklocal/")
+ ("/home/xeno/dev/cl-zk/" . "test/")
+ ("/home/xeno/dev/gpx/src/" . "gpx/")
+ ("/home/xeno/dev/gpx/" . "src/")
+ ("/home/xeno/dev/ubic_schema/" . "src/")
+ ("/home/xeno/.quicklisp/dists/quicklisp/software/" . "trivial-timers-20101006-http/")
+ ("/home/xeno/.quicklisp/dists/quicklisp/installed/" . "systems/")
+ ("/home/xeno/.quicklisp/dists/quicklisp/" . "software/")
+ ("/home/xeno/.quicklisp/dists/" . "quicklisp/")
+ ("/home/xeno/.quicklisp/" . "dists/")
+ ("/home/xeno/dev/kai/" . "src/")
+ ("/home/xeno/dev/ubic_sso_srv/rel/" . "files/")
+ ("/home/xeno/dev/ubic_sso_srv/apps/ubic_sso_srv/" . "src/")
+ ("/home/xeno/dev/ubic_sso_srv/apps/" . "ubic_sso_srv/")
+ ("/home/xeno/dev/ubic_sso_srv/" . "rel/")
+ ("/home/xeno/dev/ubic/_build/default/lib/piqi/" . "piqic-erlang/")
+ ("/home/xeno/dev/ubic/_build/default/lib/" . "piqi/")
+ ("/home/xeno/dev/ubic/_build/default/" . "lib/")
+ ("/home/xeno/dev/ubic/_build/" . "default/")
+ ("/home/xeno/dev/gat/test/" . "gat/")
+ ("/home/xeno/dev/gat/src/" . "gat/")
+ ("/home/xeno/dev/gat/" . "test/")
+ ("/home/xeno/dev/clagent/" . "fixtures/")
+ ("/home/xeno/dev/env-builds/ops/roles/uwncom/" . "vars/")
+ ("/home/xeno/dev/env-builds/ops/roles/app-ubic-sso/" . "templates/")
+ ("/home/xeno/dev/env-builds/ops/roles/app-payments/" . "meta/")
+ ("/home/xeno/dev/env-builds/ops/roles/app-gat/" . "meta/")
+ ("/home/xeno/dev/env-builds/ops/roles/app-ubic-device/" . "templates/")
+ ("/home/xeno/dev/env-builds/ops/roles/beaver_log/" . "defaults/")
+ ("/home/xeno/dev/env-builds/ops/roles/beaver/" . "meta/")
+ ("/home/xeno/dev/env-builds/ops/roles/kairosdb/" . "templates/")
+ ("/home/xeno/dev/env-builds/ops/roles/riak/" . "files/")
+ ("/home/xeno/dev/env-builds/ops/roles/users-sso/" . "tasks/")
+ ("/home/xeno/dev/env-builds/ops/roles/sso-riak/" . "vars/")
+ ("/home/xeno/dev/env-builds/ops/roles/" . "app-ubic-device/")
+ ("/home/xeno/dev/env-builds/ops/" . "roles/")
+ ("/home/xeno/dev/env-builds/" . "ops/")
+ ("/home/xeno/dev/ubic_sso/apps/ubic_sso_srv/" . "src/")
+ ("/home/xeno/dev/ubic_sso/apps/" . "ubic_sso_srv/")
+ ("/home/xeno/dev/ubic_sso/" . "apps/")
+ ("/home/xeno/dev/ubic/files/" . "es_mappings/")
+ ("/home/xeno/dev/ubic/deps/epgsql_poolboy/" . "test/")
+ ("/home/xeno/dev/panic/" . "src/")
+ ("/home/xeno/dev/ubic/deps/sso_httpc/" . "src/")
+ ("/home/xeno/dev/sso_httpc/" . "src/")
+ ("/etc/" . "zookeeper/")
+ ("/home/xeno/dev/cya/" . "src/")
+ ("/home/xeno/dev/ubic/deps/cya/" . "src/")
+ ("/home/xeno/dev/ezk/" . "src/")
+ ("/home/xeno/dev/drillman/" . "src/")
+ ("/home/xeno/dev/ubic/deps/eutils/" . "src/")
+ ("/home/xeno/dev/ubic/deps/" . "erlasticsearch/")
+ ("/home/xeno/dev/fk/" . "src/")
+ ("/usr/lib/python2.7/site-packages/" . "asciitree/")
+ ("/usr/lib/python2.7/" . "site-packages/")
+ ("/usr/lib/" . "python2.7/")
+ ("/usr/" . "lib/")
+ ("/" . "etc/")
+ ("/home/" . "xeno/")
+ ("/home/xeno/dev/tazk/deps/" . "ezk/")
+ ("/home/xeno/dev/tazk/" . "src/")
+ ("/home/xeno/dev/wscr/" . "src/")
+ ("/home/xeno/dev/python-ubic/ubic/airos/" . "clients/")
+ ("/home/xeno/dev/python-ubic/ubic/device/" . "apis/")
+ ("/home/xeno/dev/python-ubic/ubic/" . "device/")
+ ("/home/xeno/dev/python-ubic/" . "ubic/")
+ ("/home/xeno/dev/ubic/apps/ubic_device/priv/" . "eeprom/")
+ ("/home/xeno/.aur/" . "erln8/")
+ ("/home/xeno/dev/folsomite/" . "src/")
+ ("/home/xeno/dev/cowboy/" . "src/")
+ ("/home/xeno/dev/ooh_wee/" . "src/")
+ ("/home/xeno/dev/zootex/src/" . "zootex/")
+ ("/home/xeno/dev/zootex/" . "src/")
+ ("/home/xeno/dev/epgsql_poolboy/deps/epgsql/" . "src/")
+ ("/home/xeno/dev/epgsql_poolboy/deps/" . "epgsql/")
+ ("/home/xeno/dev/epgsql_poolboy/" . "src/")
+ ("/su:root@xenocorp:/etc/netctl/" . "interfaces/")
+ ("/su:root@xenocorp:/etc/" . "netctl/")
+ ("/su:root@xenocorp:/" . "etc/")
+ ("/su:root@xenocorp:/usr/lib/network/" . "connections/")
+ ("/home/xeno/dev/ubic/apps/ubic_device/" . "priv/")
+ ("/home/xeno/dev/ubic/tests/ubic_airos/" . "common/")
+ ("/home/xeno/dev/ubic/tests/" . "ubic_airos/")
+ ("/home/xeno/dev/ubic/apps/ubic_adopt/" . "priv/")
+ ("/home/xeno/dev/api-docs/content/control/" . "v1/")
+ ("/home/xeno/dev/api-docs/content/" . "control/")
+ ("/home/xeno/dev/api-docs/" . "content/")
+ ("/home/xeno/dev/flyway/" . "src/")
+ ("/home/xeno/.config/roxterm.sourceforge.net/" . "Profiles/")
+ ("/home/xeno/.config/" . "roxterm.sourceforge.net/")
+ ("/home/xeno/.emacs.d/elpa/" . "slime-20150814.706/")
+ ("/home/xeno/.emacs.d/" . "elpa/")
+ ("/home/xeno/.dotfiles/.emacs.d/" . "aero/")
+ ("/home/xeno/.dotfiles/" . ".emacs.d/")
+ ("/home/xeno/dev/ubic/apps/ubic_airos/" . "src/")
+ ("/home/xeno/dev/ubic/apps/" . "ubic_airos/")
+ ("/home/xeno/dev/ubic/" . "apps/")
+ ("/home/xeno/dev/" . "ubic/")
+ ("/home/xeno/Downloads/" . "gpx2svg-0.1.4/")
+ ("/home/xeno/" . "dev/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/xeno/dev/ubic/apps/ubic_airos/src/"
+ "/home/xeno/"
+ "/home/xeno/.emacs.d/"
+ "/home/xeno/dev/api-docs/content/control/v1/"
+ "/home/xeno/dev/ubic/"
+ "/home/xeno/dev/ubic/tests/ubic_airos/"
+ "/home/xeno/.dotfiles/"
+ "/home/xeno/dev/ubic/apps/ubic_airos/test/"
+ "/home/xeno/dev/ubic/apps/ubic_airos/include/"
+ "/home/xeno/dev/ubic/apps/ubic_device/priv/"
+ "/home/xeno/dev/ubic/apps/ubic_airos/priv/"
+ "/home/xeno/dev/ubic/files/"
+ "/home/xeno/dev/cl-zk/"
+ "/home/xeno/dev/lispkit/.quicklocal/quicklisp/dists/quicklisp/software/cl-cffi-gtk-20141217-git/gdk/"
+ "/home/xeno/dev/lispkit/"
+ "/home/xeno/dev/zookeeper/src/c/"
+ "/home/xeno/dev/cl-webkit2/webkit2/"
+ "/home/xeno/dev/cl-zk/test/"
+ "/home/xeno/dev/lispkit/test/"
+ "/home/xeno/dev/lispkit/.quicklocal/quicklisp/"
+ "/home/xeno/dev/destiny/"
+ "/home/xeno/dev/destiny/tests/"
+ "/home/xeno/Downloads/"
+ "/home/xeno/dev/gpx/src/gpx/"
+ "/home/xeno/.lein/"
+ "/home/xeno/dev/gpx/"
+ "/home/xeno/Downloads/gpx2svg-0.1.4/"
+ "/home/xeno/dev/sso_httpc/src/"
+ "/home/xeno/dev/ubic/apps/ubic_adopt/priv/"
+ "/home/xeno/dev/ubic/apps/ubic_adopt/src/"
+ "/etc/zookeeper/"
+ "/home/xeno/dev/ubic/apps/ubic_airos/"
+ "/home/xeno/dev/ubic_schema/src/"
+ "/home/xeno/.quicklisp/dists/quicklisp/software/trivial-timers-20101006-http/"
+ "/home/xeno/.quicklisp/dists/quicklisp/"
+ "/usr/share/sbcl-source/src/code/"
+ "/home/xeno/dev/ubic_schema/"
+ "/home/xeno/dev/product_schema/"
+ "/home/xeno/dev/kai/src/"
+ "/home/xeno/dev/ubic/files/es_mappings/"
+ "/home/xeno/.emacs.d/elpa/slime-20150814.706/"
+ "/home/xeno/dev/ubic/apps/ubic_device/src/"
+ "/home/xeno/dev/ubic/apps/ubic_device/"
+ "/home/xeno/dev/ubic/apps/ubic_adopt/"
+ "/home/xeno/dev/epgsql_poolboy/src/"
+ "/home/xeno/.dotfiles/.bin/"
+ "/home/xeno/.xmonad/"
+ "/home/xeno/.bin/"
+ "/home/xeno/dev/env-builds/ops/roles/app-ubic-device/templates/"
+ "/home/xeno/Downloads/.ssh/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "unifi_notifications.erl"
+ "f3.py"
+ "epylint"
+ "c.py"
+ "f3.html"
+ "actions.md"
+ "push_notifications.md"
+ "Makefile"
+ "unifi_ws_tests.py"
+ "ua_unifi_device.erl"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/xeno/dev/ubic/apps/ubic_airos/src/" (22157 12845 994261 45000) "ua_tdma.erl" "ua_device_clients.erl" "ua_tdma_stats.erl" "ua_msg_unifi.erl" "ua_rest_network.erl" "ua_metrics.erl" "ua_rest_sdp_devices.erl" "ua_ws_cloudkey.erl" "ua_tdma.hrl" "ua_cluster.erl" "ua_app_events.erl" "ua_act_discover.erl" "ua_rest_device.erl" "ua_act_config_update_dev.erl" "ua_device_charts.erl" "ua_device_traffic.erl" "ua_rest_assign_deprecated.erl" "ua_rest_itsp_register.erl" "ua_act_prov_cpes_cpe_sup.erl" "ua_ws_ui_events.erl" "ua_rest_firmwares.erl" "ua_act_sup.erl" "ua_network_groups.erl" "ua_heartbeat_mappings.erl" "ua_act_config_update_ctl.erl" "ua_rest_unifi_invites_activate.erl" "unifi_msgs_piqi.erl" "ua_ufv_metrics_handler.erl" "ua_http_params.erl" "ua_rest_firmwares_deprecated.erl" "ua_rest_health.erl" "ua_act_prov_cpes_ctl.erl" "ua_rest_support.erl" "ua_device_metrics.erl" "ua_rest_fw.erl" "ua_conn.erl" "ua_sdp_devices.erl" "ua_cmd_json.erl" "ua_device.erl" "ua_events.erl" "ua_cfg_ctx.erl" "ua_rest_mobile_form.erl" "ua_act_fw_update_dev_sup.erl" "ua_ws_gen.erl" "ua_middleware_duration_start.erl" "ua_middleware_env.erl" "ua_ws_core.erl" "ua_ufv_device.erl" "ua_sdp_exchange.erl" "unifi_notifications_register_http.erl" "ua_rest_priv_traffic_actions.erl" "ua_cep.hrl" "ua_act_fw_update_sup.erl" "ua_act_top_sup.erl" "ua_invites.erl" "ua_app.erl" "ua_cors_middleware.erl" "ua_unifi_device.erl" "ua_act_fw_update.erl" "ua_cfg_db_top_sup.erl" "ua_rest_tdma.erl" "ua_lview.erl" "ua_rest_ufv_devices.erl" "ua_utils.erl" "ua_network_node.erl" "ubic_airos.app.src" "ua_ui_errors.erl" "ua_firmware.erl" "ua_cfg_regdom_sup.erl" "ua_cfg_regdom_wrk.erl" "ua_regdomain.erl" "ua_ws_ui_proto.erl" "ua_tdma_stats_sup.erl" "ua_ct_hook_untyranny.erl" "ua_msg_hb_piqi.erl" "ufv_msgs_piqi.erl" "ua_rest_turn_creds.erl" "ua_unifi_site_list.erl" "ua_log.erl" "ua_rest_config_options.erl" "ua_rest_metrics.erl" "ua_act_reboot.erl" "ua_redis.erl" "ua_act_hb_rate.erl" "ua_msg_legacy.erl" "ua_rest_itsp_redir.erl" "ua_rest_metrics_predef.erl" "unifi_notifications_db.erl" "ua_firmwares.erl" "ua_network.erl" "unifi_notifications.erl" "ua_rest_active_clients.erl" "ua_cfg.erl" "ua_rest_unifi_device.erl" "ua_act_config_update_sup.erl" "ua_rest_ufv_auth_tokens.erl" "ua_msg.erl" "ua_unifi_actions.erl" "ua_network_device.erl" "ua_rest_config_gen.erl" "ua_process_metrics.erl" "ua_action.erl" "ua_cfg_bin.erl" "ua_msgs_ufv.erl" "ua_rest_priv_fw.erl" "ua_ws.erl" "ua_cfg_db_sup.erl" "ubic_airos.erl" "ua_device_org_middleware.erl" "ua_rest_assign.erl" "ua_rest_config_group.erl" "ua_firmware_version.erl" "ua_act_prov_cpes_sup.erl" "ua_es.erl" "ua_itsp_toc_rest.erl" "ua_ws_ufv.erl" "ua_rest_unifi_configuration.erl" "ua_middleware_duration_stop.erl" "ua_lview_sup.erl" "ua_cfg_db.erl" "ua_heartbeat.erl" "ua_ws_ui.erl" "ua_unifi_site_health.erl" "ua_action.hrl" "ua_cfg_db_pool.erl" "ua_sup.erl" "ua_act_prov_cpes_cpe.erl" "ua_rest_devices.erl" "ua_act_fw_update_dev.erl" "ua_memsup_alarm_handler.erl" "ua_logical_group.erl" "ua_ws_unifi.erl" "ua_act_config_update_dev_sup.erl" "ua_act_fw_update_ctl.erl" "../" "./")
+
+ ("/home/xeno/dev/ubic/apps/ubic_airos/" (22157 12845 994261 45000) "priv/" "rebar.config" "../" "src/" "Makefile.piqi" "test/" ".gitignore" "include/" "logs/" "./" "ebin/")
+
+ ("/home/xeno/dev/ubic/" (22157 15938 617310 357000) "man/" "rebar.config" "../" "ct_log/" "README.md" "tests/" "dialyze/" "sys.config" "requirements.txt" "utils/" "rebar.lock" "_build/" ".gitignore" ".ackrc" ".git/" "files/" "include/" "relx" "nosetests.xml" "pip-selfcheck.json" "erln8.config" "Emakefile" ".travis.yml" "lib/" "Makefile" "apps/" ".agignore" "dialyzer.ignore-warnings" "bin/" "./" "test.config" "group.config" "rebar3" ".edts")
+
+ ("/home/xeno/dev/" (22154 33668 41426 214000) "zk/" "unifi-video-email-templates/" "ezk/" "borsuk/" "ring/" "python-ubic/" "entop-pkgbuild/" "hammerl/" "erlcloud/" "macroz/" "manderl/" "kairos_logstash/" "cl-xkeysym/" "lein-ver/" "emacs/" "om-tut/" "uwncom/" "tazk/" "om.wiki/" "auth.net/" "ckrc/" "jsonxform/" "go/" "lfe/" "ztree/" "leinjacker/" "coleslaw/" "jepsen/" "clj-http/" "sadness_billing/" "ops/" "logjammin/" "futura/" "erln8-aur/" "quicklisp-client/" "bandalore/" "sdk-core-java/" "clagent/" "lfe-pkgbuild/" "foo/" "lkmq/" "erlcql_poolboy/" "airconfig/" "chastity/" "goflymake/" "zootex/" "dotfiles/" "payments/" "quintana/" "awizo/" "rustl/" "stumpwm-git/" "cl-zk/" "buffy/" "clj-kafka/" "ubic_sso/" "ubic_envelope/" "src/" "bumperl-pkgbuild/" "grapherl/" "weechat_plugins/" "ncxbacklight/" "product_schema/" "cyanite/" "Java-WebSocket/" "salticid/" "curator/" "app-unifi-sdn/" "alf/" "ubic_settings/" "python-ubic_sso_user/" "rust/" "rebar-pkgbuild/" "systematize/" "drillman/" "django/" "awsc-java/" "aerokode/" "org_httpc/" "destiny/" "wsm/" "riemann-dash/" "rmess/" "settings_httpc/" "linksimulator/" "cyril/" "django-ubic_auth/" "msgd/" "erlang-pbkdf2/" "onan_server/" "erlcloudinary/" "riemann/" "zookeeper/" "rak/" "wscr/" "esfu/" "lambdadays/" "refacterl/" "sicp/" "memophile/" "billpay-client/" "yella/" "test/" "ubic_client/" "swindon/" "something/" "entop/" "rebar/" "edts/" "nyx/" "folsom/" "2015/" "sroftware/" "ubic_db/" "phonegap_upload_prototype/" "lxc-wrapper-pkgbuild/" "ghprb-plugin/" "cl-fsm/" "hurr/" "uuuurrrrllll/" "cl-webkit2/" "sso_httpc/" "erl-cache/" "lein-protobuf/" "couchdb/" "poolboy/" "ubic_settings_srv/" "relx/" "conversions/" "iwek/" "disco/" "flyway/" "libevent/" "racer/" "fooo/" "logstash-output-elasticsearch/" "metrics-clojure/" "logstash-logback-encoder/" "eredis/" "gpx-animator/" "rest-api-sdk-java/" "frik/" "lapse/" "ring-codec/" "sso/" "ubic_lib/" "ubic-stun/" "tools.trace/" "knossos/" "algostructure/" "pismo/" "crc16/" "crap/" "cassandra/" "java-driver/" "duhraw/" "katja_poolboy/" "riak-java-client/" "clon/" "inundator/" "bumperl/" "neckbeard/" "irc-urls/" "lispkit/" "ubnt-vault/" "univiz/" "talkative/" "ring-json/" "erlgrind/" "goblocks/" "pip/" "ss-oh-no/" "4clojure/" "aergia-pkgbuild/" "nrepl-comp/" "kai/" "uuess/" "sqs-comp/" "pmap/" "koozy/" "whizz/" "spapi-router/" "gpx/" "protoc-gen-lisp-pkgbuild/" "plts/" "sky-twitter-test/" "avout/" "ubic/" "clojure-mode/" "modern-cljs/" "ufv_templates/" "otp/" "taffybar/" "sbcl/" "loose/" "stringprep/" "notes/" "api-docs/" "archiva-pkgbuild/" "alex/" "recepcja/" "xeber/" "cepl/" "barry/" "golang-crosscompile/" "lolz/" "clj-refactor.el/" "clojerl/" "zk-web/" "zkdb/" "kairosdb/" "Diamond/" "ubic_sso_srv/" "gat/" "nate/" "sajens/" "__init__.py" "airos-websocket-client/" "cqlcl/" "cya/" "clojurescript/" "smartstack/" "szef/" "ocp-indent/" "epgsql_poolboy/" "xmobar/" "billing/" "trax/" "erlcql/" "libwebsockets/" "riak_id/" "libubnt/" "fester/" "cloverage/" "clojure-koans/" "kairosdb-pkgbuild/" "env-builds/" "lxc-wrapper/" "ubic_univiz/" "queue/" "ryz/" "ubic_schema/" "riakc_poolboy/" "closchema/" "elastisch/" "timbre/" "cluic/" "wisp-android/" "erlang-bcrypt/" "go-mode.el/" "ets_manager/" "contextmanager/" "lfetool-pkgbuild/" "stumpwm/" "grimoire/" "airvision/" "erlpkgs/" "UniFi-WsClient/" "ryeboy/" "dlhttpc/" "tic/" "butler/" "epgsql/" "katja/" "zootils/" "erln8/" "libzookeeper/" "justdoit/" "klokov/" "defcloud/" "ck-poc/" "erlasticsearch/" "landoflisp/" "ace/" "ranch/" "brim-template/" "onan/" "websocket_client/" "apatch/" "folsomite/" "carbon-c-relay/" "stun/" "logstash/" "panic/" "rusty/" "cl-ppcre-pkgbuild/" "vektor/" "aergia/" "cowboy/" "amibuilder-dsl-jobs/" "ubntbot/" "jtpg/" "ryebold/" "jlolz/" "clojure-examples/" "../" "./")
+
+ ("/home/xeno/" (22158 12850 592176 615000) ".Skype/" ".quicklisp/" "../" ".zcompdump" ".erlang.cookie" ".cassandra/" ".python_history" "dump.sql" ".ssh/" ".slime-history.eld" ".httpie/" ".dotfiles/" ".local/" ".notifyreg" ".rnd" "Desktop/" "ops/" "foo.svg" "Dropbox/" "foo" "g.py" ".wallpapers/" "broadcom-wl-master/" ".bash_history" ".erln8.d/" "125p.pdf" "signed" "f.py" "nohup.out" "dump.tar.gz" ".pip/" ".gnome/" "scratch.py" ".psql_history" ".old_keepassx_files/" ".pgadmin3" ".gem/" "f.lisp" ".gtkrc2.0" ".ansible/" ".config/" ".zcompdump-localhost-5.0.7" "__pycache__/" ".m2/" "c.py" ".dropbox-dist/" ".oh-my-zsh-cache/" ".xmobarrc" "ufv_templates.erl" ".travis/" ".xmonad/" ".lesshst" ".dbshell" ".gtkrc-2.0" ".esd_auth" ".tmp_dir264370947060/" ".hosts.erlang" "f5.py" ".rediscli_history" ".dbus/" "pub.pem" ".gitconfig" ".sbclrc" "l.txt" ".plugman/" "eparse.py" "node_modules/" ".minecraft/" "#f5.py#" ".bashrc" ".zcompdump-xenocorp-5.1.1" ".histfile" ".Xresources" ".zshrc" ".pyenv/" ".cache/" ".oh-my-zsh/" ".subversion/" ".gnome2/" ".aur/" "priv.pem" ".pgpass" "f.html" ".ncmpcpp/" ".bash_logout" "f3.html" ".~lock.CV.doc#" ".pki/" "f2.html" ".lyrics/" ".dialyzer_plt" ".zcompdump-xenocorp-5.0.7" ".xfce4-session.verbose-log" ".cmake/" "Downloads/" ".cider-repl-history" "test.txt" "ufv_templates.beam" ".nv/" ".pystartup" "foo.sh" ".lein/" ".zcompdump-xenocorp-5.2" ".v8flags.4.5.103.35.xeno.json" ".xinitrc" ".aws/" ".erlang_history" ".nvidia-settings-rc" ".npm/" ".gnome2_private/" ".bin/" ".slime/" ".smex-items" ".asoundrc" ".zsh_history" "links.html" ".cordova/" ".zsh-update" ".ant/" ".wireshark/" ".cargo/" "ubnt/" ".emacs.d/" "./" ".emacs" ".v8flags.4.6.85.31.xeno.json" ".IdeaIC14/" ".links" "pgadmin.log" ".zcompdump-xenocorp-5.0.8" ".java/" "foo.c" "f3.py" "dev/" ".ICEauthority" ".bash_profile" "signature" ".dropbox/" ".screenlayout/" ".erl_history" ".mongorc.js" "s.svg" ".ubnt-discovery.properties" ".mozilla/" ".java_history" ".node-gyp/" ".gnupg/" ".fehbg" "signed2" "f2.py")
+
+ ("/home/xeno/.dotfiles/" (22155 42209 185385 433000) "../" "README.md" "pacman.conf" ".conkerorrc" ".config/" ".xmobarrc" "functions" ".xmonad/" ".gitignore" ".git/" "#.emacs#" ".stumpwmrc" ".bashrc" "fstab" ".Xresources" ".zshrc" ".Xdefaults" ".gitmodules" ".xinitrc" ".bin/" ".asoundrc" "asound.conf" ".emacs.d/" "./" ".emacs" "LICENSE" ".dircolors")
+
+ ("/home/xeno/.emacs.d/" (22154 45687 15647 125000) "url/" "autocomplete/" "local-funs.el" "../" "epylint" "ac-comphist.dat" "color-theme-6.6.0/" "abbrev_defs" "recentf" ".mc-lists.el" ".python-environments/" "ido.last" "mingus/" "elpa/" "tramp" "edts/" "keybinds.el" "#recentf#" "var/" "aero/" "auto-save-list/" "snippets/" "ocp-indent.el" "./" ".achievements" "go-autocomplete.el" "save/" "erlang-flymake")
+
+ ("/home/xeno/dev/api-docs/content/control/v1/" (22149 4360 780442 249000) "../" "status.md" "network.md" ".#push_notifications.md" "mcs_rates.md" "itsp_redirection.md" "tdwr_towers.md" "unifi.md" "metrics.md" "notifications.md" "index.md" "actions.md" "./" "alerts.md" "images/" "configuration.md" "product_info.md" "push_notifications.md" "devices.md")
+
+ ("/home/xeno/dev/api-docs/content/control/" (21751 34018 0 0) "../" "v1/" "./")
+
+ ("/home/xeno/dev/api-docs/content/" (22000 5303 632744 322000) "assets/" "../" "uwncom/" "sun-customer-monitor/" "payments/" "items/" "control/" "sso.md" "organizations/" "operations/" "jsonschema/" "sunmonitor/" "sunmax-leads/" "index.md" "css/" "billing/" "./" "email/" "js/" "images/" "subscriber-portal/" "clippy/")
+
+ ("/home/xeno/dev/api-docs/" (21889 17511 583061 254000) ".venv/" "../" "README.md" "Gemfile" ".bundle/" "crash.log" "layouts/" ".gitignore" ".git/" "nanoc.yaml" "APIDev.md" "lib/" "Makefile" "./" "content/" "Gemfile.lock" "Rules")
+
+ ("/home/xeno/dev/ubic/tests/ubic_airos/" (22149 366 977179 925000) "firmware_api_tests.py" "mock_clients.py" "../" "cloudkey_ws_tests.pyc" "ufv_ws_tests.py" "firmware_priv_api_tests.pyc" "airos_tdma_test.pyc" "itsp.pyc" "airos_device_test.py" "network_api_tests.py" "cloudkey_ws_tests.py" "devices_api_tests.py" "mock_clients.pyc" "network_api_tests.pyc" "alerts_api_tests.pyc" "active_clients_test.py" "regdomain_test.py" "gen_mobile_form_api_tests.py" "single_device_api_tests.py" "active_clients_test.pyc" "airos_device_test.pyc" "cors_tests.py" "single_device_api_tests.pyc" "itsp_tests.pyc" "location_tests.py" "unifi_ws_tests.pyc" "devices_api_tests.pyc" "alerts_adding_tests.pyc" "tdma_api_tests.pyc" "support_tests.pyc" "unifi_conf_tests.py" "firmware_api_tests.pyc" "metrics_api_tests.pyc" "__init__.pyc" "ufv_ws_tests.pyc" "__init__.py" "badger.pyc" "location_tests.pyc" "./" "firmwares_api_tests.pyc" "unifi_conf_tests.pyc" "firmwares_api_tests.py" "tdma_api_tests.py" "gen_mobile_form_api_tests.pyc" "cors_tests.pyc" "metrics_api_tests.py" "unifi_ws_tests.py" "regdomain_test.pyc" "badger.py" "itsp_tests.py" "firmware_priv_api_tests.py" "airos_tdma_test.py" "common/" "support_tests.py")
+
+ ("/home/xeno/dev/ubic/tests/" (21946 46656 587599 856000) "../" "nose_sequential.cfg" "airos.cfg" "adopt.cfg" "ubic_adopt/" "__init__.pyc" "__init__.py" "./" "ubic_airos/" "ubic_device/" "device.cfg")
+
+ ("/home/xeno/dev/ubic/apps/" (21946 46656 564266 493000) "../" "ubic_adopt/" "./" "ubic_airos/" "ubic_device/")
+
+ ("/home/xeno/.emacs.d/elpa/" (22148 65132 144535 462000) "s-20150924.406/" "scala-mode-20141205.1251/" "paredit-20150217.713/" "magit-popup-20151223.1341/" "popup-20151222.1339/" "crontab-mode-20090510.1355/" "archives/" "inflections-20121016.157/" "conkeror-minor-mode-20150114.804/" "ctable-20140304.1659/" "tracking-20151129.319/" "git-messenger-20150314.602/" "smart-operator-20051013.1756/" "company-20151230.427/" "pkgbuild-mode-20151010.736/" "magit-20151230.2252/" "edit-server-20141231.1358/" "hippie-exp-ext-20151011.145/" "rust-mode-20151215.1934/" "rainbow-mode-0.12.signed" "with-editor-20151223.1341/" "keyfreq-20150924.2005/" "f-20151113.123/" "peg-20150707.2341/" "paredit-20140128.1248/" "ansible-20151123.1753/" "htmlize-20130207.1202/" "achievements-readme.txt" "feature-mode-20141121.1030/" "queue-0.1.1/" "gist-20151228.1941/" "hydra-20151214.417/" "align-cljlet-20151105.2354/" "shorten-20131201.620/" "fringe-helper-20140620.1409/" "multiple-cursors-20151205.1225/" "caml-20151009.845/" "scala-mode-20140310.735/" "eproject-20151205.2130/" "clojure-mode-extra-font-locking-20150110.505/" "edts-20150830.510/" "refacterl-0.0.1/" "idle-highlight-mode-20120920.948/" "pkg-info-20140610.630/" "lfe-mode-20151227.1831/" "python-environment-20150310.153/" "flymake-easy-20140818.55/" "clj-refactor-20151210.200/" "async-20151228.2255/" "dot-mode-20151029.655/" "jedi-core-20151214.705/" "go-autocomplete-20150903.1940/" "flymake-0.4.16/" "git-commit-20151111.418/" "git-gutter-20151226.2002/" "spinner-1.4.signed" "dockerfile-mode-20151123.857/" "git-gutter-fringe-20150331.2139/" "protobuf-mode-20150521.2011/" "smartparens-20151230.314/" "gnupg/" "hippie-namespace-20140508.1341/" "json-snatcher-20150511.2047/" "slime-readme.txt" "rainbow-delimiters-20141221.925/" "queue-0.1.1.signed" "helm-20151229.905/" "go-eldoc-20151028.10/" "auto-complete-20151227.354/" "sql-indent-20150424.1716/" "auto-highlight-symbol-20130313.243/" "haskell-mode-20151226.750/" "jedi-20151214.705/" "redshank-20120510.1230/" "sql-indent-readme.txt" "gotham-theme-20151117.158/" "go-mode-20151226.1224/" "gh-20151216.746/" "kibit-mode-20140818.626/" "weechat-20151206.447/" "archive-contents" "dash-20151216.1315/" "json-reformat-20151204.900/" "slime-20151229.624/" "epl-20150517.433/" "clojure-mode-20151229.1243/" "vkill-20091203.1022/" "notmuch-20151123.440/" "twittering-mode-20150906.1003/" "seq-20151121.1017/" "idomenu-20141123.1320/" "lua-mode-20151025.530/" "epc-20140609.2234/" "cider-20151229.920/" "solarized-theme-20151211.535/" "yaml-mode-20151218.354/" "flymake-rust-20141004.1552/" "smex-20151212.1409/" "rainbow-mode-0.12/" "package.el" "spinner-1.4/" "json-mode-20151116.2000/" "toml-mode-20150818.120/" "logito-20120225.1255/" "magit-gh-pulls-20151212.1043/" "magit-gh-pulls-readme.txt" "archive-contents~" "pcache-20151109.639/" "groovy-mode-20151228.951/" "css-mode-1.0/" "websocket-20150719.1048/" "edn-20150929.146/" "tuareg-20151118.651/" "muttrc-mode-20090804.2252/" "hl-sexp-20101130.443/" "ac-slime-20150729.2035/" "deferred-20151007.1657/" "highlight-unique-symbol-20130611.2242/" "builtin-packages~" "builtin-packages" "d-mode-20151205.2354/" "cmake-mode-20151012.726/" "ac-cider-20151012.308/" "helm-core-20151224.1131/" "gccsense-0.2/" "color-theme-20080305.834/" "flymake-go-20150714.33/" "yasnippet-20151227.1550/" "highlight-symbol-20151005.451/" "github-browse-file-20151112.1625/" "rainbow-delimiters-20150320.17/" "erlang-20151013.157/" "slamhound-20140506.1618/" "markdown-mode-20151224.808/" "pkg-info-20150517.443/" "concurrent-20150309.2052/" "../" "./")
+
+ ("/home/xeno/.emacs.d/elpa/edts-20150830.510/" (22112 20367 961405 219000) "../" "README.md" "edts-pkg.el" "edts-start.elc" "COPYING.LESSER" "COPYING" "edts-mode.el" "plugins/" "log/" "edts-mode.elc" "edts-start.el" "lib/" "Makefile" "./" "elisp/" "edts-autoloads.el" "start")
+
+ ("/home/xeno/dev/ubic/apps/ubic_airos/test/" (22112 15467 994146 619000) "ua_topology_SUITE.erl" "pseudo_browser.beam" "ua_device_charts_SUITE.erl" "../" "ua_rest_turn_SUITE.erl" "ua_http_params_SUITE.erl" "ua_hb_merge_SUITE.beam" "ua_notifications_SUITE.erl" "ua_act_prov_cpes_SUITE.erl" "ua_hb_merge_SUITE_data/" "ua_rest_config_options_SUITE.beam" "ua_rest_turn_SUITE.beam" "ua_rest_wireless_group_config_SUITE.erl" "ua_rest_wireless_group_config_SUITE.beam" "ua_act_group_config_update_generic_SUITE.erl" "ua_topology_SUITE.beam" "pseudo_device.erl" "ua_network_node_SUITE.erl" "ua_act_device_traffic_SUITE.erl" "ua_rest_config_options_SUITE.erl" "ua_unifi_notifications_SUITE.erl" "test_helpers.erl" "ua_assign_DEPRECATED_SUITE.erl" "ua_rest_config_SUITE.erl" "test_helpers.beam" "ua_act_group_config_update_dev_statem_SUITE.erl" "ua_unifi_ws_SUITE.erl" "ua_rest_connect_cpe_SUITE.beam" "ua_logical_group_SUITE.erl" "pseudo_device.beam" "ua_http_params_SUITE.beam" "ua_messages_SUITE.erl" "ua_firmwares_SUITE.beam" "ua_cep_SUITE_data/" "ua_memsup_alarm_handler_SUITE.erl" "ua_rest_config_SUITE.beam" "ua_act_group_fw_update_SUITE.erl" "ua_topology_SUITE_data/" "ua_hb_merge_SUITE.erl" "ua_hb_mappings_SUITE.beam" "ua_network_SUITE.erl" "lview_utils.beam" "ua_hb_mappings_SUITE.erl" "ua_act_generic_SUITE.erl" "common_data/" "ua_cfg_db_SUITE.erl" "ua_assign_SUITE.erl" "ua_lview_SUITE_data/" "ua_ufv_SUITE.erl" "./" "ua_firmwares_SUITE.erl" "ua_act_group_fw_update_SUITE.beam" "ua_rest_connect_cpe_SUITE.erl" "ua_rest_support_SUITE.beam" "ua_device_clients_SUITE.erl" "ws_client.erl" "ua_notifications_SUITE.beam" "ua_lview_SUITE.erl" "ua_conn_SUITE.erl" "lview_utils.erl" "pseudo_browser.erl" "ua_cfg_bin_SUITE.erl" "ua_multi_actions_SUITE.erl" "ua_rest_support_SUITE.erl" "ws_client.beam" "ua_notifications_SUITE_data/" "ua_act_group_config_update_ctl_statem_SUITE.erl" "ua_utils_SUITE.erl")
+
+ ("/home/xeno/dev/ubic/apps/ubic_airos/include/" (21992 26363 532823 432000) "../" "airos_network.hrl" "unifi_msgs_piqi.hrl" "ua_msg_hb_piqi.hrl" "airos_prov_cpes.hrl" "airos_enums.hrl" "airos_events.hrl" "ufv_msgs_piqi.hrl" "airos_device.hrl" "airos_metrics.hrl" "airos_cfg_db.hrl" "airos_config.hrl" "airos_fields.hrl" "ufv_device.hrl" "cloudkey_device.hrl" "airos_default.hrl" "unifi_device.hrl" "./" "airos_charts.hrl" "airos_fw.hrl" "device_ws_connection.hrl" "airos_log.hrl")
+
+ ("/home/xeno/dev/ubic/apps/ubic_adopt/src/" (22029 15035 275898 992000) "../" "ubic_adopt_handler_adopt.erl" "ubic_adopt.app.src" "ubic_adopt_utils.erl" "ubic_adopt_folsom.hrl" "ubic_adopt.hrl" "ubic_adopt_logging.hrl" "ubic_adopt_sup.erl" "ubic_adopt_app.erl" "ubic_adopt_logging.erl" "ubic_adopt_handler_check.erl" "./" "ubic_adopt_adoption.erl")
+
+ ("/home/xeno/dev/ubic/apps/ubic_airos/priv/" (22074 1870 206135 82000) "../" "motion.html" "unifi_msgs.proto" "ufv_msgs.proto" "migration_001.sql" "./" "ua_msg_hb.proto" "disconnected.html" "schema.sql")
+
+ ("/home/xeno/dev/ubic/files/" (22112 9940 261324 466000) "../" "erl" "nodetool" "sys.config" "vm.args" "cassandra/" "ubic" "haproxy/" "./" "test.config" "es_mappings/" "install_upgrade.escript" "vars/")
+
+ ("/home/xeno/dev/cl-zk/" (22095 32573 846482 187000) ".quicklisp/" "../" "messages.fasl" "README.md" "#conn.lisp#" "protocol.fasl" "package.lisp" "test/" ".gitignore" ".git/" "conn.fasl" "errors.fasl" "conn.lisp" "Makefile" ".zookeeper/" "errors.lisp" ".c_src/" "./" "cl-zk.asd" "LICENSE" ".#conn.lisp" "run-tests.lisp" "coverage/" "types.fasl")
+
+ ("/home/xeno/dev/lispkit/.quicklocal/quicklisp/dists/quicklisp/software/cl-cffi-gtk-20141217-git/gdk/" (21664 7093 0 0) "../" "gdk.rectangle.lisp" "gdk.display.lisp" "gdk.cursor.lisp" "gdk.display-manager.lisp" "gdk.cairo.lisp" "gdk.drag-and-drop.lisp" "FILES" "gdk.visual.lisp" "gdk.init.lisp" "gdk.device.lisp" "gdk.properties.lisp" "gdk.pango.lisp" "gdk.app.lisp" "gdk.threads.lisp" "gdk.selections.lisp" "gdk.events.lisp" "gdk.event-structures.lisp" "gdk.device-manager.lisp" "gdk.key-values.lisp" "gdk.window.lisp" "gdk.package.lisp" "./" "gdk.general.lisp" "gdk.screen.lisp" "gdk.rgba.lisp" "cl-cffi-gtk-gdk.asd" "atdoc/" "gdk.pixbuf.lisp" "gdk.color.lisp")
+
+ ("/home/xeno/dev/lispkit/.quicklocal/quicklisp/dists/quicklisp/software/cl-cffi-gtk-20141217-git/" (21664 7093 0 0) "../" "gio/" "INSTALL" "gtk/" "LICENSES/" "tutorial/" "test/" "gdk-pixbuf/" ".gitignore" "pango/" "gobject/" "cairo/" "glib/" "demo/" "gdk/" "./" "atdoc/" "README")
+
+ ("/home/xeno/dev/lispkit/.quicklocal/quicklisp/dists/quicklisp/software/" (21664 9242 0 0) "cl-slice-20131111-git/" "../" "cl-locale-20120909-git/" "cl-annot-20140113-git/" "cffi_0.14.0/" "djula-20141106-git/" "cl-syntax-20140826-git/" "anaphora-0.9.4/" "cl-fad-0.7.3/" "bordeaux-threads-0.8.3/" "closer-mop-20141217-git/" "cl-ppcre-2.0.9/" "access-20140826-git/" "trivial-features-20130312-git/" "let-plus-20131211-git/" "percent-encoding-20121013-git/" "iterate-20140713-darcs/" "trivial-types-20120407-git/" "purl-20140826-git/" "local-time-20141217-git/" "trivial-gray-streams-20140826-git/" "lparallel-20141106-git/" "gettext-20131003-git/" "trivial-backtrace-20120909-git/" "parenscript-2.5/" "mpc-20140914-git/" "./" "cl-cffi-gtk-20141217-git/" "flexi-streams-1.0.14/" "babel-20141217-git/" "split-sequence-1.1/" "cl-interpol-0.2.1/" "cl-unicode-0.1.5/" "trivial-garbage-20130312-git/" "arnesi-20101006-darcs/" "alexandria-20140826-git/" "cl-yacc-20101006-darcs/" "buildapp-1.5.3/" "named-readtables-20140713-git/")
+
+ ("/home/xeno/dev/lispkit/.quicklocal/quicklisp/dists/quicklisp/" (21664 7086 0 0) "enabled.txt" "archives/" "../" "installed/" "systems.cdb" "software/" "preference.txt" "distinfo.txt" "releases.txt" "systems.txt" "./" "releases.cdb")
+
+ ("/home/xeno/dev/lispkit/.quicklocal/quicklisp/dists/" (21664 1106 0 0) "../" "quicklisp/" "./")
+
+ ("/home/xeno/.quicklisp/dists/quicklisp/software/" (22095 7445 391051 750000) "../" "cffi_0.14.0/" "nibbles-20150302-git/" "lparallel-20150302-git/" "uuid-20130813-git/" "anaphora-0.9.4/" "bordeaux-threads-0.8.3/" "trivial-features-20150113-git/" "cl-ppcre-2.0.9/" "quicklisp-slime-helper-20110418-git/" "ironclad_0.33.0/" "trivial-utf-8-20111001-darcs/" "slime-2.12/" "let-plus-20131211-git/" "cl-colors-20150302-git/" "prove-20150113-git/" "usocket-0.6.1/" "trivial-gray-streams-20140826-git/" "trivial-timers-20101006-http/" "./" "chanl-20150302-git/" "flexi-streams-1.0.14/" "babel-20141217-git/" "split-sequence-1.1/" "cl-ansi-text-20150113-git/" "alexandria-20140826-git/" "fiveam-1.2/")
+
+ ("/home/xeno/.quicklisp/dists/quicklisp/installed/systems/" (22095 7445 411051 835000) "cl-test-more.txt" "../" "chanl.txt" "cl-ppcre-unicode.txt" "cl-ansi-text.txt" "let-plus.txt" "cl-colors.txt" "nibbles.txt" "lparallel.txt" "babel.txt" "babel-tests.txt" "flexi-streams.txt" "trivial-features.txt" "cffi.txt" "babel-streams.txt" "cffi-libffi.txt" "cffi-examples.txt" "alexandria.txt" "uuid.txt" "cl-ppcre.txt" "ironclad-text.txt" "prove-asdf.txt" "fiveam.txt" "usocket-test.txt" "bordeaux-threads-test.txt" "cffi-uffi-compat.txt" "trivial-utf-8.txt" "trivial-timers.txt" "quicklisp-slime-helper.txt" "usocket.txt" "lparallel-bench.txt" "swank.txt" "trivial-gray-streams.txt" "alexandria-tests.txt" "cffi-tests.txt" "cl-ansi-text-test.txt" "cffi-grovel.txt" "bordeaux-threads.txt" "./" "anaphora.txt" "split-sequence.txt" "prove.txt" "trivial-features-tests.txt" "lparallel-test.txt" "trivial-gray-streams-test.txt" "ironclad.txt")
+
+ ("/home/xeno/dev/lispkit/.quicklocal/quicklisp/local-projects/cl-webkit/" (21721 12691 0 0) "../" "README.md" "tests/" "COPYING" "scripts/" ".mailmap" ".gitignore" ".git/" ".travis.yml" "soup/" "demo/" "webkit2/" "dom/" "./" "CONTRIBUTORS")
+
+ ("/home/xeno/dev/lispkit/.quicklocal/quicklisp/local-projects/" (21721 12689 0 0) "../" "system-index.txt" "cl-xkeysym/" "cl-webkit/" "./")
+
+ ("/home/xeno/dev/cl-zk/test/" (22095 5689 333595 971000) "../" "tests.lisp" "./")
+
+ ("/home/xeno/dev/cl-webkit2/webkit2/" (22095 7615 668441 372000) "../" ".#webkit2.init.lisp" "webkit2.context-menu.lisp" "translate.lisp" "cl-webkit2.asd" "webkit2.navigation-policy-decision.lisp" "webkit2.web-view-group.lisp" "webkit2.script-world.lisp" "webkit2.context-menu-item.lisp" "webkit2.favicon-database.lisp" "macros.lisp" "webkit2.web-context.lisp" "webkit2.uri-request.lisp" "webkit2.web-resource.lisp" "webkit2.window-properties.lisp" "webkit2.back-forward-list-item.lisp" "webkit2.download.lisp" "webkit2.cookie-manager.lisp" "webkit2.response-policy-decision.lisp" "webkit2.frame.lisp" "webkit2.web-view.lisp" "webkit2.plugin.lisp" "webkit2.file-chooser-request.lisp" "webkit2.hit-test-result.lisp" "#webkit2.init.lisp#" "webkit2.settings.lisp" "webkit2.permission-request.lisp" "webkit2.form-submission-request.lisp" "webkit2.find-controller.lisp" "webkit2.print-operation.lisp" "webkit2.package.lisp" "./" "webkit2.web-inspector.lisp" "util.lisp" "webkit2.security-manager.lisp" "webkit2.uri-response.lisp" "webkit2.init.lisp" "webkit2.back-forward-list.lisp" "webkit2.policy-decision.lisp")
+
+ ("/home/xeno/dev/cl-webkit2/" (21562 56181 0 0) "../" "README.md" "tests/" "COPYING" "scripts/" ".mailmap" ".gitignore" ".git/" ".travis.yml" "demo/" "webkit2/" "./" "CONTRIBUTORS")
+
+ ("/home/xeno/dev/lispkit/src/" (21670 47007 0 0) "../" "lispkit" "lispkit.tar.gz" "./")
+
+ ("/home/xeno/dev/zookeeper/src/c/" (22095 6550 600586 28000) "libzkmt_la-zookeeper.lo" "addrvec.o" "libzkmt_la-recordio.lo" "addrvec.lo" "hashtable.lo" "../" "libzookeeper_st.la" "aminclude.am" "zookeeper.jute.o" "Makefile.am" "load_gen" "cli_mt" "hashtable.o" "tests/" "libtool" "zookeeper.jute.lo" "libzkmt_la-zookeeper.o" "INSTALL" ".deps/" "zookeeper.vcxproj" "zookeeper.sln" "cli_st" "install-sh" "src/" "zookeeper-vs2013.sln" "zookeeper.vcproj" "libzookeeper_mt.la" "libhashtable.la" "hashtable_itr.o" "stamp-h1" "hashtable_itr.lo" "config.h" "recordio.lo" "config.log" "ltmain.sh" "libzkmt_la-mt_adaptor.lo" "libzkmt_la-zk_hashtable.o" "st_adaptor.o" "aclocal.m4" "configure.ac" "zookeeper.o" "include/" "libzkmt_la-addrvec.o" "cli_mt-cli.o" "recordio.o" "depcomp" "zk_log.lo" "acinclude.m4" "libzkmt_la-zk_hashtable.lo" "config.h.in" "config.sub" "Cli.vcxproj" "zk_log.o" "compile" "generated/" "libzkmt_la-mt_adaptor.o" "zk_hashtable.o" "libzkmt_la-recordio.o" "libzkmt_la-addrvec.lo" "autom4te.cache/" "load_gen-load_gen.o" "Cli.vcproj" "config.guess" "Makefile.in" "Makefile" "libzkmt_la-zookeeper.jute.o" "zookeeper.vcxproj.filters" "libzkmt_la-zk_log.o" "missing" "libzkmt_la-zookeeper.jute.lo" "config.status" "zookeeper.lo" ".libs/" "libzkst.la" "NOTICE.txt" "./" "Cli.vcxproj.filters" "LICENSE" "c-doc.Doxyfile" "libzkmt_la-zk_log.lo" "libzkmt.la" "configure" "zk_hashtable.lo" "README" "ChangeLog" "cli.o" "st_adaptor.lo")
+
+ ("/home/xeno/dev/zookeeper/src/" (21975 5998 161635 93000) "recipes/" "../" "packages/" "contrib/" "lastRevision.sh" "c/" "zookeeper.jute" "LICENSE.txt" "docs/" "NOTICE.txt" "./" "java/" "lastRevision.bat")
+
+ ("/home/xeno/dev/zookeeper/" (21978 735 348089 392000) "../" "src/" "CHANGES.txt" ".gitignore" ".git/" "LICENSE.txt" "build/" "README_packaging.txt" "conf/" "docs/" "ivysettings.xml" "bin/" ".gitattributes" "NOTICE.txt" "./" "build.xml" "README.txt" "ivy.xml")
+
+ ("/home/xeno/dev/lispkit/.quicklocal/quicklisp/" (21664 1106 0 0) "../" "client-info.sexp" "quicklisp/" "asdf.lisp" "dists/" "setup.lisp" "local-projects/" "./" "tmp/" "cache/")
+
+ ("/home/xeno/dev/lispkit/.quicklocal/" (21664 1102 0 0) "../" "quicklisp/" "./")
+
+ ("/home/xeno/dev/lispkit/test/" (21727 39607 0 0) "../" "package.lisp" "jumps.lisp" "main.lisp" "keys.lisp" "./" "commands.lisp" "events.lisp")
+
+ ("/home/xeno/dev/lispkit/" (21728 38986 0 0) ".has_image_compression" "../" "README.md" "user.lisp" "run-travis.sh" "install-deps" "src/" "lispkit-test.asd" "macros.lisp" "lispkit.asd" "scripts/" "deps" "commands/" "test/" "modeline.lisp" "main.ui" ".gitignore" ".git/" "clones" "ui.lisp" "packages.lisp" "templates/" "jumps.lisp" "pkg/" "make-image.lisp" "settings.lisp" "build/" "lispkit" "browser.lisp" "lispkit.tar.gz" ".travis.yml" "PKGBUILD" "quicklisp.lisp" "Makefile" ".quicklocal/" "keys.lisp" "bin/" "./" "LICENSE" "lispkit-browser-2-4.src.tar.gz" "lispkit-browser-2-4-x86_64.pkg.tar.xz" "lispkit.lisp" "commands.lisp" "events.lisp")
+
+ ("/home/xeno/dev/destiny/" (22061 3374 366503 325000) "../" "tests/" "api.pyc" "api.py" "__init__.pyc" "__init__.py" "constants.py" "./")
+
+ ("/home/xeno/.lein/" (22026 38377 973755 894000) "../" "self-installs/" "profiles.clj" "./")
+
+ ("/home/xeno/dev/gpx/" (22026 40475 831645 198000) "../" "README.md" "doc/" "resources/" "src/" ".nrepl-port" "test/" ".gitignore" "target/" ".hgignore" "./" "LICENSE" "project.clj")
+
+ ("/home/xeno/dev/gpx/src/gpx/" (22026 38818 270662 321000) "../" "./" "core.clj")
+
+ ("/home/xeno/dev/gpx/src/" (22026 37989 500257 559000) "../" "gpx/" "./")
+
+ ("/home/xeno/Downloads/gpx2svg-0.1.4/" (22026 32242 320227 329000) "../" "gpx2svg" "COPYING" "./" "ChangeLog")
+
+ ("/home/xeno/Downloads/" (22026 30299 557001 903000) "Minecraft.jar" "storyline_20150919.gpx" "aVHfqjH.jpg" "../" "cower/" "erlang-R16B02-2-x86_64.pkg.tar.xz" "INVOICE NO 23.pdf" ".ssh/" "listing_tab_delimited.txt" ".~lock.costs (2).csv#" "costs (1).csv" "Invoice no 22.pdf" "config.rb" "RemotePlayPortV1.3.2.apk" "EEPROM1.img" "cltl_ht.tgz" "audiocheck.net_whitenoise.mp3" "couprie-nom.pdf" "vagrant.dmg" "New Doc.pdf" "cower (1).tar.gz" "gpx2svg-0.1.4.tar.gz" "dropbox/" "crash.log" "trpl-2015-05-15.mobi" "license-e3ec348a-b24a-43c3-bf64-a574d2caaf0b.lic" "zdila-gpx-animator-v0.8-53-gf2d1173.tar.gz" "360199" "costs.csv" "INVOICE NO 24.pdf" "pobox-master.zip" "ttf-monaco.tar.gz" "s2.gpx" "__MACOSX/" "oh-my-zsh-git.tar.gz" "xflux.tar.gz" "ttf-monaco/" "Contents-amd64" "IM Reply Computer-SoundBible.com-628645943.mp3" "ncxbacklight-git/" "ubnt-discovery-v2.4.1.zip" "xflux/" "kai-master.zip" "oh-my-zsh-git/" "fGZ6AX7.html" "download.html" "slime.mov" "PANO_20150507_202932.jpg" "cloud-key-06182015.mwb" "Destiny_oversoul.mp3" "ttf-monaco (1).tar.gz" "cltl_dvi.tgz" "Destiny_darkness.mp3" "Kasia_-_Blue_Dildo.wmv" "ubnt-discovery.bat" "500s.png" "costs (2).csv" "OraclesProcessed/" "EEPROM2.img" "all_prod.json" "ca.crt" "INVOICE NO 23 (1).pdf" "collaboration.html" "license-e3ec348a-b24a-43c3-bf64-a574d2caaf0b (1).lic" "download (1)" "INVOICE NO 24 (1).pdf" "s.png" "airos-prod-1432314345162" "Ubiquiti-Cloud (1).html" "eeprom.bin" "skitch.png" "6235d9eed52b3f15dec75702e8919d548dd4f9d1.html" "cltl_ht (1).tgz" "download (3)" "binpp-master.zip" "cower.tar.gz" "14.jpg" "setup-high (1).mov" "yaourt.tar.gz" "openssl-1.0.1.j-1-x86_64.pkg.tar.xz" "AeroNotix.html" "download (1).html" "us/" "Destiny_exotic notification.mp3" "erlang-R16B03-2-x86_64.pkg.tar.xz" "Storm_Applied.mobi" "download (2)" "openssh-6.7p1-1-x86_64.pkg.tar.xz" "openssh-6.7p1-1-x86_64.pkg.tar (1).xz" "metrics-graphite-2.2.0.jar" "cali_f_fornia.tar.gz" "unifi320.deb" "analysis.txt" "EEPROM3.img" "2CPiJ.html" "download" "./" "Untitled6.mov" "zdila-gpx-animator-f2d1173/" "dropbox.tar.gz" "storyline_20150919 (1).gpx" "ubnt-discovery-v2.4.1.jar" "elasticsearch-1.4.2-1-x86_64.pkg.tar.xz" "File-PGStrom_Fig_ArchOverview.png" "AccountChooser.html" "20150720_143235.mp4" "wxgtk2.9-2.9.5-1-x86_64.pkg.tar.xz" "cloudcostsgraph.png" "video.mp4" "ncxbacklight-git.tar.gz" "master.kdb" "part3.img" "google-chrome/" "OraclesProcessed.zip" "PANO_20150507_202932 (1).jpg" "Changed Accounts - Mahesh- to sussan Credit Card -6-12-2015.xlsx" "erlang-R16B03-2-x86_64.pkg.tar (1).xz" "ssh.zip" "Fedora-Live-Workstation-x86_64-21-5.iso" "GpxAnimator-1.2.3.jar" "broadcom-wl-6.30.223.248-6-x86_64.pkg.tar.xz" "skitch (1).png" "setup-high.mov" "elasticsearch-1.2.0-2-x86_64.pkg.tar.xz" "google-chrome.tar.gz" "Ubiquiti-Cloud.html" "erlang-R16B03-5-x86_64.pkg.tar.xz" "Untitled5.mov" "leiningen-2.5.0-standalone.jar" "gpx2svg-0.1.4/" "report.csv")
+
+ ("/home/xeno/.ssh/" (21972 28874 860620 837000) "../" "ops-201504.pem" "community-brasil.pem" "config" "ops-201404.pem" "ubnt.pub" "id_rsa" "known_hosts" "./" "id_rsa.pub" "unifi-video-stage.pem")
+
+ ("/home/xeno/dev/env-builds/ops/roles/app-ubic-device/templates/" (22000 17497 753587 577000) "../" "region.config" "beaver.ini" "./")
+
+ ("/home/xeno/dev/ubic/apps/ubic_device/src/" (22010 45034 360062 615000) "ubic_device_purchase_software_license_handler.erl" "../" "ubic_device_eeprom_pubkey.erl" "ubic_device_registered_software_handler.erl" "ubic_device_eeprom.erl" "ubic_device_cors_middleware.erl" "ubic_device_folsom.hrl" "ubic_device_sup.erl" "ubic_device_register_check.erl" "ubic_device_eeprom.hrl" "ubic_device_licenses.erl" "ud_rest_delete_by_auth_token.erl" "ubic_device_app.erl" "ubic_device_logging.hrl" "ubic_device_logging.erl" "./" "ubic_device.hrl" "ubic_device_product_class.erl" "ubic_device_register_handler.erl" "ubic_device.app.src" "ubic_device.erl" "ubic_device_register.erl")
+
+ ("/home/xeno/dev/sso_httpc/src/" (22008 12285 645175 149000) "../" "sso_httpc_utils.erl" "sso_httpc_url.erl" "sso_httpc_app.erl" "sso_httpc_url.beam" "sso_httpc_user.beam" "sso_httpc_cowboy_middleware_auth.erl" "sso_httpc.erl" "sso_httpc.app.src" "sso_httpc_user.erl" "./" "sso_httpc_sup.erl")
+
+ ("/home/xeno/dev/sso_httpc/" (22008 12269 998562 936000) "rebar.config" "../" "README.md" "src/" "deps/" "test/" "rebar" ".gitignore" ".git/" ".travis.yml" "Makefile" "logs/" "cover.spec" "./" ".edts" "ebin/")
+
+ ("/home/xeno/dev/ubic/apps/ubic_device/priv/eeprom/" (21629 52710 0 0) "../" "./" "eeprom_pubkey.pem")
+
+ ("/home/xeno/dev/ubic/apps/ubic_adopt/priv/" (22000 13062 96368 252000) "../" "./" "schema.sql")
+
+ ("/etc/zookeeper/" (21809 11051 0 0) "../" "zoo_sample.cfg" "log4j.properties" "./" "zoo.cfg" "configuration.xsl")
+
+ ("/etc/" (21987 42098 298284 26000) "crypttab" "sudoers.tmp~" "xml/" "../" "modprobe.d/" "asound.conf.pacorig" "group" ".pwd.lock" "dhcpcd.duid" "pacman.conf" "pm/" "laptop-mode/" "udev/" "resolvconf.conf" "libpaper.d/" "logrotate.d/" "nscd.conf" "netconfig" "gtk-2.0/" "ImageMagick-6/" ".updated" "wpa_supplicant/" "java-jdk6/" "pkcs11/" "region.config" "mpd.conf" "sysctl.d/" "kernel/" "makepkg.conf" "lvm/" "UPower/" "host.conf" "updatedb.conf" "httpd/" "vdpau_wrapper.cfg" "iproute2/" "gshadow" "shadow-" "redis.conf" "motd" "issue" "gshadow-" "hosts" "rc_maps.cfg" "bumblebee/" "pismo.yaml" "mke2fs.conf" "at-spi2/" "gtk-3.0/" "ntp.conf" "zookeeper/" "mail.rc" "elasticsearch/" "ld.so.conf" "ansible/" "avahi/" "binfmt.d/" "mdadm.conf" "request-key.conf" "mono/" "pango/" "xinetd.d/" "pacman.d/" "vconsole.conf" "shadow" "geoclue/" "dbus-1/" "securetty" "request-key.d/" "protocols" "fstab" "ld.so.cache" "idnalias.conf" "login.defs" "fonts/" "krb5.conf" "apm/" "polkit-1/" "resolv.conf.bak" "pcmcia/" "cassandra/" "bash_completion.d/" "gemrc" "papersize" "mkinitcpio.conf" "bonobo-activation/" "passwd" "speech-dispatcher/" "environment" "bash.bash_logout" "passwd.OLD" "man_db.conf" "sudoers.pacnew" "pam.d/" "ca-certificates/" "cups/" "netctl/" "bash.bashrc" "libnl/" "idn.conf" "modules-load.d/" "sudoers.d/" "os-release" "nsswitch.conf" "darkstat/" "mime.types" "iptables/" "group-" "locale.gen" "conf.d/" "localtime" "profile.d/" "NetworkManager/" "machine-id" "initcpio/" "gconf/" "acpi/" "kairosdb/" "mkinitcpio.d/" "ld.so.conf.d/" "gnome-vfs-2.0/" "apache-ant/" "sound/" "light/" "passwd-" "ifplugd/" "haproxy/" "openldap/" "gdm/" "rpc" "asound.conf" "bluetooth/" "mtab" "power/" "udisks2/" "security/" "drirc" "ssl/" "riak/" "gnome-vfs-mime-magic" "depmod.d/" "./" "gai.conf" "services" "java-7-openjdk/" "libao.conf" "arch-release" "libreoffice/" "xdg/" "logrotate.conf" ".java/" "resolv.conf" "dhcpcd.conf" "bind.keys" "rc_keymaps/" "shells" "skel/" "inputrc" "ssh/" "systemd/" "pulse/" "vimrc" "fuse.conf" "X11/" "slsh.rc" "profile" "i3status.conf" "wgetrc" "java-jre6/" "zsh/" "nanorc" "tmpfiles.d/" "trusted-key.key" "hostname" "default/" "sudoers")
+
+ ("/home/xeno/dev/ubic_schema/src/" (21988 18881 317139 447000) "../" "ubic_schema.erl" "ubic_schema.app.src" "./")
+
+ ("/home/xeno/dev/ubic_schema/" (21988 18813 426737 323000) "priv/" "rebar.config" "../" "README.md" "src/" "rebar.lock" "deps/" "_build/" ".gitignore" ".git/" "Makefile" "./")
+
+ ("/home/xeno/.quicklisp/dists/quicklisp/software/trivial-timers-20101006-http/" (21983 1776 849516 506000) "../" "packages.lisp" "timers-bt.lisp" "./" "timers-sbcl.lisp" "trivial-timers.asd" "README")
+
+ ("/home/xeno/.quicklisp/dists/quicklisp/archives/" (21983 1776 846183 171000) "../" "flexi-streams-1.0.14.tgz" "bordeaux-threads-0.8.3.tgz" "usocket-0.6.1.tgz" "trivial-gray-streams-20140826-git.tgz" "trivial-utf-8-20111001-darcs.tgz" "quicklisp-slime-helper-20110418-git.tgz" "trivial-timers-20101006-http.tgz" "ironclad_0.33.0.tgz" "split-sequence-1.1.tgz" "slime-2.12.tgz" "uuid-20130813-git.tgz" "nibbles-20150302-git.tgz" "./" "fiveam-1.2.tgz" "alexandria-20140826-git.tgz")
+
+ ("/home/xeno/.quicklisp/dists/quicklisp/installed/releases/" (21983 1776 849516 506000) "../" "nibbles.txt" "flexi-streams.txt" "slime.txt" "alexandria.txt" "uuid.txt" "fiveam.txt" "trivial-utf-8.txt" "trivial-timers.txt" "quicklisp-slime-helper.txt" "usocket.txt" "trivial-gray-streams.txt" "bordeaux-threads.txt" "./" "split-sequence.txt" "ironclad.txt")
+
+ ("/home/xeno/.quicklisp/dists/quicklisp/installed/" (21790 27370 630122 883000) "../" "releases/" "systems/" "./")
+
+ ("/home/xeno/.quicklisp/dists/quicklisp/" (21790 27370 530122 879000) "enabled.txt" "archives/" "../" "installed/" "systems.cdb" "software/" "preference.txt" "distinfo.txt" "releases.txt" "systems.txt" "./" "releases.cdb")
+
+ ("/home/xeno/.quicklisp/dists/" (21790 27334 306787 995000) "../" "quicklisp/" "./")
+
+ ("/home/xeno/.quicklisp/quicklisp/" (21790 27332 270121 242000) "../" "utils.lisp" "version.txt" "client.lisp" "fetch-gzipped.lisp" "client-update.lisp" "package.lisp" "network.lisp" "client-info.lisp" "progress.lisp" "minitar.lisp" "config.lisp" "dist-update.lisp" "misc.lisp" "impl.lisp" "deflate.lisp" "local-projects.lisp" "dist.lisp" "cdb.lisp" "quicklisp.asd" "setup.lisp" "./" "impl-util.lisp" "http.lisp")
+
+ ("/home/xeno/.quicklisp/" (21790 27374 966789 735000) "../" "client-info.sexp" "quicklisp/" "asdf.lisp" "dists/" "setup.lisp" "slime-helper.el" "local-projects/" "./" "tmp/" "cache/")
+
+ ("/usr/share/sbcl-source/src/code/" (21886 58180 744464 876000) "arm-vm.lisp" "loop.lisp" "cold-error.lisp" "show.lisp" "target-alieneval.lisp" "alloc.lisp" "parse-body.lisp" "cross-early.lisp" "deadline.lisp" "target-exception.lisp" "unix.lisp" "thread.lisp" "cross-misc.lisp" "early-defbangmethod.lisp" "target-format.lisp" "force-delayed-defbangmacros.lisp" "alien-type.lisp" "force-delayed-defbangmethods.lisp" "force-delayed-defbangconstants.lisp" "debug-info.lisp" "describe-policy.lisp" "random.lisp" "backq.lisp" "cross-byte.lisp" "target-stream.lisp" "debug-int.lisp" "cold-init.lisp" "late-defbangmethod.lisp" "early-impl.lisp" "early-thread.lisp" "readtable.lisp" "restart.lisp" "ntrace.lisp" "defbangconstant.lisp" "debug.lisp" "gc.lisp" "error-error.lisp" "early-cl.lisp" "early-print.lisp" "bit-bash.lisp" "warm-mswin.lisp" "win32.lisp" "early-float.lisp" "primordial-type.lisp" "target-unicode.lisp" "sort.lisp" "float.lisp" "step.lisp" "bignum-random.lisp" "mipsstrops.lisp" "kernel.lisp" "cross-type.lisp" "defmacro.lisp" "module.lisp" "unix-pathname.lisp" "defbangtype.lisp" "globals.lisp" "cold-init-helper-macros.lisp" "target-sap.lisp" "cross-thread.lisp" "target-type.lisp" "char.lisp" "setf-funs.lisp" "cross-condition.lisp" "early-full-eval.lisp" "dyncount.lisp" "macros.lisp" "query.lisp" "destructuring-bind.lisp" "target-package.lisp" "load.lisp" "sc-offset.lisp" "android-os.lisp" "exhaust.lisp" "defstruct.lisp" "early-extensions.lisp" "unix-foreign-load.lisp" "filesys.lisp" "debug-var-io.lisp" "late-deftypes-for-target.lisp" "package.lisp" "fd-stream.lisp" "target-random.lisp" "x86-64-vm.lisp" "early-time.lisp" "string.lisp" "parse-defmacro.lisp" "target-c-call.lisp" "early-alieneval.lisp" "bignum.lisp" "late-type.lisp" "linkage-table.lisp" "describe.lisp" "early-pprint.lisp" "pred.lisp" "target-pathname.lisp" "stubs.lisp" "final.lisp" "stream.lisp" "timer.lisp" "early-fasl.lisp" "target-error.lisp" "cas.lisp" "late-condition.lisp" "misc.lisp" "bsd-os.lisp" "early-format.lisp" "pathname.lisp" "defpackage.lisp" "early-raw-slots.lisp" "typep.lisp" "linux-os.lisp" "win32-os.lisp" "pprint.lisp" "print.lisp" "target-signal.lisp" "setf.lisp" "inspect.lisp" "early-step.lisp" "error.lisp" "early-type.lisp" "warm-lib.lisp" "cl-specials.lisp" "early-package.lisp" "parse-defmacro-errors.lisp" "symbol.lisp" "hpux-os.lisp" "list.lisp" "hash-table.lisp" "numbers.lisp" "time.lisp" "class.lisp" "target-defbangmethod.lisp" "target-thread.lisp" "target-sxhash.lisp" "sxhash.lisp" "run-program.lisp" "host-pprint.lisp" "late-cas.lisp" "irrat.lisp" "typedefs.lisp" "defboot.lisp" "save.lisp" "deftypes-for-target.lisp" "host-c-call.lisp" "target-defstruct.lisp" "target-extensions.lisp" "room.lisp" "foreign.lisp" "toplevel.lisp" "cross-float.lisp" "signal.lisp" "cross-modular.lisp" "coerce.lisp" "late-format.lisp" "alpha-vm.lisp" "sunos-os.lisp" "seq.lisp" "mips-vm.lisp" "cross-sap.lisp" "profile.lisp" "sharpm.lisp" "function-names.lisp" "format-time.lisp" "funutils.lisp" "specializable-array.lisp" "type-init.lisp" "cross-char.lisp" "serve-event.lisp" "interr.lisp" "misc-aliens.lisp" "target-char.lisp" "float-trap.lisp" "reader.lisp" "huffman.lisp" "sysmacs.lisp" "win32-pathname.lisp" "early-defstructs.lisp" "fdefinition.lisp" "purify.lisp" "octets.lisp" "hppa-vm.lisp" "class-init.lisp" "common-os.lisp" "defbangmacro.lisp" "target-hash-table.lisp" "primordial-extensions.lisp" "host-alieneval.lisp" "early-source-location.lisp" "late-extensions.lisp" "macroexpand.lisp" "osf1-os.lisp" "external-formats/" "ppc-vm.lisp" "sparc-vm.lisp" "defsetfs.lisp" "force-delayed-defbangstructs.lisp" "source-location.lisp" "eval.lisp" "target-misc.lisp" "defbangstruct.lisp" "type-class.lisp" "ansi-stream.lisp" "fop.lisp" "cross-boole.lisp" "early-defstruct-args.lisp-expr" "foreign-load.lisp" "array.lisp" "weak.lisp" "x86-vm.lisp" "barrier.lisp" "condition.lisp" "cross-make-load-form.lisp" "cross-io.lisp" "early-array.lisp" "target-allocate.lisp" "full-eval.lisp" "unportable-float.lisp" "win32-foreign-load.lisp" "xset.lisp" "uncross.lisp" "target-load.lisp" "early-constants.lisp" "../" "./")
+
+ ("/home/xeno/dev/product_schema/" (21983 2063 903016 644000) "subsystem_ids.csv" "../" "README.md" ".git/" "gen_json.py" "./")
+
+ ("/home/xeno/dev/kai/src/" (21974 15982 747254 597000) "../" "kai_sup.erl" "kai_conn.erl" "kai_proto.erl" "kai_folsom.erl" "kai_rest.erl" "kai.erl" "kai_q.erl" "kai.app.src" "kai_app.erl" "./" "kai_pool.erl" "kai_conn_sup.erl")
+
+ ("/home/xeno/dev/kai/" (21974 15982 747254 597000) "rebar.config" "../" "README.md" "src/" "test/" ".gitignore" ".git/" "Makefile" "./" "LICENSE")
+
+ ("/home/xeno/dev/ubic/files/es_mappings/" (21955 19885 16945 729000) "../" "device_v1.json" "firmware.json" "static.json" "./" "geoip.json")
+
+ ("/home/xeno/.emacs.d/elpa/slime-20150814.706/" (21971 43564 772517 60000) "../" "slime.elc" "metering.lisp" "slime.el" "slime-tests.elc" "swank-loader.lisp" "contrib/" "start-swank.lisp" "swank.asd" "nregex.lisp" "slime-tests.el" "swank/" "slime.info" "lib/" "slime-pkg.el" "slime-autoloads.el" "slime-autoloads.elc" "dir" "./" "xref.lisp" "sbcl-pprint-patch.lisp" "swank.lisp" "ChangeLog")
+
+ ("/home/xeno/.bin/" (21969 55298 235212 993000) "../" "ztree" "wirelessbars.sh" "bridgeip.sh" "screenshotarea.sh" "snd.mp3" "dbx.sh" "dbx.py" "./" "depviz" "emacs.sh")
+
+ ("/home/xeno/dev/ubic/apps/ubic_device/" (21961 65393 994723 974000) "priv/" "rebar.config" "../" "src/" "test/" ".gitignore" "include/" "./" "ebin/")
+
+ ("/home/xeno/dev/ubic/apps/ubic_adopt/" (21961 65393 994723 974000) "priv/" "rebar.config" "../" "src/" "test/" ".gitignore" "./" "ebin/")
+
+ ("/home/xeno/dev/epgsql_poolboy/src/" (21969 56452 379312 143000) "../" "epgsql_poolboy_sup.erl" "epgsql_poolboy.app.src" "epgsql_pool_status.erl" "epgsql_poolboy_app.erl" "defaults.hrl" "epgsql_pool_sup.erl" "./" "epgsql_poolboy_worker.erl" "epgsql_poolboy.erl")
+
+ ("/home/xeno/.dotfiles/.bin/" (21969 55298 235212 993000) "../" "ztree" "wirelessbars.sh" "bridgeip.sh" "screenshotarea.sh" "snd.mp3" "dbx.sh" "dbx.py" "./" "depviz" "emacs.sh")
+
+ ("/home/xeno/.xmonad/" (21890 54662 754763 231000) "xmonad.hi" "../" "xmonad.hs" "xmonad.o" "xmonad-x86_64-linux" "xmonad.errors" "./")
+
+ ("/home/xeno/dev/env-builds/ops/" (21961 49808 352322 15000) "../" "README.md" "build.sh" "library/" "group_vars/" "userdata/" "centos.yml" "infr/" "roles/" "scripts/" "buildbase.sh" "snowflake.sh" ".gitignore" "files/" "tools/" "inventory/" "lookup_plugins/" "buildcentosbase.sh" "site.yml" "keys/" "snowflake.yml" "buildcentos.sh" "./" "tmp/")
+
+ ("/home/xeno/Downloads/.ssh/" (21962 5709 382686 74000) "../" "id_boot2docker" "ops-201504.pem" "community-brasil.pem" "config" "ops-201404.pem" ".git/" "id_boot2docker.pub" "id_rsa" "known_hosts" "./" "id_rsa.pub" "#config#" "unifi-video-stage.pem")
+
+ ("/home/xeno/dev/ubic_sso_srv/rel/files/" (21962 4785 567945 17000) "../" "erl" "nodetool" "sys.config" "ubic_sso_srv.cmd" "vm.args" "ubic_sso_srv" "./" "start_erl.cmd" "install_upgrade.escript")
+
+ ("/home/xeno/dev/ubic_sso_srv/rel/" (21962 4750 350929 513000) "../" "reltool.config" "files/" "etc/" "./" "vars/")
+
+ ("/home/xeno/dev/ubic_sso_srv/apps/ubic_sso_srv/src/" (21962 4750 350929 513000) "ubic_sso_srv_cowboy_handler_oauth2_google_link.erl" "../" "ubic_sso_srv_utils.erl" "ubic_sso_srv_methods.erl" "ubic_sso_srv_cowboy_middleware_cache_control.erl" "ubic_sso_srv_cowboy_handler_about.erl" "ubic_sso_srv_uri.erl" "ubic_sso_srv_cowboy_handler_ping.erl" "ubic_sso_srv_cowboy_handler_oauth2_google_login.erl" "ubic_sso_srv_cowboy_middleware_stop.erl" "ubic_sso_srv_cowboy_handler_user.erl" "ubic_sso_srv_sup.erl" "ubic_sso_srv_cfg.erl" "ubic_sso_srv_cowboy_handler_search_username.erl" "ubic_sso_srv_cowboy_handler_logout.erl" "ubic_sso_srv_session.erl" "ubic_sso_srv_cowboy_handler_user_id.erl" "ubic_sso_srv_cowboy_reply.erl" "ubic_sso_srv_cowboy_handler_legal.erl" "ubic_sso_srv_cowboy_middleware_cors.erl" "ubic_sso_srv.app.src" "ubic_sso_srv_cowboy_reply_rest.erl" "ubic_sso_srv_app.erl" "ubic_sso_srv_cowboy_handler_search_email.erl" "./" "ubic_sso_srv_cowboy_handler_login.erl" "ubic_sso_srv_cowboy_http_basic_auth_middleware.erl" "ubic_sso_srv_cowboy_middleware_start.erl" "ubic_sso_srv_cowboy_handler_verify.erl" "ubic_sso_srv_cowboy.erl" "ubic_sso_srv_cowboy_handler_password.erl")
+
+ ("/home/xeno/dev/ubic_sso_srv/apps/ubic_sso_srv/" (21962 4750 350929 513000) "priv/" "rebar.config" "../" "src/" "test/" ".gitignore" "cover.spec" "./")
+
+ ("/home/xeno/dev/ubic_sso_srv/apps/" (21962 4750 347596 146000) "../" "ubic_sso/" "ubic_sso_srv/" "./")
+
+ ("/home/xeno/dev/ubic_sso_srv/" (21962 4750 354262 879000) "rebar.config" "../" "README.md" "doc/" "tests/" "model/" "requirements.txt" "utils/" "rebar" ".gitignore" ".git/" "tools/" "rel/" ".travis.yml" "Makefile" "apps/" "./" "ct")
+
+ ("/home/xeno/dev/ubic/apps/ubic_device/include/" (21946 46656 580933 181000) "../" "defaults.hrl" "./" "headers.hrl")
+
+ ("/home/xeno/dev/ubic/tests/ubic_device/" (21961 65394 1390 633000) "../" "device_registration_tests.pyc" ".gitignore" "__init__.pyc" "__init__.py" "./" "device_registration_tests.py")
+
+ ("/etc/netctl/" (21951 54310 334891 883000) "../" "hooks/" "ethernet-unifi-static" "wlp4s0-ubnt-aarons-desk" "wlp4s0-NETIASPOT-919210_EXT" "usb_adapter" "wlp4s0-#SFO FREE WIFI" "ethernet-dhcp" "wlp4s0-Ubiquiti_LA" "wlp4s0-dragonfly-5g" "wlp4s0-Ubiquiti" "wlp4s0-sjcfreewifi" "wlp4s0-culverhotel" "wlp4s0-skynet" "wlp4s0-hhonors" "wlp4s0-- DEN Airport Free WiFi" "wlp4s0-charlotte_hotspot2" "ethernet-static-192-168-1-x" "wlp4s0-Four Seasons" "wlp4s0-jerry-corp-5g" "wlp4s0-ubnt5" "wlp4s0-Telekom" "interfaces/" "wlp4s0-NadPotokiem" "wlp4s0-Ubiquiti5" "wlp4s0-Andrizzle" "wlp4s0-Coffee_Corner" "wlp4s0-LAX Free WiFi" "ethernet-new-office" "wlp4s0-attwifi" "./" "wlp4s0-NETIASPOT-919210" "examples/" "#_asu_broot@xenocorp_b_aetc_anetctl_ausb__adapter#" "etherner-static" "wlp4s0-KRK Free WiFi" "wlp4s0-charlotte_hotspot")
+
+ ("/home/xeno/dev/ubic/_build/default/lib/piqi/piqic-erlang/" (21946 32389 688537 14000) "rebar.config" "../" "src/" "piqi/" ".gitignore" "Makefile" "piqic-erlang" "./" ".rebar/" "ebin/")
+
+ ("/home/xeno/ubnt/" (21956 40732 757258 94000) "2015-08-7-resource-allocation.md" "../" "#2015-18-05-unifi-video-push.md#" "devbox/" "Faktura nr 15.pdf" "2015-04-07-UI.md" "#2015-04-07-UI.md#" "./" "2015-18-05-unifi-video-push.md" "SKMBT_C35315041712400.pdf" "2015-07-27-unifi-video-reqs.md")
+
+ ("/home/xeno/dev/env-builds/ops/roles/app-ubic-device/files/" (21945 3433 514234 442000) "../" "rc.preinit" "./")
+
+ ("/home/xeno/dev/env-builds/ops/roles/app-ubic-device/tasks/" (21945 3491 631067 823000) "../" "build.yml" "app.yml" "main.yml" "./" "users.yml")
+
+ ("/home/xeno/dev/env-builds/ops/roles/app-ubic-device/vars/" (21946 44959 522077 492000) "../" "main.yml" "./")
+
+ ("/home/xeno/dev/python-ubic/ubic/airos/clients/" (21955 12073 650520 871000) "../" "AirosDevice.py" "SSO.py" "Org.py" "AlertsDB.py" "__init__.py" "AirosGui.py" "./")
+
+ ("/home/xeno/dev/python-ubic/ubic/airos/apis/" (21954 36709 436968 429000) "AirosWS.py" "../" "AirosGuiApi.py" "__init__.py" "./")
+
+ ("/home/xeno/dev/python-ubic/ubic/airos/biz/" (21955 12083 450550 208000) "Device.py" "../" "decorators.py" "log.py" "__init__.py" "./" "DeviceOwner.py")
+
+ ("/home/xeno/dev/python-ubic/ubic/device/clients/" (21955 17007 621645 218000) "../" "SoftwareRegistration.py" "DeviceRegistration.py" "__init__.py" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
