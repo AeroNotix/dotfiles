@@ -11,7 +11,7 @@ function cwd2paths {
 function collapse_pwd {
     echo $(pwd | sed -e "s,^$HOME,~,")
 }
-__ALL_DATABASES=(kairosdb elasticsearch postgresql cassandra redis)
+__ALL_DATABASES=(cassandra postgresql redis kairosdb elasticsearch)
 function engage_tyranny {
     to_all_dbs start
 }
