@@ -96,3 +96,4 @@ crash.log
 crash.log.*
 /.emacs.d/edts/119971250_ubic.xref
 *.pyc
+/.config/roxterm.sourceforge.net/Searches
