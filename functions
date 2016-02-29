@@ -19,7 +19,7 @@ function engage_tyranny {
 }
 function disengage_tyranny {
     to_all_dbs stop
-    to_all_containers start
+    to_all_containers stop
 }
 function to_all_dbs {
     for db in $__ALL_DATABASES
