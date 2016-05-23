@@ -413,3 +413,7 @@
 (setq racer-cmd "/home/xeno/dev/racer/target/release/racer")
 (add-to-list 'load-path "/home/xeno/dev/racer/editors")
 (eval-after-load "rust-mode" '(require 'racer))
+
+(require 'keyfreq)
+(keyfreq-mode 1)
+(keyfreq-autosave-mode 1)
