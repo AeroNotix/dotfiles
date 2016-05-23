@@ -21,6 +21,7 @@ export PATH=$PATH:/usr/lib/erlang/lib/lfe-0.8/bin
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/home/xeno/dev/go/bin:/usr/share/riemann/bin
 export PATH=$PATH:/home/xeno/.gem/ruby/2.1.0/bin
 export PATH=$PATH:$CLOJURESCRIPT_HOME/bin
+export PATH=$PATH:/home/xeno/.cargo/bin
 export PATH=~/.local/bin:$PATH
 export PATH=$PATH:/home/xeno/.gem/ruby/2.2.0/bin
 export PERL5LIB="/home/xeno/.opam/system/lib/perl5"
