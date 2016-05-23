@@ -148,6 +148,7 @@
  '(py-shell-name "python2")
  '(rebind-keys-mode t)
  '(recentf-mode t)
+ '(rust-rustfmt-bin "/home/xeno/.cargo/bin/rustfmt")
  '(scroll-bar-mode nil)
  '(sex-mode t)
  '(show-paren-mode t)
