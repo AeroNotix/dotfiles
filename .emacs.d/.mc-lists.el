@@ -7,6 +7,7 @@
         forward-sexp
         indent-for-tab-command
         kill-region
+        mark-sexp
         slime-autodoc-space
         slime-space
         smex
