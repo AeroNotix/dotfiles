@@ -323,7 +323,7 @@ Otherwise, it saves all modified buffers without asking."
               (source-locations (pkgbuild-source-locations)))
           (if (= (length sources) (length source-locations))
               (progn
-                (loop for source in sources 
+                (loop for source in sources
                       for source-location in source-locations
                       do (when (not (pkgbuild-file-available-p source (split-string pkgbuild-source-directory-locations ":")))
                            (progn
@@ -480,20 +480,20 @@ command."
 (defun pkgbuild-syntax-check ()
   "evaluate PKGBUILD and search stderr for errors"
   (interactive)
-  (let  (
-         (stderr-buffer (concat "*PKGBUILD(" (buffer-file-name) ") stderr*"))
-	 (stdout-buffer (concat "*PKGBUILD(" (buffer-file-name) ") stdout*")))
-    (if (get-buffer stderr-buffer) (kill-buffer stderr-buffer))
-    (if (get-buffer stdout-buffer) (kill-buffer stdout-buffer))
-    (if (not (equal
-              (flet ((message (arg &optional args) nil)) ;Hack disable empty output
-                (shell-command "bash -c 'source PKGBUILD'" stdout-buffer stderr-buffer))
-              0))
-        (multiple-value-bind (err-p line) (pkgbuild-postprocess-stderr stderr-buffer)
-          (if err-p
-              (goto-line line))
-          nil)
-      t)))
+  (save-excursion
+    (let  ((stderr-buffer (concat "*PKGBUILD(" (buffer-file-name) ") stderr*"))
+           (stdout-buffer (concat "*PKGBUILD(" (buffer-file-name) ") stdout*")))
+      (if (get-buffer stderr-buffer) (kill-buffer stderr-buffer))
+      (if (get-buffer stdout-buffer) (kill-buffer stdout-buffer))
+      (if (not (equal
+                (flet ((message (arg &optional args) nil)) ;Hack disable empty output
+                  (shell-command "bash -c 'source PKGBUILD'" stdout-buffer stderr-buffer))
+                0))
+          (multiple-value-bind (err-p line) (pkgbuild-postprocess-stderr stderr-buffer)
+            (if err-p
+                (goto-line line))
+            nil)
+        t))))
 
 
 (defun pkgbuild-postprocess-stderr (buf)        ;multiple values return
