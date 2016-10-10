@@ -416,8 +416,19 @@
 (setq racer-rust-src-path "/home/xeno/dev/rust/src/")
 (setq racer-cmd "/home/xeno/dev/racer/target/release/racer")
 (add-to-list 'load-path "/home/xeno/dev/racer/editors")
-(eval-after-load "rust-mode" '(require 'racer))
 
 (require 'keyfreq)
 (keyfreq-mode 1)
 (keyfreq-autosave-mode 1)
+
+(defun count-chars-region (start end)
+  (interactive "r")
+  (save-excursion
+    (let ((n 0))
+      (goto-char start)
+      (while (< (point) end)
+        (progn
+          (forward-char)
+          (setq n (1+ n))))
+      (message "Region has %d chars" n)
+      n)))
