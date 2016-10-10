@@ -157,6 +157,7 @@
  '(sex-mode t)
  '(show-paren-mode t)
  '(tabkey2-mode t)
+ '(terraform-indent-level 4)
  '(tool-bar-mode nil nil (tool-bar))
  '(tooltip-mode nil)
  '(w32-meta-style (quote emacs))
