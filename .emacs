@@ -147,12 +147,13 @@
  '(ourcomments-ido-ctrl-tab t)
  '(package-selected-packages
    (quote
-    (yaml-mode weechat websocket vkill twittering-mode tuareg toml-mode terraform-mode sql-indent solarized-theme smex smartparens smart-operator slamhound shorten scala-mode rust-mode refacterl redshank rainbow-mode rainbow-delimiters protobuf-mode pkgbuild-mode notmuch muttrc-mode markdown-mode magit-gh-pulls lua-mode lfe-mode kibit-mode keyfreq json-mode jedi idomenu idle-highlight-mode htmlize hl-sexp hippie-namespace hippie-exp-ext highlight-unique-symbol highlight-symbol haskell-mode groovy-mode gotham-theme go-eldoc go-autocomplete github-browse-file git-messenger git-gutter-fringe gist gccsense flymake-rust flymake-go flymake feature-mode edts edit-server dot-mode dockerfile-mode docker d-mode css-mode crontab-mode conkeror-minor-mode company color-theme cmake-mode clojure-mode-extra-font-locking clj-refactor ansible align-cljlet ac-slime ac-cider)))
+    (racer yaml-mode weechat websocket vkill twittering-mode tuareg toml-mode terraform-mode sql-indent solarized-theme smex smartparens smart-operator slamhound shorten scala-mode rust-mode refacterl redshank rainbow-mode rainbow-delimiters protobuf-mode pkgbuild-mode notmuch muttrc-mode markdown-mode magit-gh-pulls lua-mode lfe-mode kibit-mode keyfreq json-mode jedi idomenu idle-highlight-mode htmlize hl-sexp hippie-namespace hippie-exp-ext highlight-unique-symbol highlight-symbol haskell-mode groovy-mode gotham-theme go-eldoc go-autocomplete github-browse-file git-messenger git-gutter-fringe gist gccsense flymake-rust flymake-go flymake feature-mode edts edit-server dot-mode dockerfile-mode docker d-mode css-mode crontab-mode conkeror-minor-mode company color-theme cmake-mode clojure-mode-extra-font-locking clj-refactor ansible align-cljlet ac-slime ac-cider)))
  '(py-pychecker-command-args (quote ("")))
  '(py-shell-name "python2")
  '(rebind-keys-mode t)
  '(recentf-mode t)
  '(rust-rustfmt-bin "/home/xeno/.cargo/bin/rustfmt")
+ '(safe-local-variable-values (quote ((c-file-offsets (case-label . +)))))
  '(scroll-bar-mode nil)
  '(sex-mode t)
  '(show-paren-mode t)
