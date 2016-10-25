@@ -50,3 +50,7 @@ function all-the-monitors2() {
 function disable-external-monitors() {
     xrandr --output HDMI2 --off --output DP1 --off
 }
+
+function logz {
+    awslogs get $1 ALL --no-group --no-stream --watch --profile logs --aws-region ${2:-us-west-2}
+}
