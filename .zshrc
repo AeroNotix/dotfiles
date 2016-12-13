@@ -4,7 +4,7 @@ alias erl='rlwrap erl'
 alias yaks='cd ~/dev/ubic/'
 
 ignored_configs=(grep)
-plugins=(aws)
+plugins=(aws nosetests)
 source $ZSH/oh-my-zsh.sh
 
 export CAML_LD_LIBRARY_PATH="/home/xeno/.opam/system/lib/stublibs:/usr/lib/ocaml/stublibs"
