@@ -2,9 +2,11 @@
 (require 'swank)
 (in-package :stumpwm)
 
+(defvar *autotiling-groups* '()
+  "Names of groups that will automatically tile their windows.")
 
 ;; Engage!
-(swank:create-server)
+;;(swank:create-server)
 
 ;; Style customizations
 (set-focus-color               "#336699")
@@ -42,16 +44,10 @@
     (gnew (format nil "~d" i))
     (define-key *top-map*
         (kbd (format nil "M-~d" i))
-      (format nil "gselect ~s" i))))
+      (format nil "gselect ~s" i))
+    (push (format nil "~d" i) *autotiling-groups*)))
 
-(defcommand set-volume (n) ((:string "Amount:"))
-  "Changes the volume"
-  (let ((command-str (format nil "amixer -c 0 --quiet set Master ~a" n)))
-    (run-shell-command command-str)))
-
-(defcommand ncmpcpp (what) ((:string "Command:"))
-  "Sends a command to ncmpcpp"
-  (run-shell-command (format nil "ncmpcpp ~a" what)))
+(push "Default" *autotiling-groups*)
 
 (defmacro spawn-with (key-combo command)
   `(define-key *top-map* (kbd ,key-combo) ,command))
@@ -67,35 +63,51 @@
 (spawn-many
  "M-TAB" "sother"
  "M-E" "exec emacsclient -c"
- "M-F" "exec chromium"
- "S-M-RET" "exec termite"
- "M-I" "exec termite -e 'ssh xeno@zerolength.com -t tmux attach-session -d -t weechat'"
+ "M-F" "exec chromium --force-device-scale-factor=2"
+ "S-M-RET" "exec roxterm"
+ "M-I" "exec roxterm -e 'ssh xeno@zerolength.com -t tmux attach-session -d -t weechat'"
  "M-j" "fnext"
  "M-J" "move-window right"
  "M-H" "move-window left"
- "M-M" "exec termite -e 'ncmpcpp'"
+ "M-M" "exec roxterm -e 'ncmpcpp'"
+ "C-p" "dmenu_run -fn 'Monaco-25'"
  "s-s" "hsplit"
  "s-S" "vsplit"
  "s-r" "remove"
  "s-R" "resize"
  "M-C" "delete"
  "M-Q" "quit"
- "M-S" "exec skype"
- "M-Y" "exec pidgin"
  "M-V" "exec vlc"
  "M-K" "exec keepassx"
- "M-W" "exec termite -e 'wicd-curses'"
- "s-m" "exec termite -e 'mutt'"
- "M-F5" "ncmpcpp pause"
- "M-F6" "exec amixer set Master mute"
- "M-F7" "exec amixer set Master unmute"
- "M-F8" "ncmpcpp play"
- "M-F11" "set-volume 1-"
- "M-F12" "set-volume 1+"
- "C-p" "exec dmenu_run"
  "s-Right" "gnext"
- "s-Left" "gprev"
- "s-Up" "next"
- "s-Down" "prev"
- "XF86MonBrightnessUp"   "exec xbacklight -inc 40"
- "XF86MonBrightnessDown" "exec xbacklight -dec 40")
+ "s-Left" "gprev")
+
+(defun do-auto-tile (group)
+  (let* ((tlen (length (stumpwm::group-windows group)))
+         (len (1- tlen)))
+    (unless (zerop tlen)
+      (stumpwm::call-interactively "only")
+      (unless (current-window)
+        (stumpwm::focus-next-window group)))
+    (unless (zerop len)
+      (stumpwm::split-frame group :column)
+      (stumpwm::focus-next-frame group)
+      (dotimes (n (1- len))
+        (stumpwm::split-frame group :row (/ (- len n)))
+        (stumpwm::focus-next-frame group))
+      (stumpwm::focus-next-frame group))))
+
+(defcommand auto-tile () ()
+  "Tile windows in the current group."
+  (do-auto-tile (current-group)))
+
+(defun autotile-hook (&optional window)
+  (unless (and window
+               (stumpwm::window-transient-p window))
+    (when (member (stumpwm::group-name (current-group))
+                  *autotiling-groups*
+                  :test #'equalp)
+      (do-auto-tile (current-group)))))
+
+(add-hook *new-window-hook* #'autotile-hook)
+(add-hook *destroy-window-hook* #'autotile-hook)
