@@ -4,6 +4,8 @@
 (setq mc/cmds-to-run-for-all
       '(
         cljr-slash
+        erlang-electric-comma
+        erlang-electric-gt
         forward-sexp
         indent-for-tab-command
         kill-region
