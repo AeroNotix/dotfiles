@@ -2,6 +2,7 @@ ZSH=$HOME/.oh-my-zsh
 
 alias erl='rlwrap erl'
 alias yaks='cd ~/dev/ubic/'
+alias k='kubectl'
 
 ignored_configs=(grep)
 plugins=(aws nosetests)
