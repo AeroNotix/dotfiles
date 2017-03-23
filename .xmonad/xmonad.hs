@@ -24,10 +24,10 @@ main = do
         , focusedBorderColor = "#336699"
         , normalBorderColor  = "#000000"
         , manageHook = insertPosition Below Newer
-        , layoutHook = avoidStruts  $  layoutHook defaultConfig
+        , handleEventHook = mconcat [ docksEventHook , handleEventHook defaultConfig ]
+        , layoutHook = avoidStruts $ layoutHook defaultConfig
         } `additionalKeys`
-        [ (( mod1Mask .|. shiftMask, xK_i      ), spawn "roxterm -e 'ssh xeno@zerolength.com -t tmux attach-session -d -t weechat'")
-        , (( mod1Mask .|. shiftMask, xK_b      ), spawn "roxterm -e 'ncxbacklight'")
+        [ (( mod1Mask .|. shiftMask, xK_i      ), spawn "roxterm -e 'ssh xeno@37.139.18.183 -t tmux attach-session -d -t weechat'")
         , (( mod1Mask .|. shiftMask, xK_Return ), spawn "roxterm")
         , (( mod1Mask .|. shiftMask, xK_e      ), spawn "emacsclient -c")
         , (( mod1Mask .|. shiftMask, xK_f      ), spawn "chromium --force-device-scale-factor=2")
