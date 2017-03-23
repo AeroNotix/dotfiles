@@ -439,3 +439,11 @@
 (defun jq-on-buffer ()
   (interactive)
   (shell-command-on-region (point-min) (point-max) "jq ." t t))
+
+(defun toggle-comment-region (start end)
+  (interactive "r")
+  (save-excursion
+    (deactivate-mark)
+    (goto-char start)
+    (while (< (point) end)
+      (comment-line 1))))
