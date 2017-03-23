@@ -5,8 +5,22 @@ alias yaks='cd ~/dev/ubic/'
 alias k='kubectl'
 
 ignored_configs=(grep)
-plugins=(aws nosetests)
 source $ZSH/oh-my-zsh.sh
+plugins=(aws nosetests)
+
+
+autoload -U compinit
+compinit
+
+autoload -U bashcompinit
+bashcompinit
+
+_nosetests()
+{
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    COMPREPLY=(`nosecomplete ${cur} 2>/dev/null`)
+}
+complete -o nospace -F _nosetests nosetests
 
 export CAML_LD_LIBRARY_PATH="/home/xeno/.opam/system/lib/stublibs:/usr/lib/ocaml/stublibs"
 export EDITOR="emacsclient -c"
