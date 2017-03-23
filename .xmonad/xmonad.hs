@@ -10,12 +10,6 @@ import XMonad.Actions.CycleWS
 import Graphics.X11.ExtraTypes.XF86
 
 
-amixerCmd s =
-  spawn $ "amixer -c 0 --quiet set Master " ++ s
-
-mpc s =
-  spawn $ "mpc " ++ s
-
 main = do
    xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmobarrc"
    xmonad $ defaultConfig
@@ -34,11 +28,6 @@ main = do
         , (( mod1Mask .|. shiftMask, xK_d      ), spawn "chromium --force-device-scale-factor=2 --profile-directory=\"Profile 1\"")
         , (( mod1Mask .|. shiftMask, xK_k      ), spawn "keepassx")
         , (( mod1Mask .|. shiftMask, xK_v      ), spawn "vlc")
-        , (( mod1Mask .|. shiftMask, xK_w      ), spawn "steam")
-        , (( mod1Mask,               xK_F6     ), spawn "amixer -c 0 --quiet set Master mute")
-        , (( mod1Mask,               xK_F7     ), spawn "amixer set Master unmute")
-        , (( mod1Mask,               xK_c      ), sendMessage (IncMasterN 1))
-        , (( mod1Mask,               xK_v      ), sendMessage (IncMasterN (-1)))
         , (( controlMask,            xK_p      ), spawn "dmenu_run -fn 'Monaco-25'")
         , (( mod4Mask,               xK_q      ), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
         , (( mod1Mask,               xK_Tab    ), nextScreen)
