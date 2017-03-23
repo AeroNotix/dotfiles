@@ -5,10 +5,18 @@
 (defvar *autotiling-groups* '()
   "Names of groups that will automatically tile their windows.")
 
-;; Engage!
-;;(swank:create-server)
+(load-module "ttf-fonts")
+(load-module "cpu")
+(load-module "battery-portable")
 
-;; Style customizations
+;; Engage!
+(swank:create-server)
+
+(set-font
+ (make-instance 'xft:font
+                :family "mononoki"
+                :subfamily "Regular"
+                :size 19))
 (set-focus-color               "#336699")
 (set-unfocus-color             "#336699")
 (setf *input-window-gravity*   :center)
@@ -25,7 +33,7 @@
 ;; mode-line
 (setf *mode-line-timeout* 1)
 (setf *screen-mode-line-format*
-      (list "^B" '(:eval (run-shell-command "date +\"%T | %D\" | tr '\\n' ' '" t))))
+      (list "^B" '(:eval (run-shell-command "date +\"%T | %D\" | tr '\\n' ' '" t)) " | %c | %t | %B"))
 (mode-line)
 
 ;; TODO: put these into a util package
@@ -38,6 +46,20 @@
            (nthcdr n list))
      collecting (subseq cell 0 n)))
 
+(defun digit-to-shifted-char (i)
+  (let* ((char-alist '((1 . "!")
+                       (2 . "@")
+                       (3 . "#")
+                       (4 . "$")
+                       (5 . "%")
+                       (6 . "^")
+                       (7 . "&")
+                       (8 . "*")
+                       (9 . "(")
+                       (0 . ")")))
+         (shifted-char (cdr (find i char-alist :key #'car))))
+    shifted-char))
+
 ;; Create groups[1..9]
 (dotimes (i 10)
   (progn
@@ -45,6 +67,9 @@
     (define-key *top-map*
         (kbd (format nil "M-~d" i))
       (format nil "gselect ~s" i))
+    (define-key *top-map*
+        (kbd (format nil "M-~A" (digit-to-shifted-char i)))
+      (format nil "gmove ~s" i))
     (push (format nil "~d" i) *autotiling-groups*)))
 
 (push "Default" *autotiling-groups*)
@@ -70,7 +95,7 @@
  "M-J" "move-window right"
  "M-H" "move-window left"
  "M-M" "exec roxterm -e 'ncmpcpp'"
- "C-p" "dmenu_run -fn 'Monaco-25'"
+ "C-p" "exec dmenu_run -fn 'Monaco-25'"
  "s-s" "hsplit"
  "s-S" "vsplit"
  "s-r" "remove"
@@ -109,5 +134,5 @@
                   :test #'equalp)
       (do-auto-tile (current-group)))))
 
-(add-hook *new-window-hook* #'autotile-hook)
-(add-hook *destroy-window-hook* #'autotile-hook)
+(add-hook *new-window-hook* 'autotile-hook)
+(add-hook *destroy-window-hook* 'autotile-hook)
