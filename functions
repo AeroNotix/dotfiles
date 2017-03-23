@@ -52,5 +52,5 @@ function disable-external-monitors() {
 }
 
 function logz {
-    awslogs get $1 ALL --no-group --no-stream --watch --profile logs --aws-region ${2:-us-west-2}
+    awslogs get $1 ALL --no-group --no-stream --watch --profile inf --aws-region ${2:-us-west-2} --start='1m ago'
 }
