@@ -18,4 +18,5 @@
 (setq mc/cmds-to-run-once
       '(
         cljr-move-to-let
+        markdown-exdent-or-delete
         ))
