@@ -28,6 +28,7 @@ export GOPATH=/home/xeno/dev/go
 export LEIN_SNAPSHOTS_IN_RELEASE=1
 export MANPATH="/home/xeno/.opam/system/man:"
 export OCAML_TOPLEVEL_PATH="/home/xeno/.opam/system/lib/toplevel"
+export PATH=$(pyenv root)/shims:$PATH
 export PATH=$PATH:"/home/xeno/.opam/system/bin"
 export PATH=$PATH:$HOME/.bin/
 export PATH=$PATH:/home/xeno/dev/go/bin
