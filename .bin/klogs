@@ -1,0 +1,8 @@
+#!/bin/bash
+
+COMMAND_TO_EVAL="("
+for pod in $(kubectl get pods $1 | tail -n +2 | awk '{{print $1}}' | paste -sd " " -); do
+    COMMAND_TO_EVAL+="echo kubectl logs -f $pod; "
+done
+COMMAND_TO_EVAL+=") | parallel"
+eval $COMMAND_TO_EVAL
