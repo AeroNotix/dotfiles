@@ -1,6 +1,6 @@
 ZSH=$HOME/.oh-my-zsh
 
-alias erl='rlwrap erl'
+alias erl='erl'
 alias yaks='cd ~/dev/ubic/'
 alias k='kubectl'
 
@@ -92,3 +92,6 @@ VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
 
 # added by travis gem
 [ -f /home/xeno/.travis/travis.sh ] && source /home/xeno/.travis/travis.sh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
