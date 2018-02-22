@@ -1,6 +1,0 @@
-;; -*- mode: common-lisp; -*-
-
-(in-package :lispkit)
-
-(define-key *top-map* "M-Left" "backwards-page")
-(define-key *top-map* "M-Right" "forwards-page")
