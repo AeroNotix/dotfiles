@@ -75,6 +75,3 @@ open_weechat() {
     ssh xeno@37.139.18.183 -t tmux attach -t weechat
 }
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
