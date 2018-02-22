@@ -34,6 +34,7 @@ main = do
         , (( mod4Mask,               xK_Left   ), prevWS)
         , (( mod4Mask,               xK_Right  ), nextWS)
         , (( mod4Mask,               xK_s      ), spawn "dbx.sh")
+        , (( mod4Mask,               xK_space  ), sendMessage NextLayout)
         ] `removeKeys`
         [ (( mod1Mask, xK_space  ))
         , (( mod1Mask, xK_period ))
