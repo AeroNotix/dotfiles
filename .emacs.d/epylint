@@ -1,0 +1,262 @@
+#!/bin/python
+from __future__ import print_function
+
+import os
+import re
+import sys
+import py_compile
+
+from subprocess import Popen, PIPE
+
+PYLINT_COMMAND = "pylint"
+PYCHECKER_COMMAND = "pychecker"
+PEP8_COMMAND = "pep8"
+PYFLAKES_COMMAND = "pyflakes"
+
+
+class LintRunner(object):
+    """ Base class provides common functionality to run
+          python code checkers. """
+    sane_default_ignore_codes = set([])
+    command = None
+    output_matcher = None
+    #flymake: ("\\(.*\\) at \\([^ \n]+\\) line \\([0-9]+\\)[,.\n]" 2 3 nil 1)
+    #or in non-retardate: r'(.*) at ([^ \n]) line ([0-9])[,.\n]'
+    output_format = "%(level)s %(error_type)s%(error_number)s: " \
+                    "%(description)s at %(filename)s line %(line_number)s."
+
+    def __init__(self, virtualenv=None, ignore_codes=(),
+                 use_sane_defaults=True):
+        if virtualenv:
+            # This is the least we can get away with (hopefully).
+            self.env = {'VIRTUAL_ENV': virtualenv,
+                        'PATH': virtualenv + '/bin:' + os.environ['PATH']}
+        else:
+            self.env = None
+        self.virtualenv = virtualenv
+        self.ignore_codes = set(ignore_codes)
+        self.use_sane_defaults = use_sane_defaults
+
+    @property
+    def operative_ignore_codes(self):
+        if self.use_sane_defaults:
+            return self.ignore_codes | self.sane_default_ignore_codes
+        else:
+            return self.ignore_codes
+
+    @property
+    def run_flags(self):
+        return ()
+
+    @staticmethod
+    def fixup_data(_line, data):
+        return data
+
+    @classmethod
+    def process_output(cls, line):
+        print(line.decode('utf-8'))
+        try:
+            m = cls.output_matcher.match(str(line))
+        except Exception as e:
+            raise
+        if m:
+            fixed_data = dict.fromkeys(('level', 'error_type',
+                                        'error_number', 'description',
+                                        'filename', 'line_number'),
+                                       '')
+            fixed_data.update(cls.fixup_data(line, m.groupdict()))
+            fixed_data['description'] = (
+                cls.__name__ + ' ' + fixed_data['description'])
+            print(cls.output_format % fixed_data)
+        else:
+            print("Line is broken: %s %s" % (cls, line), file=sys.stderr)
+
+    def run(self, filename):
+        args = [self.command]
+        args.extend(self.run_flags)
+        args.append(filename)
+        process = Popen(args, stdout=PIPE, stderr=PIPE, env=self.env)
+        for line in process.stdout:
+            self.process_output(line)
+
+
+class CompilerRunner(LintRunner):
+    def run(self, filename):
+        error_args = None
+        try:
+            py_compile.compile(filename)
+        except (SyntaxError, Exception) as e:
+            error_args = e.args
+        if error_args:
+            self.process_output(filename, error_args)
+
+    @classmethod
+    def process_output(cls, filename, args):
+        fixed_data = dict.fromkeys(('level', 'error_type',
+                                    'error_number', 'description',
+                                    'filename', 'line_number'),
+                                   '')
+        fixed_data['level'] = 'ERROR'
+        fixed_data['line_number'] = args[1][1]
+        fixed_data['filename'] = filename
+        fixed_data['description'] = 'CompilerRunner ' + args[0]
+
+        print(cls.output_format % fixed_data)
+
+
+class PylintRunner(LintRunner):
+    """ Run pylint, producing flymake readable output.
+    The raw output looks like:
+      render.py:49: [C0301] Line too long (82/80)
+      render.py:1: [C0111] Missing docstring
+      render.py:3: [E0611] No name 'Response' in module 'werkzeug'
+      render.py:32: [C0111, render] Missing docstring
+      jutils.py:859: [C0301] Line too long (107/80)"""
+    output_matcher = re.compile(
+        r'(?P<filename>[^:]+):'
+        r'(?P<line_number>\d+):'
+        r'\s\[(?P<error_type>[WECR])(?P<error_number>[\d]+.+?\])'
+        r'\s*(?P<description>.*)$')
+    command = PYLINT_COMMAND
+    sane_default_ignore_codes = set([
+        "C0103",  # Naming convention
+        "C0111",  # Missing Docstring
+        "E1002",  # Use super on old-style class
+        "W0232",  # No __init__
+        #"I0011",  # Warning locally suppressed using disable-msg
+        #"I0012",  # Warning locally suppressed using disable-msg
+        #"W0511",  # FIXME/TODO
+        #"W0142",  # *args or **kwargs magic.
+        "R0904",  # Too many public methods
+        "R0903",  # Too few public methods
+        "R0201",  # Method could be a function
+        "W0141",  # Used built in function map
+    ])
+
+    @staticmethod
+    def fixup_data(_line, data):
+        if data['error_type'].startswith('E'):
+            data['level'] = 'ERROR'
+        else:
+            data['level'] = 'WARNING'
+        return data
+
+    @property
+    def run_flags(self):
+        return ('--output-format', 'parseable',
+                '--include-ids', 'y',
+                '--reports', 'n',
+                '--disable-msg=' + ','.join(self.operative_ignore_codes))
+
+
+class PycheckerRunner(LintRunner):
+    """ Run pychecker, producing flymake readable output.
+    The raw output looks like:
+      render.py:49: Parameter (maptype) not used
+      render.py:49: Parameter (markers) not used
+      render.py:49: Parameter (size) not used
+      render.py:49: Parameter (zoom) not used """
+    command = PYCHECKER_COMMAND
+    output_matcher = re.compile(
+        r'(?P<filename>[^:]+):'
+        r'(?P<line_number>\d+):'
+        r'\s+(?P<description>.*)$')
+
+    @staticmethod
+    def fixup_data(_line, data):
+        #XXX: doesn't seem to give the level
+        data['level'] = 'WARNING'
+        return data
+
+    @property
+    def run_flags(self):
+        return '--no-deprecated', '--only', '-#0'
+
+
+class Pep8Runner(LintRunner):
+    """ Run pep8.py, producing flymake readable output.
+    The raw output looks like:
+      spiders/structs.py:3:80: E501 line too long (80 characters)
+      spiders/structs.py:7:1: W291 trailing whitespace
+      spiders/structs.py:25:33: W602 deprecated form of raising exception
+      spiders/structs.py:51:9: E301 expected 1 blank line, found 0 """
+    command = PEP8_COMMAND
+    # sane_default_ignore_codes = set([
+    #     'RW29', 'W391',
+    #     'W291', 'WO232'])
+    output_matcher = re.compile(
+        r'(?P<filename>[^:]+):'
+        r'(?P<line_number>[^:]+):'
+        r'[^:]+:'
+        r' (?P<error_number>\w+) '
+        r'(?P<description>.+)$')
+
+    @staticmethod
+    def fixup_data(_line, data):
+        data['level'] = 'WARNING'
+        return data
+
+    @property
+    def run_flags(self):
+        return '--repeat', '--ignore=' + ','.join(self.operative_ignore_codes)
+
+
+class PyflakesRunner(LintRunner):
+    """ Run pyflakes, producing flymake readable output.
+    The raw output looks like:
+    ./milo/models/cck.py:47: 'env' imported but unused
+    ./milo/models/cck.py:51: 'dbutils' imported but unused
+    ./milo/models/cck.py:1217: undefined name 'CrawlReadinessException'
+    ./milo/models/cck.py:1221: undefined name 'CrawlReadinessException'
+    ./milo/models/cck.py:1224: undefined name 'magicnames'
+    ./milo/models/cck.py:1226: undefined name 'CrawlReadinessException'
+    ./milo/models/cck.py:1227: undefined name 'magicnames'
+    ./milo/models/cck.py:1231: undefined name 'CrawlReadinessException'
+    ./milo/models/cck.py:1236: undefined name 'CrawlReadinessException'
+    ./milo/models/cck.py:1240: undefined name 'CrawlReadinessException'
+    ./milo/models/cck.py:1247: undefined name 'CrawlReadinessException'
+    ./milo/models/cck.py:1976: undefined name 'extractor'
+    """
+    command = PYFLAKES_COMMAND
+
+    output_matcher = re.compile(
+        r'(?P<filename>[^:]+):'
+        r'(?P<line_number>[^:]+):'
+        r'(?P<description>.+)$')
+
+    @staticmethod
+    def fixup_data(_line, data):
+        data['level'] = 'ERROR'
+        return data
+
+
+def main():
+    from optparse import OptionParser
+    parser = OptionParser()
+    parser.add_option("-e", "--virtualenv",
+                      dest="virtualenv",
+                      default=None,
+                      help="virtualenv directory")
+    parser.add_option("-i", "--ignore_codes",
+                      dest="ignore_codes",
+                      default=(),
+                      help="error codes to ignore")
+    options, args = parser.parse_args()
+
+    for runnerclass in (PylintRunner,
+                        #PycheckerRunner,
+                        Pep8Runner,
+                        PyflakesRunner,
+                        CompilerRunner
+    ):
+        runner = runnerclass(virtualenv=options.virtualenv,
+                             ignore_codes=options.ignore_codes)
+        try:
+            runner.run(args[0])
+        except Exception as e:
+            print('ERROR : {0} failed to run at {1} line 1:'.format(
+                runner.__class__.__name__, args[0]))
+
+
+if __name__ == '__main__':
+    main()
