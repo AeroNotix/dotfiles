@@ -1,2 +1,0 @@
-#!/usr/bin/zsh
-./battery_command | dzen2 -w 200 -x 1400

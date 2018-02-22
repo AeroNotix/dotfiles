@@ -1,3 +1,0 @@
-#!/usr/bin/bash
-
-python2 $HOME/.config/wingo/scripts/dzen-workspaces.py | dzen2 -x 50 -w 250 -fn -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*

@@ -1,4 +1,0 @@
-#!/usr/bin/bash
-
-go run ./network_status.go | dzen2 -w 100 -x 1300
-

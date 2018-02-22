@@ -1,3 +1,0 @@
-#!/usr/bin/bash
-
-python2 $HOME/.config/wingo/scripts/clock.py | dzen2 -w 50 -fn -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
