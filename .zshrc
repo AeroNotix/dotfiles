@@ -68,7 +68,7 @@ unsetopt auto_menu
 
 [ $TERM = 'dumb' ] && PS1='$ '
 
-source ~/.dotfiles/functions
+source ~/.functions
 
 # OPAM configuration
 . /home/xeno/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
