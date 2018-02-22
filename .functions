@@ -1,1 +1,56 @@
-.dotfiles/.functions
+# -*- mode: sh -*-
+function syu {
+    sudo pacman -Syu
+}
+function rekon {
+    curl -s -L rekon.basho.com | sh
+}
+function cwd2paths {
+    export PYTHONPATH=$PYTHONPATH:$(pwd)
+}
+function collapse_pwd {
+    echo $(pwd | sed -e "s,^$HOME,~,")
+}
+__ALL_DATABASES=()
+__ALL_DOCKER_CONTAINERS=(redis postgres)
+function engage_tyranny {
+    to_all_dbs start
+    to_all_containers restart
+}
+function disengage_tyranny {
+    to_all_dbs stop
+    to_all_containers stop
+}
+function to_all_dbs {
+    for db in $__ALL_DATABASES
+    do
+        sudo systemctl $1 $db
+    done
+}
+function to_all_containers {
+    for db in $__ALL_DOCKER_CONTAINERS
+    do
+        sudo docker $1 $db
+    done
+}
+function export-aws-creds {
+    export AWS_ACCESS_KEY=$(grep -m 1 access .aws/credentials | awk '{print $3}')
+    export AWS_SECRET_KEY=$(grep -m 1 secret .aws/credentials | awk '{print $3}')
+}
+
+function all-the-monitors() {
+    xrandr --output HDMI2 --mode 3840x2160 --right-of eDP1 --output DP1 --mode 3840x2160 --right-of HDMI2
+}
+
+function all-the-monitors2() {
+    xrandr --output HDMI-2 --mode 3840x2160 --right-of eDP-1 --output DP-1 --mode 3840x2160 --right-of HDMI-2
+}
+
+
+function disable-external-monitors() {
+    xrandr --output HDMI2 --off --output DP1 --off
+}
+
+function logz {
+    awslogs get $1 ALL --no-group --no-stream --watch --profile inf --aws-region ${2:-us-west-2} --start='1m ago'
+}
