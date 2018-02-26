@@ -88,6 +88,7 @@
 *.xref
 *.log
 /.emacs.d/recentf
+/.emacs.d/#recentf#
 /.emacs.d/ido.last
 *.dump
 *.beam
