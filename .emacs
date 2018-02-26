@@ -335,10 +335,6 @@
       savehist-file "~/.emacs.d/save/savehist")
 (savehist-mode t)
 
-;;; ---------- edit server ----------------------------------
-
-(edit-server-start)
-
 ;;;-------------- OCaml -------------------------------------
 
 (push "/usr/share/emacs/site-lisp" load-path)
