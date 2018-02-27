@@ -8,4 +8,6 @@
   (interactive)
   (insert (popup-menu* (mapcar #'depropertize-string kill-ring))))
 
+(global-set-key (kbd "C-x y") 'insert-from-kill-ring)
+
 (provide 'aero-kill-ring)
