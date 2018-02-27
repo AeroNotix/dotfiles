@@ -46,11 +46,7 @@
 (setq inhibit-startup-message t)
 
 ;;; theming
-(add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-deep-blue)
-
+(load (expand-file-name "~/.emacs.d/themes.el"))
 ;;; IDO
 (require 'ido)
 (ido-mode t)
@@ -92,7 +88,6 @@
 ;;; Show matching paren highlighting
 (show-paren-mode 1)
 (setq show-paren-delay 0)
-
 
 (load (expand-file-name "~/.emacs.d/package.el"))
 ;-----------------AUTOCOMPLETE-----------------------------------
