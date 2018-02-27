@@ -48,9 +48,7 @@
 ;;; theming
 (load (expand-file-name "~/.emacs.d/themes.el"))
 ;;; IDO
-(require 'ido)
-(ido-mode t)
-
+(load (expand-file-name "~/.emacs.d/ido.el"))
 ;;; Hurr durr I can spelz
 (setq-default flyspell-prog-mode t)
 
