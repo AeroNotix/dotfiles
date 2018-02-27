@@ -20,7 +20,6 @@
 ;;; it's easier this way
 (setq user-mail-address "aaron.l.france@gmail.com")
 
-
 ;; Disabled *Completions*
 (add-hook 'minibuffer-exit-hook
           '(lambda ()
@@ -65,7 +64,7 @@
 (eval-after-load 'rainbow-delimeters
   '(global-rainbow-delimiters-mode))
 
-(require 'flymake)
+
 
 ;;;------------------Package-------------------------------
 
