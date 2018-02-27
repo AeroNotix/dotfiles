@@ -74,3 +74,5 @@
  '(rst-level-1-face ((t (:background "slate blue"))) t)
  '(rst-level-2-face ((t (:background "midnight blue"))) t)
  '(trailing-whitespace ((t (:background "red")))))
+
+(setq default-frame-alist '((font . "Monaco-18")))

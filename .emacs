@@ -93,7 +93,6 @@
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 
-(setq default-frame-alist '((font . "Monaco-18")))
 
 (load (expand-file-name "~/.emacs.d/package.el"))
 ;-----------------AUTOCOMPLETE-----------------------------------
