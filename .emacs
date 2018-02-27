@@ -55,12 +55,6 @@
 (eval-after-load 'rainbow-delimeters
   '(global-rainbow-delimiters-mode))
 
-
-
-;;;------------------Package-------------------------------
-
-
-
 ;;; Set browser to Chrome
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "chromium")
