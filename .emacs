@@ -10,9 +10,6 @@
 ;; SCP is faster.
 (setq tramp-default-method "scp")
 
-;; autoload vkill
-(autoload 'vkill "vkill" nil t)
-
 ;; {Down,Up}case region is pretty useful
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
