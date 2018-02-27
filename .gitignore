@@ -240,3 +240,4 @@ whatever/
 xboxdrv
 /.emacs.d/#ido.last#
 smex.items
+/.emacs.d/smex-items
