@@ -16,9 +16,9 @@
 ;;; it's easier this way
 (setq user-mail-address "aaron.l.france@gmail.com")
 
-;; *Messages* buffer, literally who uses it?
-;(setq-default message-log-max nil)
-;(kill-buffer "*Messages*")
+*Messages* buffer, literally who uses it?
+(setq-default message-log-max nil)
+(kill-buffer "*Messages*")
 
 ;; Disabled *Completions*
 (add-hook 'minibuffer-exit-hook
@@ -148,7 +148,7 @@
  '(ourcomments-ido-ctrl-tab t)
  '(package-selected-packages
    (quote
-    (arduino-mode elixir-mode exwm jdee csv-mode py-yapf racer yaml-mode weechat websocket vkill twittering-mode tuareg toml-mode terraform-mode sql-indent solarized-theme smex smartparens smart-operator slamhound shorten scala-mode rust-mode refacterl redshank rainbow-mode rainbow-delimiters protobuf-mode pkgbuild-mode notmuch muttrc-mode markdown-mode magit-gh-pulls lua-mode lfe-mode kibit-mode keyfreq json-mode jedi idomenu idle-highlight-mode htmlize hl-sexp hippie-namespace hippie-exp-ext highlight-unique-symbol highlight-symbol haskell-mode groovy-mode gotham-theme go-eldoc go-autocomplete github-browse-file git-messenger git-gutter-fringe gist gccsense flymake-rust flymake-go flymake feature-mode edts edit-server dot-mode dockerfile-mode docker d-mode css-mode crontab-mode conkeror-minor-mode company color-theme cmake-mode clojure-mode-extra-font-locking ansible align-cljlet ac-slime ac-cider)))
+    (browse-kill-ring arduino-mode elixir-mode exwm jdee csv-mode py-yapf racer yaml-mode weechat websocket vkill twittering-mode tuareg toml-mode terraform-mode sql-indent solarized-theme smex smartparens smart-operator slamhound shorten scala-mode rust-mode refacterl redshank rainbow-mode rainbow-delimiters protobuf-mode pkgbuild-mode notmuch muttrc-mode markdown-mode magit-gh-pulls lua-mode lfe-mode kibit-mode keyfreq json-mode jedi idomenu idle-highlight-mode htmlize hl-sexp hippie-namespace hippie-exp-ext highlight-unique-symbol highlight-symbol haskell-mode groovy-mode gotham-theme go-eldoc go-autocomplete github-browse-file git-messenger git-gutter-fringe gist gccsense flymake-rust flymake-go flymake feature-mode edts edit-server dot-mode dockerfile-mode docker d-mode css-mode crontab-mode conkeror-minor-mode company color-theme cmake-mode clojure-mode-extra-font-locking ansible align-cljlet ac-slime ac-cider)))
  '(py-pychecker-command-args (quote ("")))
  '(py-shell-name "python2")
  '(rebind-keys-mode t)
@@ -354,7 +354,7 @@
 
 (global-set-key (kbd "C-x y") 'insert-from-kill-ring)
 
-;(load (expand-file-name "~/.quicklisp/slime-helper.el"))
+(load (expand-file-name "~/.quicklisp/slime-helper.el"))
 
 ;;;----------- Markdown --------------------------------------
 
