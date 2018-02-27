@@ -65,7 +65,7 @@
 
 ;;;------------------Package-------------------------------
 
-(load (expand-file-name "~/.emacs.d/package.el"))
+
 
 ;;; Set browser to Chrome
 (setq browse-url-browser-function 'browse-url-generic
@@ -95,6 +95,7 @@
 
 (setq default-frame-alist '((font . "Monaco-18")))
 
+(load (expand-file-name "~/.emacs.d/package.el"))
 ;-----------------AUTOCOMPLETE-----------------------------------
 ;(load (expand-file-name "~/.emacs.d/autocomplete.el"))
 ;;;---------------------flymake--------------------------------
