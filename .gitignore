@@ -239,3 +239,4 @@ whatever/
 .esd_auth
 xboxdrv
 /.emacs.d/#ido.last#
+smex.items
