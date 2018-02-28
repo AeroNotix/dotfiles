@@ -42,9 +42,10 @@ has been shortened"
 
 (defun insert-from-kill-ring ()
   (interactive)
-  (let* ((filtered-kill-ring (akr-filtermap #'akr-usable-entries kill-ring))
-         (choice (popup-menu* (seq-map #'car filtered-kill-ring))))
-    (insert (cdr (assoc choice filtered-kill-ring)))))
+  (when kill-ring
+    (let* ((filtered-kill-ring (akr-filtermap #'akr-usable-entries kill-ring))
+           (choice (popup-menu* (seq-map #'car filtered-kill-ring))))
+      (insert (cdr (assoc choice filtered-kill-ring))))))
 
 (global-set-key (kbd "C-x y") 'insert-from-kill-ring)
 
