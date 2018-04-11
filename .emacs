@@ -16,6 +16,7 @@
 (with-directory "~/.emacs.d/"
   (load-file "c++.el")
   (load-file "erlang.el")
+  (load-file "elisp.el")
   (load-file "flymake.el")
   (load-file "go.el")
   (load-file "haskell.el")

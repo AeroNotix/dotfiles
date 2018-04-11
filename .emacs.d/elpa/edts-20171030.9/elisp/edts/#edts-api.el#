@@ -416,7 +416,7 @@ ARGS as the other arguments"
   (interactive)
   (edts-api-ensure-server-started)
   (if (edts-api-node-registeredp (edts-project-attribute :node-name))
-      (edts-api-refresh-project-node)
+      nil;; (edts-api-refresh-project-node)
     ;; Ensure project node is started
     (unless (edts-api-node-started-p (edts-project-attribute :node-name))
       (edts-api--start-project-node))    ;; Register it with the EDTS node

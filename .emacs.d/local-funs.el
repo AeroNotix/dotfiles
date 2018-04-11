@@ -45,3 +45,10 @@
     (goto-char start)
     (while (< (point) end)
       (comment-line 1))))
+
+
+(defun fix-newlines ()
+  (interactive)
+  (save-excursion
+    (goto-char 0)
+    (replace-regexp "\r" "\n")))
