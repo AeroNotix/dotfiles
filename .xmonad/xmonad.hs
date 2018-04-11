@@ -21,7 +21,7 @@ main = do
         , handleEventHook = mconcat [ docksEventHook , handleEventHook defaultConfig ]
         , layoutHook = avoidStruts $ layoutHook defaultConfig
         } `additionalKeys`
-        [ (( mod1Mask .|. shiftMask, xK_i      ), spawn "roxterm -e 'ssh xeno@0length.com -t tmux attach-session -d -t weechat'")
+        [ (( mod1Mask .|. shiftMask, xK_i      ), spawn "roxterm -e 'weechat'")
         , (( mod1Mask .|. shiftMask, xK_Return ), spawn "roxterm")
         , (( mod1Mask .|. shiftMask, xK_e      ), spawn "emacsclient -c")
         , (( mod1Mask .|. shiftMask, xK_f      ), spawn "chromium --force-device-scale-factor=2 --profile-directory=\"Default\"")
