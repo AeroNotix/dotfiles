@@ -31,4 +31,7 @@
   (load-file "rust.el")
   (load-file "save-hist.el"))
 
-(load-file "~/.quicklisp/slime-helper.el")
+(when (file-exists-p "~/.quicklisp/slime-helper.el")
+  (load-file "~/.quicklisp/slime-helper.el"))
+
+(cd (getenv "HOME"))
