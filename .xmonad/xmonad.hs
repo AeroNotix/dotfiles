@@ -14,7 +14,7 @@ main = do
    xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmobarrc"
    xmonad $ defaultConfig
         { focusFollowsMouse = False
-        , borderWidth = 4
+        , borderWidth = 1
         , focusedBorderColor = "#336699"
         , normalBorderColor  = "#000000"
         , manageHook = insertPosition Below Newer
