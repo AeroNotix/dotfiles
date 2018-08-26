@@ -31,9 +31,6 @@ main = do
         , (( controlMask,            xK_p      ), spawn "dmenu_run -fn 'Monaco-12'")
         , (( mod4Mask,               xK_q      ), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
         , (( mod1Mask,               xK_Tab    ), nextScreen)
-        , (( mod4Mask,               xK_Left   ), prevWS)
-        , (( mod4Mask,               xK_Right  ), nextWS)
-        , (( mod4Mask,               xK_s      ), spawn "dbx.sh")
         , (( mod4Mask,               xK_space  ), sendMessage NextLayout)
         ] `removeKeys`
         [ (( mod1Mask, xK_space  ))
