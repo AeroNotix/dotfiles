@@ -2,6 +2,8 @@
 
 ;; Disable menu bar
 (menu-bar-mode -1)
+;; Disbale scroll bar
+(scroll-bar-mode -1)
 
 ;; SCP is faster.
 (setq tramp-default-method "scp")
