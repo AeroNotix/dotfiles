@@ -1,4 +1,4 @@
-(setq debug-on-error t)
+(setq debug-on-error nil)
 
 ;; Disable menu bar
 (menu-bar-mode -1)
