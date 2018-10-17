@@ -2,4 +2,4 @@
 
 D=`date | tr ' ' '_'`.jpg
 import $D
-mv $D $HOME/.dropbox_files/Dropbox/Screenshots/
+mv $D /mnt/RAID/Screenshots/
