@@ -54,3 +54,8 @@ function disable-external-monitors() {
 function logz {
     awslogs get $1 ALL --no-group --no-stream --watch --profile inf --aws-region ${2:-us-west-2} --start='1m ago'
 }
+
+function kill-ports-of-process {
+    lsof -n -P -i4 -a -itcp -a -i :$2 -p $1
+}
+
