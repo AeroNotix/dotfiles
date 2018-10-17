@@ -242,3 +242,4 @@ xboxdrv
 smex.items
 /.emacs.d/smex-items
 /.emacs.d/recentf~
+/.bin/backup-wordpress.sh
