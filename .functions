@@ -62,3 +62,13 @@ function kill-ports-of-process {
 function archnews {
     w3m https://www.archlinux.org/news/ | awk 'NR>17 && NR<30'
 }
+
+function execute-dir-local-settings () {
+    if [[ -f .dirlocal ]]; then
+       ./.dirlocal
+    fi
+}
+
+function cd () {
+    builtin cd "$@" && execute-dir-local-settings
+}
