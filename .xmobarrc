@@ -15,8 +15,14 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-12-*-*-*-*-*-*-*"
                                     "-l","lightblue",
                                     "-n","gray90","-h","red"] 50
                     , Run DynNetwork [] 10
+                    , Run DiskU [("/", "root <usedp>% |"),
+                                 ("/mnt/RAID", "/mnt/RAID <usedp>%")]
+                      ["-L", "20", "-H", "50", "-m", "1", "-p", "3",
+                       "--normal", "grey50",
+                       "--high", "#a0522d",
+                       "--low", "#2f4f4f"] 20
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%cpu% | %memory% | %coretemp% }{ %dynnetwork% | <fc=#ee9a00>%date%</fc>"
+       , template = "%cpu% | %memory% | %coretemp% | %disku% }{ %dynnetwork% | <fc=#ee9a00>%date%</fc>"
       }
