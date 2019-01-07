@@ -21,8 +21,8 @@ main = do
         , handleEventHook = mconcat [ docksEventHook , handleEventHook defaultConfig ]
         , layoutHook = avoidStruts $ layoutHook defaultConfig
         } `additionalKeys`
-        [ (( mod1Mask .|. shiftMask, xK_i      ), spawn "roxterm -e 'weechat'")
-        , (( mod1Mask .|. shiftMask, xK_Return ), spawn "roxterm")
+        [ (( mod1Mask .|. shiftMask, xK_i      ), spawn "kitty -e 'weechat'")
+        , (( mod1Mask .|. shiftMask, xK_Return ), spawn "kitty")
         , (( mod1Mask .|. shiftMask, xK_e      ), spawn "emacsclient -c")
         , (( mod1Mask .|. shiftMask, xK_f      ), spawn "chromium  --profile-directory=\"Default\"")
         , (( mod1Mask .|. shiftMask, xK_d      ), spawn "chromium --profile-directory=\"Profile 1\"")
