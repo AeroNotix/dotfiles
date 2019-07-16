@@ -31,7 +31,8 @@
   (load-file "rust.el")
   (load-file "save-hist.el")
   (load-file "slime.el")
-  (load-file "asm.el"))
+  (load-file "asm.el")
+  (load-file "typescript.el"))
 
 (when (file-exists-p "~/.quicklisp/slime-helper.el")
   (load-file "~/.quicklisp/slime-helper.el"))
