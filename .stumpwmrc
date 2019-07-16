@@ -7,9 +7,7 @@
 
 (load-module "ttf-fonts")
 (load-module "cpu")
-(load-module "battery-portable")
 
-;; Engage!
 (swank:create-server)
 
 (set-font
@@ -86,15 +84,13 @@
        ,@(mapcar #'spawn-with* pairs))))
 
 (spawn-many
- "M-TAB" "sother"
  "M-E" "exec emacsclient -c"
- "M-F" "exec chromium --force-device-scale-factor=2"
- "S-M-RET" "exec roxterm"
+ "M-F" "exec chromium"
+ "S-M-RET" "exec kitty"
  "M-I" "exec roxterm -e 'ssh xeno@zerolength.com -t tmux attach-session -d -t weechat'"
  "M-j" "fnext"
  "M-J" "move-window right"
  "M-H" "move-window left"
- "M-M" "exec roxterm -e 'ncmpcpp'"
  "C-p" "exec dmenu_run -fn 'Monaco-25'"
  "s-s" "hsplit"
  "s-S" "vsplit"
@@ -103,9 +99,7 @@
  "M-C" "delete"
  "M-Q" "quit"
  "M-V" "exec vlc"
- "M-K" "exec keepassx"
- "s-Right" "gnext"
- "s-Left" "gprev")
+ "M-K" "exec keepassx")
 
 (defun do-auto-tile (group)
   (let* ((tlen (length (stumpwm::group-windows group)))
