@@ -13,9 +13,9 @@
 (add-hook 'python-mode-hook (lambda ()
                               (flymake-mode-on)))
 
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
-(setq jedi:use-shortcuts t)
+;; (add-hook 'python-mode-hook 'jedi:setup)
+;; (setq jedi:complete-on-dot t)
+;; (setq jedi:use-shortcuts t)
 
 (font-lock-add-keywords 'python-mode
                         (list
