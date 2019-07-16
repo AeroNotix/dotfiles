@@ -22,6 +22,3 @@
   (edts-mode))
 
 (add-hook 'erlang-mode-hook 'erlang-enable-edts)
-
-(setq edts-project-overrides
-      '(("/home/xeno/dev/ubic" . ((:otp-path . "/home/xeno/.kerl/installations")))))
