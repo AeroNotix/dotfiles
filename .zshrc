@@ -21,6 +21,7 @@ bindkey '^R' history-incremental-search-backward
 # But still use emacs-style zsh bindings
 bindkey -e
 
+alias sudo='sudo -E'
 alias syu='sudo pacman -Syu'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
