@@ -5,9 +5,6 @@
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
-  ;; company is an optional dependency. You have to
-  ;; install it separately via package-install
-  ;; `M-x package-install [ret] company`
   (company-mode +1))
 
 ;; aligns annotation to the right hand side
@@ -16,4 +13,10 @@
 ;; formats the buffer before saving
 (add-hook 'before-save-hook 'tide-format-before-save)
 
+;; typescript-mode enables tide-mode
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
+
+;; override the default M-. function, in favour of the tide version
+(add-hook 'tide-mode-hook
+          (lambda ()
+            (local-set-key (kbd "M-.") 'tide-jump-to-definition)))
