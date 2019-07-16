@@ -3,6 +3,8 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        asm-colon
+        c-indent-line-or-region
         cljr-slash
         erlang-electric-comma
         erlang-electric-gt
@@ -13,6 +15,8 @@
         slime-autodoc-space
         slime-space
         smex
+        typescript-insert-and-autoconvert-to-template
+        typescript-insert-and-indent
         ))
 
 (setq mc/cmds-to-run-once
