@@ -3,5 +3,5 @@
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'slime-repl-mode))
 
-(load "~/.quicklisp/log4slime-setup.el")
-(global-log4slime-mode 1)
+;; (load "~/.quicklisp/log4slime-setup.el")
+;; (global-log4slime-mode 1)

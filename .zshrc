@@ -4,7 +4,7 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.zsh_history
 
-source ~/.dotfiles/.functions
+source ~/dotfiles/.functions
 PATH=$PATH:$HOME/.bin
 
 compinit
