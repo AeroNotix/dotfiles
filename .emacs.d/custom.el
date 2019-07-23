@@ -77,4 +77,4 @@
  '(rst-level-2-face ((t (:background "midnight blue"))) t)
  '(trailing-whitespace ((t (:background "red")))))
 
-(setq default-frame-alist '((font . "Monaco-10")))
+(setq default-frame-alist '((font . "Monaco-6")))
