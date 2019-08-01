@@ -10,7 +10,6 @@ PATH=$PATH:$HOME/.bin
 compinit
 promptinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-prompt walters
 
 bindkey "^[[3~" delete-char
 bindkey "^[3;5~" delete-char
