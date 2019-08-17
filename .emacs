@@ -31,6 +31,7 @@
   (load-file "rust.el")
   (load-file "save-hist.el")
   (load-file "slime.el")
+  (load-file "tabs-and-spaces.el")
   (load-file "typescript.el")
   (load-file "terraform.el"))
 
