@@ -33,7 +33,8 @@
   (load-file "slime.el")
   (load-file "tabs-and-spaces.el")
   (load-file "typescript.el")
-  (load-file "terraform.el"))
+  (load-file "terraform.el")
+  (load-file "json.el"))
 
 (when (file-exists-p "~/.quicklisp/slime-helper.el")
   (load-file "~/.quicklisp/slime-helper.el"))
