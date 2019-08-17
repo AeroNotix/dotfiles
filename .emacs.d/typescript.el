@@ -1,8 +1,18 @@
+(setq tide-format-options
+      (list
+       :insertSpaceAfterFunctionKeywordForAnonymousFunctions t
+       :placeOpenBraceOnNewLineForFunctions nil
+       :indentStyle 2
+       :indentSize 2
+       :tabSize 2
+       :convertTabsToSpaces nil))
+
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
   (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (setq flycheck-check-syntax-automatically
+        '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
   (company-mode +1))
@@ -11,7 +21,7 @@
 (setq company-tooltip-align-annotations t)
 
 ;; formats the buffer before saving
-(add-hook 'before-save-hook 'tide-format-before-save)
+;(add-hook 'before-save-hook 'tide-format-before-save)
 
 ;; typescript-mode enables tide-mode
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
@@ -20,3 +30,4 @@
 (add-hook 'tide-mode-hook
           (lambda ()
             (local-set-key (kbd "M-.") 'tide-jump-to-definition)))
+
