@@ -1,0 +1,2 @@
+;;; -*- no-byte-compile: t -*-
+(define-package "conkeror-minor-mode" "20150114.1604" "Mode for editing conkeror javascript files." 'nil :commit "476e81c27b056e21c192391fe674a2bf875466b0" :keywords '("programming" "tools") :authors '(("Artur Malabarba" . "bruce.connor.am@gmail.com>")) :maintainer '("Artur Malabarba" . "bruce.connor.am@gmail.com>") :url "http://github.com/Bruce-Connor/conkeror-minor-mode")

@@ -1,0 +1,2 @@
+;;; -*- no-byte-compile: t -*-
+(define-package "hippie-namespace" "20140508.2041" "Special treatment for namespace prefixes in hippie-expand" 'nil :commit "d0d0f15c67ab8bef5e9d1e29a89ecd3613a60b49" :keywords '("convenience" "lisp" "tools" "completion") :authors '(("Roland Walker" . "walker@pobox.com")) :maintainer '("Roland Walker" . "walker@pobox.com") :url "http://github.com/rolandwalker/hippie-namespace")

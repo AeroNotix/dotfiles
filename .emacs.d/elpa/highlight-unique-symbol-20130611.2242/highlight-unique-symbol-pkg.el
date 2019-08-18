@@ -1,1 +1,0 @@
-(define-package "highlight-unique-symbol" "20130611.2242" "highlight symbols which not appear in the repository" '((deferred "0.3.2")) :url "https://github.com/hitode909/emacs-highlight-unique-symbol")
