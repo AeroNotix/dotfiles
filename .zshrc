@@ -5,7 +5,8 @@ SAVEHIST=10000000
 HISTFILE=~/.zsh_history
 
 source ~/dotfiles/.functions
-PATH=$PATH:$HOME/.bin
+export SCREENSHOT_DIRECTORY=$HOME/.screenshots
+PATH=$PATH:$HOME/.bin:$HOME/dotfiles/.bin/
 
 compinit
 promptinit
@@ -20,7 +21,8 @@ bindkey '^R' history-incremental-search-backward
 # But still use emacs-style zsh bindings
 bindkey -e
 
-alias sudo='sudo -E'
+#alias sudo='sudo -E'
 alias syu='sudo pacman -Syu'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+source ~/.private_shell_scripts/*.sh
