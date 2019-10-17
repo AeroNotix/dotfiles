@@ -1,4 +1,5 @@
 autoload -Uz compinit promptinit
+export LANG=en_GB.UTF-8
 
 export EDITOR='emacsclient -c'
 
@@ -7,7 +8,7 @@ SAVEHIST=10000000
 HISTFILE=~/.zsh_history
 
 source ~/dotfiles/.functions
-export SCREENSHOT_DIRECTORY=$HOME/.screenshots
+export SCREENSHOT_DIRECTORY=$HOME
 PATH=$PATH:$HOME/.bin:$HOME/dotfiles/.bin/
 
 compinit
@@ -16,12 +17,15 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 bindkey "^[[3~" delete-char
 bindkey "^[3;5~" delete-char
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-bindkey -v
+bindkey "^[Oc" forward-word
+bindkey "^[Od" backward-word
 bindkey '^R' history-incremental-search-backward
+bindkey "^[[7~" beginning-of-line
+bindkey "^[[8~" end-of-line
 # But still use emacs-style zsh bindings
 bindkey -e
+
+bindkey "^Xc" copy-region
 
 #alias sudo='sudo -E'
 alias syu='sudo pacman -Syu'
