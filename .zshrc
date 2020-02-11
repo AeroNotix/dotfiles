@@ -6,10 +6,13 @@ export EDITOR='emacsclient -c'
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.zsh_history
+export CROSS_COMPILE=$HOME/Downloads/gcc-linaro-7.3.1-2018.05-i686_aarch64-linux-gnu/bin/aarch64-linux-gnu-
 
 source ~/dotfiles/.functions
 export SCREENSHOT_DIRECTORY=$HOME
-PATH=$PATH:$HOME/.bin:$HOME/dotfiles/.bin/
+export PATH=$PATH:$HOME/.bin:$HOME/dotfiles/.bin/
+export PATH=$PATH:$HOME/.krew/bin
+export GOROOT=$(go env GOROOT)
 
 compinit
 promptinit
@@ -32,3 +35,4 @@ alias syu='sudo pacman -Syu'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 source ~/.private_shell_scripts/*.sh
+source ~/.private_shell_scripts/*.inc
