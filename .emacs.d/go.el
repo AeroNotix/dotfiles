@@ -2,6 +2,7 @@
 (require 'go-autocomplete)
 (require 'company)
 (require 'company-go)
+(require 'go-imports)
 
 (defun go-packages-find ()
   (sort
@@ -25,6 +26,9 @@
 (add-hook 'go-mode-hook
           '(lambda ()
              (global-set-key (kbd "C-c C-a") 'go-import-add)))
+(add-hook 'go-mode-hook
+          '(lambda ()
+             (local-set-key (kbd "M-.") 'godef-jump)))
 (add-hook 'before-save-hook #'gofmt-before-save)
 (add-hook 'go-mode-hook (lambda ()
                           (set (make-local-variable 'company-backends) '(company-go))
