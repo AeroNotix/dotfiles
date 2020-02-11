@@ -29,6 +29,10 @@ function execute-dir-local-settings () {
     fi
 }
 
+function clean-evicted() {
+    kubectl delete pods $(kubectl get pods -n $1 | grep Evicted | cut -f1 -d' ' | paste -sd' ' -) -n $1
+}
+
 function cd () {
     builtin cd "$@" && execute-dir-local-settings
 }
