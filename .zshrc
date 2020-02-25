@@ -36,3 +36,5 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 source ~/.private_shell_scripts/*.sh
 source ~/.private_shell_scripts/*.inc
+
+PROMPT="%# "
