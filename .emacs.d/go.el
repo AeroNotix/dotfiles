@@ -2,7 +2,6 @@
 (require 'go-autocomplete)
 (require 'company)
 (require 'company-go)
-(require 'go-imports)
 
 (defun go-packages-find ()
   (sort
@@ -34,3 +33,7 @@
                           (set (make-local-variable 'company-backends) '(company-go))
                           (flycheck-mode)
                           (company-mode)))
+
+(add-hook 'go-mode-hook
+          #'(lambda ()
+              (setq gofmt-command "goimports")))
