@@ -36,3 +36,7 @@ function clean-evicted() {
 function cd () {
     builtin cd "$@" && execute-dir-local-settings
 }
+
+function weather() {
+    curl http://v2.wttr.in/KRK
+}
