@@ -22,6 +22,7 @@
   (load-file "go.el")
   (load-file "haskell.el")
   (load-file "hippie.el")
+  (load-file "javascript.el")
   (load-file "keybinds.el")
   (load-file "local-funs.el")
   (load-file "markdown.el")
