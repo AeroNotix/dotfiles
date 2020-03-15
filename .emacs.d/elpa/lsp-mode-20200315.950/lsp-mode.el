@@ -6582,6 +6582,7 @@ nil."
   ;; child process spawn command that is invoked by the
   ;; typescript-language-server). This is why we check for existence and not
   ;; that the path is executable.
+  (message path)
   (if (and (f-absolute? path)
            (f-exists? path))
       path
