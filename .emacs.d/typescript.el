@@ -1,33 +1,16 @@
-(setq tide-format-options
-      (list
-       :insertSpaceAfterFunctionKeywordForAnonymousFunctions t
-       :placeOpenBraceOnNewLineForFunctions nil
-       :indentStyle 2
-       :indentSize 2
-       :tabSize 2
-       :convertTabsToSpaces nil))
+(defun aero-ts-enable-minor-mode (my-pair)
+  "Enable minor mode if filename match the regexp.  MY-PAIR is a
+cons cell (regexp . minor-mode)."
+  (if (buffer-file-name)
+      (if (string-match (car my-pair) buffer-file-name)
+          (funcall (cdr my-pair)))))
 
-(defun setup-tide-mode ()
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically
-        '(save mode-enabled))
-  (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  (company-mode +1))
+(add-hook 'typescript-mode-hook #'(lambda ()
+                            (aero-ts-enable-minor-mode
+                             '("\\.ts?\\'" . prettier-js-mode))))
 
-;; aligns annotation to the right hand side
-(setq company-tooltip-align-annotations t)
-
-;; formats the buffer before saving
-;(add-hook 'before-save-hook 'tide-format-before-save)
-
-;; typescript-mode enables tide-mode
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
-
-;; override the default M-. function, in favour of the tide version
-(add-hook 'tide-mode-hook
+(add-hook 'typescript-mode-hook
           (lambda ()
-            (local-set-key (kbd "M-.") 'tide-jump-to-definition)))
-
+            (make-local-variable 'tab-width)
+            (setq-local tab-width 2)))
+(add-hook 'typescript-mode-hook #'lsp-deferred)
