@@ -14,6 +14,7 @@
          (cd ,sym)))))
 
 (with-directory "~/.emacs.d/"
+  (load-file "bash.el")
   (load-file "c++.el")
   (load-file "erlang.el")
   (load-file "elisp.el")
