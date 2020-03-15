@@ -80,3 +80,6 @@
 (setq show-paren-delay 0)
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
+
+;; Memory
+(setq gc-cons-threshold 200000000)
