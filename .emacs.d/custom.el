@@ -9,8 +9,6 @@
  '(custom-safe-themes
    (quote
     ("30a8a5a9099e000f5d4dbfb2d6706e0a94d56620320ce1071eede5481f77d312" default)))
- '(edts-erl-command "/home/xeno/.kerl/installations/bin/erl")
- '(edts-man-root "/home/xeno/.emacs.d/edts/doc/R16B03")
  '(emacsw32-max-frames t)
  '(emacsw32-style-frame-title t)
  '(git-messenger:show-detail t)
@@ -46,7 +44,7 @@
  '(ourcomments-ido-ctrl-tab t)
  '(package-selected-packages
    (quote
-    (dts-mode go-imports go-rename golint ag dap-mode kubernetes flycheck company-go go-complete tide typescript-mode nginx-mode auto-complete elisp-def browse-kill-ring arduino-mode elixir-mode exwm jdee csv-mode py-yapf racer weechat vkill twittering-mode tuareg toml-mode terraform-mode sql-indent solarized-theme smex smartparens smart-operator slamhound shorten scala-mode rust-mode refacterl redshank rainbow-mode rainbow-delimiters protobuf-mode pkgbuild-mode notmuch muttrc-mode markdown-mode magit-gh-pulls lua-mode lfe-mode kibit-mode keyfreq json-mode jedi idomenu idle-highlight-mode htmlize hl-sexp hippie-namespace hippie-exp-ext highlight-unique-symbol highlight-symbol haskell-mode groovy-mode gotham-theme go-eldoc go-autocomplete github-browse-file git-messenger git-gutter-fringe gist gccsense flymake-rust flymake-go flymake feature-mode edts edit-server dot-mode dockerfile-mode docker d-mode css-mode crontab-mode conkeror-minor-mode company color-theme cmake-mode clojure-mode-extra-font-locking ansible align-cljlet ac-slime ac-cider)))
+    (graphql-mode dts-mode go-imports go-rename golint ag dap-mode kubernetes flycheck company-go go-complete tide typescript-mode nginx-mode auto-complete elisp-def browse-kill-ring arduino-mode elixir-mode exwm jdee csv-mode py-yapf racer weechat vkill twittering-mode tuareg toml-mode terraform-mode sql-indent solarized-theme smex smartparens smart-operator slamhound shorten scala-mode rust-mode refacterl redshank rainbow-mode rainbow-delimiters protobuf-mode pkgbuild-mode notmuch muttrc-mode markdown-mode magit-gh-pulls lua-mode lfe-mode kibit-mode keyfreq json-mode jedi idomenu idle-highlight-mode htmlize hl-sexp hippie-namespace hippie-exp-ext highlight-unique-symbol highlight-symbol haskell-mode groovy-mode gotham-theme go-eldoc go-autocomplete github-browse-file git-messenger git-gutter-fringe gist gccsense flymake-rust flymake-go flymake feature-mode edts edit-server dot-mode dockerfile-mode docker d-mode css-mode crontab-mode conkeror-minor-mode company color-theme cmake-mode clojure-mode-extra-font-locking ansible align-cljlet ac-slime ac-cider)))
  '(py-pychecker-command-args (quote ("")))
  '(py-shell-name "python2")
  '(rebind-keys-mode t)
