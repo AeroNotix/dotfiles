@@ -1,10 +1,12 @@
 import System.IO
 import XMonad
+import XMonad((<+>))
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.InsertPosition
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.EZConfig
 import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Hooks.EwmhDesktops(fullscreenEventHook,ewmh)
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Actions.CycleWS
 import Graphics.X11.ExtraTypes.XF86
@@ -12,13 +14,13 @@ import Graphics.X11.ExtraTypes.XF86
 
 main = do
    xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmobarrc"
-   xmonad $ defaultConfig
+   xmonad $ ewmh $ defaultConfig
         { focusFollowsMouse = False
         , borderWidth = 1
         , focusedBorderColor = "#336699"
         , normalBorderColor  = "#000000"
         , manageHook = insertPosition Below Newer
-        , handleEventHook = mconcat [ docksEventHook , handleEventHook defaultConfig ]
+        , handleEventHook = mconcat [ docksEventHook , handleEventHook defaultConfig <+> fullscreenEventHook]
         , layoutHook = avoidStruts $ layoutHook defaultConfig
         } `additionalKeys`
         [ (( mod1Mask .|. shiftMask, xK_i      ), spawn "kitty -e 'weechat'")
