@@ -25,7 +25,7 @@ main = do
         } `additionalKeys`
         [ (( mod1Mask .|. shiftMask, xK_Return ), spawn "urxvt")
         , (( mod1Mask .|. shiftMask, xK_e      ), spawn "emacsclient -c")
-        , (( mod1Mask .|. shiftMask, xK_f      ), spawn "chromium  --profile-directory=\"Default\"")
+        , (( mod1Mask .|. shiftMask, xK_f      ), spawn "chromium --profile-directory=\"Default\"")
         , (( mod1Mask .|. shiftMask, xK_d      ), spawn "chromium --profile-directory=\"Profile 1\"")
         , (( mod1Mask .|. shiftMask, xK_k      ), spawn "keepassx")
         , (( mod1Mask .|. shiftMask, xK_v      ), spawn "vlc")
