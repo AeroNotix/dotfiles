@@ -8,7 +8,7 @@ cons cell (regexp . minor-mode)."
 (add-hook 'typescript-mode-hook #'(lambda ()
                             (aero-ts-enable-minor-mode
                              '("\\.ts?\\'" . prettier-js-mode))))
-
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 (add-hook 'typescript-mode-hook
           (lambda ()
             (make-local-variable 'tab-width)
