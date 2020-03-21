@@ -49,4 +49,5 @@ main = do
         , (( mod1Mask, xK_Return ))
         , (( mod1Mask, xK_slash  ))
         , (( mod1Mask, xK_question ))
+        , (( mod1Mask .|. shiftMask, xK_question ))
         ]
