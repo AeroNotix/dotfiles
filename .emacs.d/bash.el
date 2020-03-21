@@ -1,1 +1,2 @@
-(add-hook 'bash-mode-hook #'lsp-deferred)
+(add-hook 'sh-mode-hook #'flycheck-mode)
+;;(add-hook 'sh-mode-hook #'lsp-deferred)
