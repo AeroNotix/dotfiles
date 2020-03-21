@@ -34,7 +34,7 @@ main = do
         , (( mod4Mask,               xK_q      ), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
         , (( mod1Mask,               xK_Tab    ), nextScreen)
         , (( mod4Mask,               xK_space  ), sendMessage NextLayout)
-        , (( noModMask,              xK_Print  ), spawn "screenshotarea.sh")
+        , (( noModMask,              xK_Print  ), spawn "xfce4-screenshooter")
         ] `removeKeys`
         [ (( mod1Mask, xK_space  ))
         , (( mod1Mask, xK_period ))
