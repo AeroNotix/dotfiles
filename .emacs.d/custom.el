@@ -76,4 +76,4 @@
  '(trailing-whitespace ((t (:background "red"))))
  '(whitespace-tab ((t (:foreground "#3f396b")))))
 
-(setq default-frame-alist '((font . "Monaco-6")))
+(setq default-frame-alist '((font . "Monaco-9")))
