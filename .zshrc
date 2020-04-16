@@ -1,4 +1,4 @@
-autoload -Uz compinit promptinit
+autoload -Uz compinit promptinit zmv
 export LANG=en_GB.UTF-8
 
 export EDITOR='emacsclient -c'
@@ -40,3 +40,14 @@ source ~/.private_shell_scripts/*.sh
 source ~/.private_shell_scripts/*.inc
 
 PROMPT="%# "
+
+
+load-tfswitch() {
+  local tfswitchrc_path=".terraform-version"
+
+  if [ -f "$tfswitchrc_path" ]; then
+    tfswitch
+  fi
+}
+add-zsh-hook chpwd load-tfswitch
+load-tfswitch
