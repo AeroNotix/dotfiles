@@ -23,7 +23,7 @@ main = do
         , handleEventHook = mconcat [ docksEventHook , handleEventHook defaultConfig <+> fullscreenEventHook]
         , layoutHook = avoidStruts $ layoutHook defaultConfig
         } `additionalKeys`
-        [ (( mod1Mask .|. shiftMask, xK_Return ), spawn "urxvt")
+        [ (( mod1Mask .|. shiftMask, xK_Return ), spawn "alacritty")
         , (( mod1Mask .|. shiftMask, xK_e      ), spawn "emacsclient -c")
         , (( mod1Mask .|. shiftMask, xK_f      ), spawn "chromium --profile-directory=\"Default\"")
         , (( mod1Mask .|. shiftMask, xK_d      ), spawn "chromium --profile-directory=\"Profile 1\"")
