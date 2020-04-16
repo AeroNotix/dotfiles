@@ -34,7 +34,7 @@ main = do
         , (( mod1Mask,               xK_Tab    ), nextScreen)
         , (( mod4Mask,               xK_space  ), sendMessage NextLayout)
         , (( noModMask,              xK_Print  ), spawn "xfce4-screenshooter")
-        , (( shiftMask,              xK_Print  ), spawn "spawn screenshotarea.sh")
+        , (( shiftMask,              xK_Print  ), spawn "screenshotarea.sh")
         ] `removeKeys`
         [ (( mod1Mask, xK_space  ))
         , (( mod1Mask, xK_period ))
