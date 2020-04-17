@@ -29,6 +29,7 @@ main = do
         , (( mod1Mask .|. shiftMask, xK_d      ), spawn "chromium --profile-directory=\"Profile 1\"")
         , (( mod1Mask .|. shiftMask, xK_k      ), spawn "keepassx")
         , (( mod1Mask .|. shiftMask, xK_v      ), spawn "vlc")
+        , (( mod1Mask .|. shiftMask, xK_m      ), spawn "alacritty -e ncmpcpp")
         , (( controlMask,            xK_p      ), spawn "dmenu_run -fn 'Monaco-12'")
         , (( mod4Mask,               xK_q      ), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
         , (( mod1Mask,               xK_Tab    ), nextScreen)
