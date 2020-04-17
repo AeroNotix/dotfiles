@@ -1,0 +1,40 @@
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*- 
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("floobits-joshughes-21594"
+ (filename . "~/.floobits/pkg/bpf/tcp.go")
+ (front-context-string . "package bpf\n\nimp")
+ (rear-context-string)
+ (position . 1))
+("floobits-joshughes-21593"
+ (filename . "~/.floobits/pkg/bpf/tcp.go")
+ (front-context-string . "package bpf\n\nimp")
+ (rear-context-string)
+ (position . 1))
+("floobits-joshughes-21572"
+ (filename . "~/.floobits/pkg/bpf/tcp.go")
+ (front-context-string . "asdasdasdasdasda")
+ (rear-context-string . "fasasfas\n\nasdasd")
+ (position . 246))
+("floobits-joshughes-21578"
+ (filename . "~/.floobits/pkg/bpf/tcp.go")
+ (front-context-string . "\n\nasdasdasdasdas")
+ (rear-context-string . "\nasdfasdfasasfas")
+ (position . 238))
+("floobits-AeroNotix-21570"
+ (filename . "~/.floobits/pkg/bpf/tcp.go")
+ (front-context-string)
+ (rear-context-string . ":9124\", nil))\n}\n")
+ (position . 4198))
+("floobits-joshughes-21568"
+ (filename . "~/.floobits/netpigs.go")
+ (front-context-string . "/*\nCopyright © 2")
+ (rear-context-string)
+ (position . 1))
+("floobits-AeroNotix-21567"
+ (filename . "~/.floobits/netpigs.go")
+ (front-context-string . "/*\nCopyright © 2")
+ (rear-context-string)
+ (position . 1))
+)
