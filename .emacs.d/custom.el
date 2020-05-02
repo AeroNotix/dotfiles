@@ -67,6 +67,7 @@
  '(magit-diff-add ((t (:inherit diff-added :foreground "green"))))
  '(magit-diff-del ((t (:background "firebrick" :foreground "gray100"))))
  '(magit-item-highlight ((t (:inherit default :background "DeepSkyBlue4"))))
+ '(markdown-code-face ((t (:inherit nil))))
  '(rst-level-1-face ((t (:background "slate blue"))) t)
  '(rst-level-2-face ((t (:background "midnight blue"))) t)
  '(trailing-whitespace ((t (:background "red"))))
