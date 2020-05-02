@@ -14,19 +14,22 @@ source ~/dotfiles/.functions
 export SCREENSHOT_DIRECTORY=$HOME
 export PATH=$PATH:$HOME/.bin:$HOME/dotfiles/.bin/
 export PATH=$PATH:$HOME/.krew/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
 export GOROOT=$(go env GOROOT)
 
 compinit
 promptinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
-bindkey "^[[3~" delete-char
 bindkey "^[3;5~" delete-char
 bindkey "^[Oc" forward-word
 bindkey "^[Od" backward-word
-bindkey '^R' history-incremental-search-backward
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+bindkey "^[[3~" delete-char
 bindkey "^[[7~" beginning-of-line
 bindkey "^[[8~" end-of-line
+bindkey '^R' history-incremental-search-backward
 # But still use emacs-style zsh bindings
 bindkey -e
 
