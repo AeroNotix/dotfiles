@@ -3,5 +3,5 @@
 (add-hook 'web-mode-hook
           (lambda ()
             (when (string-equal "tsx" (file-name-extension buffer-file-name))
-              (setup-tide-mode))))
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
+              (setup-tide-mode)
+              (prettier-js-mode))))
