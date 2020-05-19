@@ -49,8 +49,9 @@ load-tfswitch() {
   local tfswitchrc_path=".terraform-version"
 
   if [ -f "$tfswitchrc_path" ]; then
-    tfswitch
+    sudo tfswitch
   fi
 }
+
 add-zsh-hook chpwd load-tfswitch
 load-tfswitch
