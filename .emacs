@@ -1,5 +1,7 @@
 (package-initialize)
 
+(cd (getenv "HOME"))
+
 ;; Change customize configuration location
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
@@ -31,5 +33,3 @@
   (load-file "terraform.el")
   (load-file "tsx.el")
   (load-file "json.el"))
-
-(cd (getenv "HOME"))
