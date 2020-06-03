@@ -39,8 +39,12 @@ bindkey "^Xc" copy-region
 alias syu='sudo pacman -Syu'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-source ~/.private_shell_scripts/*.sh
-source ~/.private_shell_scripts/*.inc
+
+# If we need to have anything private in our shell.
+if [ -d ~/.private_shell_scripts ]; then
+    source ~/.private_shell_scripts/*.sh
+    source ~/.private_shell_scripts/*.inc
+fi
 
 PROMPT="%# "
 
