@@ -4,14 +4,7 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
-(defmacro with-directory (where &rest body)
-  (let ((sym (make-symbol "dd")))
-    `(let ((,sym default-directory))
-       (unwind-protect
-           (progn
-             (cd ,where)
-             ,@body)
-         (cd ,sym)))))
+(load "~/.emacs.d/util.el")
 
 (with-directory "~/.emacs.d/"
   (load-file "bash.el")
