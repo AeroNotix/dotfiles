@@ -7,11 +7,3 @@
 
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
 (add-hook 'c-mode-hook 'my-c++-mode-hook)
-
-;; Slime
-(load (expand-file-name "~/.quicklisp/slime-helper.el"))
-(setq slime-lisp-implementations
-      '((sbcl ("sbcl"))))
-
-(require 'slime)
-(slime-setup '(slime-fancy ac-slime))

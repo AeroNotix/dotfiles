@@ -39,7 +39,4 @@
   (load-file "tsx.el")
   (load-file "json.el"))
 
-(when (file-exists-p "~/.quicklisp/slime-helper.el")
-  (load-file "~/.quicklisp/slime-helper.el"))
-
 (cd (getenv "HOME"))
