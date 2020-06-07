@@ -1,0 +1,5 @@
+order += "battery 1"
+battery 1 {
+    format = "%status %percentage %remaining %emptytime"
+    path = "/sys/class/power_supply/cw2015-battery/uevent"
+}
