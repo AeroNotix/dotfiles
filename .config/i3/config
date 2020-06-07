@@ -22,6 +22,8 @@ set $refresh_i3status killall -SIGUSR1 i3status
 bindsym $mod+Shift+Return exec termite
 bindsym $mod+Shift+f      exec chromium
 bindsym $mod+Shift+e      exec emacsclient -c
+bindsym $mod+Shift+v      exec vlc
+bindsym $mod+Shift+k      exec keepassxc
 
 # kill focused window
 bindsym $mod+Shift+c kill
