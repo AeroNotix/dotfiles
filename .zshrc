@@ -10,7 +10,10 @@ HIST_IGNORE_ALL_DUPS=true
 HIST_FIND_NO_DUPS=true
 export CROSS_COMPILE=$HOME/Downloads/gcc-linaro-7.3.1-2018.05-i686_aarch64-linux-gnu/bin/aarch64-linux-gnu-
 
-source ~/dotfiles/.functions
+if [ -f ~/dotfiles/.functions ]; then
+    source ~/dotfiles/.functions
+fi
+
 export SCREENSHOT_DIRECTORY=$HOME
 export PATH=$PATH:$HOME/.bin:$HOME/dotfiles/.bin/
 export PATH=$PATH:$HOME/.krew/bin
