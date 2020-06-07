@@ -19,10 +19,9 @@ font pango:monospace 12
 set $refresh_i3status killall -SIGUSR1 i3status
 
 # launchers
-bindsym $mod+Return exec xterm
-bindsym $mod+Shift+Return exec xterm
-bindsym $mod+Shift+f exec chromium
-bindsym $mod+Shift+e exec emacsclient -c
+bindsym $mod+Shift+Return exec termite
+bindsym $mod+Shift+f      exec chromium
+bindsym $mod+Shift+e      exec emacsclient -c
 
 # kill focused window
 bindsym $mod+Shift+c kill
