@@ -8,7 +8,7 @@ SAVEHIST=10000000
 HISTFILE=~/.zsh_history
 HIST_IGNORE_ALL_DUPS=true
 HIST_FIND_NO_DUPS=true
-export CROSS_COMPILE=$HOME/Downloads/gcc-linaro-7.3.1-2018.05-i686_aarch64-linux-gnu/bin/aarch64-linux-gnu-
+export CROSS_COMPILE=$HOME/dev/gcc-linaro-7.3.1-2018.05-i686_aarch64-linux-gnu/bin/aarch64-linux-gnu-
 
 if [ -f ~/dotfiles/.functions ]; then
     source ~/dotfiles/.functions
