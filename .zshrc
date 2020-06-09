@@ -4,6 +4,9 @@ compinit
 promptinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
+setopt hist_ignore_all_dups
+setopt hist_find_no_dups
+
 export LANG=en_GB.UTF-8
 export EDITOR='emacsclient -c'
 export SCREENSHOT_DIRECTORY=$HOME
@@ -20,8 +23,6 @@ PROMPT="%# "
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.zsh_history
-HIST_IGNORE_ALL_DUPS=true
-HIST_FIND_NO_DUPS=true
 
 if [ -f ~/dotfiles/.functions ]; then
     source ~/dotfiles/.functions
