@@ -40,3 +40,13 @@ function cd () {
 function weather() {
     curl http://v2.wttr.in/KRK
 }
+
+function fullspeed-fans() {
+    # Would like to sudo echo | tee, but thinkpad_acpi doesn't work
+    # like that.
+    sudo sh -c 'echo "level full-speed" > /proc/acpi/ibm/fan'
+}
+
+function auto-fans() {
+    sudo sh -c 'echo "level auto" > /proc/acpi/ibm/fan'
+}
