@@ -6,6 +6,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 setopt hist_ignore_all_dups
 setopt hist_find_no_dups
+setopt hist_ignore_space
 
 export LANG=en_GB.UTF-8
 export EDITOR='emacsclient -c'
