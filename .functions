@@ -23,18 +23,8 @@ function archnews {
     w3m https://www.archlinux.org/news/ | awk 'NR>17 && NR<30'
 }
 
-function execute-dir-local-settings () {
-    if [[ -f .dirlocal ]]; then
-       ./.dirlocal
-    fi
-}
-
 function clean-evicted() {
     kubectl delete pods $(kubectl get pods -n $1 | grep Evicted | cut -f1 -d' ' | paste -sd' ' -) -n $1
-}
-
-function cd () {
-    builtin cd "$@" && execute-dir-local-settings
 }
 
 function weather() {
@@ -50,3 +40,12 @@ function fullspeed-fans() {
 function auto-fans() {
     sudo sh -c 'echo "level auto" > /proc/acpi/ibm/fan'
 }
+
+function low-power-state() {
+    sudo sh -c 'echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo'
+}
+
+function high-power-state() {
+    sudo sh -c 'echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo'
+}
+
