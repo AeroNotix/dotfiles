@@ -52,11 +52,16 @@ bindkey '^R' history-incremental-search-backward
 bindkey -e
 
 load-tfswitch() {
-  local tfswitchrc_path=".terraform-version"
+    local tfswitchrc_path=".terraform-version"
+    local nodejs_version_path=".node-version"
 
-  if [ -f "$tfswitchrc_path" ]; then
-    sudo tfswitch
-  fi
+    if [ -f "$nodejs_version_path" ]; then
+        echo "Switched nodejs to version: \"$(cat .node-version)\""
+    fi
+
+    if [ -f "$tfswitchrc_path" ]; then
+        sudo tfswitch
+    fi
 }
 
 add-zsh-hook chpwd load-tfswitch
