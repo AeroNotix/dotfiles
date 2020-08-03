@@ -5,9 +5,6 @@ cons cell (regexp . minor-mode)."
       (if (string-match (car my-pair) buffer-file-name)
           (funcall (cdr my-pair)))))
 
-(add-hook 'typescript-mode-hook #'(lambda ()
-                            (aero-ts-enable-minor-mode
-                             '("\\.ts?\\'" . prettier-js-mode))))
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 (add-hook 'typescript-mode-hook
           (lambda ()
@@ -31,3 +28,5 @@ cons cell (regexp . minor-mode)."
 (add-hook 'tide-mode-hook
           (lambda ()
             (local-set-key (kbd "M-.") 'tide-jump-to-definition)))
+
+(global-prettier-mode)
