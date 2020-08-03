@@ -244,3 +244,10 @@ smex.items
 /.emacs.d/smex-items
 /.emacs.d/recentf~
 /.bin/backup-wordpress.sh
+/.config/xfce4/xfce4-screenshooter
+/.config/keepassxc/
+/.config/gcloud/
+/.config/Slack/
+/.config/KeePass/
+/.config/.mono/
+.config/pavucontrol.ini

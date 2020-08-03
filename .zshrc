@@ -25,8 +25,8 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.zsh_history
 
-if [ -f ~/dotfiles/.functions ]; then
-    source ~/dotfiles/.functions
+if [ -f ~/.dotfiles/.functions ]; then
+    source ~/.dotfiles/.functions
 fi
 
 if command -v go > /dev/null 2>&1 ; then
