@@ -7,22 +7,17 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-12-*-*-*-*-*-*-*"
        , borderColor = "#646464"
        , lowerOnStart = True
        , allDesktops = True
-       , commands = [ Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+       , commands = [ Run CoreTemp  [ "--template" , "Temp: <core0>°C | <core1>°C |<core2>°C|<core3>°C|<core4>°C|<core5>°C|<core6>°C|<core7>°C|<core8>°C|<core9>°C|<core10>°C|<core11>°C|<core12>°C|<core13>°C|<core14>°C|<core15>°C|<core16>°C|<core17>°C|<core18>°C|<core19>°C"
+                                    , "--Low"      , "70"        -- units: °C
+                                    , "--High"     , "80"        -- units: °C
+                                    , "--low"      , "darkgreen"
+                                    , "--normal"   , "darkorange"
+                                    , "--high"     , "darkred"
+                                    ] 500
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
-                    , Run CoreTemp ["-t","<core0>C",
-                                    "-L","40","-H","60",
-                                    "-l","lightblue",
-                                    "-n","gray90","-h","red"] 50
-                    , Run DynNetwork [] 10
-                    , Run DiskU [("/", "root <usedp>% |"),
-                                 ("/mnt/RAID", "/mnt/RAID <usedp>%")]
-                      ["-L", "20", "-H", "50", "-m", "1", "-p", "3",
-                       "--normal", "grey50",
-                       "--high", "#a0522d",
-                       "--low", "#2f4f4f"] 20
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%cpu% | %memory% | %coretemp% | %disku% }{ %dynnetwork% | <fc=#ee9a00>%date%</fc>"
+       , template = "%coretemp% | %memory% | %disku% }{ %dynnetwork% | <fc=#ee9a00>%date%</fc>"
       }
