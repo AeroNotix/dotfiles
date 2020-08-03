@@ -27,6 +27,10 @@ function clean-evicted() {
     kubectl delete pods $(kubectl get pods -n $1 | grep Evicted | cut -f1 -d' ' | paste -sd' ' -) -n $1
 }
 
+function clean-pending() {
+    kubectl delete pods $(kubectl get pods -n $1 | grep Pending | cut -f1 -d' ' | paste -sd' ' -) -n $1
+}
+
 function weather() {
     curl http://v2.wttr.in/KRK
 }
