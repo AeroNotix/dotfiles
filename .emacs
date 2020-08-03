@@ -32,6 +32,7 @@
   (load-file "typescript.el")
   (load-file "terraform.el")
   (load-file "tsx.el")
-  (load-file "json.el"))
+  (load-file "json.el")
+  (load-file "lsp-options.el"))
 
 (add-hook 'prog-mode-hook 'lsp-deferred)
