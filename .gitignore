@@ -251,3 +251,8 @@ smex.items
 /.config/KeePass/
 /.config/.mono/
 .config/pavucontrol.ini
+/.config/Signal/
+/.config/autostart/
+/.config/fancontrol-gui
+/.config/pulse/
+.config/pavucontrol.ini
