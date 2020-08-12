@@ -14,11 +14,14 @@ export SCREENSHOT_DIRECTORY=$HOME
 export PATH=$PATH:$HOME/.bin:$HOME/dotfiles/.bin/
 export PATH=$PATH:$HOME/.krew/bin
 export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.config/tfswitch
 export CROSS_COMPILE=$HOME/dev/gcc-linaro-7.3.1-2018.05-i686_aarch64-linux-gnu/bin/aarch64-linux-gnu-
 
 alias syu='sudo pacman -Syu'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias tfswitch="tfswitch -b $HOME/.config/tfswitch/terraform"
 
 PROMPT="%# "
 HISTSIZE=10000000
@@ -37,6 +40,13 @@ fi
 if [ -d ~/.private_shell_scripts ]; then
     source ~/.private_shell_scripts/*.sh
     source ~/.private_shell_scripts/*.inc
+fi
+
+EXPECTED_TF_PLUGIN_CACHE="$HOME/storage/terraform-plugin-cache"
+if [ -d "${EXPECTED_TF_PLUGIN_CACHE}" ]; then
+    export TF_PLUGIN_CACHE_DIR="${EXPECTED_TF_PLUGIN_CACHE}"
+else
+    export TF_PLUGIN_CACHE_DIR="$HOME/.terraform./plugin-cache"
 fi
 
 bindkey "^Xc" copy-region
@@ -60,7 +70,7 @@ load-tfswitch() {
     fi
 
     if [ -f "$tfswitchrc_path" ]; then
-        sudo tfswitch
+        tfswitch
     fi
 }
 
