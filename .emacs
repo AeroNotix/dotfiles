@@ -33,6 +33,8 @@
   (load-file "terraform.el")
   (load-file "tsx.el")
   (load-file "json.el")
-  (load-file "lsp-options.el"))
+  (load-file "lsp-options.el")
+  (load-file "base64.el")
+  (load-file "kubernetes.el"))
 
 (add-hook 'prog-mode-hook 'lsp-deferred)

@@ -1,0 +1,27 @@
+(defun apply-f-to-kubernetes-secret-data (f)
+  (with-current-buffer (current-buffer)
+    (save-restriction
+      (widen)
+      (let* ((buf-contents (buffer-substring-no-properties (point-min) (point-max)))
+             (yaml (yaml-read-from-string buf-contents)))
+        (when (and (hash-table-p yaml) (string= "Secret" (gethash "kind" yaml)))
+          (let ((secret-data (gethash "data" yaml)))
+            (when (hash-table-p secret-data)
+              (maphash f secret-data))))
+        (let ((old-point (point)))
+          (erase-buffer)
+          (insert (yaml-dump yaml))
+          (goto-char old-point))))))
+
+(defun encode-kubernetes-secret ()
+  (interactive)
+  (let ((f (lambda (secret-key secret-value)
+               (puthash secret-key (base64-encode-string secret-value t) secret-data))))
+    (apply-f-to-kubernetes-secret-data f)))
+
+
+(defun decode-kubernetes-secret ()
+  (interactive)
+  (let ((f (lambda (secret-key secret-value)
+               (puthash secret-key (base64-decode-string secret-value) secret-data))))
+    (apply-f-to-kubernetes-secret-data f)))
