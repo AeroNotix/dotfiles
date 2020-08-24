@@ -258,3 +258,4 @@ smex.items
 .config/pavucontrol.ini
 /.emacs.d/eln-cache/
 /.config/okularrc
+prdsql
