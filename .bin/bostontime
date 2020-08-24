@@ -1,2 +1,0 @@
-#!/bin/bash
-TZ=":US/Eastern" date +%H:%M:%S

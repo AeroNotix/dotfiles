@@ -1,0 +1,2 @@
+#!/bin/bash
+TZ=":$1" date +%H:%M:%S
