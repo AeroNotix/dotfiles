@@ -82,4 +82,4 @@
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;; Memory
-(setq gc-cons-threshold 200000000)
+(setq gc-cons-threshold most-positive-fixnum)
