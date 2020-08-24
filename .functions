@@ -57,3 +57,6 @@ function npm-install() {
     nodenv each -p=10 npm i -g $1 && nodenv rehash
 }
 
+aur-install() {
+    cd /tmp/ && git clone https://aur.archlinux.org/$1.git && cd $1 && makepkg -sfi
+}
