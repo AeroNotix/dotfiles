@@ -7,7 +7,8 @@
         (when (and (hash-table-p yaml) (string= "Secret" (gethash "kind" yaml)))
           (let ((secret-data (gethash "data" yaml)))
             (when (hash-table-p secret-data)
-              (maphash f secret-data))))
+              (maphash (lambda (secret-key secret-value)
+                         (puthash secret-key (funcall f secret-value) secret-data)) secret-data))))
         (let ((old-point (point)))
           (erase-buffer)
           (insert (yaml-dump yaml))
@@ -15,13 +16,8 @@
 
 (defun encode-kubernetes-secret ()
   (interactive)
-  (let ((f (lambda (secret-key secret-value)
-               (puthash secret-key (base64-encode-string secret-value t) secret-data))))
-    (apply-f-to-kubernetes-secret-data f)))
-
+  (apply-f-to-kubernetes-secret-data #'base64-encode-string))
 
 (defun decode-kubernetes-secret ()
   (interactive)
-  (let ((f (lambda (secret-key secret-value)
-               (puthash secret-key (base64-decode-string secret-value) secret-data))))
-    (apply-f-to-kubernetes-secret-data f)))
+  (apply-f-to-kubernetes-secret-data #'base64-decode-string))

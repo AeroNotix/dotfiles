@@ -35,6 +35,7 @@
   (load-file "json.el")
   (load-file "lsp-options.el")
   (load-file "base64.el")
-  (load-file "kubernetes.el"))
+  (load-file "kubernetes.el")
+  (load-file "yaml.el"))
 
 (add-hook 'prog-mode-hook 'lsp-deferred)
