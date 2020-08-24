@@ -35,6 +35,8 @@
  '(hfyview-quick-print-in-files-menu t)
  '(inhibit-startup-screen t)
  '(jdee-server-dir "~/.emacs.d/")
+ '(lsp-enable-file-watchers nil)
+ '(lsp-terraform-server "terraform-ls")
  '(menuacc-mode t)
  '(noprint-hide-print-in-menus t)
  '(noprint-hide-ps-print-in-menus t)

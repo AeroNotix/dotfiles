@@ -256,3 +256,5 @@ smex.items
 /.config/fancontrol-gui
 /.config/pulse/
 .config/pavucontrol.ini
+/.emacs.d/eln-cache/
+/.config/okularrc

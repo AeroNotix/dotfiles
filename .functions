@@ -53,3 +53,10 @@ function high-power-state() {
     sudo sh -c 'echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo'
 }
 
+function npm-install() {
+    nodenv each -p=10 npm i -g $1 && nodenv rehash
+}
+
+aur-install() {
+    cd /tmp/ && git clone https://aur.archlinux.org/$1.git && cd $1 && makepkg -sfi
+}
