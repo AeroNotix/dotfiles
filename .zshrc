@@ -75,3 +75,5 @@ load-tfswitch() {
 }
 
 add-zsh-hook chpwd load-tfswitch
+
+eval "$(fasd --init auto)"
