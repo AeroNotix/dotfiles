@@ -23,7 +23,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias tfswitch="tfswitch -b $HOME/.config/tfswitch/terraform"
 
-PROMPT="%# "
+PROMPT='%(?.%(!.#.;).%F{6}%B;%b%f) '
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.zsh_history
