@@ -1,0 +1,2 @@
+;;; Generated package description from /home/xeno/.emacs.d/elpa/graphql-mode-20200825.918/graphql-mode.el  -*- no-byte-compile: t -*-
+(define-package "graphql-mode" "20200825.918" "Major mode for editing GraphQL schemas" '((emacs "24.3")) :commit "9bed568ec86242dbe30bdbab324aa0eb2cd9bf08" :keywords '("languages") :authors '(("David Vazquez Pua" . "davazp@gmail.com")) :maintainer '("David Vazquez Pua" . "davazp@gmail.com") :url "https://github.com/davazp/graphql-mode")
