@@ -1,0 +1,9 @@
+[Unit]
+Description=Neuters kube context
+
+[Timer]
+Unit=neuter-kube-context.service
+OnCalendar=*:0/15
+
+[Install]
+WantedBy=timers.target

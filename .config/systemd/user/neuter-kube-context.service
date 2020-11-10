@@ -1,0 +1,9 @@
+[Unit]
+Description=Neuters kube-context
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/bash %h/.local/bin/neuter-kube-context.sh
+
+[Install]
+WantedBy=default.target

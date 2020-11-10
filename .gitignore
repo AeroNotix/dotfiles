@@ -259,3 +259,5 @@ smex.items
 /.emacs.d/eln-cache/
 /.config/okularrc
 prdsql
+/.config/systemd/user/timers.target.wants/
+/.config/systemd/user/default.target.wants/
