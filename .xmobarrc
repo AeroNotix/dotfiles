@@ -8,7 +8,8 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-12-*-*-*-*-*-*-*"
        , lowerOnStart = True
        , allDesktops = True
        , commands = [
-           Run Com "date-tz" ["US/Eastern"] "bostontime" 100
+           Run Com "get-k8s-context.sh" [] "k8s-context" 100
+           , Run Com "date-tz" ["US/Eastern"] "bostontime" 100
            , Run Com "date-tz" ["US/Mountain"] "colotime" 100
            , Run CoreTemp  [ "--template" , "<core0>°C/<core1>°C/<core2>°C/<core3>°C/<core4>°C/<core5>°C/<core6>°C/<core7>°C/<core8>°C/<core9>°C/<core10>°C/<core11>°C/<core12>°C/<core13>°C/<core14>°C/<core15>°C/<core16>°C/<core17>°C/<core18>°C/<core19>°C"
                            , "--Low"      , "40"        -- units: °C
@@ -22,5 +23,5 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-12-*-*-*-*-*-*-*"
            ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "<fc=#006699>%colotime%</fc> | <fc=#006699>%bostontime%</fc> | %coretemp% | %memory% }{<fc=#ee9a00>%date%</fc> "
+       , template = "<fc=#006699>%colotime%</fc> | <fc=#006699>%bostontime%</fc> | %coretemp% | %memory% }{k8s: %k8s-context% <fc=#ee9a00>%date%</fc> "
       }
