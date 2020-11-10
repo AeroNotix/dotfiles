@@ -60,3 +60,11 @@ function npm-install() {
 aur-install() {
     cd /tmp/ && git clone https://aur.archlinux.org/$1.git && cd $1 && makepkg -sfi
 }
+
+calc-cidr() {
+    echo $(((2 ** (32 - $1)) - 2))
+}
+
+function google-dns() {
+    curl --silent "https://dns.google/resolve?name=${1}" | jq '.Answer'
+}
