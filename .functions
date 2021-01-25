@@ -68,3 +68,7 @@ calc-cidr() {
 function google-dns() {
     curl --silent "https://dns.google/resolve?name=${1}" | jq '.Answer'
 }
+
+scale-down-namespace() {
+    kubectl get deploy -n "${1}" -o name | xargs -I % kubectl scale % --replicas=0 -n "${1}"
+}
