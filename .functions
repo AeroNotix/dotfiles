@@ -1,6 +1,6 @@
 # -*- mode: sh -*-
 function syu {
-    sudo pacman -Syu
+    sudo pacman -Syu && xmonad --recompile
 }
 
 function rekon {
