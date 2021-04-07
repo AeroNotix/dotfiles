@@ -3,10 +3,6 @@ function syu {
     sudo pacman -Syu && xmonad --recompile
 }
 
-function rekon {
-    curl -s -L rekon.basho.com | sh
-}
-
 function cwd2paths {
     export PYTHONPATH=$PYTHONPATH:$(pwd)
 }
