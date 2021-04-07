@@ -1,5 +1,3 @@
-(package-initialize)
-
 (cd (getenv "HOME"))
 
 ;; Change customize configuration location
