@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: config-map-volume
+# key: config
+# --
+
+{
+  name = "$1"
+
+  config_map = {
+    name = "$1"
+
+    items = [{
+      key = "$2"
+      path = "$2"
+    }]
+  }
+}
