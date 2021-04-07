@@ -42,5 +42,8 @@
 
 
 (add-hook 'prog-mode-hook 'lsp-deferred)
+
+(add-hook 'prog-mode-hook #'yas-minor-mode)
+
 (add-to-list 'term-file-aliases
              '("alacritty" . "xterm-256-color"))
