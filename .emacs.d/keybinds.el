@@ -4,6 +4,7 @@
 (global-unset-key (kbd "C-x C-w"))
 (global-unset-key (kbd "M-v"))
 
+(global-set-key (kbd "C-o")       'yas-insert-snippet)
 (global-set-key (kbd "RET")       'newline-and-indent)
 (global-set-key (kbd "C-x g")     'magit-status)
 (global-set-key (kbd "C-x q")     'jump-to-config-file)
