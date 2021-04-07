@@ -81,9 +81,6 @@
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
-;; Memory
-(setq gc-cons-threshold most-positive-fixnum)
-
 ;; Scrolling mode, this is gorgeous
 (setq pixel-resolution-fine-flag t)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
