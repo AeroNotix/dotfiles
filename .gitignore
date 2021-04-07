@@ -1,4 +1,5 @@
 .lsp-session-v1
+/.config/*
 /.xmonad/xmonad.errors
 /.xmonad/xmonad.hi
 /.xmonad/xmonad.o
