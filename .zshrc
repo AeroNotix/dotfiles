@@ -1,4 +1,4 @@
-autoload -Uz compinit promptinit zmv
+autoload -Uz compinit promptinit zmv edit-command-line
 
 compinit
 promptinit
@@ -51,6 +51,7 @@ else
     export TF_PLUGIN_CACHE_DIR="$HOME/.terraform./plugin-cache"
 fi
 
+zle -N edit-command-line
 bindkey "^Xc" copy-region
 bindkey "^[3;5~" delete-char
 bindkey "^[Oc" forward-word
@@ -61,6 +62,8 @@ bindkey "^[[3~" delete-char
 bindkey "^[[7~" beginning-of-line
 bindkey "^[[8~" end-of-line
 bindkey '^R' history-incremental-search-backward
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
 bindkey -e
 
 load-tfswitch() {
