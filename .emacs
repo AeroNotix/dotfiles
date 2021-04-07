@@ -36,7 +36,10 @@
   (load-file "lsp-options.el")
   (load-file "base64.el")
   (load-file "yaml.el")
-  (load-file "kubernetes.el"))
+  (load-file "kubernetes.el")
+  (load-file "yasnippet.el")
+  (load-file "performance.el"))
+
 
 (add-hook 'prog-mode-hook 'lsp-deferred)
 (add-to-list 'term-file-aliases
