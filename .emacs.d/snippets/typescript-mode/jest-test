@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: jest-test
+# --
+
+describe('$1', () => {
+	beforeAll(async () => {});
+
+	beforeEach(async () => {});
+
+    afterAll(async () => {});
+
+    afterEach(async () => {});
+
+	it('$2', () => {
+
+	});
+})
