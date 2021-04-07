@@ -66,19 +66,25 @@ bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
 bindkey -e
 
-load-tfswitch() {
+setup-env-from-directory() {
     local tfswitchrc_path=".terraform-version"
     local nodejs_version_path=".node-version"
+    local erlang_version_path=".erlang-version"
 
     if [ -f "$nodejs_version_path" ]; then
-        echo "Switched nodejs to version: \"$(cat .node-version)\""
+      echo "Switched nodejs to version: \"$(cat .node-version)\""
     fi
 
     if [ -f "$tfswitchrc_path" ]; then
-        tfswitch
+      tfswitch
+    fi
+
+    if [ -f "$erlang_version_path" ]; then
+      echo "Activating Erlang: $(cat "$erlang_version_path")"
+      . "${HOME}/.kerl/installs/$(cat "$erlang_version_path")/activate"
     fi
 }
 
-add-zsh-hook chpwd load-tfswitch
+add-zsh-hook chpwd setup-env-from-directory
 
 eval "$(fasd --init auto)"
