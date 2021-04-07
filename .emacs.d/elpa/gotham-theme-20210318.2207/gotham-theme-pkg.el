@@ -1,0 +1,2 @@
+;;; Generated package description from /home/xeno/.emacs.d/elpa/gotham-theme-20210318.2207/gotham-theme.el  -*- no-byte-compile: t -*-
+(define-package "gotham-theme" "20210318.2207" "A very dark Emacs color theme." 'nil :commit "51876a72dbe5a16aeadde2e885da6bbf75909bd1" :authors '(("Vasilij Schneidermann" . "mail@vasilij.de")) :maintainer '("Vasilij Schneidermann" . "mail@vasilij.de") :url "https://depp.brause.cc/gotham-theme")

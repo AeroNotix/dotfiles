@@ -261,3 +261,12 @@ smex.items
 prdsql
 /.config/systemd/user/timers.target.wants/
 /.config/systemd/user/default.target.wants/
+/.bin/chuckctl
+/.bin/jef5-4.4
+/.bin/jef5-4.9
+/.bin/ktunnel
+/.bin/tfls
+/.bin/yamldiff
+/.bin/dyf
+/.config/6mon/
+/.config/gh/

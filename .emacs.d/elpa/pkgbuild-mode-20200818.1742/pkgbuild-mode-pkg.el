@@ -1,2 +1,0 @@
-;;; Generated package description from /home/xeno/.emacs.d/elpa/pkgbuild-mode-20200818.1742/pkgbuild-mode.el  -*- no-byte-compile: t -*-
-(define-package "pkgbuild-mode" "20200818.1742" "Interface to the ArchLinux package manager" '((emacs "25.1")) :commit "887c01cb06420501c7780fb01a8a76bdb0864cca" :keywords '("languages") :authors '(("Juergen Hoetzel" . "juergen@hoetzel.info")) :maintainer '("Juergen Hoetzel" . "juergen@hoetzel.info") :url "https://github.com/juergenhoetzel/pkgbuild-mode")
