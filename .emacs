@@ -39,3 +39,5 @@
   (load-file "kubernetes.el"))
 
 (add-hook 'prog-mode-hook 'lsp-deferred)
+(add-to-list 'term-file-aliases
+             '("alacritty" . "xterm-256-color"))
