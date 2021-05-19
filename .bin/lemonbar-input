@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+
+clock() {
+    DATETIME=$(date "+%a %b %d, %H:%m")
+    echo -n "$DATETIME"
+}
+
+battery() {
+    BATTERY="/org/freedesktop/UPower/devices/battery_cw2015_battery"
+    TIME_REMAINING=$(upower -i "${BATTERY}" | grep "time to empty" | awk '{print $4}')
+    PERCENT_REMAINING=$(upower -i "${BATTERY}" | grep "percentage" | awk '{print $2}')
+    echo -n "${PERCENT_REMAINING} - ${TIME_REMAINING}h"
+}
+
+while true; do
+    echo "$(clock) - $(battery)"
+    sleep 60
+done
