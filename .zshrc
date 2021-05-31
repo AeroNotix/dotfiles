@@ -16,8 +16,9 @@ export PATH=$PATH:$HOME/.krew/bin
 export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.config/tfswitch
-export CROSS_COMPILE=$HOME/dev/gcc-linaro-7.3.1-2018.05-i686_aarch64-linux-gnu/bin/aarch64-linux-gnu-
-export CLOUDSDK_PYTHON=python2
+export PATH=$PATH:$HOME/.cache/rebar3/bin/
+export PATH=$PATH:$HOME/.cargo/bin/
+export CLOUDSDK_PYTHON=python
 
 alias syu='sudo pacman -Syu'
 alias ls='ls --color=auto'
@@ -29,6 +30,7 @@ PROMPT='%(?.%(!.#.;).%F{6}%B;%b%f) '
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.zsh_history
+DEFAULT_ERLANG_VERSION=23.2
 
 if [ -f ~/.dotfiles/.functions ]; then
     source ~/.dotfiles/.functions
@@ -87,4 +89,8 @@ setup-env-from-directory() {
 
 add-zsh-hook chpwd setup-env-from-directory
 
-eval "$(fasd --init auto)"
+# opam configuration
+test -r /home/xeno/.opam/opam-init/init.zsh && \
+    . /home/xeno/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+. "${HOME}/.kerl/installs/${DEFAULT_ERLANG_VERSION}/activate"
