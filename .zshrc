@@ -48,7 +48,7 @@ EXPECTED_TF_PLUGIN_CACHE="$HOME/storage/terraform-plugin-cache"
 if [ -d "${EXPECTED_TF_PLUGIN_CACHE}" ]; then
     export TF_PLUGIN_CACHE_DIR="${EXPECTED_TF_PLUGIN_CACHE}"
 else
-    export TF_PLUGIN_CACHE_DIR="$HOME/.terraform./plugin-cache"
+    export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
 fi
 
 zle -N edit-command-line
