@@ -36,6 +36,7 @@ fi
 if command -v go > /dev/null 2>&1 ; then
     export GOROOT=$(go env GOROOT)
     export GOPATH="$HOME/dev/go"
+    export PATH=$PATH:$GOPATH/bin
 fi
 
 # If we need to have anything private in our shell.
