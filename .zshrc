@@ -23,7 +23,6 @@ alias syu='sudo pacman -Syu'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias tfswitch="tfswitch -b $HOME/.config/tfswitch/terraform"
-alias 'terraform init'='rm -rf .terraform && terraform init'
 
 PROMPT='%(?.%(!.#.;).%F{6}%B;%b%f) '
 HISTSIZE=10000000
