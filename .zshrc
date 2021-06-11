@@ -87,5 +87,3 @@ setup-env-from-directory() {
 }
 
 add-zsh-hook chpwd setup-env-from-directory
-
-eval "$(fasd --init auto)"
