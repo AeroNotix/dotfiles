@@ -11,3 +11,8 @@
              (cd ,where)
              ,@body)
          (cd ,sym)))))
+
+(defmacro when-file-exists (path &rest body)
+  `(let ((e-path (expand-file-name ,path)))
+    (when (file-exists-p e-path)
+      ,@body)))
