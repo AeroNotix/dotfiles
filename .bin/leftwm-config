@@ -1,0 +1,78 @@
+#!/bin/bash
+
+
+keybind() {
+    cat <<EOF
+
+[[keybind]]
+command = "Execute"
+value = "${1}"
+modifier = ["modkey", "Shift"]
+key = "${2}"
+EOF
+}
+
+bind_command_with_shift() {
+    cat <<EOF
+
+[[keybind]]
+command = "${1}"
+modifier = ["modkey", "Shift"]
+key = "${2}"
+EOF
+}
+
+bind_command() {
+    cat <<EOF
+
+[[keybind]]
+command = "${1}"
+modifier = ["modkey"]
+key = "${2}"
+EOF
+}
+
+tag() {
+    cat <<EOF
+
+[[keybind]]
+command = "GotoTag"
+value = "${1}"
+modifier = ["modkey"]
+key = "${1}"
+
+[[keybind]]
+command = "MoveToTag"
+value = "${1}"
+modifier = ["modkey", "Shift"]
+key = "${1}"
+EOF
+}
+
+
+cat <<EOF
+
+modkey = "Mod1"
+mousekey = "Mod4"
+workspaces = []
+tags = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+layouts = ["MainAndVertStack", "MainAndHorizontalStack", "MainAndDeck", "GridHorizontal", "EvenHorizontal", "EvenVertical", "Fibonacci", "CenterMain", "CenterMainBalanced", "Monocle", "RightWiderLeftStack", "LeftWiderRightStack"]
+scratchpad = []
+disable_current_tag_swap = false
+focus_behaviour = "Sloppy"
+focus_new_windows = true
+load_from_exec = "leftwm-config"
+EOF
+
+keybind chromium f
+keybind "emacsclient -c" e
+keybind termite Return
+
+for num in {1..9}; do
+    tag $num
+done
+
+bind_command            "FocusWindowDown" "j"
+bind_command_with_shift "CloseWindow"     "c"
+bind_command_with_shift "MoveWindowDown"  "j"
+bind_command_with_shift "SoftReload"      "r"
