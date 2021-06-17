@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 clock() {
-    DATETIME=$(date "+%a %b %d, %H:%m")
+    DATETIME=$(date "+%d/%m/%y %H:%M:%S")
     echo -n "$DATETIME"
 }
 
@@ -14,5 +14,5 @@ battery() {
 
 while true; do
     echo "$(clock) - $(battery)"
-    sleep 60
+    sleep 30
 done
