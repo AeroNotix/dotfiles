@@ -1,4 +1,4 @@
-(defun load-if-exists-p (path)
+(defun load-if-exists (path)
   (let ((e-path (expand-file-name path)))
     (when (file-exists-p e-path)
       (load e-path))))

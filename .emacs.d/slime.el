@@ -3,14 +3,9 @@
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'slime-repl-mode))
 
-;; (defun load-if-exists-p (path)
-;;   (let ((e-path (expand-file-name path)))
-;;     (when (file-exists-p e-path)
-;;       (load e-path))))
-
 ;; Slime
-(load-if-exists-p "~/.quicklisp/slime-helper.el")
-;; (load-if-exists-p "~/.quicklisp/log4slime-setup.el")
+(load-if-exists "~/.quicklisp/slime-helper.el")
+(load-if-exists "~/.quicklisp/log4slime-setup.el")
 
 ;; (setq slime-lisp-implementations
 ;;       '((sbcl ("sbcl"))))
