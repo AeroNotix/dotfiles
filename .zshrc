@@ -19,7 +19,6 @@ export PATH=$PATH:$HOME/.config/tfswitch
 export CROSS_COMPILE=$HOME/dev/gcc-linaro-7.3.1-2018.05-i686_aarch64-linux-gnu/bin/aarch64-linux-gnu-
 export CLOUDSDK_PYTHON=python2
 
-alias syu='sudo pacman -Syu'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias tfswitch="tfswitch -b $HOME/.config/tfswitch/terraform"
