@@ -19,34 +19,26 @@ function archnews {
     w3m https://www.archlinux.org/news/ | awk 'NR>17 && NR<30'
 }
 
+function clean-namespace-of() {
+  kubectl delete pods $(kubectl get pods -n $1 | grep $2 | cut -f1 -d' ' | paste -sd' ' -) -n $1
+}
+
 function clean-evicted() {
-    kubectl delete pods $(kubectl get pods -n $1 | grep Evicted | cut -f1 -d' ' | paste -sd' ' -) -n $1
+  clean-namespace-of $1 Evicted
 }
 
 function clean-pending() {
-    kubectl delete pods $(kubectl get pods -n $1 | grep Pending | cut -f1 -d' ' | paste -sd' ' -) -n $1
+  clean-namespace-of $1 Pending
+}
+
+function clean-crashing() {
+  clean-namespace-of $1 CrashLoopBackOff
+  clean-namespace-of $1 Init:CrashLoopBackOff
+  clean-namespace-of $1 Init:Error
 }
 
 function weather() {
     curl http://v2.wttr.in/KRK
-}
-
-function fullspeed-fans() {
-    # Would like to sudo echo | tee, but thinkpad_acpi doesn't work
-    # like that.
-    sudo sh -c 'echo "level full-speed" > /proc/acpi/ibm/fan'
-}
-
-function auto-fans() {
-    sudo sh -c 'echo "level auto" > /proc/acpi/ibm/fan'
-}
-
-function low-power-state() {
-    sudo sh -c 'echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo'
-}
-
-function high-power-state() {
-    sudo sh -c 'echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo'
 }
 
 function npm-install() {
@@ -66,5 +58,14 @@ function google-dns() {
 }
 
 scale-down-namespace() {
-    kubectl get deploy -n "${1}" -o name | xargs -I % kubectl scale % --replicas=0 -n "${1}"
+     kubectl scale deploy -n "${1}"  --replicas=0 --all
+}
+
+scale-up-namespace() {
+    kubectl scale deploy -n "${1}"  --replicas=1 --all
+}
+
+get-ssl-for-site() {
+    echo | openssl s_client -servername "${1}".6river.org -connect "${1}".6river.org:443 |\
+        sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'
 }
