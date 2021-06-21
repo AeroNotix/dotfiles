@@ -8,7 +8,9 @@
 
 (require 'xcscope)
 
-(push "/usr/share/emacs/site-lisp" load-path)
+(let ((site-lisp "/usr/share/emacs/site-lisp"))
+  (when-file-exists site-lisp
+                    (push site-lisp load-path)))
 
 (with-directory "~/.emacs.d/"
   (load-if-exists "bash.el")
