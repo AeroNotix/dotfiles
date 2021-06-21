@@ -1,59 +1,73 @@
 # -*- mode: sh -*-
-function syu {
+syu() {
     sudo pacman -Syu && xmonad --recompile
 }
 
-function cwd2paths {
-    export PYTHONPATH=$PYTHONPATH:$(pwd)
-}
-
-function collapse_pwd {
+collapse-pwd() {
     echo $(pwd | sed -e "s,^$HOME,~,")
 }
 
-function kill-ports-of-process {
+kill-ports-of-process() {
     lsof -n -P -i4 -a -itcp -a -i :$2 -p $1
 }
 
-function archnews {
+archnews() {
     w3m https://www.archlinux.org/news/ | awk 'NR>17 && NR<30'
 }
 
-function clean-namespace-of() {
+clean-namespace-of() {
   kubectl delete pods $(kubectl get pods -n $1 | grep $2 | cut -f1 -d' ' | paste -sd' ' -) -n $1
 }
 
-function clean-evicted() {
-  clean-namespace-of $1 Evicted
-}
-
-function clean-pending() {
-  clean-namespace-of $1 Pending
-}
-
-function clean-crashing() {
+clean-crashing() {
   clean-namespace-of $1 CrashLoopBackOff
   clean-namespace-of $1 Init:CrashLoopBackOff
   clean-namespace-of $1 Init:Error
 }
 
-function weather() {
+clean-evicted() {
+    kubectl delete pods $(kubectl get pods -n $1 | grep Evicted | cut -f1 -d' ' | paste -sd' ' -) -n $1
+}
+
+clean-pending() {
+    kubectl delete pods $(kubectl get pods -n $1 | grep Pending | cut -f1 -d' ' | paste -sd' ' -) -n $1
+}
+
+weather() {
     curl http://v2.wttr.in/KRK
 }
 
-function npm-install() {
+fullspeed-fans() {
+    # Would like to sudo echo | tee, but thinkpad_acpi doesn't work
+    # like that.
+    sudo sh -c 'echo "level full-speed" > /proc/acpi/ibm/fan'
+}
+
+auto-fans() {
+    sudo sh -c 'echo "level auto" > /proc/acpi/ibm/fan'
+}
+
+low-power-state() {
+    sudo sh -c 'echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo'
+}
+
+high-power-state() {
+    sudo sh -c 'echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo'
+}
+
+npm-install() {
     nodenv each -p=10 npm i -g $1 && nodenv rehash
 }
 
 aur-install() {
-    cd /tmp/ && git clone https://aur.archlinux.org/$1.git && cd $1 && makepkg -sfi
+    cd /tmp/ && git clone https://aur.archlinux.org/$1.git && cd $1 && makepkg -Asfi
 }
 
 calc-cidr() {
     echo $(((2 ** (32 - $1)) - 2))
 }
 
-function google-dns() {
+google-dns() {
     curl --silent "https://dns.google/resolve?name=${1}" | jq '.Answer'
 }
 

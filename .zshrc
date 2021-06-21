@@ -21,11 +21,9 @@ export PATH=$PATH:$HOME/.cargo/bin/
 export CLOUDSDK_PYTHON=python
 export SKIP_PREFLIGHT_CHECK=true
 
-alias syu='sudo pacman -Syu'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias tfswitch="tfswitch -b $HOME/.config/tfswitch/terraform"
-alias 'terraform init'='rm -rf .terraform && terraform init'
 
 PROMPT='%(?.%(!.#.;).%F{6}%B;%b%f) '
 HISTSIZE=10000000
@@ -39,6 +37,8 @@ fi
 
 if command -v go > /dev/null 2>&1 ; then
     export GOROOT=$(go env GOROOT)
+    export GOPATH="$HOME/dev/go"
+    export PATH=$PATH:$GOPATH/bin
 fi
 
 # If we need to have anything private in our shell.
@@ -51,7 +51,7 @@ EXPECTED_TF_PLUGIN_CACHE="$HOME/storage/terraform-plugin-cache"
 if [ -d "${EXPECTED_TF_PLUGIN_CACHE}" ]; then
     export TF_PLUGIN_CACHE_DIR="${EXPECTED_TF_PLUGIN_CACHE}"
 else
-    export TF_PLUGIN_CACHE_DIR="$HOME/.terraform./plugin-cache"
+    export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
 fi
 
 zle -N edit-command-line
@@ -90,8 +90,7 @@ setup-env-from-directory() {
 
 add-zsh-hook chpwd setup-env-from-directory
 
-# opam configuration
-test -r /home/xeno/.opam/opam-init/init.zsh && \
-    . /home/xeno/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+if [ -f "${HOME}/.kerl/installs/${DEFAULT_ERLANG_VERSION}/activate" ]; then
+    . "${HOME}/.kerl/installs/${DEFAULT_ERLANG_VERSION}/activate"
+fi
 
-. "${HOME}/.kerl/installs/${DEFAULT_ERLANG_VERSION}/activate"
