@@ -6,6 +6,10 @@
 
 (load "~/.emacs.d/util.el")
 
+(require 'xcscope)
+
+(push "/usr/share/emacs/site-lisp" load-path)
+
 (with-directory "~/.emacs.d/"
   (load-file "bash.el")
   (load-file "c++.el")
