@@ -19,6 +19,7 @@ export PATH=$PATH:$HOME/.config/tfswitch
 export PATH=$PATH:$HOME/.cache/rebar3/bin/
 export PATH=$PATH:$HOME/.cargo/bin/
 export CLOUDSDK_PYTHON=python
+export SKIP_PREFLIGHT_CHECK=true
 
 alias syu='sudo pacman -Syu'
 alias ls='ls --color=auto'
