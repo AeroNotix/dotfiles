@@ -11,7 +11,7 @@
  (magit-merge nil)
  (magit-pull nil)
  (magit-push nil
-             ("--force-with-lease"))
+	     ("--force-with-lease"))
  (magit-rebase nil)
  (magit-stash nil)
  (magit-submodule nil))
