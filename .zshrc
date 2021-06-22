@@ -17,9 +17,10 @@ export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.config/tfswitch
 export PATH=$PATH:$HOME/.cache/rebar3/bin/
-export PATH=$PATH:$HOME/.cargo/bin/
+export PATH=$PATH:$HOME/.cargo/bin
 export CLOUDSDK_PYTHON=python
 export SKIP_PREFLIGHT_CHECK=true
+export CARGO_NET_GIT_FETCH_WITH_CLI=true
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
