@@ -1,7 +1,17 @@
 #!/bin/bash
 
-
 keybind() {
+    cat <<EOF
+
+[[keybind]]
+command = "Execute"
+value = "${1}"
+modifier = ["${3:-modkey}"]
+key = "${2}"
+EOF
+}
+
+keybind_with_shift() {
     cat <<EOF
 
 [[keybind]]
@@ -64,9 +74,10 @@ focus_new_windows = true
 load_from_exec = "leftwm-config"
 EOF
 
-keybind chromium f
-keybind "emacsclient -c" e
-keybind alacritty Return
+keybind            dmenu_run p "Control"
+keybind_with_shift chromium f
+keybind_with_shift "emacsclient -c" e
+keybind_with_shift alacritty Return
 
 for num in {1..9}; do
     tag $num
