@@ -1,18 +1,21 @@
 #!/usr/bin/bash
 
-clock() {
-    DATETIME=$(date "+%d/%m/%y %H:%M:%S")
-    echo -n "$DATETIME"
+local-time() {
+  DATETIME=$(date "+%d/%m/%y %H:%M:%S")
+  echo -n "$DATETIME"
 }
 
+BATTERY="/org/freedesktop/UPower/devices/battery_cw2015_battery"
+
 battery() {
-    BATTERY="/org/freedesktop/UPower/devices/battery_cw2015_battery"
+  if ! acpi 2>&1 | grep -q "No support" ; then
     TIME_REMAINING=$(upower -i "${BATTERY}" | grep "time to empty" | awk '{print $4}')
     PERCENT_REMAINING=$(upower -i "${BATTERY}" | grep "percentage" | awk '{print $2}')
-    echo -n "${PERCENT_REMAINING} - ${TIME_REMAINING}h"
+    echo -n " - ${PERCENT_REMAINING} - ${TIME_REMAINING}h"
+  fi
 }
 
 while true; do
-    echo "$(clock) - $(battery)"
-    sleep 30
+  echo "%{F#006699}$(date-tz "US/Mountain")%{F-} |%{F#006699} $(date-tz "US/Eastern")%{F-}%{r}$(local-time) $(battery)"
+  sleep 1
 done
