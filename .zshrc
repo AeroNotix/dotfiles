@@ -7,6 +7,14 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 setopt hist_ignore_all_dups
 setopt hist_find_no_dups
 setopt hist_ignore_space
+setopt appendhistory
+setopt sharehistory
+setopt incappendhistory
+
+HISTDUP=erase
+HISTFILE=~/.zsh_history
+HISTSIZE=10000000
+SAVEHIST=10000000
 
 export LANG=en_GB.UTF-8
 export EDITOR='emacsclient -c'
@@ -27,9 +35,6 @@ alias grep='grep --color=auto'
 alias tfswitch="tfswitch -b $HOME/.config/tfswitch/terraform"
 
 PROMPT='%(?.%(!.#.;).%F{6}%B;%b%f) '
-HISTSIZE=10000000
-SAVEHIST=10000000
-HISTFILE=~/.zsh_history
 DEFAULT_ERLANG_VERSION=23.2
 
 if [ -f ~/.dotfiles/.functions ]; then
@@ -56,6 +61,7 @@ else
 fi
 
 zle -N edit-command-line
+
 bindkey "^Xc" copy-region
 bindkey "^[3;5~" delete-char
 bindkey "^[Oc" forward-word
