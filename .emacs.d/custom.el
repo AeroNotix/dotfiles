@@ -59,7 +59,8 @@
  '(tooltip-mode nil)
  '(typescript-indent-level 2)
  '(w32-meta-style 'emacs)
- '(w32shell-shell 'cmd))
+ '(w32shell-shell 'cmd)
+ '(warning-suppress-types '((lsp-mode) (lsp-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

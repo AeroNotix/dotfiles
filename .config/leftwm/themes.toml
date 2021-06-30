@@ -99,6 +99,14 @@ version = "0.0.1"
 leftwm_versions = "^0.2.8"
 current = false
 
+[[repos.themes]]
+name = "Changed Sunset"
+repository = "https://github.com/Syudagye/changed-sunset"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = false
+
 [[repos]]
 url = "localhost"
 name = "LOCAL"
