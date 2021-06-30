@@ -6,4 +6,5 @@ xsetroot -cursor_name left_ptr
 xrdb ~/.Xresources
 source ~/.screenlayout/*.sh
 
-exec xmonad
+#exec xmonad
+exec leftwm
