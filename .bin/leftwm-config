@@ -66,7 +66,7 @@ EOF
 
 keybind chromium f
 keybind "emacsclient -c" e
-keybind termite Return
+keybind alacritty Return
 
 for num in {1..9}; do
     tag $num
