@@ -15,6 +15,7 @@
 (with-directory "~/.emacs.d/"
   (load-if-exists "bash.el")
   (load-if-exists "c++.el")
+  (load-if-exists "edconf.el")
   (load-if-exists "erlang.el")
   (load-if-exists "elisp.el")
   (load-if-exists "flymake.el")
