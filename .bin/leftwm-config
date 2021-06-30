@@ -56,7 +56,7 @@ modkey = "Mod1"
 mousekey = "Mod4"
 workspaces = []
 tags = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-layouts = ["MainAndVertStack", "MainAndHorizontalStack", "MainAndDeck", "GridHorizontal", "EvenHorizontal", "EvenVertical", "Fibonacci", "CenterMain", "CenterMainBalanced", "Monocle", "RightWiderLeftStack", "LeftWiderRightStack"]
+layouts = ["MainAndVertStack", "EvenVertical"]
 scratchpad = []
 disable_current_tag_swap = false
 focus_behaviour = "ClickTo"
@@ -76,3 +76,10 @@ bind_command            "FocusWindowDown" "j"
 bind_command_with_shift "CloseWindow"     "c"
 bind_command_with_shift "MoveWindowDown"  "j"
 bind_command_with_shift "SoftReload"      "r"
+
+cat <<EOF
+[[keybind]]
+command = "NextLayout"
+modifier = ["modkey"]
+key = "Pause"
+EOF
