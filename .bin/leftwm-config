@@ -80,7 +80,7 @@ keybind_with_shift "emacsclient -c" e
 keybind_with_shift alacritty Return
 
 for num in {1..9}; do
-    tag $num
+    tag "${num}"
 done
 
 bind_command            "FocusWorkspaceNext" "Tab"
