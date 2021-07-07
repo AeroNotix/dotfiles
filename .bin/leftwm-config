@@ -83,10 +83,11 @@ for num in {1..9}; do
     tag $num
 done
 
-bind_command            "FocusWindowDown" "j"
-bind_command_with_shift "CloseWindow"     "c"
-bind_command_with_shift "MoveWindowDown"  "j"
-bind_command_with_shift "SoftReload"      "r"
+bind_command            "FocusWorkspaceNext" "Tab"
+bind_command            "FocusWindowDown"    "j"
+bind_command_with_shift "CloseWindow"        "c"
+bind_command_with_shift "MoveWindowDown"     "j"
+bind_command_with_shift "SoftReload"         "r"
 
 cat <<EOF
 [[keybind]]
