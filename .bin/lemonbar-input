@@ -16,6 +16,6 @@ battery() {
 }
 
 while true; do
-  echo "%{F#006699}$(date-tz "US/Mountain")%{F-} |%{F#006699} $(date-tz "US/Eastern")%{F-}%{r}$(local-time) $(battery)"
+  echo "%{F#006699}$(date-tz "US/Mountain")%{F-} |%{F#006699} $(date-tz "US/Eastern")%{F-}%{r} $(get-k8s-context.sh) | $(local-time) $(battery)"
   sleep 1
 done
