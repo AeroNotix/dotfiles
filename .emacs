@@ -8,6 +8,8 @@
 
 (require 'xcscope)
 
+(gcmh-mode 1)
+
 (let ((site-lisp "/usr/share/emacs/site-lisp"))
   (when-file-exists site-lisp
                     (push site-lisp load-path)))
